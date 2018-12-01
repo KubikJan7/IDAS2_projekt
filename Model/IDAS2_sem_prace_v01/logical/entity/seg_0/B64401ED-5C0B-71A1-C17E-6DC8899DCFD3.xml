@@ -1,7 +1,7 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="0BE13049-663D-976C-171E-9327AC39EAF7" name="ROZVRH">
-<createdBy>Legol</createdBy>
-<createdTime>2018-11-07 11:57:23 UTC</createdTime>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="B64401ED-5C0B-71A1-C17E-6DC8899DCFD3" name="FOTO">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-01 20:16:17 UTC</createdTime>
 <ownerDesignName>IDAS2_sem_prace_v01</ownerDesignName>
 <engineerTo>
 <item key="F519F19B-B3AC-BB9B-F944-9AEF40F0F693" value="true"/>
@@ -15,22 +15,30 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="id_rozvrhu" id="236CD1C0-2131-FF6C-149F-E59456470C33">
-<createdBy>Legol</createdBy>
-<createdTime>2018-11-07 11:58:37 UTC</createdTime>
+<Attribute name="id_fotky" id="4E9C706B-974F-98B5-83B2-900EEE7AAE39">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-01 20:16:38 UTC</createdTime>
 <ownerDesignName>IDAS2_sem_prace_v01</ownerDesignName>
 <engineerTo>
 <item key="F519F19B-B3AC-BB9B-F944-9AEF40F0F693" value="true"/>
 </engineerTo>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
+<use>0</use>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="id_vyucujiciho" id="4B304CF4-0FEA-BCED-30DA-9D3DF718F742">
+<Attribute name="obrazek" id="8DA62EC5-BA0B-0D14-8F58-8550DA52000C">
 <createdBy>selda</createdBy>
-<createdTime>2018-12-01 18:18:43 UTC</createdTime>
-<generatorID>8FC8779A-C8AB-9FE8-8087-7B898D8A68EB</generatorID>
+<createdTime>2018-12-01 20:17:08 UTC</createdTime>
+<ownerDesignName>IDAS2_sem_prace_v01</ownerDesignName>
+<engineerTo>
+<item key="F519F19B-B3AC-BB9B-F944-9AEF40F0F693" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_vyucujiciho" id="A262BD9B-FD65-F743-B526-8A460D07B340">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-01 20:18:32 UTC</createdTime>
+<generatorID>C3C6F317-11AF-50D4-7252-43EA7655A2A7</generatorID>
 <ownerDesignName>IDAS2_sem_prace_v01</ownerDesignName>
 <engineerTo>
 <item key="F519F19B-B3AC-BB9B-F944-9AEF40F0F693" value="true"/>
@@ -44,16 +52,16 @@
 </Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
-<identifier id="F7062B77-051B-4390-397C-D4541EAB7FF3" name="ROZVRH PK">
-<createdBy>Legol</createdBy>
-<createdTime>2018-11-07 11:59:17 UTC</createdTime>
+<identifier id="D9E59095-02BC-BD1D-9458-97471D7B744A" name="FOTO PK">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-01 20:16:59 UTC</createdTime>
 <ownerDesignName>IDAS2_sem_prace_v01</ownerDesignName>
 <engineerTo>
 <item key="F519F19B-B3AC-BB9B-F944-9AEF40F0F693" value="true"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>
-<attributeRef>236CD1C0-2131-FF6C-149F-E59456470C33</attributeRef>
+<attributeRef>4E9C706B-974F-98B5-83B2-900EEE7AAE39</attributeRef>
 </usedAttributes>
 </identifier>
 </identifiers>
