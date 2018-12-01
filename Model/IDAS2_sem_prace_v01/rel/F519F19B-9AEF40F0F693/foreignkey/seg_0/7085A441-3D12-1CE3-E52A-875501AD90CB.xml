@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="7085A441-3D12-1CE3-E52A-875501AD90CB" containerWithKeyObject="B7A90380-EF36-CAA8-1E9C-5340B1570720" localFKIndex="9C4B7136-5C87-7932-0BE3-A420CCBC47CA" name="CASY_OBSAZENOSTI_UCEBNA_FK">
+<createdBy>Legol</createdBy>
+<createdTime>2018-12-01 15:29:33 UTC</createdTime>
+<generatorID>7AE8C52D-0E10-2381-838A-6BFD19655F04</generatorID>
+<ownerDesignName>IDAS2_sem_prace_v01</ownerDesignName>
+<referredTableLongName>UCEBNA</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>B6C0D9D2-703C-C489-EC6F-6329BFCDDC3E</referredTableID>
+<keyObject>9EA39095-014E-58D5-59DB-2ECBB61DEB1E</keyObject>
+<referredKeyID>9EA39095-014E-58D5-59DB-2ECBB61DEB1E</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>id_ucebny</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

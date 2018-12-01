@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="rel_kat_pred" directorySegmentName="seg_0" id="5E04C1A8-77A9-7982-C053-CA3661A6E65C">
+<createdBy>selda</createdBy>
+<createdTime>2018-05-17 17:33:30 UTC</createdTime>
+<ownerDesignName>IDAS2_sem_prace_v01</ownerDesignName>
+<engineerTo>
+<item key="F519F19B-B3AC-BB9B-F944-9AEF40F0F693" value="true"/>
+</engineerTo>
+<sourcePk>53ABF16A-CAA6-EA07-3A6D-72A3D1ECD9C1</sourcePk>
+<identifying>false</identifying>
+<nameOnSource>určuje váhu</nameOnSource>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>2931294C-4E8A-F26B-F6D4-A390F5D9090D</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>BDA78D18-F05C-FFFE-8BC0-E5DF0997B317</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

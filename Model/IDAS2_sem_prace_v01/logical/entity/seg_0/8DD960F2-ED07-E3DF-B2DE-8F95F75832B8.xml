@@ -1,0 +1,59 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="8DD960F2-ED07-E3DF-B2DE-8F95F75832B8" name="FAKULTA">
+<createdBy>st47137</createdBy>
+<createdTime>2018-02-26 12:21:43 UTC</createdTime>
+<ownerDesignName>IDAS2_sem_prace_v01</ownerDesignName>
+<engineerTo>
+<item key="F519F19B-B3AC-BB9B-F944-9AEF40F0F693" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="zkratka_fakulty" id="CE2F9D9D-D6FC-7F61-1D66-6B12A72923CA">
+<createdBy>selda</createdBy>
+<createdTime>2018-03-05 00:10:13 UTC</createdTime>
+<ownerDesignName>IDAS2_sem_prace_v01</ownerDesignName>
+<engineerTo>
+<item key="F519F19B-B3AC-BB9B-F944-9AEF40F0F693" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>6 CHAR</dataTypeSize>
+<ownDataTypeParameters>6 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="nazev_fakulty" id="3D463074-3076-0E44-0C19-4E0697CBE0EA">
+<createdBy>selda</createdBy>
+<createdTime>2018-05-06 22:05:50 UTC</createdTime>
+<ownerDesignName>IDAS2_sem_prace_v01</ownerDesignName>
+<engineerTo>
+<item key="F519F19B-B3AC-BB9B-F944-9AEF40F0F693" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="8746A085-F004-B702-FCE2-2FA00A2E36E7" name="FAKULTA PK">
+<createdBy>selda</createdBy>
+<createdTime>2018-05-11 19:01:08 UTC</createdTime>
+<ownerDesignName>IDAS2_sem_prace_v01</ownerDesignName>
+<engineerTo>
+<item key="F519F19B-B3AC-BB9B-F944-9AEF40F0F693" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>CE2F9D9D-D6FC-7F61-1D66-6B12A72923CA</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

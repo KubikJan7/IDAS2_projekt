@@ -1,0 +1,145 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="B2ECE209-11F9-6AD2-D65D-D51E9160198E" name="ROZVRHOVA_AKCE">
+<createdBy>selda</createdBy>
+<createdTime>2018-05-11 12:04:12 UTC</createdTime>
+<ownerDesignName>IDAS2_sem_prace_v01</ownerDesignName>
+<engineerTo>
+<item key="F519F19B-B3AC-BB9B-F944-9AEF40F0F693" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id_akce" id="26F3213A-619E-E22F-9C9E-BA022D770DF1">
+<createdBy>selda</createdBy>
+<createdTime>2018-05-11 18:42:28 UTC</createdTime>
+<ownerDesignName>IDAS2_sem_prace_v01</ownerDesignName>
+<engineerTo>
+<item key="F519F19B-B3AC-BB9B-F944-9AEF40F0F693" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<ownDataTypeParameters>,6,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="rozsah_hodin" id="A88C101E-ECED-378E-E155-1C06A1DFA301">
+<createdBy>selda</createdBy>
+<createdTime>2018-05-11 18:40:14 UTC</createdTime>
+<ownerDesignName>IDAS2_sem_prace_v01</ownerDesignName>
+<engineerTo>
+<item key="F519F19B-B3AC-BB9B-F944-9AEF40F0F693" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>3</dataTypePrecision>
+<ownDataTypeParameters>,3,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="kapacita" id="7D4C54BB-8905-CB09-9E07-32C1AB2990E3">
+<createdBy>selda</createdBy>
+<createdTime>2018-05-11 20:17:43 UTC</createdTime>
+<ownerDesignName>IDAS2_sem_prace_v01</ownerDesignName>
+<engineerTo>
+<item key="F519F19B-B3AC-BB9B-F944-9AEF40F0F693" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>3</dataTypePrecision>
+<ownDataTypeParameters>,3,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_vyucujiciho" id="BDBCBB9C-302C-7D48-F48B-6AC2F47B2D13">
+<createdBy>selda</createdBy>
+<createdTime>2018-05-11 19:31:29 UTC</createdTime>
+<generatorID>98B75835-662A-B0DA-562F-D595B3AB1187</generatorID>
+<ownerDesignName>IDAS2_sem_prace_v01</ownerDesignName>
+<engineerTo>
+<item key="F519F19B-B3AC-BB9B-F944-9AEF40F0F693" value="true"/>
+</engineerTo>
+<referedAttribute>A70C47ED-976F-3840-7D68-051537A85935</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<ownDataTypeParameters>,6,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_predmetu" id="1258AD88-61C9-7498-5E26-155CFC380B5F">
+<createdBy>selda</createdBy>
+<createdTime>2018-05-11 19:45:40 UTC</createdTime>
+<generatorID>C68B501C-2400-0E8F-7ADB-54AB8C62D5BF</generatorID>
+<ownerDesignName>IDAS2_sem_prace_v01</ownerDesignName>
+<engineerTo>
+<item key="F519F19B-B3AC-BB9B-F944-9AEF40F0F693" value="true"/>
+</engineerTo>
+<referedAttribute>E2DFDC84-C5B2-D20B-73F6-3BAEF150B97D</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<ownDataTypeParameters>,5,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_nazvu" id="3DE5981F-2001-E921-4E65-9C508BCEFC07">
+<createdBy>selda</createdBy>
+<createdTime>2018-05-18 23:23:38 UTC</createdTime>
+<generatorID>99BC091D-6939-FE38-0621-67E1704A9DEA</generatorID>
+<ownerDesignName>IDAS2_sem_prace_v01</ownerDesignName>
+<engineerTo>
+<item key="F519F19B-B3AC-BB9B-F944-9AEF40F0F693" value="true"/>
+</engineerTo>
+<referedAttribute>D472B723-A87D-2F25-965F-AFCFE428A7A6</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<ownDataTypeParameters>,6,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_rozvrhu" id="840970B1-161D-F8D3-8A41-A2C52E2083FC">
+<createdBy>Legol</createdBy>
+<createdTime>2018-11-07 14:32:30 UTC</createdTime>
+<generatorID>19A4D4DB-A060-564E-4D29-158EC547DB44</generatorID>
+<ownerDesignName>IDAS2_sem_prace_v01</ownerDesignName>
+<engineerTo>
+<item key="F519F19B-B3AC-BB9B-F944-9AEF40F0F693" value="true"/>
+</engineerTo>
+<referedAttribute>236CD1C0-2131-FF6C-149F-E59456470C33</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_ucebny" id="244E9F3F-E615-727A-06BD-682E53EDA11D">
+<createdBy>Legol</createdBy>
+<createdTime>2018-12-01 15:28:31 UTC</createdTime>
+<generatorID>548A17F7-983E-E3E8-6A68-D5D4CAFED1E9</generatorID>
+<ownerDesignName>IDAS2_sem_prace_v01</ownerDesignName>
+<engineerTo>
+<item key="F519F19B-B3AC-BB9B-F944-9AEF40F0F693" value="true"/>
+</engineerTo>
+<referedAttribute>4040AB35-1A2B-4802-AA87-960286F605D9</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="026CB178-92A8-1AEE-14E8-65593753504C" name="ROZVRHOVA_AKCE PK">
+<createdBy>selda</createdBy>
+<createdTime>2018-05-11 18:42:43 UTC</createdTime>
+<ownerDesignName>IDAS2_sem_prace_v01</ownerDesignName>
+<engineerTo>
+<item key="F519F19B-B3AC-BB9B-F944-9AEF40F0F693" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>26F3213A-619E-E22F-9C9E-BA022D770DF1</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

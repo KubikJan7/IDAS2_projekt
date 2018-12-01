@@ -1,0 +1,37 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="425DE7AB-F7B1-2BF5-CEEE-55E682CD959A" name="ROZVRH">
+<createdBy>Legol</createdBy>
+<createdTime>2018-12-01 15:29:33 UTC</createdTime>
+<generatorID>0BE13049-663D-976C-171E-9327AC39EAF7</generatorID>
+<ownerDesignName>IDAS2_sem_prace_v01</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_rozvrhu" id="8F8095D5-5FFF-BCCB-4115-88E3F0041A0B">
+<createdBy>Legol</createdBy>
+<createdTime>2018-12-01 15:29:33 UTC</createdTime>
+<generatorID>236CD1C0-2131-FF6C-149F-E59456470C33</generatorID>
+<ownerDesignName>IDAS2_sem_prace_v01</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="717F2E29-2D49-F40A-19FC-470D41106AE0" name="ROZVRH_PK">
+<createdBy>Legol</createdBy>
+<createdTime>2018-12-01 15:29:33 UTC</createdTime>
+<generatorID>F7062B77-051B-4390-397C-D4541EAB7FF3</generatorID>
+<ownerDesignName>IDAS2_sem_prace_v01</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8F8095D5-5FFF-BCCB-4115-88E3F0041A0B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

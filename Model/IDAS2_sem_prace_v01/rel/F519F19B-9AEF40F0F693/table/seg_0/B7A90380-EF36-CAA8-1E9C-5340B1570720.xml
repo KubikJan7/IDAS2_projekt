@@ -1,0 +1,63 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="B7A90380-EF36-CAA8-1E9C-5340B1570720" name="CASY_OBSAZENOSTI">
+<createdBy>Legol</createdBy>
+<createdTime>2018-12-01 15:29:32 UTC</createdTime>
+<generatorID>86675086-1ADE-0B89-1289-773C3940CAC7</generatorID>
+<ownerDesignName>IDAS2_sem_prace_v01</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="cas" id="2D95A7AE-22DE-7800-D4FF-240D4C67E98B">
+<createdBy>Legol</createdBy>
+<createdTime>2018-12-01 15:29:32 UTC</createdTime>
+<generatorID>7AF598A9-7478-39D8-32CE-59B86096EEB9</generatorID>
+<ownerDesignName>IDAS2_sem_prace_v01</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT014</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="UCEBNA_id_ucebny" id="B662A9D4-8483-4F3B-EA83-36426767F4E2">
+<createdBy>Legol</createdBy>
+<createdTime>2018-12-01 15:29:32 UTC</createdTime>
+<generatorID>C02978C1-9A84-F2A3-02C9-2E15FF356E86</generatorID>
+<ownerDesignName>IDAS2_sem_prace_v01</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="7085A441-3D12-1CE3-E52A-875501AD90CB" referredColumn="58F28BB3-DA45-F91D-9960-AAF653D71C5E"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="74C52454-8324-6CCB-C8EC-2DA71361DA3B" name="CASY_OBSAZENOSTI_PK">
+<createdBy>Legol</createdBy>
+<createdTime>2018-12-01 15:29:32 UTC</createdTime>
+<generatorID>3A79CD15-D5D1-0CA2-138C-CC85FA96FFAC</generatorID>
+<ownerDesignName>IDAS2_sem_prace_v01</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2D95A7AE-22DE-7800-D4FF-240D4C67E98B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="9C4B7136-5C87-7932-0BE3-A420CCBC47CA" name="CASY_OBSAZENOSTI_UCEBNA_FK">
+<createdBy>Legol</createdBy>
+<createdTime>2018-12-01 15:29:33 UTC</createdTime>
+<generatorID>7AE8C52D-0E10-2381-838A-6BFD19655F04</generatorID>
+<ownerDesignName>IDAS2_sem_prace_v01</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B662A9D4-8483-4F3B-EA83-36426767F4E2"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

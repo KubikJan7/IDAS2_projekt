@@ -1,0 +1,21 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="rel_zp_akce" directorySegmentName="seg_0" id="99BC091D-6939-FE38-0621-67E1704A9DEA">
+<createdBy>selda</createdBy>
+<createdTime>2018-05-11 18:40:48 UTC</createdTime>
+<ownerDesignName>IDAS2_sem_prace_v01</ownerDesignName>
+<engineerTo>
+<item key="F519F19B-B3AC-BB9B-F944-9AEF40F0F693" value="true"/>
+</engineerTo>
+<sourcePk>E2799D1B-4251-313A-C1A4-98808637748D</sourcePk>
+<identifying>false</identifying>
+<nameOnSource>definuje</nameOnSource>
+<nameOnTarget>probíhá jako</nameOnTarget>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>848CEEE8-250B-8933-F200-3550D365B41D</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>B2ECE209-11F9-6AD2-D65D-D51E9160198E</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

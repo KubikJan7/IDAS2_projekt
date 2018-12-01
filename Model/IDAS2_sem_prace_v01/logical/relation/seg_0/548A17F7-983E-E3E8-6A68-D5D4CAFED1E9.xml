@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Relation_14" directorySegmentName="seg_0" id="548A17F7-983E-E3E8-6A68-D5D4CAFED1E9">
+<createdBy>Legol</createdBy>
+<createdTime>2018-11-07 14:43:05 UTC</createdTime>
+<ownerDesignName>IDAS2_sem_prace_v01</ownerDesignName>
+<engineerTo>
+<item key="F519F19B-B3AC-BB9B-F944-9AEF40F0F693" value="true"/>
+</engineerTo>
+<targetPk>1A8FC1CF-DA5F-A3BC-2D5B-8CFE65FE6D87</targetPk>
+<identifying>false</identifying>
+<optionalSource>false</optionalSource>
+<optionalTarget>true</optionalTarget>
+<sourceCardinality>*</sourceCardinality>
+<sourceEntity>B2ECE209-11F9-6AD2-D65D-D51E9160198E</sourceEntity>
+<targetCardinalityString>1</targetCardinalityString>
+<targetEntity>7D7D5101-B155-3AC6-759A-BA37FF461C45</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

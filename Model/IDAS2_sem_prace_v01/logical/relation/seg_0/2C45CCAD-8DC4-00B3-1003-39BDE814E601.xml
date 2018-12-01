@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="rel_zakonceni_pred" directorySegmentName="seg_0" id="2C45CCAD-8DC4-00B3-1003-39BDE814E601">
+<createdBy>selda</createdBy>
+<createdTime>2018-03-05 00:00:15 UTC</createdTime>
+<ownerDesignName>IDAS2_sem_prace_v01</ownerDesignName>
+<engineerTo>
+<item key="F519F19B-B3AC-BB9B-F944-9AEF40F0F693" value="true"/>
+</engineerTo>
+<sourcePk>DFEC886C-05B1-2F15-C0BD-618512FA01CE</sourcePk>
+<identifying>false</identifying>
+<nameOnTarget>je zakončen</nameOnTarget>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>D2565F86-E7D9-7670-9AE9-8CF88F5074D4</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>628ECFB7-32D8-87BE-F49A-CCE18A140D64</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

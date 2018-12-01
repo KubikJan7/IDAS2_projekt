@@ -1,0 +1,143 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="B6549592-727A-53C6-F955-1FE075CF37D9" name="PRED_V_OBORU">
+<createdBy>selda</createdBy>
+<createdTime>2018-05-21 21:06:30 UTC</createdTime>
+<generatorID>BDA78D18-F05C-FFFE-8BC0-E5DF0997B317</generatorID>
+<ownerDesignName>IDAS2_sem_prace_v01</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_pred_oboru" id="EFAD4178-04B2-1D07-81A6-698BFB491F54">
+<createdBy>selda</createdBy>
+<createdTime>2018-05-21 21:06:30 UTC</createdTime>
+<generatorID>385819E0-E9CA-150F-FB9F-4F66BFD5F30F</generatorID>
+<ownerDesignName>IDAS2_sem_prace_v01</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<ownDataTypeParameters>,6,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="dop_rocnik" id="23571E0B-1340-6B66-3F03-66EE8E3A56F5">
+<createdBy>selda</createdBy>
+<createdTime>2018-05-21 21:06:30 UTC</createdTime>
+<generatorID>C7D12885-471D-22F9-442F-76A9C2077B47</generatorID>
+<ownerDesignName>IDAS2_sem_prace_v01</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>1</dataTypePrecision>
+<ownDataTypeParameters>,1,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="STUD_OBOR_id_oboru" id="1F8A7C41-47FF-2A9A-B3E7-3C0746B10D49">
+<createdBy>selda</createdBy>
+<createdTime>2018-05-21 21:06:30 UTC</createdTime>
+<generatorID>8EA5B17E-B946-39E8-AC05-3153973274CF</generatorID>
+<ownerDesignName>IDAS2_sem_prace_v01</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>3</dataTypePrecision>
+<ownDataTypeParameters>,3,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="5BBCCB4F-85DE-674E-3E03-2385D2835EAE" referredColumn="1F87847E-7019-2316-A0C6-992B4EAA5C71"/>
+</associations>
+</Column>
+<Column name="KAT_PREDMETU_zkr_kat" id="7C043727-12DA-B70B-0902-0DF1F866ECFA">
+<createdBy>selda</createdBy>
+<createdTime>2018-05-21 21:06:30 UTC</createdTime>
+<generatorID>D110D577-3563-2CFF-A2E7-64E08ADF47A9</generatorID>
+<ownerDesignName>IDAS2_sem_prace_v01</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1 CHAR</dataTypeSize>
+<ownDataTypeParameters>1 CHAR,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="4AABF781-0156-4C0B-298C-E4D6616C89F9" referredColumn="C7B47932-29A2-6567-A937-66782C431470"/>
+</associations>
+</Column>
+<Column name="PREDMET_id_predmetu" id="65E7D991-BC1F-DF4D-27A2-B708CE5B0358">
+<createdBy>selda</createdBy>
+<createdTime>2018-05-21 21:06:30 UTC</createdTime>
+<generatorID>50BDA671-2F06-8002-9F1A-146F52E9455F</generatorID>
+<ownerDesignName>IDAS2_sem_prace_v01</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<ownDataTypeParameters>,5,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="51E66163-37BC-EF9B-C4AB-34F55CFF2B9B" referredColumn="08C538A2-5167-10A0-E1CB-A415AC45EF04"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="93102F04-A02C-35AB-1436-458A10851894" name="PRED_V_OBORU_PK">
+<createdBy>selda</createdBy>
+<createdTime>2018-05-21 21:06:30 UTC</createdTime>
+<generatorID>A08B2FE8-DFB4-9203-B954-A43F884A2022</generatorID>
+<ownerDesignName>IDAS2_sem_prace_v01</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="EFAD4178-04B2-1D07-81A6-698BFB491F54"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="C28B0612-1BBC-25B3-192D-993C9CC4EB77" name="PRED_V_OBORU__IDX">
+<createdBy>selda</createdBy>
+<createdTime>2018-05-21 21:06:30 UTC</createdTime>
+<ownerDesignName>IDAS2_sem_prace_v01</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<relationGeneratorID>A2C551DB-7435-4295-BCA0-E4E84439545C</relationGeneratorID>
+<indexColumnUsage>
+<colUsage columnID="65E7D991-BC1F-DF4D-27A2-B708CE5B0358"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="69C31CF2-6F2E-4FAE-4BE2-409CF511416C" name="PRED_V_OBORU_KAT_PREDMETU_FK">
+<createdBy>selda</createdBy>
+<createdTime>2018-05-21 21:06:30 UTC</createdTime>
+<generatorID>5E04C1A8-77A9-7982-C053-CA3661A6E65C</generatorID>
+<ownerDesignName>IDAS2_sem_prace_v01</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7C043727-12DA-B70B-0902-0DF1F866ECFA"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="A42E7A3A-4302-E5D8-94C7-8223F4D98A79" name="PRED_V_OBORU_STUD_OBOR_FK">
+<createdBy>selda</createdBy>
+<createdTime>2018-05-21 21:06:30 UTC</createdTime>
+<generatorID>07928C60-2BED-0E83-366C-F0315D30C67D</generatorID>
+<ownerDesignName>IDAS2_sem_prace_v01</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1F8A7C41-47FF-2A9A-B3E7-3C0746B10D49"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="43E8B422-D1A9-C28F-E4B9-E9B50B5B052E" name="PRED_V_OBORU_PREDMET_FK">
+<createdBy>selda</createdBy>
+<createdTime>2018-05-21 21:06:30 UTC</createdTime>
+<generatorID>A2C551DB-7435-4295-BCA0-E4E84439545C</generatorID>
+<ownerDesignName>IDAS2_sem_prace_v01</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="65E7D991-BC1F-DF4D-27A2-B708CE5B0358"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
