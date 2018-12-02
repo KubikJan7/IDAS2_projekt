@@ -44,7 +44,7 @@
 <ownDataTypeParameters>,3,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="VYUCUJICI_id_vyucujiciho" id="FD7640BB-E0E2-F590-2446-E4B13FDA990F">
+<Column name="UZIVATEL_id_uzivatele" id="FD7640BB-E0E2-F590-2446-E4B13FDA990F">
 <createdBy>selda</createdBy>
 <createdTime>2018-05-21 21:06:30 UTC</createdTime>
 <generatorID>BDBCBB9C-302C-7D48-F48B-6AC2F47B2D13</generatorID>
@@ -90,22 +90,6 @@
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
 <colAssociation fkAssociation="27334254-F964-F947-030A-8B29F8A971A6" referredColumn="57A53ED5-458B-5B47-56E8-38C01A02A73B"/>
-</associations>
-</Column>
-<Column name="ROZVRH_id_rozvrhu" id="1581D668-6B5F-4B83-C61A-D36BA214B649">
-<createdBy>Legol</createdBy>
-<createdTime>2018-12-01 15:29:33 UTC</createdTime>
-<generatorID>840970B1-161D-F8D3-8A41-A2C52E2083FC</generatorID>
-<ownerDesignName>IDAS2_sem_prace_v01</ownerDesignName>
-<nullsAllowed>true</nullsAllowed>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT019</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-<previousColumn>false</previousColumn>
-<autoIncrementCycle>false</autoIncrementCycle>
-<associations>
-<colAssociation fkAssociation="EDB137B7-84E1-2699-8EA5-DA0220B03EFE" referredColumn="8F8095D5-5FFF-BCCB-4115-88E3F0041A0B"/>
 </associations>
 </Column>
 <Column name="UCEBNA_id_ucebny" id="AC02D174-D26B-1C6C-9B2F-5C97FC4DA0EA">
@@ -182,7 +166,7 @@
 <colUsage columnID="4F7418C7-B72E-CCE2-88EC-53419A66CC36"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="21DBBFCD-CFA2-D711-F700-B8DEF8106374" name="ROZVRHOVA_AKCE_VYUCUJICI_FK">
+<ind_PK_UK id="21DBBFCD-CFA2-D711-F700-B8DEF8106374" name="ROZVRHOVA_AKCE_UZIVATEL_FK">
 <createdBy>selda</createdBy>
 <createdTime>2018-05-21 21:06:30 UTC</createdTime>
 <generatorID>98B75835-662A-B0DA-562F-D595B3AB1187</generatorID>
@@ -202,17 +186,6 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="1781288B-20FE-3E33-8832-EA1269041D41"/>
-</indexColumnUsage>
-</ind_PK_UK>
-<ind_PK_UK id="8AF5CCCA-68D4-C111-1608-5DEECB0AC363" name="ROZVRHOVA_AKCE_ROZVRH_FK">
-<createdBy>Legol</createdBy>
-<createdTime>2018-12-01 15:29:33 UTC</createdTime>
-<generatorID>19A4D4DB-A060-564E-4D29-158EC547DB44</generatorID>
-<ownerDesignName>IDAS2_sem_prace_v01</ownerDesignName>
-<indexState>Foreign Key</indexState>
-<isSurrogateKey>false</isSurrogateKey>
-<indexColumnUsage>
-<colUsage columnID="1581D668-6B5F-4B83-C61A-D36BA214B649"/>
 </indexColumnUsage>
 </ind_PK_UK>
 <ind_PK_UK id="7A7B0163-AF72-6DD5-5089-4846F903A390" name="ROZVRHOVA_AKCE_UCEBNA_FK">

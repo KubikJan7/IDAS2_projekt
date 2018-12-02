@@ -1,16 +1,16 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="C2E0491C-1267-5517-0DF7-0AF966CD0643" containerWithKeyObject="221AE410-7FC6-4A18-3DA7-A59109447BC5" localFKIndex="4057A8DA-6963-EB70-4A97-14186C445A61" name="SOUBOR_VYUCUJICI_FK">
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="C2E0491C-1267-5517-0DF7-0AF966CD0643" containerWithKeyObject="221AE410-7FC6-4A18-3DA7-A59109447BC5" localFKIndex="4057A8DA-6963-EB70-4A97-14186C445A61" name="SOUBOR_UZIVATEL_FK">
 <createdBy>Legol</createdBy>
 <createdTime>2018-12-02 18:45:43 UTC</createdTime>
 <generatorID>C3C6F317-11AF-50D4-7252-43EA7655A2A7</generatorID>
 <ownerDesignName>IDAS2_sem_prace_v01</ownerDesignName>
-<referredTableLongName>VYUCUJICI</referredTableLongName>
+<referredTableLongName>UZIVATEL</referredTableLongName>
 <deleteRule>NO ACTION</deleteRule>
 <referredTableID>19534E1A-301E-FEE4-80BA-20E59C009E98</referredTableID>
 <keyObject>F396C0F3-0C0F-5858-F449-09429211BF47</keyObject>
 <referredKeyID>F396C0F3-0C0F-5858-F449-09429211BF47</referredKeyID>
 <mandatory>true</mandatory>
-<refColNames>id_vyucujiciho</refColNames>
+<refColNames>id_uzivatele</refColNames>
 <transferable>true</transferable>
 <rely>false</rely>
 <columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>

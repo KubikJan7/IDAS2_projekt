@@ -118,14 +118,14 @@
 <use>1</use>
 <logicalDatatype>LOGDT025</logicalDatatype>
 <dataTypeSize>6 CHAR</dataTypeSize>
-<ownDataTypeParameters>6 CHAR,,</ownDataTypeParameters>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
 <colAssociation fkAssociation="24B8F51A-EB8A-CBD6-7AC8-8B983926EF32" referredColumn="83218347-56B7-4D17-AB0D-9AC1069C44FE"/>
 </associations>
 </Column>
-<Column name="ROLE_UZIVATELE_ROLE_UZIVATELE_ID" id="80CB641B-1C4C-9631-D091-CCFAE78D1F0C">
+<Column name="ROLE_UZIVATELE_ID" id="80CB641B-1C4C-9631-D091-CCFAE78D1F0C">
 <createdBy>Legol</createdBy>
 <createdTime>2018-12-02 22:16:45 UTC</createdTime>
 <ownerDesignName>IDAS2_sem_prace_v01</ownerDesignName>
@@ -135,13 +135,21 @@
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
-<associations>
-<colAssociation fkAssociation="BCB393C7-4D16-9D2A-6CA1-FE68A8ED6E42" referredColumn="64CCB626-50B3-D45B-F586-215B2CB123C6"/>
-</associations>
+</Column>
+<Column name="id_role" id="A25FE8B1-2F8B-B98F-F9A6-509707841344">
+<createdBy>Legol</createdBy>
+<createdTime>2018-12-02 23:37:07 UTC</createdTime>
+<generatorID>EFA9A1EE-2C58-373E-66A9-6A17067C94B2</generatorID>
+<ownerDesignName>IDAS2_sem_prace_v01</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
-<ind_PK_UK id="F396C0F3-0C0F-5858-F449-09429211BF47" name="VYUCUJICI_PK">
+<ind_PK_UK id="F396C0F3-0C0F-5858-F449-09429211BF47" name="UZIVATEL_PK">
 <createdBy>selda</createdBy>
 <createdTime>2018-05-21 21:06:30 UTC</createdTime>
 <generatorID>067D191E-08D1-85A9-1F69-FF5D6C8895B4</generatorID>
@@ -153,7 +161,7 @@
 <colUsage columnID="0CECFCBE-A85F-55FC-E2CF-2252385BADEC"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="385225D6-9314-5202-CBA5-E9A50547E877" name="VYUCUJICI_KATEDRA_FK">
+<ind_PK_UK id="385225D6-9314-5202-CBA5-E9A50547E877" name="UZIVATEL_KATEDRA_FK">
 <createdBy>selda</createdBy>
 <createdTime>2018-05-21 21:06:30 UTC</createdTime>
 <generatorID>F975B9AB-2CFA-A413-5221-B6F885FA2F93</generatorID>
@@ -171,9 +179,6 @@
 <ownerDesignName>IDAS2_sem_prace_v01</ownerDesignName>
 <indexState>Foreign Key</indexState>
 <isSurrogateKey>false</isSurrogateKey>
-<indexColumnUsage>
-<colUsage columnID="80CB641B-1C4C-9631-D091-CCFAE78D1F0C"/>
-</indexColumnUsage>
 </ind_PK_UK>
 </indexes>
 </Table>

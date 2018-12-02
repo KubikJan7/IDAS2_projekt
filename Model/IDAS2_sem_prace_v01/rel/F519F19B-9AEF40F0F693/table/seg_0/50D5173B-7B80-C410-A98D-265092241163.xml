@@ -1,0 +1,87 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="50D5173B-7B80-C410-A98D-265092241163" name="HESLO_UZIVATELE">
+<createdBy>Legol</createdBy>
+<createdTime>2018-12-02 23:19:09 UTC</createdTime>
+<generatorID>9D0FEBC9-B129-FB25-161B-EE8338D1877C</generatorID>
+<ownerDesignName>IDAS2_sem_prace_v01</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_hesla" id="031E484E-5B72-6FE5-5590-EE3E4F24F3D1">
+<createdBy>Legol</createdBy>
+<createdTime>2018-12-02 23:19:09 UTC</createdTime>
+<generatorID>CE1726DF-2F2A-CF55-94E7-7672A088B59F</generatorID>
+<ownerDesignName>IDAS2_sem_prace_v01</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="heslo" id="32342863-72B1-C3DD-0974-199A0C99ADD1">
+<createdBy>Legol</createdBy>
+<createdTime>2018-12-02 23:19:09 UTC</createdTime>
+<generatorID>32A86D58-5AD7-3D8A-02B3-4DE8924EDF69</generatorID>
+<ownerDesignName>IDAS2_sem_prace_v01</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>45</dataTypeSize>
+<ownDataTypeParameters>45,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="UZIVATEL_id_uzivatele" id="FE530A71-AE55-7A04-EC93-C42EE2B24511">
+<createdBy>Legol</createdBy>
+<createdTime>2018-12-02 23:37:07 UTC</createdTime>
+<generatorID>C747DD3E-BD88-B106-5EC4-A6DC67FA84E1</generatorID>
+<ownerDesignName>IDAS2_sem_prace_v01</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="D7A480E4-624A-CC07-B0DD-EA6BE2C73DE5" referredColumn="0CECFCBE-A85F-55FC-E2CF-2252385BADEC"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="D979DAF5-2946-9BBD-1446-0AEBD4E79A7F" name="HESLO_UZIVATELE_PK">
+<createdBy>Legol</createdBy>
+<createdTime>2018-12-02 23:37:07 UTC</createdTime>
+<generatorID>6179A055-51F5-B9B3-1C34-0A87FDF5B665</generatorID>
+<ownerDesignName>IDAS2_sem_prace_v01</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="031E484E-5B72-6FE5-5590-EE3E4F24F3D1"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="2AD87FD2-9F6E-DBFF-C1BC-C220D95E515C" name="HESLO_UZIVATELE__IDX">
+<createdBy>Legol</createdBy>
+<createdTime>2018-12-02 23:37:07 UTC</createdTime>
+<ownerDesignName>IDAS2_sem_prace_v01</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<relationGeneratorID>09389B39-2AC8-BDFE-82B7-80B9F20FE601</relationGeneratorID>
+<indexColumnUsage>
+<colUsage columnID="FE530A71-AE55-7A04-EC93-C42EE2B24511"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="1C55E36A-62CF-87AB-9290-58046A3E232E" name="HESLO_UZIVATELE_UZIVATEL_FK">
+<createdBy>Legol</createdBy>
+<createdTime>2018-12-02 23:37:07 UTC</createdTime>
+<generatorID>09389B39-2AC8-BDFE-82B7-80B9F20FE601</generatorID>
+<ownerDesignName>IDAS2_sem_prace_v01</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="FE530A71-AE55-7A04-EC93-C42EE2B24511"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

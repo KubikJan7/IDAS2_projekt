@@ -88,7 +88,7 @@
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="VYUCUJICI_id_vyucujiciho" id="6A69B4BD-3E3C-FDEB-8CDC-228AD2B47330">
+<Column name="UZIVATEL_id_uzivatele" id="6A69B4BD-3E3C-FDEB-8CDC-228AD2B47330">
 <createdBy>Legol</createdBy>
 <createdTime>2018-12-02 18:45:43 UTC</createdTime>
 <generatorID>A262BD9B-FD65-F743-B526-8A460D07B340</generatorID>
@@ -129,7 +129,7 @@
 <colUsage columnID="6A69B4BD-3E3C-FDEB-8CDC-228AD2B47330"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="4057A8DA-6963-EB70-4A97-14186C445A61" name="SOUBOR_VYUCUJICI_FK">
+<ind_PK_UK id="4057A8DA-6963-EB70-4A97-14186C445A61" name="SOUBOR_UZIVATEL_FK">
 <createdBy>Legol</createdBy>
 <createdTime>2018-12-02 18:45:43 UTC</createdTime>
 <generatorID>C3C6F317-11AF-50D4-7252-43EA7655A2A7</generatorID>

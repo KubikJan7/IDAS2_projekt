@@ -136,21 +136,6 @@
 <dataTypePrecision>6</dataTypePrecision>
 <ownDataTypeParameters>,6,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="id_rozvrhu" id="840970B1-161D-F8D3-8A41-A2C52E2083FC">
-<createdBy>Legol</createdBy>
-<createdTime>2018-11-07 14:32:30 UTC</createdTime>
-<generatorID>19A4D4DB-A060-564E-4D29-158EC547DB44</generatorID>
-<ownerDesignName>IDAS2_sem_prace_v01</ownerDesignName>
-<engineerTo>
-<item key="F519F19B-B3AC-BB9B-F944-9AEF40F0F693" value="true"/>
-</engineerTo>
-<nullsAllowed>true</nullsAllowed>
-<referedAttribute>236CD1C0-2131-FF6C-149F-E59456470C33</referedAttribute>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT019</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
 <Attribute name="id_ucebny" id="244E9F3F-E615-727A-06BD-682E53EDA11D">
 <createdBy>Legol</createdBy>
 <createdTime>2018-12-01 15:28:31 UTC</createdTime>
