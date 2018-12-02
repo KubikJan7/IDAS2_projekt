@@ -9,7 +9,7 @@
 <referredTableID>425DE7AB-F7B1-2BF5-CEEE-55E682CD959A</referredTableID>
 <keyObject>717F2E29-2D49-F40A-19FC-470D41106AE0</keyObject>
 <referredKeyID>717F2E29-2D49-F40A-19FC-470D41106AE0</referredKeyID>
-<mandatory>true</mandatory>
+<mandatory>false</mandatory>
 <refColNames>id_rozvrhu</refColNames>
 <transferable>true</transferable>
 <rely>false</rely>

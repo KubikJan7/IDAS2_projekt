@@ -24,7 +24,7 @@
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
+<logicalDatatype>LOGDT019</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
 <Attribute name="id_vyucujiciho" id="4B304CF4-0FEA-BCED-30DA-9D3DF718F742">
@@ -48,8 +48,9 @@
 <createdBy>Legol</createdBy>
 <createdTime>2018-11-07 11:59:17 UTC</createdTime>
 <ownerDesignName>IDAS2_sem_prace_v01</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
 <engineerTo>
-<item key="F519F19B-B3AC-BB9B-F944-9AEF40F0F693" value="true"/>
+<item key="F519F19B-B3AC-BB9B-F944-9AEF40F0F693" value="false"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>

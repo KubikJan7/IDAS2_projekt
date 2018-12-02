@@ -97,9 +97,10 @@
 <createdTime>2018-12-01 15:29:33 UTC</createdTime>
 <generatorID>840970B1-161D-F8D3-8A41-A2C52E2083FC</generatorID>
 <ownerDesignName>IDAS2_sem_prace_v01</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
+<logicalDatatype>LOGDT019</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
@@ -114,13 +115,47 @@
 <ownerDesignName>IDAS2_sem_prace_v01</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
+<logicalDatatype>LOGDT019</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
 <colAssociation fkAssociation="BF1D4C70-41DA-4D60-19E0-A4587D5DF4A7" referredColumn="58F28BB3-DA45-F91D-9960-AAF653D71C5E"/>
 </associations>
+</Column>
+<Column name="den_konani" id="128DEA6B-F6C8-AFC2-F243-89D4CF46CBC0">
+<createdBy>Legol</createdBy>
+<createdTime>2018-12-02 18:45:43 UTC</createdTime>
+<generatorID>C1507864-3BAC-2CE3-71A3-DB3070156BF2</generatorID>
+<ownerDesignName>IDAS2_sem_prace_v01</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="cas_od" id="EE909634-356F-0AF2-A189-27BF71C0724D">
+<createdBy>Legol</createdBy>
+<createdTime>2018-12-02 18:45:43 UTC</createdTime>
+<generatorID>07315632-E4DF-B2C8-DDB8-8096DFD162C4</generatorID>
+<ownerDesignName>IDAS2_sem_prace_v01</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT014</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="cas_do" id="15D2573F-1C2F-8942-FB73-471E47E21782">
+<createdBy>Legol</createdBy>
+<createdTime>2018-12-02 18:45:43 UTC</createdTime>
+<generatorID>B950B98A-4877-8D9C-8DD1-AA11B4C0ED02</generatorID>
+<ownerDesignName>IDAS2_sem_prace_v01</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT014</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">

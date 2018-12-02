@@ -8,6 +8,8 @@
 </engineerTo>
 <targetPk>1A8FC1CF-DA5F-A3BC-2D5B-8CFE65FE6D87</targetPk>
 <identifying>false</identifying>
+<nameOnSource>je vyučována v</nameOnSource>
+<nameOnTarget>je obsazena</nameOnTarget>
 <optionalSource>false</optionalSource>
 <optionalTarget>true</optionalTarget>
 <sourceCardinality>*</sourceCardinality>

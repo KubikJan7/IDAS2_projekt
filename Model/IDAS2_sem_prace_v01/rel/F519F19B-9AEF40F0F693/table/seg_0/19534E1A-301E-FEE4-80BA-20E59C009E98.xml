@@ -118,14 +118,14 @@
 <use>1</use>
 <logicalDatatype>LOGDT025</logicalDatatype>
 <dataTypeSize>6 CHAR</dataTypeSize>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<ownDataTypeParameters>6 CHAR,,</ownDataTypeParameters>
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
 <colAssociation fkAssociation="24B8F51A-EB8A-CBD6-7AC8-8B983926EF32" referredColumn="83218347-56B7-4D17-AB0D-9AC1069C44FE"/>
 </associations>
 </Column>
-<Column name="VYUCUJICI_id_administratora" id="C27F7EBC-F125-9B6B-1A66-99FA7EFA8043">
+<Column name="VYUCUJICI_id_vyucujiciho" id="C27F7EBC-F125-9B6B-1A66-99FA7EFA8043">
 <createdBy>Legol</createdBy>
 <createdTime>2018-12-01 15:29:33 UTC</createdTime>
 <generatorID>5DA33BDF-D96A-C29B-BD24-9DD940F06BAD</generatorID>
@@ -135,7 +135,7 @@
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
 <dataTypePrecision>6</dataTypePrecision>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<ownDataTypeParameters>,6,</ownDataTypeParameters>
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
