@@ -102,7 +102,7 @@
 <logicalDatatype>LOGDT029</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="id_vyucujiciho" id="A262BD9B-FD65-F743-B526-8A460D07B340">
+<Attribute name="id_uzivatele" id="A262BD9B-FD65-F743-B526-8A460D07B340">
 <createdBy>selda</createdBy>
 <createdTime>2018-12-01 20:18:32 UTC</createdTime>
 <generatorID>C3C6F317-11AF-50D4-7252-43EA7655A2A7</generatorID>
@@ -123,8 +123,9 @@
 <createdBy>selda</createdBy>
 <createdTime>2018-12-01 20:16:59 UTC</createdTime>
 <ownerDesignName>IDAS2_sem_prace_v01</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
 <engineerTo>
-<item key="F519F19B-B3AC-BB9B-F944-9AEF40F0F693" value="true"/>
+<item key="F519F19B-B3AC-BB9B-F944-9AEF40F0F693" value="false"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>

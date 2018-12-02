@@ -91,7 +91,7 @@
 <dataTypePrecision>3</dataTypePrecision>
 <ownDataTypeParameters>,3,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="id_vyucujiciho" id="BDBCBB9C-302C-7D48-F48B-6AC2F47B2D13">
+<Attribute name="id_uzivatele" id="BDBCBB9C-302C-7D48-F48B-6AC2F47B2D13">
 <createdBy>selda</createdBy>
 <createdTime>2018-05-11 19:31:29 UTC</createdTime>
 <generatorID>98B75835-662A-B0DA-562F-D595B3AB1187</generatorID>

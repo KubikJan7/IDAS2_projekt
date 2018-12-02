@@ -1,5 +1,5 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="19534E1A-301E-FEE4-80BA-20E59C009E98" name="VYUCUJICI">
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="19534E1A-301E-FEE4-80BA-20E59C009E98" name="UZIVATEL">
 <createdBy>selda</createdBy>
 <createdTime>2018-05-21 21:06:30 UTC</createdTime>
 <generatorID>7F6E371C-31DC-11E3-BAA6-064D329D5E4A</generatorID>
@@ -8,7 +8,7 @@
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
 <parsed>true</parsed>
 <columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
-<Column name="id_vyucujiciho" id="0CECFCBE-A85F-55FC-E2CF-2252385BADEC">
+<Column name="id_uzivatele" id="0CECFCBE-A85F-55FC-E2CF-2252385BADEC">
 <createdBy>selda</createdBy>
 <createdTime>2018-05-21 21:06:30 UTC</createdTime>
 <generatorID>A70C47ED-976F-3840-7D68-051537A85935</generatorID>
@@ -125,21 +125,18 @@
 <colAssociation fkAssociation="24B8F51A-EB8A-CBD6-7AC8-8B983926EF32" referredColumn="83218347-56B7-4D17-AB0D-9AC1069C44FE"/>
 </associations>
 </Column>
-<Column name="VYUCUJICI_id_vyucujiciho" id="C27F7EBC-F125-9B6B-1A66-99FA7EFA8043">
+<Column name="ROLE_UZIVATELE_ROLE_UZIVATELE_ID" id="80CB641B-1C4C-9631-D091-CCFAE78D1F0C">
 <createdBy>Legol</createdBy>
-<createdTime>2018-12-01 15:29:33 UTC</createdTime>
-<generatorID>5DA33BDF-D96A-C29B-BD24-9DD940F06BAD</generatorID>
+<createdTime>2018-12-02 22:16:45 UTC</createdTime>
 <ownerDesignName>IDAS2_sem_prace_v01</ownerDesignName>
-<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
-<dataTypePrecision>6</dataTypePrecision>
-<ownDataTypeParameters>,6,</ownDataTypeParameters>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
-<colAssociation fkAssociation="16B1EB80-94FC-17E3-6997-CB61C4C959E5" referredColumn="0CECFCBE-A85F-55FC-E2CF-2252385BADEC"/>
+<colAssociation fkAssociation="BCB393C7-4D16-9D2A-6CA1-FE68A8ED6E42" referredColumn="64CCB626-50B3-D45B-F586-215B2CB123C6"/>
 </associations>
 </Column>
 </columns>
@@ -167,15 +164,15 @@
 <colUsage columnID="E1F72950-E5FB-EA64-D8F7-FC80CDEE568D"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="462FEE65-1F69-BC2B-EBD4-8E793AC6E427" name="VYUCUJICI_VYUCUJICI_FK">
+<ind_PK_UK id="4B99F92A-4840-3598-CCC9-CEF01380978F" name="UZIVATEL_ROLE_UZIVATELE_FK">
 <createdBy>Legol</createdBy>
-<createdTime>2018-12-01 15:29:33 UTC</createdTime>
-<generatorID>D51B5282-090C-8D07-C201-3BAAED01D6DA</generatorID>
+<createdTime>2018-12-02 22:16:45 UTC</createdTime>
+<generatorID>EBAE5F88-BC6A-4552-23AD-BD141805ED21</generatorID>
 <ownerDesignName>IDAS2_sem_prace_v01</ownerDesignName>
 <indexState>Foreign Key</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
-<colUsage columnID="C27F7EBC-F125-9B6B-1A66-99FA7EFA8043"/>
+<colUsage columnID="80CB641B-1C4C-9631-D091-CCFAE78D1F0C"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

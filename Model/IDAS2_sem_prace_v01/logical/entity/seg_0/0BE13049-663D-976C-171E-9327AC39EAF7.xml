@@ -27,7 +27,7 @@
 <logicalDatatype>LOGDT019</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="id_vyucujiciho" id="4B304CF4-0FEA-BCED-30DA-9D3DF718F742">
+<Attribute name="id_uzivatele" id="4B304CF4-0FEA-BCED-30DA-9D3DF718F742">
 <createdBy>selda</createdBy>
 <createdTime>2018-12-01 18:18:43 UTC</createdTime>
 <generatorID>8FC8779A-C8AB-9FE8-8087-7B898D8A68EB</generatorID>
