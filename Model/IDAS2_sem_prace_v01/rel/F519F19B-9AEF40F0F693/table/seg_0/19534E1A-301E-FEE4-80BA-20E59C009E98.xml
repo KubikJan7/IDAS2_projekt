@@ -44,6 +44,18 @@
 <ownDataTypeParameters>40 CHAR,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
+<Column name="heslo" id="A278EA36-9A30-EF95-72D9-7EBA7A16573F">
+<createdBy>Legol</createdBy>
+<createdTime>2018-12-03 11:19:43 UTC</createdTime>
+<generatorID>DCFD2A70-8014-A7F0-A08F-7CB95CADFBFB</generatorID>
+<ownerDesignName>IDAS2_sem_prace_v01</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>45</dataTypeSize>
+<ownDataTypeParameters>45,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
 <Column name="titul_pred" id="CEE8E79D-2BC6-14F0-3F26-EF8D02513ADD">
 <createdBy>selda</createdBy>
 <createdTime>2018-05-21 21:06:30 UTC</createdTime>

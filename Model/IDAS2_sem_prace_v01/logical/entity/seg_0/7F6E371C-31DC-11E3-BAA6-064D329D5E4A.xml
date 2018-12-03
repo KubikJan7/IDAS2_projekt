@@ -54,6 +54,19 @@
 <dataTypeSize>40 CHAR</dataTypeSize>
 <ownDataTypeParameters>40 CHAR,,</ownDataTypeParameters>
 </Attribute>
+<Attribute name="heslo" id="DCFD2A70-8014-A7F0-A08F-7CB95CADFBFB">
+<createdBy>Legol</createdBy>
+<createdTime>2018-12-03 11:17:34 UTC</createdTime>
+<ownerDesignName>IDAS2_sem_prace_v01</ownerDesignName>
+<engineerTo>
+<item key="F519F19B-B3AC-BB9B-F944-9AEF40F0F693" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>45</dataTypeSize>
+<ownDataTypeParameters>45,,</ownDataTypeParameters>
+</Attribute>
 <Attribute name="titul_pred" id="639F0085-9667-00B1-7BBC-4A19BB604092">
 <createdBy>selda</createdBy>
 <createdTime>2018-05-11 16:10:28 UTC</createdTime>
@@ -137,7 +150,7 @@
 <use>1</use>
 <logicalDatatype>LOGDT025</logicalDatatype>
 <dataTypeSize>6 CHAR</dataTypeSize>
-<ownDataTypeParameters>6 CHAR,,</ownDataTypeParameters>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
 <Attribute name="id_role" id="EFA9A1EE-2C58-373E-66A9-6A17067C94B2">
 <createdBy>Legol</createdBy>

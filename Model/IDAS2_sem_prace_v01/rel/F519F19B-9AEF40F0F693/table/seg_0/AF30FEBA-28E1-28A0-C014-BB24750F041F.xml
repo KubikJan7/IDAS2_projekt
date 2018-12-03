@@ -33,7 +33,7 @@
 </Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
-<ind_PK_UK id="38F9B024-A45D-4FA2-AAE1-7DE9885C3C68" name="ROLE_UZIVATELE_id_role_UN">
+<ind_PK_UK id="38F9B024-A45D-4FA2-AAE1-7DE9885C3C68" name="ROLE_UZIVATELE_PKv1">
 <createdBy>Legol</createdBy>
 <createdTime>2018-12-02 23:37:07 UTC</createdTime>
 <generatorID>73AFFD00-6677-DEDC-1449-C567895FDB50</generatorID>
