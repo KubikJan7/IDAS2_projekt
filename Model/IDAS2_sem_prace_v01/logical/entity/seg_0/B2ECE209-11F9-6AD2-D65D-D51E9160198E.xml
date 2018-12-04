@@ -63,20 +63,10 @@
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT014</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="cas_do" id="B950B98A-4877-8D9C-8DD1-AA11B4C0ED02">
-<createdBy>Legol</createdBy>
-<createdTime>2018-12-02 18:39:04 UTC</createdTime>
-<ownerDesignName>IDAS2_sem_prace_v01</ownerDesignName>
-<engineerTo>
-<item key="F519F19B-B3AC-BB9B-F944-9AEF40F0F693" value="true"/>
-</engineerTo>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT014</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<logicalDatatype>LOGDT020</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,2,2</ownDataTypeParameters>
 </Attribute>
 <Attribute name="kapacita" id="7D4C54BB-8905-CB09-9E07-32C1AB2990E3">
 <createdBy>selda</createdBy>
@@ -104,7 +94,7 @@
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
 <dataTypePrecision>6</dataTypePrecision>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<ownDataTypeParameters>,6,</ownDataTypeParameters>
 </Attribute>
 <Attribute name="id_predmetu" id="1258AD88-61C9-7498-5E26-155CFC380B5F">
 <createdBy>selda</createdBy>

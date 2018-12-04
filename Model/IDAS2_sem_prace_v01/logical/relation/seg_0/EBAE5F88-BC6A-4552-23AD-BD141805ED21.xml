@@ -1,5 +1,5 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Relation_20" directorySegmentName="seg_0" id="EBAE5F88-BC6A-4552-23AD-BD141805ED21">
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="rel_uziv_role" directorySegmentName="seg_0" id="EBAE5F88-BC6A-4552-23AD-BD141805ED21">
 <createdBy>Legol</createdBy>
 <createdTime>2018-12-02 22:12:24 UTC</createdTime>
 <ownerDesignName>IDAS2_sem_prace_v01</ownerDesignName>
@@ -12,7 +12,7 @@
 <nameOnTarget>má</nameOnTarget>
 <optionalSource>true</optionalSource>
 <optionalTarget>false</optionalTarget>
-<sourceCardinality>1</sourceCardinality>
+<sourceCardinality>*</sourceCardinality>
 <sourceEntity>AED417F0-CEAD-8397-2428-66417EE99D9C</sourceEntity>
 <targetCardinalityString>*</targetCardinalityString>
 <targetEntity>7F6E371C-31DC-11E3-BAA6-064D329D5E4A</targetEntity>

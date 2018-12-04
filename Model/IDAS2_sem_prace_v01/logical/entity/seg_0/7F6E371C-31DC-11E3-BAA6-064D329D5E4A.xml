@@ -28,6 +28,32 @@
 <dataTypePrecision>6</dataTypePrecision>
 <ownDataTypeParameters>,6,</ownDataTypeParameters>
 </Attribute>
+<Attribute name="uziv_jmeno" id="4BF030A9-8A50-3C98-EB22-C0BBF83249E4">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-04 23:22:28 UTC</createdTime>
+<ownerDesignName>IDAS2_sem_prace_v01</ownerDesignName>
+<engineerTo>
+<item key="F519F19B-B3AC-BB9B-F944-9AEF40F0F693" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 CHAR</dataTypeSize>
+<ownDataTypeParameters>30 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="heslo" id="DCFD2A70-8014-A7F0-A08F-7CB95CADFBFB">
+<createdBy>Legol</createdBy>
+<createdTime>2018-12-03 11:17:34 UTC</createdTime>
+<ownerDesignName>IDAS2_sem_prace_v01</ownerDesignName>
+<engineerTo>
+<item key="F519F19B-B3AC-BB9B-F944-9AEF40F0F693" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>45</dataTypeSize>
+<ownDataTypeParameters>45,,</ownDataTypeParameters>
+</Attribute>
 <Attribute name="jmeno" id="B19624C1-A8B8-944F-34EE-8EA4E213ABA6">
 <createdBy>st47137</createdBy>
 <createdTime>2018-02-26 12:28:06 UTC</createdTime>
@@ -53,19 +79,6 @@
 <logicalDatatype>LOGDT037</logicalDatatype>
 <dataTypeSize>40 CHAR</dataTypeSize>
 <ownDataTypeParameters>40 CHAR,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="heslo" id="DCFD2A70-8014-A7F0-A08F-7CB95CADFBFB">
-<createdBy>Legol</createdBy>
-<createdTime>2018-12-03 11:17:34 UTC</createdTime>
-<ownerDesignName>IDAS2_sem_prace_v01</ownerDesignName>
-<engineerTo>
-<item key="F519F19B-B3AC-BB9B-F944-9AEF40F0F693" value="true"/>
-</engineerTo>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>45</dataTypeSize>
-<ownDataTypeParameters>45,,</ownDataTypeParameters>
 </Attribute>
 <Attribute name="titul_pred" id="639F0085-9667-00B1-7BBC-4A19BB604092">
 <createdBy>selda</createdBy>
@@ -150,21 +163,7 @@
 <use>1</use>
 <logicalDatatype>LOGDT025</logicalDatatype>
 <dataTypeSize>6 CHAR</dataTypeSize>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="id_role" id="EFA9A1EE-2C58-373E-66A9-6A17067C94B2">
-<createdBy>Legol</createdBy>
-<createdTime>2018-12-02 23:21:10 UTC</createdTime>
-<generatorID>EBAE5F88-BC6A-4552-23AD-BD141805ED21</generatorID>
-<ownerDesignName>IDAS2_sem_prace_v01</ownerDesignName>
-<engineerTo>
-<item key="F519F19B-B3AC-BB9B-F944-9AEF40F0F693" value="true"/>
-</engineerTo>
-<referedAttribute>38873ABC-8C3A-2396-F088-1BE646E10DEE</referedAttribute>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT019</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<ownDataTypeParameters>6 CHAR,,</ownDataTypeParameters>
 </Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
