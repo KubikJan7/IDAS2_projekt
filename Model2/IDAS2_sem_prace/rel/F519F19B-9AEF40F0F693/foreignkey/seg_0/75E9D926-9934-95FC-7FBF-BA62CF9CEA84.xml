@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="75E9D926-9934-95FC-7FBF-BA62CF9CEA84" containerWithKeyObject="E1199F90-4786-78E8-E06F-CD8B0D1B2F3B" localFKIndex="8DF7CC43-64E2-F832-4618-8C663782D392" name="PREDMET_ZPUSOB_ZAKONCENI_FK">
+<createdBy>selda</createdBy>
+<createdTime>2018-05-21 21:06:30 UTC</createdTime>
+<generatorID>2C45CCAD-8DC4-00B3-1003-39BDE814E601</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<referredTableLongName>ZPUSOB_ZAKONCENI</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>C9558B75-4B5D-E34D-787A-D06E66A78657</referredTableID>
+<keyObject>6B450BF2-928D-3FAC-10CF-AA1466F1A265</keyObject>
+<referredKeyID>6B450BF2-928D-3FAC-10CF-AA1466F1A265</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>zkr_zak</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

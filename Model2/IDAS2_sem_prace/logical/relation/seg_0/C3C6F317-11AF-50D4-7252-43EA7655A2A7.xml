@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="rel_vyuc_foto" directorySegmentName="seg_0" id="C3C6F317-11AF-50D4-7252-43EA7655A2A7">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-01 20:18:08 UTC</createdTime>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<engineerTo>
+<item key="F519F19B-B3AC-BB9B-F944-9AEF40F0F693" value="true"/>
+</engineerTo>
+<targetPk>067D191E-08D1-85A9-1F69-FF5D6C8895B4</targetPk>
+<identifying>false</identifying>
+<optionalSource>false</optionalSource>
+<optionalTarget>true</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>B64401ED-5C0B-71A1-C17E-6DC8899DCFD3</sourceEntity>
+<targetCardinalityString>1</targetCardinalityString>
+<targetEntity>7F6E371C-31DC-11E3-BAA6-064D329D5E4A</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

@@ -1,0 +1,21 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="rel_vyuc_katedry" directorySegmentName="seg_0" id="F975B9AB-2CFA-A413-5221-B6F885FA2F93">
+<createdBy>selda</createdBy>
+<createdTime>2018-05-11 16:34:10 UTC</createdTime>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<engineerTo>
+<item key="F519F19B-B3AC-BB9B-F944-9AEF40F0F693" value="true"/>
+</engineerTo>
+<targetPk>8A2CD723-93DA-7525-DB81-F7F0A68D2C87</targetPk>
+<identifying>false</identifying>
+<nameOnSource>pracuje</nameOnSource>
+<nameOnTarget>zaměstnává</nameOnTarget>
+<optionalSource>false</optionalSource>
+<optionalTarget>true</optionalTarget>
+<sourceCardinality>*</sourceCardinality>
+<sourceEntity>7F6E371C-31DC-11E3-BAA6-064D329D5E4A</sourceEntity>
+<targetCardinalityString>1</targetCardinalityString>
+<targetEntity>83C7B879-C8AB-BB8F-B5AC-813491D96CC4</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

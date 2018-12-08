@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="rel_tyden_akce" directorySegmentName="seg_0" id="9B1B1B53-6039-4837-E62C-6795165F2B63">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-08 18:26:34 UTC</createdTime>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<engineerTo>
+<item key="F519F19B-B3AC-BB9B-F944-9AEF40F0F693" value="true"/>
+</engineerTo>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>true</optionalTarget>
+<sourceCardinality>*</sourceCardinality>
+<sourceEntity>B2ECE209-11F9-6AD2-D65D-D51E9160198E</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>5055C4A9-E8CE-76BF-8B20-C6137023D3FE</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

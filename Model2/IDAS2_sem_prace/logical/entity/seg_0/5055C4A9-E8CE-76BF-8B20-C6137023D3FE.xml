@@ -1,0 +1,59 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="5055C4A9-E8CE-76BF-8B20-C6137023D3FE" name="TYDEN">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-08 18:22:47 UTC</createdTime>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<engineerTo>
+<item key="F519F19B-B3AC-BB9B-F944-9AEF40F0F693" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id_tydne" id="CB06BDAB-8D50-B47B-D16C-7B71AB6712EF">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-08 18:22:53 UTC</createdTime>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<engineerTo>
+<item key="F519F19B-B3AC-BB9B-F944-9AEF40F0F693" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<ownDataTypeParameters>,2,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="nazev" id="B1651B18-D264-DBCA-CB91-3EA778D1EF1F">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-08 18:23:00 UTC</createdTime>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<engineerTo>
+<item key="F519F19B-B3AC-BB9B-F944-9AEF40F0F693" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>50 CHAR</dataTypeSize>
+<ownDataTypeParameters>50 CHAR,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="041440CB-2245-4696-180F-D9A80B09062D" name="TYDEN PK">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-08 18:23:26 UTC</createdTime>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<engineerTo>
+<item key="F519F19B-B3AC-BB9B-F944-9AEF40F0F693" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>CB06BDAB-8D50-B47B-D16C-7B71AB6712EF</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

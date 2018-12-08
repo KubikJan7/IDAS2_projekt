@@ -1,0 +1,21 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="rel_katedra_fakulty" directorySegmentName="seg_0" id="BDC59AC2-6A9D-3FFF-C138-739790A79F70">
+<createdBy>selda</createdBy>
+<createdTime>2018-05-11 16:34:15 UTC</createdTime>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<engineerTo>
+<item key="F519F19B-B3AC-BB9B-F944-9AEF40F0F693" value="true"/>
+</engineerTo>
+<targetPk>8746A085-F004-B702-FCE2-2FA00A2E36E7</targetPk>
+<identifying>false</identifying>
+<nameOnSource>je řízena</nameOnSource>
+<nameOnTarget>má</nameOnTarget>
+<optionalSource>false</optionalSource>
+<optionalTarget>true</optionalTarget>
+<sourceCardinality>*</sourceCardinality>
+<sourceEntity>83C7B879-C8AB-BB8F-B5AC-813491D96CC4</sourceEntity>
+<targetCardinalityString>1</targetCardinalityString>
+<targetEntity>8DD960F2-ED07-E3DF-B2DE-8F95F75832B8</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

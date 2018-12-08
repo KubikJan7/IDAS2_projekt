@@ -1,0 +1,50 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="FE385425-B119-4E48-1D03-DA6838936D6E" name="FAKULTA">
+<createdBy>selda</createdBy>
+<createdTime>2018-05-21 21:06:30 UTC</createdTime>
+<generatorID>8DD960F2-ED07-E3DF-B2DE-8F95F75832B8</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="zkratka_fakulty" id="9C966A68-3563-0561-59DD-07C21A386062">
+<createdBy>selda</createdBy>
+<createdTime>2018-05-21 21:06:30 UTC</createdTime>
+<generatorID>CE2F9D9D-D6FC-7F61-1D66-6B12A72923CA</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>6 CHAR</dataTypeSize>
+<ownDataTypeParameters>6 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nazev_fakulty" id="21CBFADC-73BE-1BD6-CDC5-804B14C7C3B5">
+<createdBy>selda</createdBy>
+<createdTime>2018-05-21 21:06:30 UTC</createdTime>
+<generatorID>3D463074-3076-0E44-0C19-4E0697CBE0EA</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="92AAF4C1-0439-3F3D-6BB4-9D202D59747B" name="FAKULTA_PK">
+<createdBy>selda</createdBy>
+<createdTime>2018-05-21 21:06:30 UTC</createdTime>
+<generatorID>8746A085-F004-B702-FCE2-2FA00A2E36E7</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9C966A68-3563-0561-59DD-07C21A386062"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

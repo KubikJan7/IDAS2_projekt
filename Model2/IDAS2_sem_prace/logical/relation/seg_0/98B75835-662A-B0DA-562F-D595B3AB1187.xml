@@ -1,0 +1,21 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="rel_akce_vyuc" directorySegmentName="seg_0" id="98B75835-662A-B0DA-562F-D595B3AB1187">
+<createdBy>selda</createdBy>
+<createdTime>2018-05-11 18:42:02 UTC</createdTime>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<engineerTo>
+<item key="F519F19B-B3AC-BB9B-F944-9AEF40F0F693" value="true"/>
+</engineerTo>
+<targetPk>067D191E-08D1-85A9-1F69-FF5D6C8895B4</targetPk>
+<identifying>false</identifying>
+<nameOnSource>je vyučována</nameOnSource>
+<nameOnTarget>vyučuje</nameOnTarget>
+<optionalSource>false</optionalSource>
+<optionalTarget>true</optionalTarget>
+<sourceCardinality>*</sourceCardinality>
+<sourceEntity>B2ECE209-11F9-6AD2-D65D-D51E9160198E</sourceEntity>
+<targetCardinalityString>1</targetCardinalityString>
+<targetEntity>7F6E371C-31DC-11E3-BAA6-064D329D5E4A</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

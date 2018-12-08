@@ -1,0 +1,184 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="7F6E371C-31DC-11E3-BAA6-064D329D5E4A" name="UZIVATEL">
+<createdBy>st47137</createdBy>
+<createdTime>2018-02-26 12:03:59 UTC</createdTime>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<engineerTo>
+<item key="F519F19B-B3AC-BB9B-F944-9AEF40F0F693" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id_uzivatele" id="A70C47ED-976F-3840-7D68-051537A85935">
+<createdBy>st47137</createdBy>
+<createdTime>2018-02-26 12:27:51 UTC</createdTime>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<engineerTo>
+<item key="F519F19B-B3AC-BB9B-F944-9AEF40F0F693" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<ownDataTypeParameters>,6,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="uziv_jmeno" id="4BF030A9-8A50-3C98-EB22-C0BBF83249E4">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-04 23:22:28 UTC</createdTime>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<engineerTo>
+<item key="F519F19B-B3AC-BB9B-F944-9AEF40F0F693" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 CHAR</dataTypeSize>
+<ownDataTypeParameters>30 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="heslo" id="DCFD2A70-8014-A7F0-A08F-7CB95CADFBFB">
+<createdBy>Legol</createdBy>
+<createdTime>2018-12-03 11:17:34 UTC</createdTime>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<engineerTo>
+<item key="F519F19B-B3AC-BB9B-F944-9AEF40F0F693" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>45</dataTypeSize>
+<ownDataTypeParameters>45,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="jmeno" id="B19624C1-A8B8-944F-34EE-8EA4E213ABA6">
+<createdBy>st47137</createdBy>
+<createdTime>2018-02-26 12:28:06 UTC</createdTime>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<engineerTo>
+<item key="F519F19B-B3AC-BB9B-F944-9AEF40F0F693" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>40 CHAR</dataTypeSize>
+<ownDataTypeParameters>40 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="prijmeni" id="BB4D944C-5FAA-C3A2-15B9-6879DA3EB346">
+<createdBy>st47137</createdBy>
+<createdTime>2018-02-26 12:28:12 UTC</createdTime>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<engineerTo>
+<item key="F519F19B-B3AC-BB9B-F944-9AEF40F0F693" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>40 CHAR</dataTypeSize>
+<ownDataTypeParameters>40 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="titul_pred" id="639F0085-9667-00B1-7BBC-4A19BB604092">
+<createdBy>selda</createdBy>
+<createdTime>2018-05-11 16:10:28 UTC</createdTime>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<engineerTo>
+<item key="F519F19B-B3AC-BB9B-F944-9AEF40F0F693" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>15 CHAR</dataTypeSize>
+<ownDataTypeParameters>15 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="titul_za" id="499BA73E-3466-0ACC-966D-3D611C0EA207">
+<createdBy>selda</createdBy>
+<createdTime>2018-05-11 16:11:40 UTC</createdTime>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<engineerTo>
+<item key="F519F19B-B3AC-BB9B-F944-9AEF40F0F693" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>15 CHAR</dataTypeSize>
+<ownDataTypeParameters>15 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="email" id="3B46D70B-2C77-4F2C-7E74-6563982D9178">
+<createdBy>selda</createdBy>
+<createdTime>2018-05-13 15:26:40 UTC</createdTime>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<engineerTo>
+<item key="F519F19B-B3AC-BB9B-F944-9AEF40F0F693" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>70 CHAR</dataTypeSize>
+<ownDataTypeParameters>70 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="mobil" id="04764AE8-BF3D-E4F2-F6AD-F0043E496F87">
+<createdBy>selda</createdBy>
+<createdTime>2018-05-13 15:27:54 UTC</createdTime>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<engineerTo>
+<item key="F519F19B-B3AC-BB9B-F944-9AEF40F0F693" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>9 CHAR</dataTypeSize>
+<ownDataTypeParameters>9 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="telefon" id="A46B4646-80CF-1CCF-CB24-0B5084AB4E74">
+<createdBy>selda</createdBy>
+<createdTime>2018-05-13 15:28:19 UTC</createdTime>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<engineerTo>
+<item key="F519F19B-B3AC-BB9B-F944-9AEF40F0F693" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>13 CHAR</dataTypeSize>
+<ownDataTypeParameters>13 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="zkratka_katedry" id="76A5214F-491D-BA89-B979-2CF4C1DF997A">
+<createdBy>selda</createdBy>
+<createdTime>2018-05-11 18:51:38 UTC</createdTime>
+<generatorID>F975B9AB-2CFA-A413-5221-B6F885FA2F93</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<engineerTo>
+<item key="F519F19B-B3AC-BB9B-F944-9AEF40F0F693" value="true"/>
+</engineerTo>
+<referedAttribute>99DBF5B3-EF81-BB64-4182-60A6093B5DE7</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>6 CHAR</dataTypeSize>
+<ownDataTypeParameters>6 CHAR,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="067D191E-08D1-85A9-1F69-FF5D6C8895B4" name="VYUCUJICI PK">
+<createdBy>st47137</createdBy>
+<createdTime>2018-02-26 12:28:02 UTC</createdTime>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="F519F19B-B3AC-BB9B-F944-9AEF40F0F693" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>A70C47ED-976F-3840-7D68-051537A85935</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

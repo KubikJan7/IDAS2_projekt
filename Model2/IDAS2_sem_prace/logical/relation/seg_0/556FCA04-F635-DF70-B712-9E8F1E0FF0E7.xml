@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="rel_pred_plan" directorySegmentName="seg_0" id="556FCA04-F635-DF70-B712-9E8F1E0FF0E7">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-08 17:41:30 UTC</createdTime>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<engineerTo>
+<item key="F519F19B-B3AC-BB9B-F944-9AEF40F0F693" value="true"/>
+</engineerTo>
+<sourcePk>82D13520-B232-9F10-1DC3-611AAD01829D</sourcePk>
+<identifying>false</identifying>
+<nameOnSource>se skládá</nameOnSource>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>*</sourceCardinality>
+<sourceEntity>CB51A54A-93CD-4BF7-98F3-65A2AF2CDF8F</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>BDA78D18-F05C-FFFE-8BC0-E5DF0997B317</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

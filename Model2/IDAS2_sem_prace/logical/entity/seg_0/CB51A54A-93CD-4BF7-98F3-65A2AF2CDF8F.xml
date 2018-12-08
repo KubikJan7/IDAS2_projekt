@@ -1,0 +1,75 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="CB51A54A-93CD-4BF7-98F3-65A2AF2CDF8F" name="STUD_PLAN">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-08 17:27:49 UTC</createdTime>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<engineerTo>
+<item key="F519F19B-B3AC-BB9B-F944-9AEF40F0F693" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id_planu" id="4C9D3D6F-A4A7-B491-91C1-DB50900B3B12">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-08 17:28:08 UTC</createdTime>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<engineerTo>
+<item key="F519F19B-B3AC-BB9B-F944-9AEF40F0F693" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<ownDataTypeParameters>,6,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="verze" id="922246E8-98C4-73BE-18C1-82539399CF70">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-08 17:32:52 UTC</createdTime>
+<comment>rocnik pro ktery je studijni plan platny</comment>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<engineerTo>
+<item key="F519F19B-B3AC-BB9B-F944-9AEF40F0F693" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>4</dataTypePrecision>
+<ownDataTypeParameters>,4,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_oboru" id="593A0AE2-070E-3539-B532-28188DC31565">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-08 17:36:53 UTC</createdTime>
+<generatorID>07928C60-2BED-0E83-366C-F0315D30C67D</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<engineerTo>
+<item key="F519F19B-B3AC-BB9B-F944-9AEF40F0F693" value="true"/>
+</engineerTo>
+<referedAttribute>16288686-D97E-4E3F-214A-30EBF4BEB568</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>3</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="82D13520-B232-9F10-1DC3-611AAD01829D" name="STUD_PLAN PK">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-08 17:31:53 UTC</createdTime>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<engineerTo>
+<item key="F519F19B-B3AC-BB9B-F944-9AEF40F0F693" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>4C9D3D6F-A4A7-B491-91C1-DB50900B3B12</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

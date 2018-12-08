@@ -1,0 +1,55 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="AF30FEBA-28E1-28A0-C014-BB24750F041F" name="ROLE_UZIVATELE">
+<createdBy>Legol</createdBy>
+<createdTime>2018-12-02 22:16:45 UTC</createdTime>
+<generatorID>AED417F0-CEAD-8397-2428-66417EE99D9C</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_role" id="E5F8BD38-CF03-D717-FB05-93C8F1345B19">
+<createdBy>Legol</createdBy>
+<createdTime>2018-12-02 22:16:45 UTC</createdTime>
+<generatorID>38873ABC-8C3A-2396-F088-1BE646E10DEE</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nazev_role" id="E0E94E6C-1D8C-DF59-7083-7E43AEF873C3">
+<createdBy>Legol</createdBy>
+<createdTime>2018-12-02 22:16:45 UTC</createdTime>
+<generatorID>5B728462-5CA2-8216-815E-1959870819F2</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="38F9B024-A45D-4FA2-AAE1-7DE9885C3C68" name="ROLE_UZIVATELE_PKv1">
+<createdBy>Legol</createdBy>
+<createdTime>2018-12-02 23:37:07 UTC</createdTime>
+<generatorID>73AFFD00-6677-DEDC-1449-C567895FDB50</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E5F8BD38-CF03-D717-FB05-93C8F1345B19"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="2D4D5C53-7065-77F5-A86D-76A74747E64F" name="ROLE_UZIVATELE_PK">
+<createdBy>Legol</createdBy>
+<createdTime>2018-12-02 22:16:45 UTC</createdTime>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+</ind_PK_UK>
+</indexes>
+</Table>
