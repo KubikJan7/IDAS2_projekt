@@ -19,6 +19,7 @@ public class IDAS_semPrace_Selecky extends Application {
 
         Scene scene = new Scene(root);
         stage.setResizable(false);
+        stage.setTitle("Přihlášení do databáze");
         //stage.initStyle(StageStyle.UNDECORATED);
         stage.setScene(scene);
         stage.show();
