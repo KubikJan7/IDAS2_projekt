@@ -286,7 +286,7 @@ ALTER TABLE pred_v_planu
         REFERENCES semestr ( zkr_sem );
 
 ALTER TABLE pred_v_planu
-    ADD CONSTRAINT pred_v_planu_zp_zakonceni_fk FOREIGN KEY ( zpusob_zakonceni_zkr_zak )
+    ADD CONSTRAINT pred_v_planu_zpus_zakon_fk FOREIGN KEY ( zpusob_zakonceni_zkr_zak )
         REFERENCES zpusob_zakonceni ( zkr_zak );
 
 ALTER TABLE rel_uziv_role
