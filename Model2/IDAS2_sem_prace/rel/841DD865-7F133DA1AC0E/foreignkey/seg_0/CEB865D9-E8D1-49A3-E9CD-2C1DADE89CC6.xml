@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="CEB865D9-E8D1-49A3-E9CD-2C1DADE89CC6" containerWithKeyObject="BAB7CDD0-1412-DE41-5C64-47559BABFB33" localFKIndex="989C4201-3146-C9E7-1D46-4A893B84A2E2" name="ROZVRHOVA_AKCE_ZPUSOB_VYUKY_FK">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-09 18:50:00 UTC</createdTime>
+<generatorID>99BC091D-6939-FE38-0621-67E1704A9DEA</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<referredTableLongName>ZPUSOB_VYUKY</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>CDF2521E-9D79-11F1-AF39-2962B10594FB</referredTableID>
+<keyObject>1456CF99-13A8-4934-2762-03D0211E4AEE</keyObject>
+<referredKeyID>1456CF99-13A8-4934-2762-03D0211E4AEE</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>id_nazvu</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

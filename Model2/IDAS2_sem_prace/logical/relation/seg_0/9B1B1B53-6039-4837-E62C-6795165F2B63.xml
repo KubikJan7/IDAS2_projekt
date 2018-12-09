@@ -1,10 +1,10 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="rel_tyden_akce" directorySegmentName="seg_0" id="9B1B1B53-6039-4837-E62C-6795165F2B63">
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="tyden_akce" directorySegmentName="seg_0" id="9B1B1B53-6039-4837-E62C-6795165F2B63">
 <createdBy>selda</createdBy>
 <createdTime>2018-12-08 18:26:34 UTC</createdTime>
 <ownerDesignName>IDAS2_sem_prace</ownerDesignName>
 <engineerTo>
-<item key="F519F19B-B3AC-BB9B-F944-9AEF40F0F693" value="true"/>
+<item key="2D62FA37-432E-2B8E-0404-6282E34ADFA4" value="true"/>
 </engineerTo>
 <identifying>false</identifying>
 <optionalSource>true</optionalSource>

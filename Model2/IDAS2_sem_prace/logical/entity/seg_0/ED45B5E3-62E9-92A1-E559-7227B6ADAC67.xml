@@ -81,7 +81,7 @@
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
 <dataTypePrecision>2</dataTypePrecision>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<ownDataTypeParameters>,2,</ownDataTypeParameters>
 </Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
@@ -89,8 +89,9 @@
 <createdBy>selda</createdBy>
 <createdTime>2018-05-11 17:32:50 UTC</createdTime>
 <ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
 <engineerTo>
-<item key="F519F19B-B3AC-BB9B-F944-9AEF40F0F693" value="true"/>
+<item key="F519F19B-B3AC-BB9B-F944-9AEF40F0F693" value="false"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>

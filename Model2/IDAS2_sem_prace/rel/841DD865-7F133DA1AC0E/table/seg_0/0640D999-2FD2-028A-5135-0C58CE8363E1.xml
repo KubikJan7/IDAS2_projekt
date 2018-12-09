@@ -1,0 +1,51 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="0640D999-2FD2-028A-5135-0C58CE8363E1" name="SEMESTR">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-09 18:50:00 UTC</createdTime>
+<generatorID>AE832EFC-3859-39D5-999D-7799D8756B87</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="zkr_sem" id="EE52A963-AE31-40E8-10FF-3624800D9FD1">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-09 18:50:00 UTC</createdTime>
+<generatorID>9863BF38-E314-AFB0-C6B2-8972B1B89CA6</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>2 CHAR</dataTypeSize>
+<ownDataTypeParameters>2 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nazev" id="577096AC-8A4F-23E9-3556-BB8D54D533A5">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-09 18:50:00 UTC</createdTime>
+<comment>letni, zimni</comment>
+<generatorID>BECAAB51-082D-AB6B-C37C-F7A395C1D519</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 CHAR</dataTypeSize>
+<ownDataTypeParameters>30 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="239BD260-5068-71BA-44AA-C22E8508EB75" name="SEMESTR_PK">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-09 18:50:00 UTC</createdTime>
+<generatorID>5DD74550-5436-A18E-05E0-F87F6285682E</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="EE52A963-AE31-40E8-10FF-3624800D9FD1"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

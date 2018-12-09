@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="F940EB21-DAF1-F5B2-9AEF-83C1F42F374B" containerWithKeyObject="BAB7CDD0-1412-DE41-5C64-47559BABFB33" localFKIndex="253C0225-CE28-46C7-7455-69DD5A8ED632" name="ROZVRHOVA_AKCE_UZIVATEL_FK">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-09 18:50:00 UTC</createdTime>
+<generatorID>98B75835-662A-B0DA-562F-D595B3AB1187</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<referredTableLongName>UZIVATEL</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>7806AD24-1E29-16C1-67D7-736F76B6FCC0</referredTableID>
+<keyObject>6988E827-E48B-D84A-DD70-AC6C68743BC8</keyObject>
+<referredKeyID>6988E827-E48B-D84A-DD70-AC6C68743BC8</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>id_uzivatele</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>
