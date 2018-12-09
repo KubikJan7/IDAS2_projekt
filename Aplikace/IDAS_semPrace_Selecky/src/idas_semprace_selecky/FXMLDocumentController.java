@@ -45,7 +45,7 @@ public class FXMLDocumentController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         usernameField.setText("C##ST47137");
-        passwordField.setText("4500");
+        passwordField.setText("");
         loginBtn.setDisable(false);
     }
 
@@ -75,8 +75,8 @@ public class FXMLDocumentController implements Initializable {
             dh = new databaseHelper(usernameField.getText(), passwordField.getText());
             Stage stage = (Stage) loginBtn.getScene().getWindow();
             stage.close();
-            final FXMLLoader loader = new FXMLLoader(getClass().getResource("AppFXML.fxml"));
-            AppFXMLController contr = new AppFXMLController(dh);
+            final FXMLLoader loader = new FXMLLoader(getClass().getResource("LoginFXML.fxml"));
+            LoginFXMLController contr = new LoginFXMLController(dh);
             loader.setController(contr);
             final Parent root;
             try {
@@ -84,7 +84,7 @@ public class FXMLDocumentController implements Initializable {
                 final Scene scene = new Scene(root);
 
                 Stage stage2 = new Stage();
-                stage2.setTitle("Vysoká škola");
+                stage2.setTitle("Přihlášení uživatele");
                 stage2.setResizable(false);
                 stage2.initModality(Modality.APPLICATION_MODAL);
                 //stage.initStyle(StageStyle.UNDECORATED);
