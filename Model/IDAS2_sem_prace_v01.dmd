@@ -1,8 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="IDAS2_sem_prace_v01" id="5E3A132C-88CA-24E7-4DB3-2043648607B6" version="3.5">
-<createdBy>st47137</createdBy>
-<createdTime>2018-02-26 11:16:10 UTC</createdTime>
-<ownerDesignName>IDAS1_semestralni_prace</ownerDesignName>
-<capitalNames>false</capitalNames>
-<designId>5E3A132C-88CA-24E7-4DB3-2043648607B6</designId>
-</OSDM_Design>

@@ -1,0 +1,77 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="BE5D1202-87E6-2108-D919-CA6073CCF46F" name="tyden_akce">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-09 18:50:00 UTC</createdTime>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ROZVRHOVA_AKCE_id_akce" id="EC47C00E-ED71-C557-5CCA-A1F5CFC5BECC">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-09 18:50:00 UTC</createdTime>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="7712E453-EAF2-A8C8-817B-D9BCDBEEBEF7" referredColumn="8C66A65C-E65E-EAEE-C11E-4DC2798BE9D7"/>
+</associations>
+</Column>
+<Column name="TYDEN_id_tydne" id="EFD727D9-F725-DFE1-5728-D09FA2C10C25">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-09 18:50:00 UTC</createdTime>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="30C7E8E0-03AD-9B48-A287-8290C07B2379" referredColumn="7646BEC0-7AB4-48C8-83C6-2252412BB734"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="93EC3C77-C61B-973A-0247-7C51DE03AE19" name="tyden_akce_PK">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-09 18:50:00 UTC</createdTime>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="EC47C00E-ED71-C557-5CCA-A1F5CFC5BECC"/>
+<colUsage columnID="EFD727D9-F725-DFE1-5728-D09FA2C10C25"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="35B46FA2-227C-48B6-8380-3879D6E2E09E" name="tyden_akce_ROZVRHOVA_AKCE_FK">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-09 18:50:00 UTC</createdTime>
+<generatorID>9B1B1B53-6039-4837-E62C-6795165F2B63</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="EC47C00E-ED71-C557-5CCA-A1F5CFC5BECC"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="E18C59AD-42D7-FCE8-7AE5-ABDBFCB81CB8" name="tyden_akce_TYDEN_FK">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-09 18:50:00 UTC</createdTime>
+<generatorID>9B1B1B53-6039-4837-E62C-6795165F2B63</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="EFD727D9-F725-DFE1-5728-D09FA2C10C25"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

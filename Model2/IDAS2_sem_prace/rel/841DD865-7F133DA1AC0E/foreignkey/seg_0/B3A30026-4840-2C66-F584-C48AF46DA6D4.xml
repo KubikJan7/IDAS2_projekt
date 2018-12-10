@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="B3A30026-4840-2C66-F584-C48AF46DA6D4" containerWithKeyObject="DB8BE94B-D47A-CA5E-54A9-7D2D3E101F70" localFKIndex="353BB47B-CEA0-8906-469E-33B9F5933ED2" name="rel_uziv_role_ROLE_FK">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-09 18:50:00 UTC</createdTime>
+<generatorID>EBAE5F88-BC6A-4552-23AD-BD141805ED21</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<referredTableLongName>ROLE</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>6A72A72D-D23E-ACD7-55CB-A14558B5DE6F</referredTableID>
+<keyObject>F285A655-9F6B-2DDE-10C5-216EA1CA78C8</keyObject>
+<referredKeyID>F285A655-9F6B-2DDE-10C5-216EA1CA78C8</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>id_role</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

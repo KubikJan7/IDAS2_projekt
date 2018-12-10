@@ -1,0 +1,77 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="DB8BE94B-D47A-CA5E-54A9-7D2D3E101F70" name="rel_uziv_role">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-09 18:50:00 UTC</createdTime>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ROLE_id_role" id="DB6BE639-155F-30EB-BC4A-1DE021CDAF09">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-09 18:50:00 UTC</createdTime>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>3</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="B3A30026-4840-2C66-F584-C48AF46DA6D4" referredColumn="2BA28758-1600-039B-7757-AEE752805062"/>
+</associations>
+</Column>
+<Column name="UZIVATEL_id_uzivatele" id="E1C29900-E23B-AAA0-AA90-22069324641D">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-09 18:50:00 UTC</createdTime>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="F7D1514A-8F70-7B31-6F73-4087835A5DBB" referredColumn="C2F86790-4FE0-6B10-6BAE-A046336E26A1"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="1E683C91-C5CF-C1E8-7318-DBBA2519DC3C" name="rel_uziv_role_PK">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-09 18:50:00 UTC</createdTime>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="DB6BE639-155F-30EB-BC4A-1DE021CDAF09"/>
+<colUsage columnID="E1C29900-E23B-AAA0-AA90-22069324641D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="353BB47B-CEA0-8906-469E-33B9F5933ED2" name="rel_uziv_role_ROLE_FK">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-09 18:50:00 UTC</createdTime>
+<generatorID>EBAE5F88-BC6A-4552-23AD-BD141805ED21</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="DB6BE639-155F-30EB-BC4A-1DE021CDAF09"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="2EBEFA68-B9EA-B272-557C-DE1D65B3958F" name="rel_uziv_role_UZIVATEL_FK">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-09 18:50:00 UTC</createdTime>
+<generatorID>EBAE5F88-BC6A-4552-23AD-BD141805ED21</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E1C29900-E23B-AAA0-AA90-22069324641D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

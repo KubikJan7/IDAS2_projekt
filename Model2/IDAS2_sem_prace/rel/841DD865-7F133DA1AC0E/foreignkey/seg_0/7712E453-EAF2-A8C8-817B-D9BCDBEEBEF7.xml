@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="7712E453-EAF2-A8C8-817B-D9BCDBEEBEF7" containerWithKeyObject="BE5D1202-87E6-2108-D919-CA6073CCF46F" localFKIndex="35B46FA2-227C-48B6-8380-3879D6E2E09E" name="tyden_akce_ROZVRHOVA_AKCE_FK">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-09 18:50:00 UTC</createdTime>
+<generatorID>9B1B1B53-6039-4837-E62C-6795165F2B63</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<referredTableLongName>ROZVRHOVA_AKCE</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>BAB7CDD0-1412-DE41-5C64-47559BABFB33</referredTableID>
+<keyObject>386BFF97-DD33-C7D8-3195-0B6D7A4EAD23</keyObject>
+<referredKeyID>386BFF97-DD33-C7D8-3195-0B6D7A4EAD23</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>id_akce</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>
