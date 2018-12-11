@@ -1,0 +1,62 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="6DCE4F9F-960F-4713-A045-ECB620939135" name="PREDMET">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-11 21:55:37 UTC</createdTime>
+<generatorID>628ECFB7-32D8-87BE-F49A-CCE18A140D64</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_predmetu" id="28760F3B-E2AF-5A54-DC8B-5157EB683378">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-11 21:55:37 UTC</createdTime>
+<generatorID>E2DFDC84-C5B2-D20B-73F6-3BAEF150B97D</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<ownDataTypeParameters>,5,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nazev" id="6BBD6FE5-094D-C6B9-3F51-3418B8850D1B">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-11 21:55:37 UTC</createdTime>
+<generatorID>7DB2D88B-C964-C743-7B5E-DCC13523F8AF</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>50 CHAR</dataTypeSize>
+<ownDataTypeParameters>50 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="zkratka" id="6CDEB899-314F-6F3D-78AF-DB8EAF769C08">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-11 21:55:37 UTC</createdTime>
+<generatorID>E678BB6F-BC5E-02A5-CAA6-96F1CE55463D</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>10 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="FD736C1A-965C-9F5C-ED38-7E1E9FF2C66F" name="PREDMET_PK">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-11 21:55:37 UTC</createdTime>
+<generatorID>6AEF7C73-2A86-5100-BB16-9367B5D1A8CC</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="28760F3B-E2AF-5A54-DC8B-5157EB683378"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

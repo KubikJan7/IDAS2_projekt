@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="A8854AF1-85A0-B925-0007-CE878EA473CF" containerWithKeyObject="CFE4AABB-BA93-E7A6-1FFB-E1B82C069418" localFKIndex="AF80CDE1-4B8E-8E36-79CB-D355C69BB023" name="tyden_akce_TYDEN_FK">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-11 21:55:37 UTC</createdTime>
+<generatorID>9B1B1B53-6039-4837-E62C-6795165F2B63</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<referredTableLongName>TYDEN</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>BB2EDC0D-2718-A8AF-543C-006BB4F1E2C0</referredTableID>
+<keyObject>6F578F69-76ED-F08D-4E18-CD0F5338C5A2</keyObject>
+<referredKeyID>6F578F69-76ED-F08D-4E18-CD0F5338C5A2</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>id_tydne</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>
