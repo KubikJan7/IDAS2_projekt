@@ -103,10 +103,7 @@ ALTER TABLE pred_v_planu ADD CONSTRAINT pred_v_planu_pk PRIMARY KEY ( id_pred_pl
 CREATE TABLE predmet (
     id_predmetu   NUMBER(5) NOT NULL,
     nazev         NVARCHAR2(50) NOT NULL,
-    zkratka       NVARCHAR2(10) NOT NULL,
-    zkr_zak       CHAR(6 CHAR) NOT NULL,
-    id_formy      NUMBER(2) NOT NULL,
-    zkr_sem       CHAR(2 CHAR) NOT NULL
+    zkratka       NVARCHAR2(10) NOT NULL
 );
 
 ALTER TABLE predmet ADD CONSTRAINT predmet_pk PRIMARY KEY ( id_predmetu );
