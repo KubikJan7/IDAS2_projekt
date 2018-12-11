@@ -44,9 +44,7 @@ public class LoginFXMLController implements Initializable {
     @FXML
     private Button guestBtn;
 
-    /**
-     * Initializes the controller class.
-     */
+    // TODO Potřeba kompletně napsat proces přihlášení uživatele
     
     public LoginFXMLController(databaseHelper dh) {
         this.dh = dh;

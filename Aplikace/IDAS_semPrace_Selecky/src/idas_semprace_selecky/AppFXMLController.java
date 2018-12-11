@@ -57,6 +57,7 @@ public class AppFXMLController implements Initializable {
 
     private databaseHelper dh;
 
+    //Tabulka vyucujicich
     @FXML
     private TableView<Vyucujici> twVyucujici;
     @FXML
@@ -76,6 +77,9 @@ public class AppFXMLController implements Initializable {
     @FXML
     private TableColumn<Vyucujici, Integer> vyucTelCol;
 
+    // Formular vyucujiciho
+    // TODO Bude potřeba dodělat pole pro správu admina, uziv_jmeno a heslo .. 
+    // Možná také tlačítko a dialog pro zobrazení akcí vyučujícího
     @FXML
     private TextField titulPredField;
     @FXML
@@ -96,6 +100,8 @@ public class AppFXMLController implements Initializable {
     private Button upravitVyucBtn;
     @FXML
     private Button smazatVyucBtn;
+
+    // Tabulka pracovist
     @FXML
     private TableView<Pracoviste2> twPracoviste;
     @FXML
@@ -106,6 +112,8 @@ public class AppFXMLController implements Initializable {
     private TableColumn<Pracoviste2, String> zkratFakulCol;
     @FXML
     private TableColumn<Pracoviste2, String> nazevFakulCol;
+
+    // Formular pracoviste
     @FXML
     private Button pridatPracBtn;
     @FXML
@@ -125,13 +133,8 @@ public class AppFXMLController implements Initializable {
     @FXML
     private ComboBox<Fakulta> comboFakulta;
 
-    ArrayList<Fakulta> fakulty;
-    ObservableList<Vyucujici> vyucujici;
-    ObservableList<Pracoviste2> pracoviste;
-    ObservableList<Obor> obory;
-    ObservableList<Predmet> predmety;
-    ObservableList<Akce> akce;
-
+    // Tabulka oboru
+    // TODO nutno dodělat správnou posloupnost dialogů => Obor-->Studijní plán (výpis včetně přidávání)-->Předměty v plánu (výpis včetně přidávání)
     @FXML
     private TableView<Obor> twStudObory;
     @FXML
@@ -142,6 +145,8 @@ public class AppFXMLController implements Initializable {
     private TableColumn<Obor, String> nazStudOborCol;
     @FXML
     private TableColumn<Obor, String> infoStudOborCol;
+
+    // Formular oboru
     @FXML
     private TextField kodStObField;
     @FXML
@@ -152,6 +157,9 @@ public class AppFXMLController implements Initializable {
     private Button pridatStObBtn;
     @FXML
     private Button detOboruBtn;
+
+    // Formular predmetu
+    // TODO Předmět samotný nese nyní informaci pouze o názvu a zkatce, další info bude mít pouze v rámci studijního plánu
     @FXML
     private TextField zkrPredField;
     @FXML
@@ -166,6 +174,8 @@ public class AppFXMLController implements Initializable {
     private ComboBox<Semestr> comboSemPred;
     @FXML
     private ComboBox<Forma> comboFormPred;
+
+    // Tabulka predmetu
     @FXML
     private TableView<Predmet> twPredmety;
     @FXML
@@ -181,6 +191,8 @@ public class AppFXMLController implements Initializable {
     @FXML
     private TableColumn<Predmet, Forma> formaPredCol;
 
+    // Tabulka rozvrhovych akci
+    // TODO Karta rozvrhových akcí bude vypadat úplně jinak, pro uživatele pouze jeho akce a pro admina všechny akce s filtrem dle vyučujícího
     @FXML
     private TableView<Akce> twRA;
     @FXML
@@ -195,6 +207,8 @@ public class AppFXMLController implements Initializable {
     private TableColumn<Akce, Integer> rozsahAkceCol;
     @FXML
     private TableColumn<Akce, Integer> kapacitaAkceCol;
+
+    // Formular rozvrhove akce
     @FXML
     private ComboBox<Vyucujici> comboVyucujici;
     @FXML
@@ -207,6 +221,14 @@ public class AppFXMLController implements Initializable {
     private TextField rozsahRAField;
     @FXML
     private TextField kapacitaRAField;
+
+    // Kolekce dat pro jednotlive karty
+    ArrayList<Fakulta> fakulty;
+    ObservableList<Vyucujici> vyucujici;
+    ObservableList<Pracoviste2> pracoviste;
+    ObservableList<Obor> obory;
+    ObservableList<Predmet> predmety;
+    ObservableList<Akce> akce;
 
     public AppFXMLController(databaseHelper dh) {
         this.dh = dh;
@@ -225,6 +247,7 @@ public class AppFXMLController implements Initializable {
         vyucTelCol.setCellValueFactory(new PropertyValueFactory("telefon"));
         vyucPracCol.setCellValueFactory(new PropertyValueFactory("pracoviste"));
 
+        // Doplneni informaci do formulare pri vyberu z tabulky Vyucujicich
         twVyucujici.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Vyucujici>() {
             @Override
             public void changed(ObservableValue<? extends Vyucujici> observable, Vyucujici oldValue, Vyucujici newValue) {
@@ -265,6 +288,7 @@ public class AppFXMLController implements Initializable {
         zkratKatCol.setCellValueFactory(new PropertyValueFactory("zkratkaKat"));
         nazevKatCol.setCellValueFactory(new PropertyValueFactory("katedra"));
 
+        // Doplneni informaci do formulare pri vyberu z tabulky Pracovist
         twPracoviste.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Pracoviste2>() {
             @Override
             public void changed(ObservableValue<? extends Pracoviste2> observable, Pracoviste2 oldValue, Pracoviste2 newValue) {
@@ -300,6 +324,7 @@ public class AppFXMLController implements Initializable {
         infoStudOborCol.setCellValueFactory(new PropertyValueFactory("info"));
         idStudOborCol.setCellValueFactory(new PropertyValueFactory("id"));
 
+        // Doplneni informaci do formulare pri vyberu z tabulky Oborů
         twStudObory.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Obor>() {
             @Override
             public void changed(ObservableValue<? extends Obor> observable, Obor oldValue, Obor newValue) {
@@ -325,6 +350,7 @@ public class AppFXMLController implements Initializable {
         zakonPredCol.setCellValueFactory(new PropertyValueFactory<>("zakonceni"));
         formaPredCol.setCellValueFactory(new PropertyValueFactory<>("forma"));
 
+        // Doplnění informací do formuláře při výběru z tabulky Předměty
         twPredmety.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Predmet>() {
             @Override
             public void changed(ObservableValue<? extends Predmet> observable, Predmet oldValue, Predmet newValue) {
@@ -350,6 +376,7 @@ public class AppFXMLController implements Initializable {
         rozsahAkceCol.setCellValueFactory(new PropertyValueFactory<>("rozsah"));
         kapacitaAkceCol.setCellValueFactory(new PropertyValueFactory<>("kapacita"));
 
+        // Doplnění informací do formuláře při výběru z tabulky Rozvrhove akce
         twRA.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Akce>() {
             @Override
             public void changed(ObservableValue<? extends Akce> observable, Akce oldValue, Akce newValue) {
@@ -367,6 +394,7 @@ public class AppFXMLController implements Initializable {
 
     }
 
+    // Obnoví data v tabulce Pracovišť
     @FXML
     private void nactiPracoviste(MouseEvent event) {
         try {
@@ -376,6 +404,7 @@ public class AppFXMLController implements Initializable {
         }
     }
 
+    // Obnoví data v tabulce Vyučujících
     private void aktualizujVyucujici() {
         try {
             vyucujici = FXCollections.observableArrayList(dh.dejKartaVyucujici());
@@ -385,6 +414,7 @@ public class AppFXMLController implements Initializable {
         }
     }
 
+    // Obnoví data v tabulce Předmětů
     private void aktualizujPredmety() {
         try {
             predmety = FXCollections.observableArrayList(dh.dejKartaPredmety());
@@ -394,6 +424,7 @@ public class AppFXMLController implements Initializable {
         }
     }
 
+    // Obnoví data v tabulce Rorvhových akcí
     private void aktualizujRA() {
         try {
             akce = FXCollections.observableArrayList(dh.dejKartaAkce());
@@ -403,11 +434,27 @@ public class AppFXMLController implements Initializable {
         }
     }
 
-    @FXML
-    private void prepniKartaVyucujici(Event event) {
-        aktualizujVyucujici();
+    // Obnoví data v tabulce Pracovišť
+    private void aktualizujPracoviste() {
+        try {
+            pracoviste = FXCollections.observableArrayList(dh.dejKartaPracoviste());
+            twPracoviste.setItems(pracoviste);
+        } catch (SQLException ex) {
+            zobrazChybu(ex);
+        }
     }
 
+    // Obnoví data v tabulce Oborů
+    private void aktualizujObory() {
+        try {
+            obory = FXCollections.observableArrayList(dh.dejKartaObory());
+            twStudObory.setItems(obory);
+        } catch (SQLException ex) {
+            zobrazChybu(ex);
+        }
+    }
+
+    // Následují DML metody jednotlivých tabulek figurujících na kartách
     @FXML
     private void pridejVyucujiciho(ActionEvent event) {
         try {
@@ -457,7 +504,7 @@ public class AppFXMLController implements Initializable {
     }
 
     @FXML
-    private void smazVyucujiciho(ActionEvent event) {
+    private void odeberVyucujiciho(ActionEvent event) {
         Vyucujici vybranyVyuc = twVyucujici.getSelectionModel().getSelectedItem();
         if (vybranyVyuc != null) {
             try {
@@ -468,101 +515,6 @@ public class AppFXMLController implements Initializable {
                 zobrazChybu(ex);
             }
         }
-    }
-
-    private void zobrazChybu(Exception e) {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Chyba");
-        alert.setHeaderText("Chyba");
-        alert.setContentText(e.getLocalizedMessage());
-        DialogPane dp = alert.getDialogPane();
-        dp.getStylesheets().add(getClass().getResource("styl.css").toExternalForm());
-        alert.showAndWait();
-    }
-
-    private void zobrazChybu(String e) {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Chyba");
-        alert.setHeaderText("Chyba");
-        alert.setContentText(e);
-        DialogPane dp = alert.getDialogPane();
-        dp.getStylesheets().add(getClass().getResource("styl.css").toExternalForm());
-        alert.showAndWait();
-    }
-
-    private void vycistiFormularVyucujici() {
-        try {
-            pridatVyucBtn.setDisable(false);
-            comboPracovist.getItems().setAll(dh.dejKatedry());
-            titulPredField.setText("");
-            titulZaField.setText("");
-            jmenoField.setText("");
-            prijmeniField.setText("");
-            mobilField.setText("");
-            telField.setText("");
-            emailField.setText("");
-            comboPracovist.getSelectionModel().select(0);
-            twVyucujici.getSelectionModel().select(null);
-        } catch (SQLException ex) {
-            zobrazChybu(ex);
-        }
-    }
-
-    private void vycistiFormularPracoviste() {
-        try {
-            pridatPracBtn.setDisable(false);
-            zkrKatField.setDisable(false);
-            comboFakulta.getItems().setAll(dh.dejFakulty());
-            zkrKatField.setText("");
-            nazKatField.setText("");
-            comboPracovist.getSelectionModel().select(0);
-            twPracoviste.getSelectionModel().select(null);
-        } catch (SQLException ex) {
-            zobrazChybu(ex);
-        }
-    }
-
-    private void vycistiFormularOboru() {
-        pridatStObBtn.setDisable(false);
-        nazevStObField.setText("");
-        kodStObField.setText("");
-        infoStObArea.setText("");
-        twStudObory.getSelectionModel().select(null);
-    }
-
-    @FXML
-    private void vycistiFormularPredmetu() {
-        pridatPredBtn.setDisable(false);
-        nazPredField.setText("");
-        zkrPredField.setText("");
-        kredPredField.setText("");
-        comboSemPred.getSelectionModel().select(null);
-        comboZakonPred.getSelectionModel().select(null);
-        comboFormPred.getSelectionModel().select(null);
-        twPredmety.getSelectionModel().select(null);
-    }
-
-    private void aktualizujPracoviste() {
-        try {
-            pracoviste = FXCollections.observableArrayList(dh.dejKartaPracoviste());
-            twPracoviste.setItems(pracoviste);
-        } catch (SQLException ex) {
-            zobrazChybu(ex);
-        }
-    }
-
-    private void aktualizujObory() {
-        try {
-            obory = FXCollections.observableArrayList(dh.dejKartaObory());
-            twStudObory.setItems(obory);
-        } catch (SQLException ex) {
-            zobrazChybu(ex);
-        }
-    }
-
-    @FXML
-    private void vycistiVyucForm(ActionEvent event) {
-        vycistiFormularVyucujici();
     }
 
     @FXML
@@ -618,35 +570,6 @@ public class AppFXMLController implements Initializable {
     }
 
     @FXML
-    private void vycistiPracForm(ActionEvent event) {
-        vycistiFormularPracoviste();
-    }
-
-    @FXML
-    private void prepniKartaPracoviste(Event event) {
-        try {
-            fakulty = dh.dejFakulty();
-            aktualizujPracoviste();
-        } catch (SQLException ex) {
-            zobrazChybu(ex);
-        }
-    }
-
-    @FXML
-    private void prepniKartaStudObory(Event event) {
-        aktualizujObory();
-    }
-
-    @FXML
-    private void nactiComboFakulty(MouseEvent event) {
-        try {
-            comboFakulta.getItems().setAll(dh.dejFakulty());
-        } catch (SQLException ex) {
-            zobrazChybu(ex);
-        }
-    }
-
-    @FXML
     private void pridejStudObor(ActionEvent event) {
         try {
             if (!nazevStObField.getText().isEmpty()
@@ -698,44 +621,6 @@ public class AppFXMLController implements Initializable {
     }
 
     @FXML
-    private void vycistiFormStudObor(ActionEvent event) {
-        vycistiFormularOboru();
-    }
-
-    @FXML
-    private void ukazDetailOboru(ActionEvent event) {
-        //Stage stage = (Stage) detOboruBtn.getScene().getWindow();
-        final FXMLLoader loader = new FXMLLoader(getClass().getResource("DetailOboruFXML.fxml"));
-        Obor obor = twStudObory.getSelectionModel().getSelectedItem();
-        DetailOboruFXMLController contr = new DetailOboruFXMLController(dh, obor);
-        loader.setController(contr);
-        final Parent root;
-        try {
-            root = loader.load();
-            final Scene scene = new Scene(root);
-
-            Stage stage2 = new Stage();
-            stage2.setTitle(obor.getNazev());
-            stage2.setResizable(false);
-            stage2.initModality(Modality.APPLICATION_MODAL);
-            stage2.initOwner(detOboruBtn.getScene().getWindow());
-            stage2.setScene(scene);
-            stage2.show();
-        } catch (IOException ex) {
-            zobrazChybu(ex);
-        }
-    }
-
-    @FXML
-    private void nactiZpZakonceni(MouseEvent event) {
-        try {
-            comboZakonPred.getItems().setAll(dh.dejZpusobyZakon());
-        } catch (SQLException ex) {
-            zobrazChybu(ex);
-        }
-    }
-
-    @FXML
     private void pridejPredmet(ActionEvent event) {
         try {
             if (comboZakonPred.getSelectionModel().getSelectedItem() != null && comboSemPred.getSelectionModel().getSelectedItem() != null
@@ -749,24 +634,6 @@ public class AppFXMLController implements Initializable {
                 vycistiFormularPredmetu();
                 aktualizujPredmety();
             }
-        } catch (SQLException ex) {
-            zobrazChybu(ex);
-        }
-    }
-
-    @FXML
-    private void nactiSemestry(MouseEvent event) {
-        try {
-            comboSemPred.getItems().setAll(dh.dejSemestry());
-        } catch (SQLException ex) {
-            zobrazChybu(ex);
-        }
-    }
-
-    @FXML
-    private void nactiFormyVuky(MouseEvent event) {
-        try {
-            comboFormPred.getItems().setAll(dh.dejFormyVyuky());
         } catch (SQLException ex) {
             zobrazChybu(ex);
         }
@@ -806,46 +673,6 @@ public class AppFXMLController implements Initializable {
             } catch (SQLException ex) {
                 zobrazChybu(ex);
             }
-        }
-    }
-
-    private void vycistiFormularPredmetu(ActionEvent event) {
-        vycistiFormularPredmetu();
-    }
-
-    @FXML
-    private void prepniKartaPredmety(Event event) {
-        aktualizujPredmety();
-    }
-
-    @FXML
-    private void nactiVyucujici(MouseEvent event) {
-        try {
-            ArrayList<Vyucujici> vyuc = dh.dejKartaVyucujici();
-            vyuc.sort((Vyucujici o1, Vyucujici o2) -> o1.getPrijmeni().compareToIgnoreCase(o2.getPrijmeni()));
-            comboVyucujici.getItems().setAll(vyuc);
-        } catch (SQLException ex) {
-            zobrazChybu(ex);
-        }
-    }
-
-    @FXML
-    private void nactiTypAkce(MouseEvent event) {
-        try {
-            comboZpusAkce.getItems().setAll(dh.dejZpusobVyuky());
-        } catch (SQLException ex) {
-            zobrazChybu(ex);
-        }
-    }
-
-    @FXML
-    private void nactiPredmety(MouseEvent event) {
-        try {
-            ArrayList<Predmet> predm = dh.dejKartaPredmety();
-            predm.sort((Predmet o1, Predmet o2) -> o1.getNazev().compareToIgnoreCase(o2.getNazev()));
-            comboPredmet.getItems().setAll(predm);
-        } catch (SQLException ex) {
-            zobrazChybu(ex);
         }
     }
 
@@ -912,9 +739,15 @@ public class AppFXMLController implements Initializable {
         }
     }
 
+    // V podstatě listenery reagující na přepnutí karty
     @FXML
-    private void vycistiFormularRA(ActionEvent event) {
-        vycistiFormularAkce();
+    private void prepniKartaVyucujici(Event event) {
+        aktualizujVyucujici();
+    }
+
+    @FXML
+    private void prepniKartaPredmety(Event event) {
+        aktualizujPredmety();
     }
 
     @FXML
@@ -922,6 +755,201 @@ public class AppFXMLController implements Initializable {
         aktualizujRA();
     }
 
+    @FXML
+    private void prepniKartaPracoviste(Event event) {
+        try {
+            fakulty = dh.dejFakulty();
+            aktualizujPracoviste();
+        } catch (SQLException ex) {
+            zobrazChybu(ex);
+        }
+    }
+
+    @FXML
+    private void prepniKartaStudObory(Event event) {
+        aktualizujObory();
+    }
+
+    // Metody pro naplnění comboboxů z databáze
+    @FXML
+    private void nactiComboFakulty(MouseEvent event) {
+        try {
+            comboFakulta.getItems().setAll(dh.dejFakulty());
+        } catch (SQLException ex) {
+            zobrazChybu(ex);
+        }
+    }
+
+    @FXML
+    private void nactiZpZakonceni(MouseEvent event) {
+        try {
+            comboZakonPred.getItems().setAll(dh.dejZpusobyZakon());
+        } catch (SQLException ex) {
+            zobrazChybu(ex);
+        }
+    }
+
+    @FXML
+    private void nactiSemestry(MouseEvent event) {
+        try {
+            comboSemPred.getItems().setAll(dh.dejSemestry());
+        } catch (SQLException ex) {
+            zobrazChybu(ex);
+        }
+    }
+
+    @FXML
+    private void nactiFormyVuky(MouseEvent event) {
+        try {
+            comboFormPred.getItems().setAll(dh.dejFormyVyuky());
+        } catch (SQLException ex) {
+            zobrazChybu(ex);
+        }
+    }
+
+    @FXML
+    private void nactiVyucujici(MouseEvent event) {
+        try {
+            ArrayList<Vyucujici> vyuc = dh.dejKartaVyucujici();
+            vyuc.sort((Vyucujici o1, Vyucujici o2) -> o1.getPrijmeni().compareToIgnoreCase(o2.getPrijmeni()));
+            comboVyucujici.getItems().setAll(vyuc);
+        } catch (SQLException ex) {
+            zobrazChybu(ex);
+        }
+    }
+
+    @FXML
+    private void nactiTypAkce(MouseEvent event) {
+        try {
+            comboZpusAkce.getItems().setAll(dh.dejZpusobVyuky());
+        } catch (SQLException ex) {
+            zobrazChybu(ex);
+        }
+    }
+
+    @FXML
+    private void nactiPredmety(MouseEvent event) {
+        try {
+            ArrayList<Predmet> predm = dh.dejKartaPredmety();
+            predm.sort((Predmet o1, Predmet o2) -> o1.getNazev().compareToIgnoreCase(o2.getNazev()));
+            comboPredmet.getItems().setAll(predm);
+        } catch (SQLException ex) {
+            zobrazChybu(ex);
+        }
+    }
+
+    // Metody pro vyčištění polí formulářů
+    @FXML
+    private void vycistiPracForm(ActionEvent event) {
+        vycistiFormularPracoviste();
+    }
+
+    @FXML
+    private void vycistiFormularRA(ActionEvent event) {
+        vycistiFormularAkce();
+    }
+
+    private void vycistiFormularPredmetu(ActionEvent event) {
+        vycistiFormularPredmetu();
+    }
+
+    @FXML
+    private void vycistiFormStudObor(ActionEvent event) {
+        vycistiFormularOboru();
+    }
+
+    private void vycistiFormularVyucujici() {
+        try {
+            pridatVyucBtn.setDisable(false);
+            comboPracovist.getItems().setAll(dh.dejKatedry());
+            titulPredField.setText("");
+            titulZaField.setText("");
+            jmenoField.setText("");
+            prijmeniField.setText("");
+            mobilField.setText("");
+            telField.setText("");
+            emailField.setText("");
+            comboPracovist.getSelectionModel().select(0);
+            twVyucujici.getSelectionModel().select(null);
+        } catch (SQLException ex) {
+            zobrazChybu(ex);
+        }
+    }
+
+    private void vycistiFormularPracoviste() {
+        try {
+            pridatPracBtn.setDisable(false);
+            zkrKatField.setDisable(false);
+            comboFakulta.getItems().setAll(dh.dejFakulty());
+            zkrKatField.setText("");
+            nazKatField.setText("");
+            comboPracovist.getSelectionModel().select(0);
+            twPracoviste.getSelectionModel().select(null);
+        } catch (SQLException ex) {
+            zobrazChybu(ex);
+        }
+    }
+
+    private void vycistiFormularOboru() {
+        pridatStObBtn.setDisable(false);
+        nazevStObField.setText("");
+        kodStObField.setText("");
+        infoStObArea.setText("");
+        twStudObory.getSelectionModel().select(null);
+    }
+
+    @FXML
+    private void vycistiFormularPredmetu() {
+        pridatPredBtn.setDisable(false);
+        nazPredField.setText("");
+        zkrPredField.setText("");
+        kredPredField.setText("");
+        comboSemPred.getSelectionModel().select(null);
+        comboZakonPred.getSelectionModel().select(null);
+        comboFormPred.getSelectionModel().select(null);
+        twPredmety.getSelectionModel().select(null);
+    }
+
+    @FXML
+    private void vycistiVyucForm(ActionEvent event) {
+        vycistiFormularVyucujici();
+    }
+
+    private void vycistiFormularAkce() {
+        pridatRABtn.setDisable(false);
+        rozsahRAField.setText("");
+        kapacitaRAField.setText("");
+        comboPredmet.getSelectionModel().select(null);
+        comboVyucujici.getSelectionModel().select(null);
+        comboZpusAkce.getSelectionModel().select(null);
+    }
+
+    // Otevření okna detailu oboru
+    @FXML
+    private void ukazDetailOboru(ActionEvent event) {
+        //Stage stage = (Stage) detOboruBtn.getScene().getWindow();
+        final FXMLLoader loader = new FXMLLoader(getClass().getResource("DetailOboruFXML.fxml"));
+        Obor obor = twStudObory.getSelectionModel().getSelectedItem();
+        DetailOboruFXMLController contr = new DetailOboruFXMLController(dh, obor);
+        loader.setController(contr);
+        final Parent root;
+        try {
+            root = loader.load();
+            final Scene scene = new Scene(root);
+
+            Stage stage2 = new Stage();
+            stage2.setTitle(obor.getNazev());
+            stage2.setResizable(false);
+            stage2.initModality(Modality.APPLICATION_MODAL);
+            stage2.initOwner(detOboruBtn.getScene().getWindow());
+            stage2.setScene(scene);
+            stage2.show();
+        } catch (IOException ex) {
+            zobrazChybu(ex);
+        }
+    }
+
+    // Ostatní metody
     private boolean isNumeric(String text) throws NumberFormatException {
         try {
             int num = Integer.parseInt(text);
@@ -932,12 +960,23 @@ public class AppFXMLController implements Initializable {
         return true;
     }
 
-    private void vycistiFormularAkce() {
-        pridatRABtn.setDisable(false);
-        rozsahRAField.setText("");
-        kapacitaRAField.setText("");
-        comboPredmet.getSelectionModel().select(null);
-        comboVyucujici.getSelectionModel().select(null);
-        comboZpusAkce.getSelectionModel().select(null);
+    private void zobrazChybu(Exception e) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Chyba");
+        alert.setHeaderText("Chyba");
+        alert.setContentText(e.getLocalizedMessage());
+        DialogPane dp = alert.getDialogPane();
+        dp.getStylesheets().add(getClass().getResource("styl.css").toExternalForm());
+        alert.showAndWait();
+    }
+
+    private void zobrazChybu(String e) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Chyba");
+        alert.setHeaderText("Chyba");
+        alert.setContentText(e);
+        DialogPane dp = alert.getDialogPane();
+        dp.getStylesheets().add(getClass().getResource("styl.css").toExternalForm());
+        alert.showAndWait();
     }
 }
