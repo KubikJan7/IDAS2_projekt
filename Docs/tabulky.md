@@ -85,7 +85,6 @@ CREATE TABLE pred_v_planu (
     id_pred_planu              NUMBER(6) NOT NULL,
     kredity                    NUMBER(2) NOT NULL,
     dop_rocnik                 NUMBER(1),
-    id_oboru                   NUMBER(3) NOT NULL,
     kat_predmetu_zkr_kat       CHAR(1 CHAR) NOT NULL,
     predmet_id_predmetu        NUMBER(5) NOT NULL,
     zpusob_zakonceni_zkr_zak   CHAR(6 CHAR) NOT NULL,
@@ -107,17 +106,6 @@ CREATE TABLE predmet (
 );
 
 ALTER TABLE predmet ADD CONSTRAINT predmet_pk PRIMARY KEY ( id_predmetu );
-```
-
-## Rel_uziv_role
-```sql
-CREATE TABLE rel_uziv_role (
-    role_id_role            NUMBER(3) NOT NULL,
-    uzivatel_id_uzivatele   NUMBER(6) NOT NULL
-);
-
-ALTER TABLE rel_uziv_role ADD CONSTRAINT rel_uziv_role_pk PRIMARY KEY ( role_id_role,
-uzivatel_id_uzivatele );
 ```
 
 ## Role
@@ -226,7 +214,8 @@ CREATE TABLE uzivatel (
     email                     VARCHAR2(70 CHAR),
     mobil                     CHAR(9 CHAR),
     telefon                   CHAR(13 CHAR),
-    katedra_zkratka_katedry   CHAR(6 CHAR) NOT NULL
+    katedra_zkratka_katedry   CHAR(6 CHAR) NOT NULL,
+    role_id_role              NUMBER(3) NOT NULL
 );
 
 ALTER TABLE uzivatel ADD CONSTRAINT uzivatel_pk PRIMARY KEY ( id_uzivatele );
@@ -286,14 +275,6 @@ ALTER TABLE pred_v_planu
     ADD CONSTRAINT pred_v_planu_zpus_zakon_fk FOREIGN KEY ( zpusob_zakonceni_zkr_zak )
         REFERENCES zpusob_zakonceni ( zkr_zak );
 
-ALTER TABLE rel_uziv_role
-    ADD CONSTRAINT rel_uziv_role_role_fk FOREIGN KEY ( role_id_role )
-        REFERENCES role ( id_role );
-
-ALTER TABLE rel_uziv_role
-    ADD CONSTRAINT rel_uziv_role_uzivatel_fk FOREIGN KEY ( uzivatel_id_uzivatele )
-        REFERENCES uzivatel ( id_uzivatele );
-
 ALTER TABLE rozvrhova_akce
     ADD CONSTRAINT rozvrhova_akce_den_fk FOREIGN KEY ( den_id_dne )
         REFERENCES den ( id_dne );
@@ -333,4 +314,8 @@ ALTER TABLE tyden_akce
 ALTER TABLE uzivatel
     ADD CONSTRAINT uzivatel_katedra_fk FOREIGN KEY ( katedra_zkratka_katedry )
         REFERENCES katedra ( zkratka_katedry );
+
+ALTER TABLE uzivatel
+    ADD CONSTRAINT uzivatel_role_fk FOREIGN KEY ( role_id_role )
+        REFERENCES role ( id_role );
 ```
