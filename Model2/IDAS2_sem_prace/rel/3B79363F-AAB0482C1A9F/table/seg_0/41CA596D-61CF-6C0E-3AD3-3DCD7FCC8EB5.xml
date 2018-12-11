@@ -1,0 +1,51 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="41CA596D-61CF-6C0E-3AD3-3DCD7FCC8EB5" name="ZPUSOB_VYUKY">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-10 23:57:02 UTC</createdTime>
+<generatorID>848CEEE8-250B-8933-F200-3550D365B41D</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_nazvu" id="F76A3557-D615-061A-297B-FE4DA540462F">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-10 23:57:02 UTC</createdTime>
+<generatorID>D472B723-A87D-2F25-965F-AFCFE428A7A6</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<ownDataTypeParameters>,6,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nazev" id="214AD70D-1276-7278-D854-7F1B51B2F519">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-10 23:57:02 UTC</createdTime>
+<comment>cviceni, prednaska ..</comment>
+<generatorID>B5D63866-74E6-C6A7-12EA-1EC0188A33CE</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>30 CHAR</dataTypeSize>
+<ownDataTypeParameters>30 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="46E83E34-C991-608D-00A2-B5C1427E9170" name="ZPUSOB_VYUKY_PK">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-10 23:57:02 UTC</createdTime>
+<generatorID>E2799D1B-4251-313A-C1A4-98808637748D</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F76A3557-D615-061A-297B-FE4DA540462F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,132 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="2B481F2B-C3F8-4654-6EDC-CDD0D7464B42" name="OBRAZEK">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-10 23:57:02 UTC</createdTime>
+<generatorID>B64401ED-5C0B-71A1-C17E-6DC8899DCFD3</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_souboru" id="EA513BB6-9DA0-E8D6-B8EE-A9F12BCB9765">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-10 23:57:02 UTC</createdTime>
+<generatorID>4E9C706B-974F-98B5-83B2-900EEE7AAE39</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nazev" id="28C42385-309E-DE93-35B7-47E00CE1192C">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-10 23:57:02 UTC</createdTime>
+<generatorID>5C05FB3D-AF32-143D-CBFE-E5FB887FFD73</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>45</dataTypeSize>
+<ownDataTypeParameters>45,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="pripona" id="67E6ADF7-B016-0585-CE75-0994AC6DF38E">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-10 23:57:02 UTC</createdTime>
+<generatorID>0A42AFC3-06BA-AF10-61EE-590E83A0A351</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>5</dataTypeSize>
+<ownDataTypeParameters>5,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="obsah" id="C07508FB-7A0A-D69C-81D0-E9E6DBC990D6">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-10 23:57:02 UTC</createdTime>
+<generatorID>8DA62EC5-BA0B-0D14-8F58-8550DA52000C</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT029</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="vytvoreno" id="43806731-A225-709D-1EFD-3EB7C4D3FF60">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-10 23:57:02 UTC</createdTime>
+<generatorID>5E56A338-EA99-C9CA-85DC-3D41E805607D</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="modifikace" id="7C773D38-C43F-5ACA-7E4E-24E0FD5A10ED">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-10 23:57:02 UTC</createdTime>
+<generatorID>723406C4-6BF3-4684-23A1-1D067A0CAD44</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="UZIVATEL_id_uzivatele" id="0AF3E4AC-7E53-4B18-D864-45A11689E8B1">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-10 23:57:02 UTC</createdTime>
+<generatorID>A262BD9B-FD65-F743-B526-8A460D07B340</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="74B5E33E-6543-6517-E376-0F29CB29A057" referredColumn="1BBC1E51-373B-E999-1ED6-3006AC390151"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="FFAC2504-F40A-7E2A-6B39-01FC6566C114" name="OBRAZEK_PK">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-10 23:57:02 UTC</createdTime>
+<generatorID>D9E59095-02BC-BD1D-9458-97471D7B744A</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="EA513BB6-9DA0-E8D6-B8EE-A9F12BCB9765"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="9835A9D0-EFB2-4225-DAB6-6FB1CDCAF058" name="OBRAZEK__IDX">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-10 23:57:03 UTC</createdTime>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<relationGeneratorID>C3C6F317-11AF-50D4-7252-43EA7655A2A7</relationGeneratorID>
+<indexColumnUsage>
+<colUsage columnID="0AF3E4AC-7E53-4B18-D864-45A11689E8B1"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="8ECD9160-B4FA-6D81-1A8F-D37E58469F3A" name="OBRAZEK_UZIVATEL_FK">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-10 23:57:03 UTC</createdTime>
+<generatorID>C3C6F317-11AF-50D4-7252-43EA7655A2A7</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0AF3E4AC-7E53-4B18-D864-45A11689E8B1"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

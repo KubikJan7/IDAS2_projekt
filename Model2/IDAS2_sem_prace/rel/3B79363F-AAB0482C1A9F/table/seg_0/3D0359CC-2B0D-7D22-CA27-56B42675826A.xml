@@ -1,0 +1,194 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="3D0359CC-2B0D-7D22-CA27-56B42675826A" name="PRED_V_PLANU">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-10 23:57:02 UTC</createdTime>
+<generatorID>BDA78D18-F05C-FFFE-8BC0-E5DF0997B317</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_pred_planu" id="637F0320-4A74-2CB7-4373-B46BD49EB568">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-10 23:57:02 UTC</createdTime>
+<generatorID>385819E0-E9CA-150F-FB9F-4F66BFD5F30F</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<ownDataTypeParameters>,6,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="kredity" id="6F5FB357-0EED-DB19-65C9-F496B7997289">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-10 23:57:02 UTC</createdTime>
+<generatorID>650C21F1-501A-4F9E-F90C-FDDC7AE164D1</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<ownDataTypeParameters>,2,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="dop_rocnik" id="CDA1DC62-91F8-91D0-91C9-D03CEF119DC1">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-10 23:57:02 UTC</createdTime>
+<generatorID>C7D12885-471D-22F9-442F-76A9C2077B47</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>1</dataTypePrecision>
+<ownDataTypeParameters>,1,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="id_oboru" id="D9FA3E43-B72D-E21D-A2B7-5090CC719824">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-10 23:57:02 UTC</createdTime>
+<generatorID>8EA5B17E-B946-39E8-AC05-3153973274CF</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>3</dataTypePrecision>
+<ownDataTypeParameters>,3,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="KAT_PREDMETU_zkr_kat" id="E5B4D0D9-634A-3088-1435-AD134F2828FB">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-10 23:57:02 UTC</createdTime>
+<generatorID>D110D577-3563-2CFF-A2E7-64E08ADF47A9</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="D1E808AC-B5FD-5228-D364-971C594ECDAD" referredColumn="CE388C57-9C9C-6420-DE9D-933B56FFA34A"/>
+</associations>
+</Column>
+<Column name="PREDMET_id_predmetu" id="9E42B67A-9EF7-E67D-3890-54BB3CAFFE19">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-10 23:57:02 UTC</createdTime>
+<generatorID>50BDA671-2F06-8002-9F1A-146F52E9455F</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="494B876A-AA07-613B-A456-1DF82DF040B0" referredColumn="4AB31347-554E-3EC6-2F75-91B1A89E2108"/>
+</associations>
+</Column>
+<Column name="ZPUSOB_ZAKONCENI_zkr_zak" id="3850A081-6AC1-7F03-D6BD-AFBEC251CA7D">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-10 23:57:02 UTC</createdTime>
+<generatorID>A9B6FDB8-2135-665D-ABF0-23B646FBC8D5</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>6 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="3FD6B312-9C89-3B73-F3F5-CDC055C74CE9" referredColumn="34595621-E7DA-49D4-EFF7-DBC3B785EB54"/>
+</associations>
+</Column>
+<Column name="SEMESTR_zkr_sem" id="E67D931A-DB75-E55D-501A-0CD1D26C4D6E">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-10 23:57:02 UTC</createdTime>
+<generatorID>9929D3FD-FBE8-05F0-60C7-C0CA55640279</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>2 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="712299FD-982B-A55D-EC46-E8831999B92F" referredColumn="C5FDAE89-97C1-186A-86EA-6F8D20699D29"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="9BED1433-563D-0ECE-FFE1-E7D423FB7D24" name="PRED_V_PLANU_PK">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-10 23:57:02 UTC</createdTime>
+<generatorID>A08B2FE8-DFB4-9203-B954-A43F884A2022</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="637F0320-4A74-2CB7-4373-B46BD49EB568"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="01B15085-368E-0355-9CBE-0FA9550EE794" name="PRED_V_PLANU__IDX">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-10 23:57:02 UTC</createdTime>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<relationGeneratorID>A2C551DB-7435-4295-BCA0-E4E84439545C</relationGeneratorID>
+<indexColumnUsage>
+<colUsage columnID="9E42B67A-9EF7-E67D-3890-54BB3CAFFE19"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="6B9E7A10-E5F9-29F8-76AE-AD944198D25E" name="PRED_V_PLANU_KAT_PREDMETU_FK">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-10 23:57:02 UTC</createdTime>
+<generatorID>5E04C1A8-77A9-7982-C053-CA3661A6E65C</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E5B4D0D9-634A-3088-1435-AD134F2828FB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="9C26767F-D9CA-43ED-670F-530B13AC7BA1" name="PRED_V_PLANU_PREDMET_FK">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-10 23:57:02 UTC</createdTime>
+<generatorID>A2C551DB-7435-4295-BCA0-E4E84439545C</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9E42B67A-9EF7-E67D-3890-54BB3CAFFE19"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D8C290A8-854D-9C03-768B-976B8A057A66" name="PRED_V_PLANU_SEMESTR_FK">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-10 23:57:02 UTC</createdTime>
+<generatorID>CC2315F0-7025-7ECE-1941-99A77E45ABC9</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E67D931A-DB75-E55D-501A-0CD1D26C4D6E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="17655B3E-0F2A-A994-6B02-5ED078BD19DC" name="PRED_V_PLANU_ZPUS_ZAKON_FK">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-10 23:57:03 UTC</createdTime>
+<generatorID>2C45CCAD-8DC4-00B3-1003-39BDE814E601</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3850A081-6AC1-7F03-D6BD-AFBEC251CA7D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
