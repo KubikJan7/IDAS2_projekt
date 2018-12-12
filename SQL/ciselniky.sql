@@ -111,3 +111,18 @@ BEGIN
   INTO :new.id_predmetu
   FROM dual;
 END;
+
+/*Sekvence a trigger predmetu*/
+CREATE SEQUENCE UCEBNA_SEQ
+ START WITH 1
+ INCREMENT BY 1;
+ 
+ CREATE OR REPLACE TRIGGER TRIG_UCEBNA
+BEFORE INSERT ON UCEBNA
+FOR EACH ROW
+  WHEN (new.id_ucebny IS NULL)
+BEGIN
+  SELECT ucebna_SEQ.NEXTVAL
+  INTO :new.id_ucebny
+  FROM dual;
+END;
