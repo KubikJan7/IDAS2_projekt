@@ -186,3 +186,18 @@ BEGIN
   INTO :new.id_pred_planu
   FROM dual;
 END;
+
+/*Sekvence a trigger Rozvrhova_Akce*/
+CREATE SEQUENCE rozvrhova_akce_SEQ 
+ START WITH 1 
+ INCREMENT BY 1;
+ 
+ CREATE OR REPLACE TRIGGER TRIG_rozvrhova_akce
+BEFORE INSERT ON rozvrhova_akce
+FOR EACH ROW
+ WHEN (new.id_akce IS NULL) 
+BEGIN
+  SELECT rozvrhova_akce_SEQ.NEXTVAL
+  INTO :new.id_akce
+  FROM dual;
+END;
