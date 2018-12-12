@@ -4,7 +4,7 @@
 <createdTime>2018-02-26 12:03:59 UTC</createdTime>
 <ownerDesignName>IDAS2_sem_prace</ownerDesignName>
 <engineerTo>
-<item key="3B79363F-21D3-3D48-5A3C-AAB0482C1A9F" value="true"/>
+<item key="ABA0F35A-2D4C-82BC-51AF-73615E597CF3" value="true"/>
 </engineerTo>
 <adequatelyNormalized>NO</adequatelyNormalized>
 <expectedVolumes>0</expectedVolumes>
@@ -20,7 +20,7 @@
 <createdTime>2018-02-26 12:27:51 UTC</createdTime>
 <ownerDesignName>IDAS2_sem_prace</ownerDesignName>
 <engineerTo>
-<item key="3B79363F-21D3-3D48-5A3C-AAB0482C1A9F" value="true"/>
+<item key="ABA0F35A-2D4C-82BC-51AF-73615E597CF3" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -28,38 +28,12 @@
 <dataTypePrecision>6</dataTypePrecision>
 <ownDataTypeParameters>,6,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="uziv_jmeno" id="4BF030A9-8A50-3C98-EB22-C0BBF83249E4">
-<createdBy>selda</createdBy>
-<createdTime>2018-12-04 23:22:28 UTC</createdTime>
-<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
-<engineerTo>
-<item key="3B79363F-21D3-3D48-5A3C-AAB0482C1A9F" value="true"/>
-</engineerTo>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>30 CHAR</dataTypeSize>
-<ownDataTypeParameters>30 CHAR,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="heslo" id="DCFD2A70-8014-A7F0-A08F-7CB95CADFBFB">
-<createdBy>Legol</createdBy>
-<createdTime>2018-12-03 11:17:34 UTC</createdTime>
-<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
-<engineerTo>
-<item key="3B79363F-21D3-3D48-5A3C-AAB0482C1A9F" value="true"/>
-</engineerTo>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>45</dataTypeSize>
-<ownDataTypeParameters>45,,</ownDataTypeParameters>
-</Attribute>
 <Attribute name="jmeno" id="B19624C1-A8B8-944F-34EE-8EA4E213ABA6">
 <createdBy>st47137</createdBy>
 <createdTime>2018-02-26 12:28:06 UTC</createdTime>
 <ownerDesignName>IDAS2_sem_prace</ownerDesignName>
 <engineerTo>
-<item key="3B79363F-21D3-3D48-5A3C-AAB0482C1A9F" value="true"/>
+<item key="ABA0F35A-2D4C-82BC-51AF-73615E597CF3" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -72,7 +46,7 @@
 <createdTime>2018-02-26 12:28:12 UTC</createdTime>
 <ownerDesignName>IDAS2_sem_prace</ownerDesignName>
 <engineerTo>
-<item key="3B79363F-21D3-3D48-5A3C-AAB0482C1A9F" value="true"/>
+<item key="ABA0F35A-2D4C-82BC-51AF-73615E597CF3" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -85,7 +59,7 @@
 <createdTime>2018-05-11 16:10:28 UTC</createdTime>
 <ownerDesignName>IDAS2_sem_prace</ownerDesignName>
 <engineerTo>
-<item key="3B79363F-21D3-3D48-5A3C-AAB0482C1A9F" value="true"/>
+<item key="ABA0F35A-2D4C-82BC-51AF-73615E597CF3" value="true"/>
 </engineerTo>
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
@@ -99,7 +73,7 @@
 <createdTime>2018-05-11 16:11:40 UTC</createdTime>
 <ownerDesignName>IDAS2_sem_prace</ownerDesignName>
 <engineerTo>
-<item key="3B79363F-21D3-3D48-5A3C-AAB0482C1A9F" value="true"/>
+<item key="ABA0F35A-2D4C-82BC-51AF-73615E597CF3" value="true"/>
 </engineerTo>
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
@@ -113,7 +87,7 @@
 <createdTime>2018-05-13 15:26:40 UTC</createdTime>
 <ownerDesignName>IDAS2_sem_prace</ownerDesignName>
 <engineerTo>
-<item key="3B79363F-21D3-3D48-5A3C-AAB0482C1A9F" value="true"/>
+<item key="ABA0F35A-2D4C-82BC-51AF-73615E597CF3" value="true"/>
 </engineerTo>
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
@@ -127,7 +101,7 @@
 <createdTime>2018-05-13 15:27:54 UTC</createdTime>
 <ownerDesignName>IDAS2_sem_prace</ownerDesignName>
 <engineerTo>
-<item key="3B79363F-21D3-3D48-5A3C-AAB0482C1A9F" value="true"/>
+<item key="ABA0F35A-2D4C-82BC-51AF-73615E597CF3" value="true"/>
 </engineerTo>
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
@@ -141,7 +115,7 @@
 <createdTime>2018-05-13 15:28:19 UTC</createdTime>
 <ownerDesignName>IDAS2_sem_prace</ownerDesignName>
 <engineerTo>
-<item key="3B79363F-21D3-3D48-5A3C-AAB0482C1A9F" value="true"/>
+<item key="ABA0F35A-2D4C-82BC-51AF-73615E597CF3" value="true"/>
 </engineerTo>
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
@@ -156,7 +130,7 @@
 <generatorID>F975B9AB-2CFA-A413-5221-B6F885FA2F93</generatorID>
 <ownerDesignName>IDAS2_sem_prace</ownerDesignName>
 <engineerTo>
-<item key="3B79363F-21D3-3D48-5A3C-AAB0482C1A9F" value="true"/>
+<item key="ABA0F35A-2D4C-82BC-51AF-73615E597CF3" value="true"/>
 </engineerTo>
 <referedAttribute>99DBF5B3-EF81-BB64-4182-60A6093B5DE7</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
@@ -171,14 +145,14 @@
 <generatorID>EBAE5F88-BC6A-4552-23AD-BD141805ED21</generatorID>
 <ownerDesignName>IDAS2_sem_prace</ownerDesignName>
 <engineerTo>
-<item key="3B79363F-21D3-3D48-5A3C-AAB0482C1A9F" value="true"/>
+<item key="ABA0F35A-2D4C-82BC-51AF-73615E597CF3" value="true"/>
 </engineerTo>
 <referedAttribute>38873ABC-8C3A-2396-F088-1BE646E10DEE</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
 <dataTypePrecision>3</dataTypePrecision>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<ownDataTypeParameters>,3,</ownDataTypeParameters>
 </Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
@@ -187,7 +161,7 @@
 <createdTime>2018-02-26 12:28:02 UTC</createdTime>
 <ownerDesignName>IDAS2_sem_prace</ownerDesignName>
 <engineerTo>
-<item key="3B79363F-21D3-3D48-5A3C-AAB0482C1A9F" value="true"/>
+<item key="ABA0F35A-2D4C-82BC-51AF-73615E597CF3" value="true"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>

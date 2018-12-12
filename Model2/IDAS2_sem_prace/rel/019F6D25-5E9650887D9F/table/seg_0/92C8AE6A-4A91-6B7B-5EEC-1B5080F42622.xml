@@ -1,0 +1,50 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="92C8AE6A-4A91-6B7B-5EEC-1B5080F42622" name="TYDEN">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-12 00:18:36 UTC</createdTime>
+<generatorID>5055C4A9-E8CE-76BF-8B20-C6137023D3FE</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_tydne" id="E00CE9B3-760D-BDA5-B880-4C0A84F1F22B">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-12 00:18:36 UTC</createdTime>
+<generatorID>CB06BDAB-8D50-B47B-D16C-7B71AB6712EF</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<ownDataTypeParameters>,2,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nazev" id="F9472396-C664-1780-58A9-082D070675BA">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-12 00:18:36 UTC</createdTime>
+<generatorID>B1651B18-D264-DBCA-CB91-3EA778D1EF1F</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>50 CHAR</dataTypeSize>
+<ownDataTypeParameters>50 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="D837E331-42AF-76B6-F7E4-B592EFF90BD3" name="TYDEN_PK">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-12 00:18:36 UTC</createdTime>
+<generatorID>041440CB-2245-4696-180F-D9A80B09062D</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E00CE9B3-760D-BDA5-B880-4C0A84F1F22B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

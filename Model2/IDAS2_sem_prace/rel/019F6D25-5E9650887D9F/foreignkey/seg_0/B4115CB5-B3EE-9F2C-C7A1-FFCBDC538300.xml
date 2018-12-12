@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="B4115CB5-B3EE-9F2C-C7A1-FFCBDC538300" containerWithKeyObject="6F60976E-5BA7-A38A-DE10-8BE2D59A09C7" localFKIndex="53EE2F2F-4963-FC2F-7ABF-F7B0D8A4861A" name="ROZVRHOVA_AKCE_UCEBNA_FK">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-12 00:18:36 UTC</createdTime>
+<generatorID>548A17F7-983E-E3E8-6A68-D5D4CAFED1E9</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<referredTableLongName>UCEBNA</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>8B52AEA8-752A-FE81-6A3D-FAEC4F3D78EC</referredTableID>
+<keyObject>B23956EF-CEEC-55D5-E0DE-FCE564CDEACB</keyObject>
+<referredKeyID>B23956EF-CEEC-55D5-E0DE-FCE564CDEACB</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>id_ucebny</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

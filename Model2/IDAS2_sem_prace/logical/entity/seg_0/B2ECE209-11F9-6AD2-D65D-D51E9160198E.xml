@@ -4,7 +4,7 @@
 <createdTime>2018-05-11 12:04:12 UTC</createdTime>
 <ownerDesignName>IDAS2_sem_prace</ownerDesignName>
 <engineerTo>
-<item key="2D62FA37-432E-2B8E-0404-6282E34ADFA4" value="true"/>
+<item key="ABA0F35A-2D4C-82BC-51AF-73615E597CF3" value="true"/>
 </engineerTo>
 <adequatelyNormalized>NO</adequatelyNormalized>
 <expectedVolumes>0</expectedVolumes>
@@ -20,7 +20,7 @@
 <createdTime>2018-05-11 18:42:28 UTC</createdTime>
 <ownerDesignName>IDAS2_sem_prace</ownerDesignName>
 <engineerTo>
-<item key="2D62FA37-432E-2B8E-0404-6282E34ADFA4" value="true"/>
+<item key="ABA0F35A-2D4C-82BC-51AF-73615E597CF3" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -28,12 +28,37 @@
 <dataTypePrecision>6</dataTypePrecision>
 <ownDataTypeParameters>,6,</ownDataTypeParameters>
 </Attribute>
+<Attribute name="datum" id="7D6D59BA-6D09-67C3-B458-6901FDA9EC1A">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-11 23:28:09 UTC</createdTime>
+<comment>slouzi pro jednorazove akce, nebo pro opakovane akce k urceni dne v tydnu</comment>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<engineerTo>
+<item key="ABA0F35A-2D4C-82BC-51AF-73615E597CF3" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="cas_od" id="07315632-E4DF-B2C8-DDB8-8096DFD162C4">
+<createdBy>Legol</createdBy>
+<createdTime>2018-12-02 18:38:35 UTC</createdTime>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<engineerTo>
+<item key="ABA0F35A-2D4C-82BC-51AF-73615E597CF3" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT015</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
 <Attribute name="rozsah_hodin" id="A88C101E-ECED-378E-E155-1C06A1DFA301">
 <createdBy>selda</createdBy>
 <createdTime>2018-05-11 18:40:14 UTC</createdTime>
 <ownerDesignName>IDAS2_sem_prace</ownerDesignName>
 <engineerTo>
-<item key="2D62FA37-432E-2B8E-0404-6282E34ADFA4" value="true"/>
+<item key="ABA0F35A-2D4C-82BC-51AF-73615E597CF3" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -41,26 +66,12 @@
 <dataTypePrecision>3</dataTypePrecision>
 <ownDataTypeParameters>,3,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="cas_od" id="07315632-E4DF-B2C8-DDB8-8096DFD162C4">
-<createdBy>Legol</createdBy>
-<createdTime>2018-12-02 18:38:35 UTC</createdTime>
-<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
-<engineerTo>
-<item key="2D62FA37-432E-2B8E-0404-6282E34ADFA4" value="true"/>
-</engineerTo>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT020</logicalDatatype>
-<dataTypePrecision>2</dataTypePrecision>
-<dataTypeScale>2</dataTypeScale>
-<ownDataTypeParameters>,2,2</ownDataTypeParameters>
-</Attribute>
 <Attribute name="kapacita" id="7D4C54BB-8905-CB09-9E07-32C1AB2990E3">
 <createdBy>selda</createdBy>
 <createdTime>2018-05-11 20:17:43 UTC</createdTime>
 <ownerDesignName>IDAS2_sem_prace</ownerDesignName>
 <engineerTo>
-<item key="2D62FA37-432E-2B8E-0404-6282E34ADFA4" value="true"/>
+<item key="ABA0F35A-2D4C-82BC-51AF-73615E597CF3" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -74,14 +85,14 @@
 <generatorID>98B75835-662A-B0DA-562F-D595B3AB1187</generatorID>
 <ownerDesignName>IDAS2_sem_prace</ownerDesignName>
 <engineerTo>
-<item key="2D62FA37-432E-2B8E-0404-6282E34ADFA4" value="true"/>
+<item key="ABA0F35A-2D4C-82BC-51AF-73615E597CF3" value="true"/>
 </engineerTo>
 <referedAttribute>A70C47ED-976F-3840-7D68-051537A85935</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
 <dataTypePrecision>6</dataTypePrecision>
-<ownDataTypeParameters>,6,</ownDataTypeParameters>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
 <Attribute name="id_predmetu" id="1258AD88-61C9-7498-5E26-155CFC380B5F">
 <createdBy>selda</createdBy>
@@ -89,7 +100,7 @@
 <generatorID>C68B501C-2400-0E8F-7ADB-54AB8C62D5BF</generatorID>
 <ownerDesignName>IDAS2_sem_prace</ownerDesignName>
 <engineerTo>
-<item key="2D62FA37-432E-2B8E-0404-6282E34ADFA4" value="true"/>
+<item key="ABA0F35A-2D4C-82BC-51AF-73615E597CF3" value="true"/>
 </engineerTo>
 <referedAttribute>E2DFDC84-C5B2-D20B-73F6-3BAEF150B97D</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
@@ -104,14 +115,14 @@
 <generatorID>99BC091D-6939-FE38-0621-67E1704A9DEA</generatorID>
 <ownerDesignName>IDAS2_sem_prace</ownerDesignName>
 <engineerTo>
-<item key="2D62FA37-432E-2B8E-0404-6282E34ADFA4" value="true"/>
+<item key="ABA0F35A-2D4C-82BC-51AF-73615E597CF3" value="true"/>
 </engineerTo>
 <referedAttribute>D472B723-A87D-2F25-965F-AFCFE428A7A6</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
 <dataTypePrecision>6</dataTypePrecision>
-<ownDataTypeParameters>,6,</ownDataTypeParameters>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
 <Attribute name="id_ucebny" id="244E9F3F-E615-727A-06BD-682E53EDA11D">
 <createdBy>Legol</createdBy>
@@ -119,29 +130,14 @@
 <generatorID>548A17F7-983E-E3E8-6A68-D5D4CAFED1E9</generatorID>
 <ownerDesignName>IDAS2_sem_prace</ownerDesignName>
 <engineerTo>
-<item key="2D62FA37-432E-2B8E-0404-6282E34ADFA4" value="true"/>
+<item key="ABA0F35A-2D4C-82BC-51AF-73615E597CF3" value="true"/>
 </engineerTo>
 <referedAttribute>4040AB35-1A2B-4802-AA87-960286F605D9</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
 <dataTypePrecision>6</dataTypePrecision>
-<ownDataTypeParameters>,6,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="id_dne" id="CCD38ED7-C73A-85B4-456C-4C5F57007C7D">
-<createdBy>selda</createdBy>
-<createdTime>2018-12-08 18:26:00 UTC</createdTime>
-<generatorID>63990B2C-B331-A0D5-60CA-249E47AE7ED6</generatorID>
-<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
-<engineerTo>
-<item key="2D62FA37-432E-2B8E-0404-6282E34ADFA4" value="true"/>
-</engineerTo>
-<referedAttribute>DFE603D8-E141-2641-1754-EB52ED89F98D</referedAttribute>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT019</logicalDatatype>
-<dataTypePrecision>2</dataTypePrecision>
-<ownDataTypeParameters>,2,</ownDataTypeParameters>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
@@ -150,7 +146,7 @@
 <createdTime>2018-05-11 18:42:43 UTC</createdTime>
 <ownerDesignName>IDAS2_sem_prace</ownerDesignName>
 <engineerTo>
-<item key="2D62FA37-432E-2B8E-0404-6282E34ADFA4" value="true"/>
+<item key="ABA0F35A-2D4C-82BC-51AF-73615E597CF3" value="true"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>

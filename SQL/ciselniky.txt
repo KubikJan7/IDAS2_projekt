@@ -56,3 +56,43 @@ insert into forma_vyuky (nazev_formy) values ('Prezenèní');
 insert into forma_vyuky (nazev_formy) values ('Kombinovaná');
 insert into forma_vyuky (nazev_formy) values ('Distanèní');
 alter table forma_vyuky read only;
+
+/*Sekvence a trigger Týdne*/
+CREATE SEQUENCE TYDEN_SEQ 
+ START WITH 1 
+ INCREMENT BY 1;
+/
+ CREATE OR REPLACE TRIGGER TRIG_TYDEN
+BEFORE INSERT ON TYDEN
+FOR EACH ROW
+ WHEN (new.ID_TYDNE IS NULL) 
+BEGIN
+  SELECT TYDEN_SEQ.NEXTVAL
+  INTO :new.ID_TYDNE
+  FROM dual;
+END;
+/
+/*Èíselník Týdne*/
+insert into tyden (nazev) values ('Sudý');
+insert into tyden (nazev) values ('Lichý');
+alter table tyden read only;
+
+/*Sekvence a trigger Rolí*/
+CREATE SEQUENCE ROLE_SEQ 
+ START WITH 1 
+ INCREMENT BY 1;
+/
+ CREATE OR REPLACE TRIGGER TRIG_ROLE
+BEFORE INSERT ON ROLE
+FOR EACH ROW
+ WHEN (new.ID_ROLE IS NULL) 
+BEGIN
+  SELECT ROLE_SEQ.NEXTVAL
+  INTO :new.ID_ROLE
+  FROM dual;
+END;
+/
+/*Èíselník Rolí*/
+insert into role (nazev_role) values ('Administrátor');
+insert into role (nazev_role) values ('Registrovaný');
+alter table role read only;

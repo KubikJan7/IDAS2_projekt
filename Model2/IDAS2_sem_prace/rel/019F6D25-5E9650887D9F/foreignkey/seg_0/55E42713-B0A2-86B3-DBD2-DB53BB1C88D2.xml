@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="55E42713-B0A2-86B3-DBD2-DB53BB1C88D2" containerWithKeyObject="DDE2076F-CB86-8EA9-AC98-7DE63C31C0AB" localFKIndex="AFCD03FD-79C3-068C-7F8C-37BC2D4106DC" name="UZIVATEL_KATEDRA_FK">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-12 00:18:36 UTC</createdTime>
+<generatorID>F975B9AB-2CFA-A413-5221-B6F885FA2F93</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<referredTableLongName>KATEDRA</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>E8A0665A-7647-345D-8FC5-60E71B63DB48</referredTableID>
+<keyObject>E3B7C411-963C-A710-6569-E6C9441DAC6E</keyObject>
+<referredKeyID>E3B7C411-963C-A710-6569-E6C9441DAC6E</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>zkratka_katedry</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>
