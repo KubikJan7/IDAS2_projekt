@@ -141,3 +141,18 @@ BEGIN
   INTO :new.id_uzivatele
   FROM dual;
 END;
+
+/*Sekvence a trigger oboru*/
+CREATE SEQUENCE stud_obor_SEQ 
+ START WITH 1 
+ INCREMENT BY 1;
+ 
+ CREATE OR REPLACE TRIGGER TRIG_stud_obor
+BEFORE INSERT ON stud_obor
+FOR EACH ROW
+ WHEN (new.id_oboru IS NULL) 
+BEGIN
+  SELECT stud_obor_SEQ  .NEXTVAL
+  INTO :new.id_oboru
+  FROM dual;
+END;
