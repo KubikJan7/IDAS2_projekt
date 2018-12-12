@@ -4,13 +4,13 @@
 <createdTime>2018-11-07 14:43:05 UTC</createdTime>
 <ownerDesignName>IDAS2_sem_prace</ownerDesignName>
 <engineerTo>
-<item key="F519F19B-B3AC-BB9B-F944-9AEF40F0F693" value="true"/>
+<item key="019F6D25-8286-53CE-3D09-5E9650887D9F" value="true"/>
 </engineerTo>
 <targetPk>1A8FC1CF-DA5F-A3BC-2D5B-8CFE65FE6D87</targetPk>
 <identifying>false</identifying>
 <nameOnSource>je vyučována v</nameOnSource>
 <nameOnTarget>je obsazena</nameOnTarget>
-<optionalSource>false</optionalSource>
+<optionalSource>true</optionalSource>
 <optionalTarget>true</optionalTarget>
 <sourceCardinality>*</sourceCardinality>
 <sourceEntity>B2ECE209-11F9-6AD2-D65D-D51E9160198E</sourceEntity>

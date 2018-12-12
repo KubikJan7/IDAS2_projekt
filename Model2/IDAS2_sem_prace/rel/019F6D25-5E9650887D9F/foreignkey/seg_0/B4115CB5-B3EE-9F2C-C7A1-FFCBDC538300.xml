@@ -9,7 +9,7 @@
 <referredTableID>8B52AEA8-752A-FE81-6A3D-FAEC4F3D78EC</referredTableID>
 <keyObject>B23956EF-CEEC-55D5-E0DE-FCE564CDEACB</keyObject>
 <referredKeyID>B23956EF-CEEC-55D5-E0DE-FCE564CDEACB</referredKeyID>
-<mandatory>true</mandatory>
+<mandatory>false</mandatory>
 <refColNames>id_ucebny</refColNames>
 <transferable>true</transferable>
 <rely>false</rely>

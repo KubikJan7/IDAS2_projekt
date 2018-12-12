@@ -120,6 +120,7 @@
 <createdTime>2018-12-12 00:18:36 UTC</createdTime>
 <generatorID>244E9F3F-E615-727A-06BD-682E53EDA11D</generatorID>
 <ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
