@@ -96,3 +96,18 @@ END;
 insert into role (nazev_role) values ('Administrátor');
 insert into role (nazev_role) values ('Registrovaný');
 alter table role read only;
+
+/*Sekvence a trigger predmetu*/
+CREATE SEQUENCE PREDMET_SEQ 
+ START WITH 1 
+ INCREMENT BY 1;
+ 
+ CREATE OR REPLACE TRIGGER TRIG_PREDMET
+BEFORE INSERT ON PREDMET
+FOR EACH ROW
+ WHEN (new.id_predmetu IS NULL) 
+BEGIN
+  SELECT predmet_SEQ.NEXTVAL
+  INTO :new.id_predmetu
+  FROM dual;
+END;
