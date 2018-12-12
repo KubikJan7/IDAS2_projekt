@@ -112,7 +112,7 @@ BEGIN
   FROM dual;
 END;
 
-/*Sekvence a trigger predmetu*/
+/*Sekvence a trigger Uceben*/
 CREATE SEQUENCE UCEBNA_SEQ
  START WITH 1
  INCREMENT BY 1;
@@ -152,7 +152,37 @@ BEFORE INSERT ON stud_obor
 FOR EACH ROW
  WHEN (new.id_oboru IS NULL) 
 BEGIN
-  SELECT stud_obor_SEQ  .NEXTVAL
+  SELECT stud_obor_SEQ.NEXTVAL
   INTO :new.id_oboru
+  FROM dual;
+END;
+
+/*Sekvence a trigger Pred_Planu*/
+CREATE SEQUENCE pred_planu_SEQ 
+ START WITH 1 
+ INCREMENT BY 1;
+ 
+ CREATE OR REPLACE TRIGGER TRIG_pred_planu
+BEFORE INSERT ON pred_planu
+FOR EACH ROW
+ WHEN (new.id_pred_planu IS NULL) 
+BEGIN
+  SELECT pred_planu_SEQ.NEXTVAL
+  INTO :new.id_pred_planu
+  FROM dual;
+END;
+
+/*Sekvence a trigger Pred_Planu*/
+CREATE SEQUENCE pred_planu_SEQ 
+ START WITH 1 
+ INCREMENT BY 1;
+ 
+ CREATE OR REPLACE TRIGGER TRIG_pred_planu
+BEFORE INSERT ON pred_planu
+FOR EACH ROW
+ WHEN (new.id_pred_planu IS NULL) 
+BEGIN
+  SELECT pred_planu_SEQ.NEXTVAL
+  INTO :new.id_pred_planu
   FROM dual;
 END;
