@@ -96,12 +96,12 @@ END;
 insert into role (nazev_role) values ('Administrátor');
 insert into role (nazev_role) values ('Registrovaný');
 alter table role read only;
-
+/
 /*Sekvence a trigger predmetu*/
 CREATE SEQUENCE PREDMET_SEQ 
  START WITH 1 
  INCREMENT BY 1;
- 
+/
  CREATE OR REPLACE TRIGGER TRIG_PREDMET
 BEFORE INSERT ON PREDMET
 FOR EACH ROW
@@ -111,12 +111,12 @@ BEGIN
   INTO :new.id_predmetu
   FROM dual;
 END;
-
+/
 /*Sekvence a trigger Uceben*/
 CREATE SEQUENCE UCEBNA_SEQ
  START WITH 1
  INCREMENT BY 1;
- 
+/
  CREATE OR REPLACE TRIGGER TRIG_UCEBNA
 BEFORE INSERT ON UCEBNA
 FOR EACH ROW
@@ -126,12 +126,12 @@ BEGIN
   INTO :new.id_ucebny
   FROM dual;
 END;
-
+/
 /*Sekvence a trigger Uzivatelu*/
 CREATE SEQUENCE UZIVATEL_SEQ 
  START WITH 1 
  INCREMENT BY 1;
- 
+/
  CREATE OR REPLACE TRIGGER TRIG_UZIVATEL
 BEFORE INSERT ON UZIVATEL
 FOR EACH ROW
@@ -141,12 +141,27 @@ BEGIN
   INTO :new.id_uzivatele
   FROM dual;
 END;
-
+/
+/*Sekvence a trigger Uctu*/
+CREATE SEQUENCE UCET_SEQ 
+ START WITH 1 
+ INCREMENT BY 1;
+/
+ CREATE OR REPLACE TRIGGER TRIG_UCET
+BEFORE INSERT ON UCET
+FOR EACH ROW
+ WHEN (new.id_uctu IS NULL) 
+BEGIN
+  SELECT UCET_SEQ.NEXTVAL
+  INTO :new.id_uctu
+  FROM dual;
+END;
+/
 /*Sekvence a trigger oboru*/
 CREATE SEQUENCE stud_obor_SEQ 
  START WITH 1 
  INCREMENT BY 1;
- 
+/
  CREATE OR REPLACE TRIGGER TRIG_stud_obor
 BEFORE INSERT ON stud_obor
 FOR EACH ROW
@@ -156,12 +171,12 @@ BEGIN
   INTO :new.id_oboru
   FROM dual;
 END;
-
+/
 /*Sekvence a trigger Stud_Plan*/
 CREATE SEQUENCE stud_plan_SEQ 
  START WITH 1 
  INCREMENT BY 1;
- 
+/
  CREATE OR REPLACE TRIGGER TRIG_stud_plan
 BEFORE INSERT ON stud_plan
 FOR EACH ROW
@@ -171,12 +186,12 @@ BEGIN
   INTO :new.id_planu
   FROM dual;
 END;
-
+/
 /*Sekvence a trigger Pred_V_Planu*/
 CREATE SEQUENCE pred_v_planu_SEQ 
  START WITH 1 
  INCREMENT BY 1;
- 
+/
  CREATE OR REPLACE TRIGGER TRIG_pred_v_planu
 BEFORE INSERT ON pred_v_planu
 FOR EACH ROW
@@ -186,12 +201,12 @@ BEGIN
   INTO :new.id_pred_planu
   FROM dual;
 END;
-
+/
 /*Sekvence a trigger Rozvrhova_Akce*/
 CREATE SEQUENCE rozvrhova_akce_SEQ 
  START WITH 1 
  INCREMENT BY 1;
- 
+/
  CREATE OR REPLACE TRIGGER TRIG_rozvrhova_akce
 BEFORE INSERT ON rozvrhova_akce
 FOR EACH ROW
@@ -201,3 +216,4 @@ BEGIN
   INTO :new.id_akce
   FROM dual;
 END;
+/
