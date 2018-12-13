@@ -73,6 +73,7 @@ BEGIN
 END;
 /
 /*Èíselník Týdne*/
+insert into tyden (nazev) values ('Každý');
 insert into tyden (nazev) values ('Sudý');
 insert into tyden (nazev) values ('Lichý');
 alter table tyden read only;
