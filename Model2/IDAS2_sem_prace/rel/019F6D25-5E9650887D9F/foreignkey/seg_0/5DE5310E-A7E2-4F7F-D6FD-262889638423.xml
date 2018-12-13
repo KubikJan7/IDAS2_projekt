@@ -9,7 +9,7 @@
 <referredTableID>92C8AE6A-4A91-6B7B-5EEC-1B5080F42622</referredTableID>
 <keyObject>D837E331-42AF-76B6-F7E4-B592EFF90BD3</keyObject>
 <referredKeyID>D837E331-42AF-76B6-F7E4-B592EFF90BD3</referredKeyID>
-<mandatory>true</mandatory>
+<mandatory>false</mandatory>
 <refColNames>id_tydne</refColNames>
 <transferable>true</transferable>
 <rely>false</rely>

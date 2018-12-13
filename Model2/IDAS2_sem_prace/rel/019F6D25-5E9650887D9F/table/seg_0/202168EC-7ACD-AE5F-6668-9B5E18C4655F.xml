@@ -26,6 +26,7 @@
 <createdBy>selda</createdBy>
 <createdTime>2018-12-12 00:18:36 UTC</createdTime>
 <ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
@@ -48,7 +49,6 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="05554CA2-29CE-AE81-1FB0-5AD66EBBB3BB"/>
-<colUsage columnID="E784721A-4C2A-98CD-B744-7209B2673FA9"/>
 </indexColumnUsage>
 </ind_PK_UK>
 <ind_PK_UK id="F6832D81-7D67-F0E4-2DB6-402BA5A9A44D" name="tyden_akce_ROZVRHOVA_AKCE_FK">
