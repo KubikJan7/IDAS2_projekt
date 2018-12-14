@@ -55,7 +55,7 @@ ALTER TABLE katedra ADD CONSTRAINT katedra_pk PRIMARY KEY ( zkratka_katedry );
 CREATE TABLE obrazek (
     id_souboru              NUMBER NOT NULL,
     nazev                   VARCHAR2(45) NOT NULL,
-    pripona                 VARCHAR2(5) NOT NULL,
+    pripona                 VARCHAR2(10 CHAR) NOT NULL,
     obsah                   BLOB NOT NULL,
     vytvoreno               DATE NOT NULL,
     modifikace              DATE NOT NULL,
@@ -68,28 +68,17 @@ CREATE UNIQUE INDEX obrazek__idx ON
 ALTER TABLE obrazek ADD CONSTRAINT obrazek_pk PRIMARY KEY ( id_souboru );
 ```
 
-## Pred_plan
-```sql
-CREATE TABLE pred_plan (
-    stud_plan_id_planu           NUMBER(6) NOT NULL,
-    pred_v_planu_id_pred_planu   NUMBER(6) NOT NULL
-);
-
-ALTER TABLE pred_plan ADD CONSTRAINT pred_plan_pk PRIMARY KEY ( stud_plan_id_planu,
-pred_v_planu_id_pred_planu );
-```
-
 ## Pred_v_planu
 ```sql
 CREATE TABLE pred_v_planu (
     id_pred_planu              NUMBER(6) NOT NULL,
     kredity                    NUMBER(2) NOT NULL,
     dop_rocnik                 NUMBER(1),
-    id_oboru                   NUMBER(3) NOT NULL,
     kat_predmetu_zkr_kat       CHAR(1 CHAR) NOT NULL,
     predmet_id_predmetu        NUMBER(5) NOT NULL,
     zpusob_zakonceni_zkr_zak   CHAR(6 CHAR) NOT NULL,
-    semestr_zkr_sem            CHAR(2 CHAR) NOT NULL
+    semestr_zkr_sem            CHAR(2 CHAR) NOT NULL,
+    stud_plan_id_planu         NUMBER(6) NOT NULL
 );
 
 CREATE UNIQUE INDEX pred_v_planu__idx ON
@@ -103,24 +92,10 @@ ALTER TABLE pred_v_planu ADD CONSTRAINT pred_v_planu_pk PRIMARY KEY ( id_pred_pl
 CREATE TABLE predmet (
     id_predmetu   NUMBER(5) NOT NULL,
     nazev         NVARCHAR2(50) NOT NULL,
-    zkratka       NVARCHAR2(10) NOT NULL,
-    zkr_zak       CHAR(6 CHAR) NOT NULL,
-    id_formy      NUMBER(2) NOT NULL,
-    zkr_sem       CHAR(2 CHAR) NOT NULL
+    zkratka       NVARCHAR2(10) NOT NULL
 );
 
 ALTER TABLE predmet ADD CONSTRAINT predmet_pk PRIMARY KEY ( id_predmetu );
-```
-
-## Rel_uziv_role
-```sql
-CREATE TABLE rel_uziv_role (
-    role_id_role            NUMBER(3) NOT NULL,
-    uzivatel_id_uzivatele   NUMBER(6) NOT NULL
-);
-
-ALTER TABLE rel_uziv_role ADD CONSTRAINT rel_uziv_role_pk PRIMARY KEY ( role_id_role,
-uzivatel_id_uzivatele );
 ```
 
 ## Role
@@ -137,14 +112,14 @@ ALTER TABLE role ADD CONSTRAINT role_pk PRIMARY KEY ( id_role );
 ```sql
 CREATE TABLE rozvrhova_akce (
     id_akce                 NUMBER(6) NOT NULL,
+    datum                   DATE NOT NULL,
+    cas_od                  TIMESTAMP NOT NULL,
     rozsah_hodin            NUMBER(3) NOT NULL,
-    cas_od                  NUMBER NOT NULL,
     kapacita                NUMBER(3) NOT NULL,
     uzivatel_id_uzivatele   NUMBER(6) NOT NULL,
     predmet_id_predmetu     NUMBER(5) NOT NULL,
     zpusob_vyuky_id_nazvu   NUMBER(6) NOT NULL,
-    ucebna_id_ucebny        NUMBER(6) NOT NULL,
-    den_id_dne              NUMBER(2) NOT NULL
+    ucebna_id_ucebny        NUMBER(6) NOT NULL
 );
 
 ALTER TABLE rozvrhova_akce ADD CONSTRAINT rozvrhova_akce_pk PRIMARY KEY ( id_akce );
@@ -216,12 +191,27 @@ CREATE TABLE ucebna (
 ALTER TABLE ucebna ADD CONSTRAINT ucebna_pk PRIMARY KEY ( id_ucebny );
 ```
 
+## Ucet
+```sql
+CREATE TABLE ucet (
+    id_uctu                 NUMBER(10) NOT NULL,
+    nick                    VARCHAR2(45 CHAR) NOT NULL,
+    heslo                   VARCHAR2(45 CHAR) NOT NULL,
+    uzivatel_id_uzivatele   NUMBER(6) NOT NULL
+);
+
+CREATE UNIQUE INDEX ucet__idx ON
+    ucet ( uzivatel_id_uzivatele ASC );
+
+ALTER TABLE ucet ADD CONSTRAINT ucet_pk PRIMARY KEY ( id_uctu );
+
+ALTER TABLE ucet ADD CONSTRAINT ucet_nick_un UNIQUE ( nick );
+```
+
 ## Uzivatel
 ```sql
 CREATE TABLE uzivatel (
     id_uzivatele              NUMBER(6) NOT NULL,
-    uziv_jmeno                VARCHAR2(30 CHAR) NOT NULL,
-    heslo                     VARCHAR2(45) NOT NULL,
     jmeno                     NVARCHAR2(40) NOT NULL,
     prijmeni                  NVARCHAR2(40) NOT NULL,
     titul_pred                NVARCHAR2(15),
@@ -229,7 +219,8 @@ CREATE TABLE uzivatel (
     email                     VARCHAR2(70 CHAR),
     mobil                     CHAR(9 CHAR),
     telefon                   CHAR(13 CHAR),
-    katedra_zkratka_katedry   CHAR(6 CHAR) NOT NULL
+    katedra_zkratka_katedry   CHAR(6 CHAR) NOT NULL,
+    role_id_role              NUMBER(3) NOT NULL
 );
 
 ALTER TABLE uzivatel ADD CONSTRAINT uzivatel_pk PRIMARY KEY ( id_uzivatele );
@@ -265,14 +256,6 @@ ALTER TABLE obrazek
     ADD CONSTRAINT obrazek_uzivatel_fk FOREIGN KEY ( uzivatel_id_uzivatele )
         REFERENCES uzivatel ( id_uzivatele );
 
-ALTER TABLE pred_plan
-    ADD CONSTRAINT pred_plan_pred_v_planu_fk FOREIGN KEY ( pred_v_planu_id_pred_planu )
-        REFERENCES pred_v_planu ( id_pred_planu );
-
-ALTER TABLE pred_plan
-    ADD CONSTRAINT pred_plan_stud_plan_fk FOREIGN KEY ( stud_plan_id_planu )
-        REFERENCES stud_plan ( id_planu );
-
 ALTER TABLE pred_v_planu
     ADD CONSTRAINT pred_v_planu_kat_predmetu_fk FOREIGN KEY ( kat_predmetu_zkr_kat )
         REFERENCES kat_predmetu ( zkr_kat );
@@ -286,20 +269,12 @@ ALTER TABLE pred_v_planu
         REFERENCES semestr ( zkr_sem );
 
 ALTER TABLE pred_v_planu
+    ADD CONSTRAINT pred_v_planu_stud_plan_fk FOREIGN KEY ( stud_plan_id_planu )
+        REFERENCES stud_plan ( id_planu );
+
+ALTER TABLE pred_v_planu
     ADD CONSTRAINT pred_v_planu_zpus_zakon_fk FOREIGN KEY ( zpusob_zakonceni_zkr_zak )
         REFERENCES zpusob_zakonceni ( zkr_zak );
-
-ALTER TABLE rel_uziv_role
-    ADD CONSTRAINT rel_uziv_role_role_fk FOREIGN KEY ( role_id_role )
-        REFERENCES role ( id_role );
-
-ALTER TABLE rel_uziv_role
-    ADD CONSTRAINT rel_uziv_role_uzivatel_fk FOREIGN KEY ( uzivatel_id_uzivatele )
-        REFERENCES uzivatel ( id_uzivatele );
-
-ALTER TABLE rozvrhova_akce
-    ADD CONSTRAINT rozvrhova_akce_den_fk FOREIGN KEY ( den_id_dne )
-        REFERENCES den ( id_dne );
 
 ALTER TABLE rozvrhova_akce
     ADD CONSTRAINT rozvrhova_akce_predmet_fk FOREIGN KEY ( predmet_id_predmetu )
@@ -333,7 +308,15 @@ ALTER TABLE tyden_akce
     ADD CONSTRAINT tyden_akce_tyden_fk FOREIGN KEY ( tyden_id_tydne )
         REFERENCES tyden ( id_tydne );
 
+ALTER TABLE ucet
+    ADD CONSTRAINT ucet_uzivatel_fk FOREIGN KEY ( uzivatel_id_uzivatele )
+        REFERENCES uzivatel ( id_uzivatele );
+
 ALTER TABLE uzivatel
     ADD CONSTRAINT uzivatel_katedra_fk FOREIGN KEY ( katedra_zkratka_katedry )
         REFERENCES katedra ( zkratka_katedry );
+
+ALTER TABLE uzivatel
+    ADD CONSTRAINT uzivatel_role_fk FOREIGN KEY ( role_id_role )
+        REFERENCES role ( id_role );
 ```

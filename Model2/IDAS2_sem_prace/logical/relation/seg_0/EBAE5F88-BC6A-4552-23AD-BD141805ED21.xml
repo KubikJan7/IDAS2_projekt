@@ -4,14 +4,15 @@
 <createdTime>2018-12-02 22:12:24 UTC</createdTime>
 <ownerDesignName>IDAS2_sem_prace</ownerDesignName>
 <engineerTo>
-<item key="F519F19B-B3AC-BB9B-F944-9AEF40F0F693" value="true"/>
+<item key="3B79363F-21D3-3D48-5A3C-AAB0482C1A9F" value="true"/>
 </engineerTo>
+<sourcePk>73AFFD00-6677-DEDC-1449-C567895FDB50</sourcePk>
 <identifying>false</identifying>
 <nameOnSource>patří</nameOnSource>
 <nameOnTarget>má</nameOnTarget>
 <optionalSource>true</optionalSource>
 <optionalTarget>false</optionalTarget>
-<sourceCardinality>*</sourceCardinality>
+<sourceCardinality>1</sourceCardinality>
 <sourceEntity>AED417F0-CEAD-8397-2428-66417EE99D9C</sourceEntity>
 <targetCardinalityString>*</targetCardinalityString>
 <targetEntity>7F6E371C-31DC-11E3-BAA6-064D329D5E4A</targetEntity>

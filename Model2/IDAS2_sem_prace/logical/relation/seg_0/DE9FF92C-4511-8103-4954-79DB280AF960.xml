@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="rel_ucet_uziv" directorySegmentName="seg_0" id="DE9FF92C-4511-8103-4954-79DB280AF960">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-12 00:00:04 UTC</createdTime>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<engineerTo>
+<item key="ABA0F35A-2D4C-82BC-51AF-73615E597CF3" value="true"/>
+</engineerTo>
+<sourcePk>067D191E-08D1-85A9-1F69-FF5D6C8895B4</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>7F6E371C-31DC-11E3-BAA6-064D329D5E4A</sourceEntity>
+<targetCardinalityString>1</targetCardinalityString>
+<targetEntity>A068E01E-C9FF-FB92-22CB-A1A7D2DAA3F8</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

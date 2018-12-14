@@ -4,13 +4,14 @@
 <createdTime>2018-12-08 17:41:30 UTC</createdTime>
 <ownerDesignName>IDAS2_sem_prace</ownerDesignName>
 <engineerTo>
-<item key="2D62FA37-432E-2B8E-0404-6282E34ADFA4" value="true"/>
+<item key="ABA0F35A-2D4C-82BC-51AF-73615E597CF3" value="true"/>
 </engineerTo>
+<sourcePk>82D13520-B232-9F10-1DC3-611AAD01829D</sourcePk>
 <identifying>false</identifying>
 <nameOnSource>se skládá</nameOnSource>
 <optionalSource>true</optionalSource>
 <optionalTarget>false</optionalTarget>
-<sourceCardinality>*</sourceCardinality>
+<sourceCardinality>1</sourceCardinality>
 <sourceEntity>CB51A54A-93CD-4BF7-98F3-65A2AF2CDF8F</sourceEntity>
 <targetCardinalityString>*</targetCardinalityString>
 <targetEntity>BDA78D18-F05C-FFFE-8BC0-E5DF0997B317</targetEntity>

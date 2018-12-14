@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="E5A6680C-1B47-8EE1-1E2F-E5F166F7F4FA" containerWithKeyObject="E8A0665A-7647-345D-8FC5-60E71B63DB48" localFKIndex="20D3BD64-D642-1BAF-14A7-277247EF7487" name="KATEDRA_FAKULTA_FK">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-12 00:18:36 UTC</createdTime>
+<generatorID>BDC59AC2-6A9D-3FFF-C138-739790A79F70</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<referredTableLongName>FAKULTA</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>C83CA669-1A1B-0A17-46A5-D05E44004E6C</referredTableID>
+<keyObject>9ED6ED26-93A4-606D-F24F-4706ABC7E69C</keyObject>
+<referredKeyID>9ED6ED26-93A4-606D-F24F-4706ABC7E69C</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>zkratka_fakulty</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

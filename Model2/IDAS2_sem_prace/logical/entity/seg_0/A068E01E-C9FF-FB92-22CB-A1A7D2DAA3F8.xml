@@ -1,0 +1,99 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="A068E01E-C9FF-FB92-22CB-A1A7D2DAA3F8" name="UCET">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-11 23:53:33 UTC</createdTime>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<engineerTo>
+<item key="ABA0F35A-2D4C-82BC-51AF-73615E597CF3" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id_uctu" id="6061C99E-AE6C-A446-F257-B9E44610167F">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-11 23:53:44 UTC</createdTime>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<engineerTo>
+<item key="ABA0F35A-2D4C-82BC-51AF-73615E597CF3" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="nick" id="D5D1B666-8E12-138F-3595-873D029AEE17">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-11 23:54:24 UTC</createdTime>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<engineerTo>
+<item key="ABA0F35A-2D4C-82BC-51AF-73615E597CF3" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>45 CHAR</dataTypeSize>
+<ownDataTypeParameters>45 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="heslo" id="9B0521AA-7D50-5326-E755-9FB491E3E607">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-11 23:54:27 UTC</createdTime>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<engineerTo>
+<item key="ABA0F35A-2D4C-82BC-51AF-73615E597CF3" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>45 CHAR</dataTypeSize>
+<ownDataTypeParameters>45 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_uzivatele" id="D1904ADB-9736-60D3-15A1-A1F8C29B85D3">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-12 00:00:04 UTC</createdTime>
+<generatorID>DE9FF92C-4511-8103-4954-79DB280AF960</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<engineerTo>
+<item key="ABA0F35A-2D4C-82BC-51AF-73615E597CF3" value="true"/>
+</engineerTo>
+<referedAttribute>A70C47ED-976F-3840-7D68-051537A85935</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="74B8B340-DA45-6F53-CA19-CCAD756970B1" name="UCET PK">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-11 23:54:23 UTC</createdTime>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<engineerTo>
+<item key="ABA0F35A-2D4C-82BC-51AF-73615E597CF3" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>6061C99E-AE6C-A446-F257-B9E44610167F</attributeRef>
+</usedAttributes>
+</identifier>
+<identifier id="EE5AF5AF-2949-5E66-849E-F616743FD043" name="nicky_uzivatelu">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-12 00:06:23 UTC</createdTime>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<engineerTo>
+<item key="ABA0F35A-2D4C-82BC-51AF-73615E597CF3" value="true"/>
+</engineerTo>
+<newElementsIDs>D5D1B666-8E12-138F-3595-873D029AEE17</newElementsIDs>
+<usedAttributes>
+<attributeRef>D5D1B666-8E12-138F-3595-873D029AEE17</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>
