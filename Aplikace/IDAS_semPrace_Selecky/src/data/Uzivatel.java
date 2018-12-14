@@ -4,7 +4,7 @@ package data;
  *
  * @author Libor Selecky
  */
-public class Vyucujici {
+public class Uzivatel {
 
     private int id;
     private String titulPred;
@@ -14,10 +14,26 @@ public class Vyucujici {
     private String email;
     private int mobil;
     private int telefon;
-
+    private Ucet ucet;
+    private Role role;
+    private Obrazek obrazek;
     private Pracoviste pracoviste;
 
-    public Vyucujici(int id, String titulPred, String jmeno, String prijmeni, String titulZa, String email, int mobil, int telefon, Pracoviste pracoviste) {
+    public Uzivatel(String titulPred, String jmeno, String prijmeni, String titulZa, String email, int mobil, int telefon, Ucet ucet, Role role, Obrazek obrazek, Pracoviste pracoviste) {
+        this.titulPred = titulPred;
+        this.jmeno = jmeno;
+        this.prijmeni = prijmeni;
+        this.titulZa = titulZa;
+        this.email = email;
+        this.mobil = mobil;
+        this.telefon = telefon;
+        this.ucet = ucet;
+        this.role = role;
+        this.obrazek = obrazek;
+        this.pracoviste = pracoviste;
+    }
+
+    public Uzivatel(int id, String titulPred, String jmeno, String prijmeni, String titulZa, String email, int mobil, int telefon, Ucet ucet, Role role, Obrazek obrazek, Pracoviste pracoviste) {
         this.id = id;
         this.titulPred = titulPred;
         this.jmeno = jmeno;
@@ -26,17 +42,9 @@ public class Vyucujici {
         this.email = email;
         this.mobil = mobil;
         this.telefon = telefon;
-        this.pracoviste = pracoviste;
-    }
-
-    public Vyucujici(String titulPred, String jmeno, String prijmeni, String titulZa, String email, int mobil, int telefon, Pracoviste pracoviste) {
-        this.titulPred = titulPred;
-        this.jmeno = jmeno;
-        this.prijmeni = prijmeni;
-        this.titulZa = titulZa;
-        this.email = email;
-        this.mobil = mobil;
-        this.telefon = telefon;
+        this.ucet = ucet;
+        this.role = role;
+        this.obrazek = obrazek;
         this.pracoviste = pracoviste;
     }
 

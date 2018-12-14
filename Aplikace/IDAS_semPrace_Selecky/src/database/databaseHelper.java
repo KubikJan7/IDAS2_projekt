@@ -11,7 +11,7 @@ import data.Pracoviste2;
 import data.PredOboru;
 import data.Predmet;
 import data.Semestr;
-import data.Vyucujici;
+import data.Uzivatel;
 import data.Zakonceni;
 import data.Zpusob;
 import java.sql.Connection;
@@ -115,14 +115,14 @@ public class databaseHelper {
         return kategorie;
     }
 
-    public ArrayList<Vyucujici> dejKartaVyucujici() throws SQLException {
-        ArrayList<Vyucujici> vyucujici = new ArrayList<>();
+    public ArrayList<Uzivatel> dejKartaVyucujici() throws SQLException {
+        ArrayList<Uzivatel> vyucujici = new ArrayList<>();
 
         Connection conn = OracleConnector.getConnection();
         PreparedStatement stmt = conn.prepareStatement("SELECT * FROM vyucujici_view");
         ResultSet rset = stmt.executeQuery();
         while (rset.next()) {
-            vyucujici.add(new Vyucujici(rset.getInt("id_vyucujiciho"),
+            vyucujici.add(new Uzivatel(rset.getInt("id_vyucujiciho"),
                     rset.getString("titul_pred"),
                     rset.getString("jmeno"),
                     rset.getString("prijmeni"),
@@ -214,16 +214,16 @@ public class databaseHelper {
         Connection conn = OracleConnector.getConnection();
         PreparedStatement stmt = conn.prepareStatement("SELECT * FROM akce_view");
         ResultSet rset = stmt.executeQuery();
-        Vyucujici vyucujici = null;
+        Uzivatel vyucujici = null;
         Predmet predmet = null;
         Zpusob zpusob = null;
-        ArrayList<Vyucujici> listVyuc = dejKartaVyucujici();
+        ArrayList<Uzivatel> listVyuc = dejKartaVyucujici();
         ArrayList<Predmet> listPred = dejKartaPredmety();
         ArrayList<Zpusob> listZpus = dejZpusobVyuky();
         while (rset.next()) {
-            Iterator<Vyucujici> vyuc = listVyuc.iterator();
+            Iterator<Uzivatel> vyuc = listVyuc.iterator();
             while (vyuc.hasNext()) {
-                Vyucujici akt = vyuc.next();
+                Uzivatel akt = vyuc.next();
                 if (akt.getId() == rset.getInt("id_vyucujiciho")) {
                     vyucujici = akt;
                     break;
@@ -251,7 +251,7 @@ public class databaseHelper {
     }
 
     //Insert vyučujícího
-    public void insertDataVyuc(Vyucujici vyuc) throws SQLException {
+    public void insertDataVyuc(Uzivatel vyuc) throws SQLException {
         Connection conn;
         conn = OracleConnector.getConnection();
         PreparedStatement stmt = conn.prepareStatement("INSERT INTO vyucujici(JMENO, PRIJMENI, TITUL_PRED, TITUL_ZA, KATEDRA_ZKRATKA_KATEDRY, EMAIL, TELEFON, MOBIL) "
@@ -340,7 +340,7 @@ public class databaseHelper {
     }
 
     //Update vyučujícího
-    public void updateDataVyuc(Vyucujici vyuc) throws SQLException {
+    public void updateDataVyuc(Uzivatel vyuc) throws SQLException {
         Connection conn;
         conn = OracleConnector.getConnection();
         PreparedStatement stmt = conn.prepareStatement("UPDATE vyucujici SET titul_pred = ?,jmeno = ?, prijmeni = ?,"
@@ -438,7 +438,7 @@ public class databaseHelper {
     }
 
     //Delete vyučujícího
-    public void deleteDataVyuc(Vyucujici vyuc) throws SQLException {
+    public void deleteDataVyuc(Uzivatel vyuc) throws SQLException {
         Connection conn;
         conn = OracleConnector.getConnection();
         PreparedStatement stmt = conn.prepareStatement("DELETE FROM vyucujici WHERE id_vyucujiciho = ?");

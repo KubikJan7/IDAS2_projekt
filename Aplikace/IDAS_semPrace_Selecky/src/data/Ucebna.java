@@ -4,21 +4,21 @@ package data;
  *
  * @author Libor Selecky
  */
-public class Predmet {
+public class Ucebna {
 
     private int id;
-    private String zkratka;
     private String nazev;
+    private int kapacita;
 
-    public Predmet(String zkratka, String nazev) {
-        this.zkratka = zkratka;
+    public Ucebna(String nazev, int kapacita) {
         this.nazev = nazev;
+        this.kapacita = kapacita;
     }
 
-    public Predmet(int id, String zkratka, String nazev) {
+    public Ucebna(int id, String nazev, int kapacita) {
         this.id = id;
-        this.zkratka = zkratka;
         this.nazev = nazev;
+        this.kapacita = kapacita;
     }
 
     public int getId() {
@@ -29,14 +29,6 @@ public class Predmet {
         this.id = id;
     }
 
-    public String getZkratka() {
-        return zkratka;
-    }
-
-    public void setZkratka(String zkratka) {
-        this.zkratka = zkratka;
-    }
-
     public String getNazev() {
         return nazev;
     }
@@ -45,9 +37,16 @@ public class Predmet {
         this.nazev = nazev;
     }
 
+    public int getKapacita() {
+        return kapacita;
+    }
+
+    public void setKapacita(int kapacita) {
+        this.kapacita = kapacita;
+    }
+
     @Override
     public String toString() {
         return nazev;
     }
-
 }
