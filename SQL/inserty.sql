@@ -190,32 +190,11 @@ INSERT INTO KATEDRA (ZKRATKA_KATEDRY, NAZEV_KATEDRY, FAKULTA_ZKRATKA_FAKULTY)
 VALUES ('VZC', N'Výzkumné centrum LN0A028', 'FCH');
 
 /*Insert Studijní Obor*/
-insert into stud_obor (nazev, zkratka, info) values ('Informační technologie','B2646',
-'Bakalářský prezenční studijní program Informační technologie je určen pro přípravu odborníků
-schopných realizovat a provozovat informační systémy a jejich moduly. Bakalářské studium je
-zaměřeno především na oblast informačních technologií  z hlediska metod zpracování informací,
-programovacích jazyků, výstavby a správy databází, aplikací systémové analýzy, správy a obsluhy
-počítačových sítí.');
+insert into stud_obor (nazev, zkratka, info) values ('Informační technologie','B2646', 'Bakalářský prezenční studijní program Informační technologie je určen pro přípravu odborníků schopných realizovat a provozovat informační systémy a jejich moduly. Bakalářské studium je zaměřeno především na oblast informačních technologií  z hlediska metod zpracování informací, programovacích jazyků, výstavby a správy databází, aplikací systémové analýzy, správy a obsluhy počítačových sítí.');
 
 Insert into STUD_OBOR (NAZEV,ZKRATKA,INFO) values ('Řízení procesů','RIP','Cílem bakalářského oboru je připravit odborníky pro uplatnění v průmyslu v oblasti měření a automatického řízení, a to v projekci, výrobě, správě, diagnostice a údržbě měřicích, informačních, automatizačních, zabezpečovacích a obdobných zařízení. Absolvent má teoretický základ v matematice, fyzice a dalších vědách. V odborné oblasti pak získá znalosti v obecné elektrotechnice, programování a využívání komunikačních technologií. Jeho speciální znalosti se týkají teorie automatického řízení, modelování dynamických systémů, měření technologických veličin, zpracování signálů a programování řídicích aplikací. Funkční zaměření absolventů je předpokladem pro uplatnění v profesích: technický a provozní pracovník průmyslových, dopravních a jiných závodů');
 
 Insert into STUD_OBOR (NAZEV,ZKRATKA,INFO) values ('Komunikační a mikroprocesorová technika','KMT','Cílem studijního oboru je příprava vysokoškolsky vzdělaných odborníků s uplatněním v elektrotechnickém průmyslu, ale i v dalších odvětvích se zaměřením na aplikaci mikroprocesorů a počítačů při řízení, kontrole, ovládání i diagnostice elektronických systémů a zařízení. Absolvent má dobrý přehled v oblasti obecné elektrotechniky a elektroniky, teoretický základ v matematice a fyzice a dalších vědách. Jeho speciální znalosti se týkají přenosu a zpracování signálu a informací, dále pak aplikace mikroprocesorů a počítačů při řízení procesů. ');
-
-/*Sekvence a trigger STUD_PLAN*/
-CREATE SEQUENCE STUD_PLAN_SEQ 
- START WITH 1 
- INCREMENT BY 1;
-/
- CREATE OR REPLACE TRIGGER TRIG_STUD_PLAN
-BEFORE INSERT ON STUD_PLAN
-FOR EACH ROW
- WHEN (new.ID_PLANU IS NULL) 
-BEGIN
-  SELECT STUD_PLAN_SEQ.NEXTVAL
-  INTO :new.ID_PLANU
-  FROM dual;
-END;
-/
 
 /* Insert STUD_PLAN*/
 INSERT INTO STUD_PLAN (VERZE, STUD_OBOR_ID_OBORU) 
