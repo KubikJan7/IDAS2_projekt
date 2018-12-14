@@ -10,18 +10,21 @@ public class Obor {
     private String zkratka;
     private String nazev;
     private String info;
+    private Forma forma;
 
-    public Obor(String zkratka, String nazev, String info) {
+    public Obor(String zkratka, String nazev, String info, Forma forma) {
         this.zkratka = zkratka;
         this.nazev = nazev;
         this.info = info;
+        this.forma = forma;
     }
 
-    public Obor(int id, String zkratka, String nazev, String info) {
+    public Obor(int id, String zkratka, String nazev, String info, Forma forma) {
         this.id = id;
         this.zkratka = zkratka;
         this.nazev = nazev;
         this.info = info;
+        this.forma = forma;
     }
 
     public int getId() {
@@ -55,7 +58,13 @@ public class Obor {
     public void setInfo(String info) {
         this.info = info;
     }
-    
-    
+
+    public Forma getForma() {
+        return forma;
+    }
+
+    public void setForma(Forma forma) {
+        this.forma = forma;
+    }
     
 }

@@ -14,7 +14,7 @@ import data.Pracoviste;
 import data.Pracoviste2;
 import data.Predmet;
 import data.Semestr;
-import data.Vyucujici;
+import data.Uzivatel;
 import data.Zakonceni;
 import data.Zpusob;
 import database.databaseHelper;
@@ -59,23 +59,23 @@ public class AppFXMLController implements Initializable {
 
     //Tabulka vyucujicich
     @FXML
-    private TableView<Vyucujici> twVyucujici;
+    private TableView<Uzivatel> twVyucujici;
     @FXML
-    private TableColumn<Vyucujici, String> vyucTitPredCol;
+    private TableColumn<Uzivatel, String> vyucTitPredCol;
     @FXML
-    private TableColumn<Vyucujici, String> vyucJmenoCol;
+    private TableColumn<Uzivatel, String> vyucJmenoCol;
     @FXML
-    private TableColumn<Vyucujici, String> vyucPrijmeniCol;
+    private TableColumn<Uzivatel, String> vyucPrijmeniCol;
     @FXML
-    private TableColumn<Vyucujici, String> vyucTitZaCol;
+    private TableColumn<Uzivatel, String> vyucTitZaCol;
     @FXML
-    private TableColumn<Vyucujici, Pracoviste> vyucPracCol;
+    private TableColumn<Uzivatel, Pracoviste> vyucPracCol;
     @FXML
-    private TableColumn<Vyucujici, String> vyucEmailCol;
+    private TableColumn<Uzivatel, String> vyucEmailCol;
     @FXML
-    private TableColumn<Vyucujici, Integer> vyucMobCol;
+    private TableColumn<Uzivatel, Integer> vyucMobCol;
     @FXML
-    private TableColumn<Vyucujici, Integer> vyucTelCol;
+    private TableColumn<Uzivatel, Integer> vyucTelCol;
 
     // Formular vyucujiciho
     // TODO Bude potřeba dodělat pole pro správu admina, uziv_jmeno a heslo .. 
@@ -202,7 +202,7 @@ public class AppFXMLController implements Initializable {
     @FXML
     private TableColumn<Akce, Zpusob> typAkceCol;
     @FXML
-    private TableColumn<Akce, Vyucujici> vyucAkceCol;
+    private TableColumn<Akce, Uzivatel> vyucAkceCol;
     @FXML
     private TableColumn<Akce, Integer> rozsahAkceCol;
     @FXML
@@ -210,7 +210,7 @@ public class AppFXMLController implements Initializable {
 
     // Formular rozvrhove akce
     @FXML
-    private ComboBox<Vyucujici> comboVyucujici;
+    private ComboBox<Uzivatel> comboVyucujici;
     @FXML
     private ComboBox<Predmet> comboPredmet;
     @FXML
@@ -224,7 +224,7 @@ public class AppFXMLController implements Initializable {
 
     // Kolekce dat pro jednotlive karty
     ArrayList<Fakulta> fakulty;
-    ObservableList<Vyucujici> vyucujici;
+    ObservableList<Uzivatel> vyucujici;
     ObservableList<Pracoviste2> pracoviste;
     ObservableList<Obor> obory;
     ObservableList<Predmet> predmety;
@@ -248,14 +248,14 @@ public class AppFXMLController implements Initializable {
         vyucPracCol.setCellValueFactory(new PropertyValueFactory("pracoviste"));
 
         // Doplneni informaci do formulare pri vyberu z tabulky Vyucujicich
-        twVyucujici.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Vyucujici>() {
+        twVyucujici.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Uzivatel>() {
             @Override
-            public void changed(ObservableValue<? extends Vyucujici> observable, Vyucujici oldValue, Vyucujici newValue) {
+            public void changed(ObservableValue<? extends Uzivatel> observable, Uzivatel oldValue, Uzivatel newValue) {
                 if (newValue != null) {
                     pridatVyucBtn.setDisable(true);
                     try {
                         comboPracovist.getItems().setAll(dh.dejKatedry());
-                        Vyucujici pom = twVyucujici.getSelectionModel().getSelectedItem();
+                        Uzivatel pom = twVyucujici.getSelectionModel().getSelectedItem();
                         titulPredField.setText(pom.getTitulPred());
                         titulZaField.setText(pom.getTitulZa());
                         jmenoField.setText(pom.getJmeno());
@@ -470,7 +470,7 @@ public class AppFXMLController implements Initializable {
                 int mobil = 0;
                 int telefon = 0;
 
-                Vyucujici novy = new Vyucujici(titulPred, jmeno, prijmeni, titulZa, email, mobil, telefon, new Pracoviste(null, katedra));
+                Uzivatel novy = new Uzivatel(titulPred, jmeno, prijmeni, titulZa, email, mobil, telefon, new Pracoviste(null, katedra));
                 dh.insertDataVyuc(novy);
                 aktualizujVyucujici();
                 vycistiFormularVyucujici();
@@ -485,7 +485,7 @@ public class AppFXMLController implements Initializable {
         try {
             if (comboPracovist.getSelectionModel().getSelectedItem() != null && !jmenoField.getText().isEmpty()
                     && !prijmeniField.getText().isEmpty() && twVyucujici.getSelectionModel().getSelectedItem() != null) {
-                Vyucujici vybrany = twVyucujici.getSelectionModel().getSelectedItem();
+                Uzivatel vybrany = twVyucujici.getSelectionModel().getSelectedItem();
                 vybrany.setTitulPred(titulPredField.getText());
                 vybrany.setTitulZa(titulZaField.getText());
                 vybrany.setJmeno(jmenoField.getText());
@@ -505,7 +505,7 @@ public class AppFXMLController implements Initializable {
 
     @FXML
     private void odeberVyucujiciho(ActionEvent event) {
-        Vyucujici vybranyVyuc = twVyucujici.getSelectionModel().getSelectedItem();
+        Uzivatel vybranyVyuc = twVyucujici.getSelectionModel().getSelectedItem();
         if (vybranyVyuc != null) {
             try {
                 dh.deleteDataVyuc(vybranyVyuc);
@@ -810,8 +810,8 @@ public class AppFXMLController implements Initializable {
     @FXML
     private void nactiVyucujici(MouseEvent event) {
         try {
-            ArrayList<Vyucujici> vyuc = dh.dejKartaVyucujici();
-            vyuc.sort((Vyucujici o1, Vyucujici o2) -> o1.getPrijmeni().compareToIgnoreCase(o2.getPrijmeni()));
+            ArrayList<Uzivatel> vyuc = dh.dejKartaVyucujici();
+            vyuc.sort((Uzivatel o1, Uzivatel o2) -> o1.getPrijmeni().compareToIgnoreCase(o2.getPrijmeni()));
             comboVyucujici.getItems().setAll(vyuc);
         } catch (SQLException ex) {
             zobrazChybu(ex);

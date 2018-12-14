@@ -9,25 +9,31 @@ public class Akce {
     private int id;
     private int rozsah;
     private int kapacita;
-    private Vyucujici vyucujici;
+    private Uzivatel vyucujici;
     private Predmet predmet;
     private Zpusob zpusob;
+    private Ucebna ucebna;
+    private Tyden tyden;
 
-    public Akce(int rozsah, int kapacita, Vyucujici vyucujici, Predmet predmet, Zpusob zpusob) {
+    public Akce(int rozsah, int kapacita, Uzivatel vyucujici, Predmet predmet, Zpusob zpusob, Ucebna ucebna, Tyden tyden) {
         this.rozsah = rozsah;
         this.kapacita = kapacita;
         this.vyucujici = vyucujici;
         this.predmet = predmet;
         this.zpusob = zpusob;
+        this.ucebna = ucebna;
+        this.tyden = tyden;
     }
 
-    public Akce(int id, int rozsah, int kapacita, Vyucujici vyucujici, Predmet predmet, Zpusob zpusob) {
+    public Akce(int id, int rozsah, int kapacita, Uzivatel vyucujici, Predmet predmet, Zpusob zpusob, Ucebna ucebna, Tyden tyden) {
         this.id = id;
         this.rozsah = rozsah;
         this.kapacita = kapacita;
         this.vyucujici = vyucujici;
         this.predmet = predmet;
         this.zpusob = zpusob;
+        this.ucebna = ucebna;
+        this.tyden = tyden;
     }
 
     public int getId() {
@@ -54,11 +60,11 @@ public class Akce {
         this.kapacita = kapacita;
     }
 
-    public Vyucujici getVyucujici() {
+    public Uzivatel getVyucujici() {
         return vyucujici;
     }
 
-    public void setVyucujici(Vyucujici vyucujici) {
+    public void setVyucujici(Uzivatel vyucujici) {
         this.vyucujici = vyucujici;
     }
 
@@ -77,7 +83,5 @@ public class Akce {
     public void setZpusob(Zpusob zpusob) {
         this.zpusob = zpusob;
     }
-    
-    
 
 }
