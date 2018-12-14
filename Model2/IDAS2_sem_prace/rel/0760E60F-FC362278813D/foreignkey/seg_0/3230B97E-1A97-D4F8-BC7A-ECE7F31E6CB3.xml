@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="3230B97E-1A97-D4F8-BC7A-ECE7F31E6CB3" containerWithKeyObject="85D72167-D072-8805-C809-1295BDE3D02D" localFKIndex="1680CC36-EEB4-7DB1-E69E-CEE5D5A14F2C" name="STUD_PLAN_STUD_OBOR_FK">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-14 17:26:23 UTC</createdTime>
+<generatorID>07928C60-2BED-0E83-366C-F0315D30C67D</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<referredTableLongName>STUD_OBOR</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>E0C16170-93D5-60F8-76FB-01D82B17AC68</referredTableID>
+<keyObject>F9371AA0-E2EB-9C30-834E-F5BC1CDFC2F1</keyObject>
+<referredKeyID>F9371AA0-E2EB-9C30-834E-F5BC1CDFC2F1</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>id_oboru</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

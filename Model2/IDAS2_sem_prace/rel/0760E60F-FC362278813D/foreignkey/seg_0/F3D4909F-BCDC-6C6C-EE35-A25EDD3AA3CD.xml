@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="F3D4909F-BCDC-6C6C-EE35-A25EDD3AA3CD" containerWithKeyObject="E2D56565-5D6A-885B-5D23-20B50EB9A4AF" localFKIndex="FC8FA7E7-552E-CC95-E7F8-0C939FF6C269" name="PRED_V_PLANU_STUD_PLAN_FK">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-14 17:26:23 UTC</createdTime>
+<generatorID>556FCA04-F635-DF70-B712-9E8F1E0FF0E7</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<referredTableLongName>STUD_PLAN</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>85D72167-D072-8805-C809-1295BDE3D02D</referredTableID>
+<keyObject>A29417D2-353C-A821-8F5F-2DACA42196E0</keyObject>
+<referredKeyID>A29417D2-353C-A821-8F5F-2DACA42196E0</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>id_planu</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>
