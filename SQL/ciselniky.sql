@@ -173,21 +173,6 @@ BEGIN
   FROM dual;
 END;
 /
-/*Sekvence a trigger Stud_Plan*/
-CREATE SEQUENCE stud_plan_SEQ 
- START WITH 1 
- INCREMENT BY 1;
-/
- CREATE OR REPLACE TRIGGER TRIG_stud_plan
-BEFORE INSERT ON stud_plan
-FOR EACH ROW
- WHEN (new.id_planu IS NULL) 
-BEGIN
-  SELECT stud_plan_SEQ.NEXTVAL
-  INTO :new.id_planu
-  FROM dual;
-END;
-/
 /*Sekvence a trigger Pred_V_Planu*/
 CREATE SEQUENCE pred_v_planu_SEQ 
  START WITH 1 
