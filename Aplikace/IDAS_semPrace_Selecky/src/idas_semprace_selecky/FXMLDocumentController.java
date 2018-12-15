@@ -87,8 +87,6 @@ public class FXMLDocumentController implements Initializable {
                 stage2.setTitle("Přihlášení uživatele");
                 stage2.setResizable(false);
                 stage2.initModality(Modality.APPLICATION_MODAL);
-                //stage.initStyle(StageStyle.UNDECORATED);
-                //stage2.initOwner(loginBtn.getScene().getWindow());
                 stage2.setScene(scene);
                 stage2.show();
             } catch (IOException ex) {

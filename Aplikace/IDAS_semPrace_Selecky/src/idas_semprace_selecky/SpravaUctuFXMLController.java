@@ -9,19 +9,24 @@ import data.Role;
 import data.Ucet;
 import data.Uzivatel;
 import database.databaseHelper;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DialogPane;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 /**
@@ -34,6 +39,7 @@ public class SpravaUctuFXMLController implements Initializable {
     AppFXMLController puvodniOkno;
     private databaseHelper dh;
     private Uzivatel uziv;
+    private Uzivatel prihlaseny;
 
     @FXML
     private TextField nickField;
@@ -50,7 +56,8 @@ public class SpravaUctuFXMLController implements Initializable {
 
     ArrayList<Role> role;
 
-    SpravaUctuFXMLController(AppFXMLController puvodniOkno, databaseHelper dh, Uzivatel uziv) {
+    SpravaUctuFXMLController(AppFXMLController puvodniOkno, databaseHelper dh, Uzivatel uziv, Uzivatel prihlaseny) {
+        this.prihlaseny = prihlaseny;
         this.puvodniOkno = puvodniOkno;
         this.dh = dh;
         this.uziv = uziv;
@@ -66,6 +73,9 @@ public class SpravaUctuFXMLController implements Initializable {
                 nickField.setText(uziv.getUcet().getNickname());
                 hesloField.setText(uziv.getUcet().getHeslo());
                 comboRole.getSelectionModel().select(uziv.getRole().getId() - 1);
+                if (prihlaseny.getRole().getId() == 2) {
+                    comboRole.setDisable(true);
+                }
             }
         } catch (SQLException ex) {
             zobrazChybu(ex);
@@ -110,6 +120,9 @@ public class SpravaUctuFXMLController implements Initializable {
             try {
                 dh.updateDataUcet(uziv);
                 Stage stage = (Stage) btnUpravit.getScene().getWindow();
+                if (prihlaseny.getRole().getId() != uziv.getRole().getId()) {
+                    provedOdhlaseni();
+                }
                 stage.close();
                 puvodniOkno.aktualizujVyucujici();
             } catch (SQLException ex) {
@@ -131,6 +144,9 @@ public class SpravaUctuFXMLController implements Initializable {
         try {
             dh.deleteDataUcet(uziv);
             Stage stage = (Stage) btnSmazat.getScene().getWindow();
+            if (prihlaseny.getRole().getId() != uziv.getRole().getId()) {
+                provedOdhlaseni();
+            }
             stage.close();
             puvodniOkno.aktualizujVyucujici();
         } catch (SQLException ex) {
@@ -160,5 +176,41 @@ public class SpravaUctuFXMLController implements Initializable {
         DialogPane dp = alert.getDialogPane();
         dp.getStylesheets().add(getClass().getResource("styl.css").toExternalForm());
         alert.showAndWait();
+    }
+
+    private void provedOdhlaseni() {
+        zobrazOdhlaseni();
+        Stage stage = puvodniOkno.vratStage();
+        stage.close();
+        otevriPrihlaseni();
+    }
+
+    private void zobrazOdhlaseni() {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Změna aktivního účtu");
+        alert.setHeaderText("Změna aktivního účtu");
+        alert.setContentText("Pro aplikování změn účtu se musíte znovu přihlásit.");
+        DialogPane dp = alert.getDialogPane();
+        dp.getStylesheets().add(getClass().getResource("styl.css").toExternalForm());
+        alert.showAndWait();
+    }
+
+    private void otevriPrihlaseni() {
+        final FXMLLoader loader = new FXMLLoader(getClass().getResource("LoginFXML.fxml"));
+        LoginFXMLController contr = new LoginFXMLController(dh);
+        loader.setController(contr);
+        final Parent root;
+        try {
+            root = loader.load();
+            final Scene scene = new Scene(root);
+            Stage stage2 = new Stage();
+            stage2.setTitle("Přihlášení uživatele");
+            stage2.setResizable(false);
+            stage2.initModality(Modality.APPLICATION_MODAL);
+            stage2.setScene(scene);
+            stage2.show();
+        } catch (IOException ex) {
+            zobrazChybu(ex);
+        }
     }
 }

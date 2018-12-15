@@ -436,6 +436,11 @@ public class AppFXMLController implements Initializable {
 
     }
 
+    public Stage vratStage() {
+        Stage stage = (Stage) btnLogout.getScene().getWindow();
+        return stage;
+    }
+
     // Obnoví data v tabulce Vyučujících
     private void aktualizujPrihlasenehoUzivatele() {
         textLoggedUser.setText(prihlasenyUzivatel.toString());
@@ -1050,7 +1055,7 @@ public class AppFXMLController implements Initializable {
         }
 
         final FXMLLoader loader = new FXMLLoader(getClass().getResource("SpravaUctuFXML.fxml"));
-        SpravaUctuFXMLController contr = new SpravaUctuFXMLController(this, dh, upravovanyUzivatel);
+        SpravaUctuFXMLController contr = new SpravaUctuFXMLController(this, dh, upravovanyUzivatel, prihlasenyUzivatel);
         loader.setController(contr);
         final Parent root;
         try {
