@@ -19,6 +19,18 @@ public class Uzivatel {
     private int idObrazku;
     private Pracoviste pracoviste;
 
+    public Uzivatel(String titulPred, String jmeno, String prijmeni, String titulZa, String email, int mobil, int telefon, Role role, Pracoviste pracoviste) {
+        this.titulPred = titulPred;
+        this.jmeno = jmeno;
+        this.prijmeni = prijmeni;
+        this.titulZa = titulZa;
+        this.email = email;
+        this.mobil = mobil;
+        this.telefon = telefon;
+        this.role = role;
+        this.pracoviste = pracoviste;
+    }
+
     public Uzivatel(String titulPred, String jmeno, String prijmeni, String titulZa, String email, int mobil, int telefon, Ucet ucet, Role role, int obrazek, Pracoviste pracoviste) {
         this.titulPred = titulPred;
         this.jmeno = jmeno;

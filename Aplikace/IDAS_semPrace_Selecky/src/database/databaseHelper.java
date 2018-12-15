@@ -17,6 +17,7 @@ import data.Ucet;
 import data.Uzivatel;
 import data.Zakonceni;
 import data.Zpusob;
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -156,22 +157,36 @@ public class databaseHelper {
 
     public ArrayList<Uzivatel> dejKartaVyucujici() throws SQLException {
         ArrayList<Uzivatel> vyucujici = new ArrayList<>();
-// TODO Upravit vyucujici dle noveho modelu
-//        Connection conn = OracleConnector.getConnection();
-//        PreparedStatement stmt = conn.prepareStatement("SELECT * FROM vyucujici_view");
-//        ResultSet rset = stmt.executeQuery();
-//        while (rset.next()) {
-//            vyucujici.add(new Uzivatel(rset.getInt("id_vyucujiciho"),
-//                    rset.getString("titul_pred"),
-//                    rset.getString("jmeno"),
-//                    rset.getString("prijmeni"),
-//                    rset.getString("titul_za"),
-//                    rset.getString("email"),
-//                    rset.getInt("mobil"),
-//                    rset.getInt("telefon"),
-//                    new Pracoviste(new Fakulta(rset.getString("fakulta"), rset.getString("nazev_fakulty")),
-//                            new Katedra(rset.getString("katedra"), rset.getString("nazev_katedry")))));
-//        }
+
+        Connection conn = OracleConnector.getConnection();
+        PreparedStatement stmt = conn.prepareStatement("SELECT * FROM uzivatel_view");
+        ResultSet rset = stmt.executeQuery();
+        while (rset.next()) {
+            int id = rset.getInt("id_uzivatele");
+            String jmeno = rset.getString("jmeno");
+            String prijmeni = rset.getString("prijmeni");
+            String titulPred = rset.getString("titul_pred");
+            String titulZa = rset.getString("titul_za");
+            String email = rset.getString("email");
+            int mobil = rset.getInt("mobil");
+            int telefon = rset.getInt("telefon");
+            int id_role = rset.getInt("id_role");
+            String nazev_role = rset.getString("nazev_role");
+            String zkratka_katedry = rset.getString("zkratka_katedry");
+            String nazev_katedry = rset.getString("nazev_katedry");
+            String zkratka_fakulty = rset.getString("zkratka_fakulty");
+            String nazev_fakulty = rset.getString("nazev_fakulty");
+            int id_uctu = rset.getInt("id_uctu");
+            String user = rset.getString("nick");
+            String pass = rset.getString("heslo");
+            int id_souboru = rset.getInt("id_souboru");
+            vyucujici.add(new Uzivatel(id, titulPred, jmeno, prijmeni, titulZa, email, mobil, telefon,
+                    new Ucet(id_uctu, user, pass),
+                    new Role(id_role, nazev_role),
+                    id_souboru,
+                    new Pracoviste(new Fakulta(zkratka_fakulty, nazev_fakulty),
+                            new Katedra(zkratka_katedry, nazev_katedry))));
+        }
         return vyucujici;
     }
 
@@ -293,16 +308,24 @@ public class databaseHelper {
     public void insertDataVyuc(Uzivatel vyuc) throws SQLException {
         Connection conn;
         conn = OracleConnector.getConnection();
-        PreparedStatement stmt = conn.prepareStatement("INSERT INTO vyucujici(JMENO, PRIJMENI, TITUL_PRED, TITUL_ZA, KATEDRA_ZKRATKA_KATEDRY, EMAIL, TELEFON, MOBIL) "
-                + "VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+        CallableStatement stmt = conn.prepareCall("{call vlozUzivatele(?, ?, ?, ?, ?, ?, ?, ?, ?)}");
         stmt.setString(1, vyuc.getJmeno());
         stmt.setString(2, vyuc.getPrijmeni());
         stmt.setString(3, vyuc.getTitulPred());
         stmt.setString(4, vyuc.getTitulZa());
-        stmt.setString(5, vyuc.getPracoviste().getKatedra().getZkratka());
-        stmt.setString(6, vyuc.getEmail());
-        stmt.setInt(7, vyuc.getTelefon());
-        stmt.setInt(8, vyuc.getMobil());
+        stmt.setString(5, vyuc.getEmail());
+        if (vyuc.getMobil() == 0) {
+            stmt.setNull(6, java.sql.Types.INTEGER);
+        } else {
+            stmt.setInt(6, vyuc.getMobil());
+        }
+        if (vyuc.getTelefon() == 0) {
+            stmt.setNull(7, java.sql.Types.INTEGER);
+        } else {
+            stmt.setInt(7, vyuc.getTelefon());
+        }
+        stmt.setString(8, vyuc.getPracoviste().getKatedra().getZkratka());
+        stmt.setInt(9, vyuc.getRole().getId());
         stmt.executeUpdate();
         conn.commit();
     }

@@ -14,6 +14,7 @@ import data.Obor;
 import data.Pracoviste;
 import data.Pracoviste2;
 import data.Predmet;
+import data.Role;
 import data.Semestr;
 import data.Uzivatel;
 import data.Zakonceni;
@@ -46,6 +47,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -60,8 +62,13 @@ public class AppFXMLController implements Initializable {
     private databaseHelper dh;
     private Uzivatel prihlasenyUzivatel;
 
+    // User panel
     @FXML
     private Text textLoggedUser;
+    @FXML
+    private Button btnSpravovat;
+    @FXML
+    private Button btnLogout;
 
     // Defaultní nastavení neregistrovaného uživatele
     private EnumOpravneni opravneni = EnumOpravneni.NEREGISTROVANY;
@@ -90,6 +97,8 @@ public class AppFXMLController implements Initializable {
     // TODO Bude potřeba dodělat pole pro správu admina, uziv_jmeno a heslo .. 
     // Možná také tlačítko a dialog pro zobrazení akcí vyučujícího
     @FXML
+    private Pane paneVyucForm;
+    @FXML
     private TextField titulPredField;
     @FXML
     private TextField jmenoField;
@@ -109,6 +118,8 @@ public class AppFXMLController implements Initializable {
     private Button upravitVyucBtn;
     @FXML
     private Button smazatVyucBtn;
+    @FXML
+    private Button btnSpravovatKohokoliv;
 
     // Tabulka pracovist
     @FXML
@@ -238,10 +249,6 @@ public class AppFXMLController implements Initializable {
     ObservableList<Obor> obory;
     ObservableList<Predmet> predmety;
     ObservableList<Akce> akce;
-    @FXML
-    private Button btnSpravovat;
-    @FXML
-    private Button btnLogout;
 
     public AppFXMLController(databaseHelper dh, Uzivatel prihlaseny) {
         this.dh = dh;
@@ -265,6 +272,10 @@ public class AppFXMLController implements Initializable {
         if (prihlasenyUzivatel != null) {
             textLoggedUser.setText(prihlasenyUzivatel.toString());
             btnSpravovat.setVisible(true);
+        }
+
+        if (opravneni != EnumOpravneni.ADMINISTRATOR) {
+            paneVyucForm.setVisible(false);
         }
 
         //Nastavení spřažení pro tabulku karty vyučujících
@@ -488,30 +499,29 @@ public class AppFXMLController implements Initializable {
     // Následují DML metody jednotlivých tabulek figurujících na kartách
     @FXML
     private void pridejVyucujiciho(ActionEvent event) {
-        // TODO Upravit pridani vyucujiciho dle noveho modelu
-//        try {
-//            //comboPracovist.getItems().setAll(dh.dejKatedry());
-//            if (comboPracovist.getSelectionModel().getSelectedItem() != null && !jmenoField.getText().isEmpty()
-//                    && !prijmeniField.getText().isEmpty()) {
-//                String titulPred = titulPredField.getText();
-//                String titulZa = titulZaField.getText();
-//                String jmeno = jmenoField.getText();
-//                String prijmeni = prijmeniField.getText();
-//                String email = emailField.getText();
-//                Katedra katedra = comboPracovist.getSelectionModel().getSelectedItem();
-//                int mobil = 0;
-//                int telefon = 0;
-//
-//                Uzivatel novy = new Uzivatel(titulPred, jmeno, prijmeni, titulZa, email, mobil, telefon, new Pracoviste(null, katedra));
-//                dh.insertDataVyuc(novy);
-//                aktualizujVyucujici();
-//                vycistiFormularVyucujici();
-//            }
-//        } catch (SQLException ex) {
-//            zobrazChybu(ex);
-//        }
+        try {
+            if (comboPracovist.getSelectionModel().getSelectedItem() != null && !jmenoField.getText().isEmpty()
+                    && !prijmeniField.getText().isEmpty()) {
+                String titulPred = titulPredField.getText();
+                String titulZa = titulZaField.getText();
+                String jmeno = jmenoField.getText();
+                String prijmeni = prijmeniField.getText();
+                String email = emailField.getText();
+                Katedra katedra = comboPracovist.getSelectionModel().getSelectedItem();
+                int mobil = 0;
+                int telefon = 0;
+
+                Uzivatel novy = new Uzivatel(titulPred, jmeno, prijmeni, titulZa, email, mobil, telefon, new Role(3, "Neregistrovaný"), new Pracoviste(null, katedra));
+                dh.insertDataVyuc(novy);
+                aktualizujVyucujici();
+                vycistiFormularVyucujici();
+            }
+        } catch (SQLException ex) {
+            zobrazChybu(ex);
+        }
     }
 
+    // TODO Upravit edit vyucujiciho dle noveho modelu
     @FXML
     private void upravVyucujiciho(ActionEvent event) {
         try {
@@ -1016,6 +1026,7 @@ public class AppFXMLController implements Initializable {
         alert.showAndWait();
     }
 
+    // TODO Přidat dialog pro správu účtu, nick, heslo, role, obrázek
     @FXML
     private void zobrazOknoSpravy(ActionEvent event) {
     }
