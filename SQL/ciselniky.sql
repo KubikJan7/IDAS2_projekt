@@ -96,6 +96,7 @@ END;
 /*Èíselník Rolí*/
 insert into role (nazev_role) values ('Administrátor');
 insert into role (nazev_role) values ('Registrovaný');
+insert into role (nazev_role) values ('Neregistrovaný');
 alter table role read only;
 /
 /*Sekvence a trigger predmetu*/
@@ -217,22 +218,6 @@ FOR EACH ROW
 BEGIN
   SELECT STUD_PLAN_SEQ.NEXTVAL
   INTO :new.ID_PLANU
-  FROM dual;
-END;
-/
-
-/*Sekvence a trigger UCET*/
-CREATE SEQUENCE UCET_SEQ 
- START WITH 1 
- INCREMENT BY 1;
-/
- CREATE OR REPLACE TRIGGER TRIG_UCET
-BEFORE INSERT ON UCET
-FOR EACH ROW
- WHEN (new.ID_UCTU IS NULL) 
-BEGIN
-  SELECT UCET_SEQ.NEXTVAL
-  INTO :new.ID_UCTU
   FROM dual;
 END;
 /

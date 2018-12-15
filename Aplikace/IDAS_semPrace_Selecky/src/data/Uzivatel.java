@@ -16,10 +16,22 @@ public class Uzivatel {
     private int telefon;
     private Ucet ucet;
     private Role role;
-    private Obrazek obrazek;
+    private int idObrazku;
     private Pracoviste pracoviste;
 
-    public Uzivatel(String titulPred, String jmeno, String prijmeni, String titulZa, String email, int mobil, int telefon, Ucet ucet, Role role, Obrazek obrazek, Pracoviste pracoviste) {
+    public Uzivatel(String titulPred, String jmeno, String prijmeni, String titulZa, String email, int mobil, int telefon, Role role, Pracoviste pracoviste) {
+        this.titulPred = titulPred;
+        this.jmeno = jmeno;
+        this.prijmeni = prijmeni;
+        this.titulZa = titulZa;
+        this.email = email;
+        this.mobil = mobil;
+        this.telefon = telefon;
+        this.role = role;
+        this.pracoviste = pracoviste;
+    }
+
+    public Uzivatel(String titulPred, String jmeno, String prijmeni, String titulZa, String email, int mobil, int telefon, Ucet ucet, Role role, int obrazek, Pracoviste pracoviste) {
         this.titulPred = titulPred;
         this.jmeno = jmeno;
         this.prijmeni = prijmeni;
@@ -29,11 +41,13 @@ public class Uzivatel {
         this.telefon = telefon;
         this.ucet = ucet;
         this.role = role;
-        this.obrazek = obrazek;
+        this.idObrazku = obrazek;
         this.pracoviste = pracoviste;
     }
 
-    public Uzivatel(int id, String titulPred, String jmeno, String prijmeni, String titulZa, String email, int mobil, int telefon, Ucet ucet, Role role, Obrazek obrazek, Pracoviste pracoviste) {
+    public Uzivatel(int id, String titulPred, String jmeno, String prijmeni,
+            String titulZa, String email, int mobil, int telefon,
+            Ucet ucet, Role role, int obrazek, Pracoviste pracoviste) {
         this.id = id;
         this.titulPred = titulPred;
         this.jmeno = jmeno;
@@ -44,7 +58,7 @@ public class Uzivatel {
         this.telefon = telefon;
         this.ucet = ucet;
         this.role = role;
-        this.obrazek = obrazek;
+        this.idObrazku = obrazek;
         this.pracoviste = pracoviste;
     }
 
@@ -118,6 +132,30 @@ public class Uzivatel {
 
     public void setPracoviste(Pracoviste pracoviste) {
         this.pracoviste = pracoviste;
+    }
+
+    public Ucet getUcet() {
+        return ucet;
+    }
+
+    public void setUcet(Ucet ucet) {
+        this.ucet = ucet;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
+    public int getIdObrazku() {
+        return idObrazku;
+    }
+
+    public void setIdObrazku(int idObrazku) {
+        this.idObrazku = idObrazku;
     }
 
     @Override
