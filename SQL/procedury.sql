@@ -49,3 +49,15 @@ BEGIN
     WHERE ID_PLANU = p_id_planu;
 END;
 /
+
+-- Uzivatel
+create or replace PROCEDURE vlozUzivatele
+  (p_jmeno UZIVATEL.JMENO%TYPE, p_prijmeni UZIVATEL.PRIJMENI%TYPE, p_titulPred UZIVATEL.TITUL_PRED%TYPE, 
+  p_titulZa UZIVATEL.TITUL_ZA%TYPE, p_email UZIVATEL.EMAIL%TYPE, p_mobil UZIVATEL.MOBIL%TYPE, p_telefon UZIVATEL.TELEFON%TYPE,
+  p_zkratkaKatedry UZIVATEL.KATEDRA_ZKRATKA_KATEDRY%TYPE, p_idRole UZIVATEL.ROLE_ID_ROLE%TYPE)
+IS
+BEGIN
+	Insert into UZIVATEL (JMENO, PRIJMENI, TITUL_PRED, TITUL_ZA, EMAIL, MOBIL, TELEFON, KATEDRA_ZKRATKA_KATEDRY, ROLE_ID_ROLE)
+    values (p_jmeno, p_prijmeni, p_titulPred, p_titulZa, p_email, p_mobil, p_telefon, p_zkratkaKatedry, p_idRole);
+END;
+/
