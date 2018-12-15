@@ -96,6 +96,7 @@ END;
 /*Èíselník Rolí*/
 insert into role (nazev_role) values ('Administrátor');
 insert into role (nazev_role) values ('Registrovaný');
+insert into role (nazev_role) values ('Neregistrovaný');
 alter table role read only;
 /
 /*Sekvence a trigger predmetu*/
