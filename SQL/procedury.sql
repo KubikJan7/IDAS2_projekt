@@ -108,8 +108,10 @@ END;
 create or replace PROCEDURE upravUcet
   (p_idUzivatele UCET.UZIVATEL_ID_UZIVATELE%TYPE,p_nick UCET.NICK%TYPE, p_heslo UCET.HESLO%TYPE, p_idRole ROLE.ID_ROLE%TYPE)
 IS
+v_nickUctu UCET.NICK%TYPE;
 BEGIN
-    IF (jeJmenoUnikatni(p_nick)) THEN
+    select nick into v_nickUctu from ucet where UZIVATEL_ID_UZIVATELE = p_idUzivatele;
+    IF (jeJmenoUnikatni(p_nick) OR v_nickUctu = p_nick) THEN
         UPDATE UCET SET NICK = p_nick, HESLO = p_heslo
         WHERE uzivatel_id_uzivatele = p_idUzivatele;
     
