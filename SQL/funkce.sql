@@ -12,3 +12,19 @@ BEGIN
         WHEN NO_DATA_FOUND THEN
             raise_application_error(-20001, 'Neexistující jméno nebo heslo.');
 END;
+
+-- Funkce ověření unikátnosti uživatelského jména
+create or replace FUNCTION jeJmenoUnikatni (p_nick UCET.NICK%TYPE)
+RETURN BOOLEAN IS 
+   v_jeUnikatni     BOOLEAN := FALSE;
+   v_nick           UCET.NICK%TYPE;
+BEGIN 
+    SELECT NICK INTO v_nick
+    FROM UCET
+    WHERE NICK = p_nick;
+    RETURN v_jeUnikatni;
+    EXCEPTION
+        WHEN NO_DATA_FOUND THEN
+            v_jeUnikatni := TRUE;
+            RETURN v_jeUnikatni;
+END;

@@ -61,22 +61,6 @@
 <colAssociation fkAssociation="E8A46BFE-3DBD-8D02-AAC6-412404046A05" referredColumn="6DB3DE97-82F2-2E30-1C7D-7554053EA339"/>
 </associations>
 </Column>
-<Column name="PREDMET_id_predmetu" id="B7FF3B49-AC73-BE73-F3A8-6FD764DB8701">
-<createdBy>selda</createdBy>
-<createdTime>2018-12-14 17:26:23 UTC</createdTime>
-<generatorID>50BDA671-2F06-8002-9F1A-146F52E9455F</generatorID>
-<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT019</logicalDatatype>
-<dataTypePrecision>5</dataTypePrecision>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-<previousColumn>false</previousColumn>
-<autoIncrementCycle>false</autoIncrementCycle>
-<associations>
-<colAssociation fkAssociation="3D91FB00-905D-E784-F601-BC50A982624F" referredColumn="F29E8D6B-1160-DB03-DF54-2081755DBFFD"/>
-</associations>
-</Column>
 <Column name="ZPUSOB_ZAKONCENI_zkr_zak" id="80151C89-7611-3662-73BA-30D1479DFF35">
 <createdBy>selda</createdBy>
 <createdTime>2018-12-14 17:26:23 UTC</createdTime>
@@ -125,6 +109,22 @@
 <colAssociation fkAssociation="F3D4909F-BCDC-6C6C-EE35-A25EDD3AA3CD" referredColumn="F9D508CF-A3D6-77F1-F6C2-89E6EBE77DE4"/>
 </associations>
 </Column>
+<Column name="id_predmetu" id="EF40BF4D-36DA-1AA0-95CD-E22EF844C4C9">
+<createdBy>Legol</createdBy>
+<createdTime>2018-12-15 16:14:37 UTC</createdTime>
+<generatorID>95A6C157-E4D6-7089-7D6A-AA82ADE7EACE</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="3D91FB00-905D-E784-F601-BC50A982624F" referredColumn="F29E8D6B-1160-DB03-DF54-2081755DBFFD"/>
+</associations>
+</Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
 <ind_PK_UK id="3CBFB0FE-B061-81D0-361E-2806C849FF49" name="PRED_V_PLANU_PK">
@@ -137,17 +137,6 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="E075E8F0-011A-627A-C182-66032F94A808"/>
-</indexColumnUsage>
-</ind_PK_UK>
-<ind_PK_UK id="258B9DCF-3FFC-835A-6B46-3363F397D5E9" name="PRED_V_PLANU__IDX">
-<createdBy>selda</createdBy>
-<createdTime>2018-12-14 17:26:23 UTC</createdTime>
-<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
-<indexState>Unique Plain Index</indexState>
-<isSurrogateKey>false</isSurrogateKey>
-<relationGeneratorID>A2C551DB-7435-4295-BCA0-E4E84439545C</relationGeneratorID>
-<indexColumnUsage>
-<colUsage columnID="B7FF3B49-AC73-BE73-F3A8-6FD764DB8701"/>
 </indexColumnUsage>
 </ind_PK_UK>
 <ind_PK_UK id="FC8FA7E7-552E-CC95-E7F8-0C939FF6C269" name="PRED_V_PLANU_STUD_PLAN_FK">
@@ -180,7 +169,7 @@
 <indexState>Foreign Key</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
-<colUsage columnID="B7FF3B49-AC73-BE73-F3A8-6FD764DB8701"/>
+<colUsage columnID="EF40BF4D-36DA-1AA0-95CD-E22EF844C4C9"/>
 </indexColumnUsage>
 </ind_PK_UK>
 <ind_PK_UK id="88DFE2EF-6B87-D2FE-5089-7344FEEBE282" name="PRED_V_PLANU_SEMESTR_FK">
@@ -194,7 +183,7 @@
 <colUsage columnID="FC4BF260-6CC7-4B6A-405F-67B07A28F6D8"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="7C7BAF5B-1DB8-3188-1599-FCBDB2FB3D8D" name="PRED_V_PLANU_ZPUS_ZAKONCENI_FK">
+<ind_PK_UK id="7C7BAF5B-1DB8-3188-1599-FCBDB2FB3D8D" name="PRED_V_PLANU_ZPUSOB_ZAKONCENI_FK">
 <createdBy>selda</createdBy>
 <createdTime>2018-12-14 17:26:23 UTC</createdTime>
 <generatorID>2C45CCAD-8DC4-00B3-1003-39BDE814E601</generatorID>
