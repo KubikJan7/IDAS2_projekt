@@ -93,7 +93,7 @@
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
 <dataTypePrecision>6</dataTypePrecision>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<ownDataTypeParameters>,6,</ownDataTypeParameters>
 </Attribute>
 <Attribute name="id_predmetu" id="1258AD88-61C9-7498-5E26-155CFC380B5F">
 <createdBy>selda</createdBy>
@@ -108,7 +108,7 @@
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
 <dataTypePrecision>5</dataTypePrecision>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<ownDataTypeParameters>,5,</ownDataTypeParameters>
 </Attribute>
 <Attribute name="id_nazvu" id="3DE5981F-2001-E921-4E65-9C508BCEFC07">
 <createdBy>selda</createdBy>
@@ -123,7 +123,7 @@
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
 <dataTypePrecision>6</dataTypePrecision>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<ownDataTypeParameters>,6,</ownDataTypeParameters>
 </Attribute>
 <Attribute name="id_ucebny" id="244E9F3F-E615-727A-06BD-682E53EDA11D">
 <createdBy>Legol</createdBy>
@@ -139,6 +139,22 @@
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
 <dataTypePrecision>6</dataTypePrecision>
+<ownDataTypeParameters>,6,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_tydne" id="A8E2F7E5-2DF0-4866-1EF1-C30495170D88">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-14 16:26:52 UTC</createdTime>
+<generatorID>9B1B1B53-6039-4837-E62C-6795165F2B63</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<engineerTo>
+<item key="019F6D25-8286-53CE-3D09-5E9650887D9F" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<referedAttribute>CB06BDAB-8D50-B47B-D16C-7B71AB6712EF</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
 </attributes>

@@ -1,0 +1,181 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="0B11777B-00E1-FFEC-9F1B-4FF8D5566415" name="UZIVATEL">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-14 17:26:23 UTC</createdTime>
+<generatorID>7F6E371C-31DC-11E3-BAA6-064D329D5E4A</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_uzivatele" id="ED2A4F02-98CD-F0C4-10BE-1CFD625872F7">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-14 17:26:23 UTC</createdTime>
+<generatorID>A70C47ED-976F-3840-7D68-051537A85935</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<ownDataTypeParameters>,6,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="jmeno" id="0229791F-0269-44A7-1B14-5A07C21A13AA">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-14 17:26:23 UTC</createdTime>
+<generatorID>B19624C1-A8B8-944F-34EE-8EA4E213ABA6</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>40 CHAR</dataTypeSize>
+<ownDataTypeParameters>40 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="prijmeni" id="2FE66749-ED16-C823-1287-AEB790D5265A">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-14 17:26:23 UTC</createdTime>
+<generatorID>BB4D944C-5FAA-C3A2-15B9-6879DA3EB346</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>40 CHAR</dataTypeSize>
+<ownDataTypeParameters>40 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="titul_pred" id="49B2B543-C2DA-C361-5263-D8633E0DA430">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-14 17:26:23 UTC</createdTime>
+<generatorID>639F0085-9667-00B1-7BBC-4A19BB604092</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>15 CHAR</dataTypeSize>
+<ownDataTypeParameters>15 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="titul_za" id="DDB514B7-383D-D610-049B-9FB34B2E60A1">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-14 17:26:23 UTC</createdTime>
+<generatorID>499BA73E-3466-0ACC-966D-3D611C0EA207</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>15 CHAR</dataTypeSize>
+<ownDataTypeParameters>15 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="email" id="6857E5C6-8803-2518-FEE6-4A5DF447F2CD">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-14 17:26:23 UTC</createdTime>
+<generatorID>3B46D70B-2C77-4F2C-7E74-6563982D9178</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>70 CHAR</dataTypeSize>
+<ownDataTypeParameters>70 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="mobil" id="4D6FFB4D-0942-69A7-0723-114D8BFF4AE7">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-14 17:26:23 UTC</createdTime>
+<generatorID>04764AE8-BF3D-E4F2-F6AD-F0043E496F87</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>9 CHAR</dataTypeSize>
+<ownDataTypeParameters>9 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="telefon" id="1F718193-3277-A6B5-AF33-A8B5F4153B74">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-14 17:26:23 UTC</createdTime>
+<generatorID>A46B4646-80CF-1CCF-CB24-0B5084AB4E74</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>13 CHAR</dataTypeSize>
+<ownDataTypeParameters>13 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="KATEDRA_zkratka_katedry" id="F8A04561-F534-B137-79B0-76D9FD87CA3C">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-14 17:26:23 UTC</createdTime>
+<generatorID>76A5214F-491D-BA89-B979-2CF4C1DF997A</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>6 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="FE6D9E38-BE77-4659-6597-E0F3792C6A99" referredColumn="BD3DCDB4-2C5D-6B4C-FFE0-A242D27D7B84"/>
+</associations>
+</Column>
+<Column name="ROLE_id_role" id="91594172-E6A7-B99F-41A7-3E5A40E6E6BB">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-14 17:26:23 UTC</createdTime>
+<generatorID>AEE4409F-9BD7-3D69-DC48-F57B818E6ADC</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>3</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="5EC9933D-882F-D9D2-A7D9-5174E7063FE8" referredColumn="E02D8E60-57E8-D585-A97E-A3737EDD3354"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="60B18524-2D16-FA26-904A-B8E38249239D" name="UZIVATEL_PK">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-14 17:26:23 UTC</createdTime>
+<generatorID>067D191E-08D1-85A9-1F69-FF5D6C8895B4</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="ED2A4F02-98CD-F0C4-10BE-1CFD625872F7"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D74CBA64-D00F-E69B-FBD6-8331C185C1FC" name="UZIVATEL_ROLE_FK">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-14 17:26:23 UTC</createdTime>
+<generatorID>EBAE5F88-BC6A-4552-23AD-BD141805ED21</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="91594172-E6A7-B99F-41A7-3E5A40E6E6BB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="911F52E9-40B8-8701-5099-8572CDF5FBCD" name="UZIVATEL_KATEDRA_FK">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-14 17:26:23 UTC</createdTime>
+<generatorID>F975B9AB-2CFA-A413-5221-B6F885FA2F93</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F8A04561-F534-B137-79B0-76D9FD87CA3C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

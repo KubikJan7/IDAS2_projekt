@@ -1,0 +1,77 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="1E9A9707-5E46-8EDF-8022-705A73C98F9E" name="KATEDRA">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-14 17:26:23 UTC</createdTime>
+<generatorID>83C7B879-C8AB-BB8F-B5AC-813491D96CC4</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="zkratka_katedry" id="BD3DCDB4-2C5D-6B4C-FFE0-A242D27D7B84">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-14 17:26:23 UTC</createdTime>
+<generatorID>99DBF5B3-EF81-BB64-4182-60A6093B5DE7</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>6 CHAR</dataTypeSize>
+<ownDataTypeParameters>6 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nazev_katedry" id="EC25CD65-AB65-8A5D-6509-583D79C18892">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-14 17:26:23 UTC</createdTime>
+<generatorID>0E3E1320-D7EB-6942-D240-53184A62A853</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="FAKULTA_zkratka_fakulty" id="839DC12C-9928-F1DB-B832-0A4AC2B1B469">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-14 17:26:23 UTC</createdTime>
+<generatorID>6395232E-F794-0F9A-1185-5B8A0AB85EF3</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>6 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="7C155264-93C7-D295-3160-40E96388CE7F" referredColumn="FFC38912-6917-AB9F-44AA-6CAA4FA8D365"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="94387C6D-6FD2-54A1-2625-54FB4ADDD1F8" name="KATEDRA_PK">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-14 17:26:23 UTC</createdTime>
+<generatorID>8A2CD723-93DA-7525-DB81-F7F0A68D2C87</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BD3DCDB4-2C5D-6B4C-FFE0-A242D27D7B84"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="ED2EA6B7-4A64-E853-7D0B-DDC40F2247CC" name="KATEDRA_FAKULTA_FK">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-14 17:26:23 UTC</createdTime>
+<generatorID>BDC59AC2-6A9D-3FFF-C138-739790A79F70</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="839DC12C-9928-F1DB-B832-0A4AC2B1B469"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -4,14 +4,15 @@
 <createdTime>2018-12-08 18:26:34 UTC</createdTime>
 <ownerDesignName>IDAS2_sem_prace</ownerDesignName>
 <engineerTo>
-<item key="2D62FA37-432E-2B8E-0404-6282E34ADFA4" value="true"/>
+<item key="019F6D25-8286-53CE-3D09-5E9650887D9F" value="true"/>
 </engineerTo>
+<targetPk>041440CB-2245-4696-180F-D9A80B09062D</targetPk>
 <identifying>false</identifying>
 <optionalSource>true</optionalSource>
 <optionalTarget>true</optionalTarget>
 <sourceCardinality>*</sourceCardinality>
 <sourceEntity>B2ECE209-11F9-6AD2-D65D-D51E9160198E</sourceEntity>
-<targetCardinalityString>*</targetCardinalityString>
+<targetCardinalityString>1</targetCardinalityString>
 <targetEntity>5055C4A9-E8CE-76BF-8B20-C6137023D3FE</targetEntity>
 <transferable>true</transferable>
 <deleteRule>NO ACTION</deleteRule>

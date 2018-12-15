@@ -1,0 +1,50 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="C2B8276D-04DE-C13D-3BE8-888B38E1BFAD" name="ROLE">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-14 17:26:23 UTC</createdTime>
+<generatorID>AED417F0-CEAD-8397-2428-66417EE99D9C</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_role" id="E02D8E60-57E8-D585-A97E-A3737EDD3354">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-14 17:26:23 UTC</createdTime>
+<generatorID>38873ABC-8C3A-2396-F088-1BE646E10DEE</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>3</dataTypePrecision>
+<ownDataTypeParameters>,3,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nazev_role" id="065CF0F0-0B38-8889-FAA6-20374EA01627">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-14 17:26:23 UTC</createdTime>
+<generatorID>5B728462-5CA2-8216-815E-1959870819F2</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>30 CHAR</dataTypeSize>
+<ownDataTypeParameters>30 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="25A5A26D-A18F-6146-EF45-C05DAA8A10B8" name="ROLE_PK">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-14 17:26:23 UTC</createdTime>
+<generatorID>73AFFD00-6677-DEDC-1449-C567895FDB50</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E02D8E60-57E8-D585-A97E-A3737EDD3354"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

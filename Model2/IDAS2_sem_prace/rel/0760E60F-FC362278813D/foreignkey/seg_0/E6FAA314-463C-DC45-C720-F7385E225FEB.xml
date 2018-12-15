@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="E6FAA314-463C-DC45-C720-F7385E225FEB" containerWithKeyObject="E0C16170-93D5-60F8-76FB-01D82B17AC68" localFKIndex="B9A83C39-1C20-DA41-71CA-1FEAA391A938" name="STUD_OBOR_FORMA_VYUKY_FK">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-14 17:26:23 UTC</createdTime>
+<generatorID>26BC3AAC-90BC-2E66-529B-0C3B56D2BD88</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<referredTableLongName>FORMA_VYUKY</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>89060271-03C6-ED8C-E71B-C0ED2D2A5CCC</referredTableID>
+<keyObject>944D935A-0A65-3D04-3613-26274B76F4D9</keyObject>
+<referredKeyID>944D935A-0A65-3D04-3613-26274B76F4D9</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>id_formy</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

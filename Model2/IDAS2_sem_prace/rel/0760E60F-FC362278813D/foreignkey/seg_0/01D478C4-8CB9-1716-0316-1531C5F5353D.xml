@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="01D478C4-8CB9-1716-0316-1531C5F5353D" containerWithKeyObject="4D3BA89B-7255-B13B-A3D8-0270A7422630" localFKIndex="A4463F08-AA65-2FA2-2A62-2B223822FE6A" name="ROZVRHOVA_AKCE_PREDMET_FK">
+<createdBy>selda</createdBy>
+<createdTime>2018-12-14 17:26:23 UTC</createdTime>
+<generatorID>C68B501C-2400-0E8F-7ADB-54AB8C62D5BF</generatorID>
+<ownerDesignName>IDAS2_sem_prace</ownerDesignName>
+<referredTableLongName>PREDMET</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>AD755439-9328-20ED-7253-782FD23C6CFB</referredTableID>
+<keyObject>58320C56-E8E0-3BD7-C834-012B4EC08C20</keyObject>
+<referredKeyID>58320C56-E8E0-3BD7-C834-012B4EC08C20</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>id_predmetu</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>
