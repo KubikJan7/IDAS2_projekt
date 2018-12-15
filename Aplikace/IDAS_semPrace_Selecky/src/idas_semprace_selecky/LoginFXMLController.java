@@ -5,10 +5,14 @@
  */
 package idas_semprace_selecky;
 
+import data.Uzivatel;
 import database.databaseHelper;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -32,7 +36,8 @@ import javafx.stage.Stage;
 public class LoginFXMLController implements Initializable {
 
     private databaseHelper dh;
-    
+    Uzivatel prihlaseny;
+
     @FXML
     private TextField usernameField;
     @FXML
@@ -44,21 +49,22 @@ public class LoginFXMLController implements Initializable {
     @FXML
     private Button guestBtn;
 
-    // TODO Potřeba kompletně napsat proces přihlášení uživatele
-    
     public LoginFXMLController(databaseHelper dh) {
         this.dh = dh;
     }
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         usernameField.setText("admin");
         passwordField.setText("admin");
+        if (!usernameField.getText().isEmpty() && !passwordField.getText().isEmpty()) {
+            loginBtn.setDisable(false);
+        }
     }
 
     @FXML
     private void inputCheck(KeyEvent event) {
-        if (usernameField.getText().length() != 10 || passwordField.getText().isEmpty()) {
+        if (usernameField.getText().length() < 3 || passwordField.getText().isEmpty()) {
             loginBtn.setDisable(true);
         } else {
             loginBtn.setDisable(false);
@@ -67,12 +73,21 @@ public class LoginFXMLController implements Initializable {
 
     @FXML
     private void prihlas(ActionEvent event) {
+        try {
+            prihlaseny = dh.dejPrihlasenehoUzivatele(usernameField.getText(), passwordField.getText());
+            otevriOknoAplikace();
+        } catch (SQLException ex) {
+            zobrazChybu(ex);
+        }
+
     }
 
     @FXML
     private void vycistiUdaje(ActionEvent event) {
         usernameField.setText("");
         passwordField.setText("");
+        loginBtn.setDisable(true);
+        vymazBtn.setDisable(true);
     }
 
     @FXML
@@ -84,7 +99,7 @@ public class LoginFXMLController implements Initializable {
         Stage stage = (Stage) loginBtn.getScene().getWindow();
         stage.close();
         final FXMLLoader loader = new FXMLLoader(getClass().getResource("AppFXML.fxml"));
-        AppFXMLController contr = new AppFXMLController(dh);
+        AppFXMLController contr = new AppFXMLController(dh, prihlaseny);
         loader.setController(contr);
         final Parent root;
         try {

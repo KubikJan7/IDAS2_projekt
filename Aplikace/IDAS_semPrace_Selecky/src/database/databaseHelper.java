@@ -6,11 +6,14 @@ import data.Forma;
 import data.Katedra;
 import data.Kategorie;
 import data.Obor;
+import data.Obrazek;
 import data.Pracoviste;
 import data.Pracoviste2;
 import data.PredOboru;
 import data.Predmet;
+import data.Role;
 import data.Semestr;
+import data.Ucet;
 import data.Uzivatel;
 import data.Zakonceni;
 import data.Zpusob;
@@ -29,6 +32,42 @@ public class databaseHelper {
 
     public static void myInit(String login, String pswd) throws SQLException {
         OracleConnector.setUpConnection("fei-sql1.upceucebny.cz", 1521, "IDAS12", login, pswd);
+    }
+
+    public Uzivatel dejPrihlasenehoUzivatele(String nick, String heslo) throws SQLException {
+        Uzivatel uzivatel = null;
+        Connection conn = OracleConnector.getConnection();
+        PreparedStatement stmt = conn.prepareStatement("select * from uzivatel_view\n"
+                + "where id_uzivatele = vratIdUzivatele(?,?)");
+        stmt.setString(1, nick);
+        stmt.setString(2, heslo);
+        ResultSet rset = stmt.executeQuery();
+        rset.next();
+        int id = rset.getInt("id_uzivatele");
+        String jmeno = rset.getString("jmeno");
+        String prijmeni = rset.getString("prijmeni");
+        String titulPred = rset.getString("titul_pred");
+        String titulZa = rset.getString("titul_za");
+        String email = rset.getString("email");
+        int mobil = rset.getInt("mobil");
+        int telefon = rset.getInt("telefon");
+        int id_role = rset.getInt("id_role");
+        String nazev_role = rset.getString("nazev_role");
+        String zkratka_katedry = rset.getString("zkratka_katedry");
+        String nazev_katedry = rset.getString("nazev_katedry");
+        String zkratka_fakulty = rset.getString("zkratka_fakulty");
+        String nazev_fakulty = rset.getString("nazev_fakulty");
+        int id_uctu = rset.getInt("id_uctu");
+        String user = rset.getString("nick");
+        String pass = rset.getString("heslo");
+        int id_souboru = rset.getInt("id_souboru");
+        uzivatel = new Uzivatel(id, titulPred, jmeno, prijmeni, titulZa, email, mobil, telefon,
+                new Ucet(id_uctu, user, pass),
+                new Role(id_role, nazev_role),
+                id_souboru,
+                new Pracoviste(new Fakulta(zkratka_fakulty, nazev_fakulty),
+                        new Katedra(zkratka_katedry, nazev_katedry)));
+        return uzivatel;
     }
 
     public ArrayList<Fakulta> dejFakulty() throws SQLException {
@@ -117,22 +156,22 @@ public class databaseHelper {
 
     public ArrayList<Uzivatel> dejKartaVyucujici() throws SQLException {
         ArrayList<Uzivatel> vyucujici = new ArrayList<>();
-
-        Connection conn = OracleConnector.getConnection();
-        PreparedStatement stmt = conn.prepareStatement("SELECT * FROM vyucujici_view");
-        ResultSet rset = stmt.executeQuery();
-        while (rset.next()) {
-            vyucujici.add(new Uzivatel(rset.getInt("id_vyucujiciho"),
-                    rset.getString("titul_pred"),
-                    rset.getString("jmeno"),
-                    rset.getString("prijmeni"),
-                    rset.getString("titul_za"),
-                    rset.getString("email"),
-                    rset.getInt("mobil"),
-                    rset.getInt("telefon"),
-                    new Pracoviste(new Fakulta(rset.getString("fakulta"), rset.getString("nazev_fakulty")),
-                            new Katedra(rset.getString("katedra"), rset.getString("nazev_katedry")))));
-        }
+// TODO Upravit vyucujici dle noveho modelu
+//        Connection conn = OracleConnector.getConnection();
+//        PreparedStatement stmt = conn.prepareStatement("SELECT * FROM vyucujici_view");
+//        ResultSet rset = stmt.executeQuery();
+//        while (rset.next()) {
+//            vyucujici.add(new Uzivatel(rset.getInt("id_vyucujiciho"),
+//                    rset.getString("titul_pred"),
+//                    rset.getString("jmeno"),
+//                    rset.getString("prijmeni"),
+//                    rset.getString("titul_za"),
+//                    rset.getString("email"),
+//                    rset.getInt("mobil"),
+//                    rset.getInt("telefon"),
+//                    new Pracoviste(new Fakulta(rset.getString("fakulta"), rset.getString("nazev_fakulty")),
+//                            new Katedra(rset.getString("katedra"), rset.getString("nazev_katedry")))));
+//        }
         return vyucujici;
     }
 
@@ -153,34 +192,34 @@ public class databaseHelper {
 
     public ArrayList<Obor> dejKartaObory() throws SQLException {
         ArrayList<Obor> obory = new ArrayList<>();
-
-        Connection conn = OracleConnector.getConnection();
-        PreparedStatement stmt = conn.prepareStatement("SELECT * FROM stud_obor");
-        ResultSet rset = stmt.executeQuery();
-        while (rset.next()) {
-            obory.add(new Obor(rset.getInt("id_oboru"),
-                    rset.getString("zkratka"),
-                    rset.getString("nazev"),
-                    rset.getString("info")));
-        }
+// TODO Upravit obory dle noveho modelu
+//        Connection conn = OracleConnector.getConnection();
+//        PreparedStatement stmt = conn.prepareStatement("SELECT * FROM stud_obor");
+//        ResultSet rset = stmt.executeQuery();
+//        while (rset.next()) {
+//            obory.add(new Obor(rset.getInt("id_oboru"),
+//                    rset.getString("zkratka"),
+//                    rset.getString("nazev"),
+//                    rset.getString("info")));
+//        }
         return obory;
     }
 
     public ArrayList<Predmet> dejKartaPredmety() throws SQLException {
         ArrayList<Predmet> predmety = new ArrayList<>();
-
-        Connection conn = OracleConnector.getConnection();
-        PreparedStatement stmt = conn.prepareStatement("SELECT * FROM predmety_view");
-        ResultSet rset = stmt.executeQuery();
-        while (rset.next()) {
-            predmety.add(new Predmet(rset.getInt("id_predmetu"),
-                    rset.getString("zkratka"),
-                    rset.getString("nazev"),
-                    rset.getInt("kredity"),
-                    new Semestr(rset.getString("zkr_sem"), rset.getString("semestr")),
-                    new Zakonceni(rset.getString("zkr_zakonceni"), rset.getString("zakonceni")),
-                    new Forma(rset.getInt("id_forma"), rset.getString("forma"))));
-        }
+// TODO Upravit predmety dle noveho modelu
+//        Connection conn = OracleConnector.getConnection();
+//        PreparedStatement stmt = conn.prepareStatement("SELECT * FROM predmety_view");
+//        ResultSet rset = stmt.executeQuery();
+//        while (rset.next()) {
+//            predmety.add(new Predmet(rset.getInt("id_predmetu"),
+//                    rset.getString("zkratka"),
+//                    rset.getString("nazev"),
+//                    rset.getInt("kredity"),
+//                    new Semestr(rset.getString("zkr_sem"), rset.getString("semestr")),
+//                    new Zakonceni(rset.getString("zkr_zakonceni"), rset.getString("zakonceni")),
+//                    new Forma(rset.getInt("id_forma"), rset.getString("forma"))));
+//        }
         return predmety;
     }
 
@@ -210,43 +249,43 @@ public class databaseHelper {
 
     public ArrayList<Akce> dejKartaAkce() throws SQLException {
         ArrayList<Akce> akce = new ArrayList<>();
-
-        Connection conn = OracleConnector.getConnection();
-        PreparedStatement stmt = conn.prepareStatement("SELECT * FROM akce_view");
-        ResultSet rset = stmt.executeQuery();
-        Uzivatel vyucujici = null;
-        Predmet predmet = null;
-        Zpusob zpusob = null;
-        ArrayList<Uzivatel> listVyuc = dejKartaVyucujici();
-        ArrayList<Predmet> listPred = dejKartaPredmety();
-        ArrayList<Zpusob> listZpus = dejZpusobVyuky();
-        while (rset.next()) {
-            Iterator<Uzivatel> vyuc = listVyuc.iterator();
-            while (vyuc.hasNext()) {
-                Uzivatel akt = vyuc.next();
-                if (akt.getId() == rset.getInt("id_vyucujiciho")) {
-                    vyucujici = akt;
-                    break;
-                }
-            }
-            Iterator<Predmet> predmety = listPred.iterator();
-            while (predmety.hasNext()) {
-                Predmet akt = predmety.next();
-                if (akt.getId() == rset.getInt("id_predmetu")) {
-                    predmet = akt;
-                    break;
-                }
-            }
-            Iterator<Zpusob> zpusoby = listZpus.iterator();
-            while (zpusoby.hasNext()) {
-                Zpusob akt = zpusoby.next();
-                if (akt.getId() == rset.getInt("id_zpusobu")) {
-                    zpusob = akt;
-                    break;
-                }
-            }
-            akce.add(new Akce(rset.getInt("id_akce"), rset.getInt("rozsah_hodin"), rset.getInt("kapacita"), vyucujici, predmet, zpusob));
-        }
+// TODO Upravit Akce dle noveho modelu
+//        Connection conn = OracleConnector.getConnection();
+//        PreparedStatement stmt = conn.prepareStatement("SELECT * FROM akce_view");
+//        ResultSet rset = stmt.executeQuery();
+//        Uzivatel vyucujici = null;
+//        Predmet predmet = null;
+//        Zpusob zpusob = null;
+//        ArrayList<Uzivatel> listVyuc = dejKartaVyucujici();
+//        ArrayList<Predmet> listPred = dejKartaPredmety();
+//        ArrayList<Zpusob> listZpus = dejZpusobVyuky();
+//        while (rset.next()) {
+//            Iterator<Uzivatel> vyuc = listVyuc.iterator();
+//            while (vyuc.hasNext()) {
+//                Uzivatel akt = vyuc.next();
+//                if (akt.getId() == rset.getInt("id_vyucujiciho")) {
+//                    vyucujici = akt;
+//                    break;
+//                }
+//            }
+//            Iterator<Predmet> predmety = listPred.iterator();
+//            while (predmety.hasNext()) {
+//                Predmet akt = predmety.next();
+//                if (akt.getId() == rset.getInt("id_predmetu")) {
+//                    predmet = akt;
+//                    break;
+//                }
+//            }
+//            Iterator<Zpusob> zpusoby = listZpus.iterator();
+//            while (zpusoby.hasNext()) {
+//                Zpusob akt = zpusoby.next();
+//                if (akt.getId() == rset.getInt("id_zpusobu")) {
+//                    zpusob = akt;
+//                    break;
+//                }
+//            }
+//            akce.add(new Akce(rset.getInt("id_akce"), rset.getInt("rozsah_hodin"), rset.getInt("kapacita"), vyucujici, predmet, zpusob));
+//        }
         return akce;
     }
 
@@ -296,18 +335,19 @@ public class databaseHelper {
 
     //Insert předmětu
     public void insertDataPredmet(Predmet pred) throws SQLException {
-        Connection conn;
-        conn = OracleConnector.getConnection();
-        PreparedStatement stmt = conn.prepareStatement("INSERT INTO predmet(nazev,zkratka,kredity,zpusob_zakonceni_zkr_zak,forma_vyuky_id_formy,semestr_zkr_sem) "
-                + "VALUES (?, ?, ?, ?, ?, ?)");
-        stmt.setString(1, pred.getNazev());
-        stmt.setString(2, pred.getZkratka());
-        stmt.setInt(3, pred.getKredity());
-        stmt.setString(4, pred.getZakonceni().getZkratka());
-        stmt.setInt(5, pred.getForma().getId());
-        stmt.setString(6, pred.getSemestr().getZkratka());
-        stmt.executeUpdate();
-        conn.commit();
+        // TODO Upravit insert predmetu dle noveho modelu
+//        Connection conn;
+//        conn = OracleConnector.getConnection();
+//        PreparedStatement stmt = conn.prepareStatement("INSERT INTO predmet(nazev,zkratka,kredity,zpusob_zakonceni_zkr_zak,forma_vyuky_id_formy,semestr_zkr_sem) "
+//                + "VALUES (?, ?, ?, ?, ?, ?)");
+//        stmt.setString(1, pred.getNazev());
+//        stmt.setString(2, pred.getZkratka());
+//        stmt.setInt(3, pred.getKredity());
+//        stmt.setString(4, pred.getZakonceni().getZkratka());
+//        stmt.setInt(5, pred.getForma().getId());
+//        stmt.setString(6, pred.getSemestr().getZkratka());
+//        stmt.executeUpdate();
+//        conn.commit();
     }
 
     //Insert rozvrhové akce
@@ -387,20 +427,21 @@ public class databaseHelper {
 
     //Update předmětu
     public void updateDataPredmet(Predmet pred) throws SQLException {
-        Connection conn;
-        conn = OracleConnector.getConnection();
-        PreparedStatement stmt = conn.prepareStatement("update predmet SET nazev = ?,zkratka = ?,"
-                + "kredity = ?,zpusob_zakonceni_zkr_zak = ?,forma_vyuky_id_formy = ?,semestr_zkr_sem= ? "
-                + "where id_predmetu = ?");
-        stmt.setString(1, pred.getNazev());
-        stmt.setString(2, pred.getZkratka());
-        stmt.setInt(3, pred.getKredity());
-        stmt.setString(4, pred.getZakonceni().getZkratka());
-        stmt.setInt(5, pred.getForma().getId());
-        stmt.setString(6, pred.getSemestr().getZkratka());
-        stmt.setInt(7, pred.getId());
-        stmt.executeUpdate();
-        conn.commit();
+        // TODO Upravit update predmetu dle noveho modelu
+//        Connection conn;
+//        conn = OracleConnector.getConnection();
+//        PreparedStatement stmt = conn.prepareStatement("update predmet SET nazev = ?,zkratka = ?,"
+//                + "kredity = ?,zpusob_zakonceni_zkr_zak = ?,forma_vyuky_id_formy = ?,semestr_zkr_sem= ? "
+//                + "where id_predmetu = ?");
+//        stmt.setString(1, pred.getNazev());
+//        stmt.setString(2, pred.getZkratka());
+//        stmt.setInt(3, pred.getKredity());
+//        stmt.setString(4, pred.getZakonceni().getZkratka());
+//        stmt.setInt(5, pred.getForma().getId());
+//        stmt.setString(6, pred.getSemestr().getZkratka());
+//        stmt.setInt(7, pred.getId());
+//        stmt.executeUpdate();
+//        conn.commit();
     }
 
     //Update rozvrhové akce
