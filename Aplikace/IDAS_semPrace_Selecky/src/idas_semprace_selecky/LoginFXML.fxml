@@ -12,7 +12,7 @@
         <URL value="@styl.css" />
     </stylesheets>
    <children>
-      <TextField fx:id="usernameField" layoutX="147.0" layoutY="93.0" onKeyPressed="#inputCheck" text="admin" />
+      <TextField fx:id="usernameField" layoutX="147.0" layoutY="93.0" onKeyPressed="#inputCheck" promptText="Uživatel" />
       <PasswordField fx:id="passwordField" layoutX="147.0" layoutY="147.0" onKeyPressed="#inputCheck" promptText="Heslo" />
       <Text layoutX="60.0" layoutY="115.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="label-nadpisH2" text="Uživatel:" />
       <Text layoutX="62.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="label-nadpisH1" text="Přihlášení uživatele" />
