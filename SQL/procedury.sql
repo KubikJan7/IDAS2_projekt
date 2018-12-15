@@ -80,3 +80,56 @@ BEGIN
     where ID_UZIVATELE = p_id;
 END;
 /
+
+-- Ucet
+create or replace PROCEDURE vlozUcet
+  (p_idUzivatele UCET.UZIVATEL_ID_UZIVATELE%TYPE, p_nick UCET.NICK%TYPE, p_heslo UCET.HESLO%TYPE, p_idRole ROLE.ID_ROLE%TYPE)
+IS
+v_idUcet UCET.ID_UCTU%TYPE;
+v_idRole ROLE.ID_ROLE%TYPE;
+BEGIN
+    SELECT ROLE_ID_ROLE INTO v_idRole FROM uzivatel WHERE id_uzivatele = p_idUzivatele;
+    IF (NOT(v_idRole = 3)) THEN
+    raise_application_error(-20001, 'Uživatel už účet má!');
+    END IF;
+    SELECT ID_UCTU INTO v_idUcet FROM UCET WHERE uzivatel_id_uzivatele = p_idUzivatele;
+    EXCEPTION
+        WHEN NO_DATA_FOUND THEN
+            IF (jeJmenoUnikatni(p_nick)) THEN
+                INSERT INTO UCET (NICK, HESLO, UZIVATEL_ID_UZIVATELE)
+                VALUES (p_nick, p_heslo, p_idUzivatele);
+    
+                UPDATE UZIVATEL SET ROLE_ID_ROLE = p_idRole WHERE ID_UZIVATELE = p_idUzivatele;
+            ELSE
+            raise_application_error(-20002, 'Uživatel s tímto jménem již existuje!');
+            END IF;
+END;
+/
+create or replace PROCEDURE upravUcet
+  (p_idUzivatele UCET.UZIVATEL_ID_UZIVATELE%TYPE,p_nick UCET.NICK%TYPE, p_heslo UCET.HESLO%TYPE, p_idRole ROLE.ID_ROLE%TYPE)
+IS
+BEGIN
+    IF (jeJmenoUnikatni(p_nick)) THEN
+        UPDATE UCET SET NICK = p_nick, HESLO = p_heslo
+        WHERE uzivatel_id_uzivatele = p_idUzivatele;
+    
+        UPDATE UZIVATEL SET ROLE_ID_ROLE = p_idRole WHERE ID_UZIVATELE = p_idUzivatele;
+    ELSE
+        raise_application_error(-20001, 'Uživatel s tímto jménem již existuje!');
+    END IF;
+END;
+/
+create or replace PROCEDURE odeberUcet
+  (p_idUzivatele UCET.UZIVATEL_ID_UZIVATELE%TYPE)
+IS
+v_idUctu UCET.ID_UCTU%TYPE;
+BEGIN
+    SELECT ID_UCTU INTO v_idUctu FROM ucet WHERE uzivatel_id_uzivatele = p_idUzivatele;
+	UPDATE UZIVATEL SET ROLE_ID_ROLE = 3 WHERE id_uzivatele = p_idUzivatele;
+    DELETE FROM UCET WHERE id_uctu = v_idUctu;
+
+    EXCEPTION
+        WHEN NO_DATA_FOUND THEN
+            raise_application_error(-20001, 'Tento uživatel nemá účet!');
+END;
+/
