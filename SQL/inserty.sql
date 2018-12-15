@@ -1,4 +1,4 @@
-/*Insert Fakulta*/
+﻿/*Insert Fakulta*/
 INSERT INTO FAKULTA (ZKRATKA_FAKULTY, NAZEV_FAKULTY) 
 VALUES ('DFJ', N'Dopravní fakulta Jana Pernera');
 
@@ -19,6 +19,9 @@ VALUES ('FR', N'Fakulta restaurování');
 
 INSERT INTO FAKULTA (ZKRATKA_FAKULTY, NAZEV_FAKULTY) 
 VALUES ('FZS', N'Fakulta zdravotnických studií');
+
+INSERT INTO FAKULTA (ZKRATKA_FAKULTY, NAZEV_FAKULTY) 
+VALUES ('REK', N'Rektorát');
 
 /*Insert Katedra*/
 INSERT INTO KATEDRA (ZKRATKA_KATEDRY, NAZEV_KATEDRY, FAKULTA_ZKRATKA_FAKULTY) 
