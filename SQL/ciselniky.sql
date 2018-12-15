@@ -173,6 +173,7 @@ BEGIN
   FROM dual;
 END;
 /
+
 /*Sekvence a trigger Pred_V_Planu*/
 CREATE SEQUENCE pred_v_planu_SEQ 
  START WITH 1 
