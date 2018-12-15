@@ -270,7 +270,7 @@ public class AppFXMLController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         if (prihlasenyUzivatel != null) {
-            textLoggedUser.setText(prihlasenyUzivatel.toString());
+            aktualizujPrihlasenehoUzivatele();
             btnSpravovat.setVisible(true);
         }
 
@@ -436,6 +436,11 @@ public class AppFXMLController implements Initializable {
 
     }
 
+    // Obnoví data v tabulce Vyučujících
+    private void aktualizujPrihlasenehoUzivatele() {
+        textLoggedUser.setText(prihlasenyUzivatel.toString());
+    }
+
     // Obnoví data v tabulce Pracovišť
     @FXML
     private void nactiPracoviste(MouseEvent event) {
@@ -447,7 +452,7 @@ public class AppFXMLController implements Initializable {
     }
 
     // Obnoví data v tabulce Vyučujících
-    private void aktualizujVyucujici() {
+    public void aktualizujVyucujici() {
         try {
             vyucujici = FXCollections.observableArrayList(dh.dejKartaVyucujici());
             twVyucujici.setItems(vyucujici);
@@ -521,7 +526,6 @@ public class AppFXMLController implements Initializable {
         }
     }
 
-    // TODO Upravit edit vyucujiciho dle noveho modelu
     @FXML
     private void upravVyucujiciho(ActionEvent event) {
         try {
@@ -539,6 +543,12 @@ public class AppFXMLController implements Initializable {
                 dh.updateDataVyuc(vybrany);
                 vycistiFormularVyucujici();
                 aktualizujVyucujici();
+                if (vybrany.getId() == prihlasenyUzivatel.getId()) {
+                    prihlasenyUzivatel = vybrany;
+                    aktualizujPrihlasenehoUzivatele();
+                }
+            } else {
+                zobrazChybu("Nevyplněná pole!");
             }
         } catch (SQLException ex) {
             zobrazChybu(ex);
@@ -1029,6 +1039,34 @@ public class AppFXMLController implements Initializable {
     // TODO Přidat dialog pro správu účtu, nick, heslo, role, obrázek
     @FXML
     private void zobrazOknoSpravy(ActionEvent event) {
+        Uzivatel upravovanyUzivatel = null;
+        if ((Button) event.getSource() == btnSpravovat) {
+            upravovanyUzivatel = prihlasenyUzivatel;
+        } else if ((Button) event.getSource() == btnSpravovatKohokoliv) {
+            upravovanyUzivatel = twVyucujici.getSelectionModel().getSelectedItem();
+            if (upravovanyUzivatel == null) {
+                return;
+            }
+        }
+
+        final FXMLLoader loader = new FXMLLoader(getClass().getResource("SpravaUctuFXML.fxml"));
+        SpravaUctuFXMLController contr = new SpravaUctuFXMLController(this, dh, upravovanyUzivatel);
+        loader.setController(contr);
+        final Parent root;
+        try {
+            root = loader.load();
+            final Scene scene = new Scene(root);
+
+            Stage stage2 = new Stage();
+            stage2.setTitle(upravovanyUzivatel.getJmeno() + " " + upravovanyUzivatel.getPrijmeni());
+            stage2.setResizable(false);
+            stage2.initModality(Modality.APPLICATION_MODAL);
+            stage2.initOwner(btnSpravovat.getScene().getWindow());
+            stage2.setScene(scene);
+            stage2.show();
+        } catch (IOException ex) {
+            zobrazChybu(ex);
+        }
     }
 
     @FXML

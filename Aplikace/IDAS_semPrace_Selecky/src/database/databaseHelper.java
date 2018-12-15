@@ -190,6 +190,20 @@ public class databaseHelper {
         return vyucujici;
     }
 
+    public ArrayList<Role> dejRole() throws SQLException {
+        ArrayList<Role> role = new ArrayList<>();
+
+        Connection conn = OracleConnector.getConnection();
+        PreparedStatement stmt = conn.prepareStatement("SELECT * FROM ROLE");
+        ResultSet rset = stmt.executeQuery();
+        while (rset.next()) {
+            int id = rset.getInt("id_role");
+            String nazev = rset.getString("nazev_role");
+            role.add(new Role(id, nazev));
+        }
+        return role;
+    }
+
     public ArrayList<Pracoviste2> dejKartaPracoviste() throws SQLException {
         ArrayList<Pracoviste2> pracoviste = new ArrayList<>();
 
@@ -330,6 +344,19 @@ public class databaseHelper {
         conn.commit();
     }
 
+    //Insert uctu vyucujiciho
+    public void insertDataUcet(Uzivatel uziv) throws SQLException {
+        Connection conn;
+        conn = OracleConnector.getConnection();
+        CallableStatement stmt = conn.prepareCall("{call vlozUcet(?, ?, ?, ?)}");
+        stmt.setInt(1, uziv.getId());
+        stmt.setString(2, uziv.getUcet().getNickname());
+        stmt.setString(3, uziv.getUcet().getHeslo());
+        stmt.setInt(4, uziv.getRole().getId());
+        stmt.executeUpdate();
+        conn.commit();
+    }
+
     //Insert pracoviště
     public void insertDataPrac(Pracoviste2 prac) throws SQLException {
         Connection conn;
@@ -406,17 +433,38 @@ public class databaseHelper {
     public void updateDataVyuc(Uzivatel vyuc) throws SQLException {
         Connection conn;
         conn = OracleConnector.getConnection();
-        PreparedStatement stmt = conn.prepareStatement("UPDATE vyucujici SET titul_pred = ?,jmeno = ?, prijmeni = ?,"
-                + " titul_za = ?, katedra_zkratka_katedry = ?, email = ?, mobil = ?, telefon = ? where id_vyucujiciho = ?");
-        stmt.setString(1, vyuc.getTitulPred());
+        CallableStatement stmt = conn.prepareCall("{call upravUzivatele(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}");
+        stmt.setInt(1, vyuc.getId());
         stmt.setString(2, vyuc.getJmeno());
         stmt.setString(3, vyuc.getPrijmeni());
-        stmt.setString(4, vyuc.getTitulZa());
-        stmt.setString(5, vyuc.getPracoviste().getKatedra().getZkratka());
+        stmt.setString(4, vyuc.getTitulPred());
+        stmt.setString(5, vyuc.getTitulZa());
         stmt.setString(6, vyuc.getEmail());
-        stmt.setInt(7, vyuc.getMobil());
-        stmt.setInt(8, vyuc.getTelefon());
-        stmt.setInt(9, vyuc.getId());
+        if (vyuc.getMobil() == 0) {
+            stmt.setNull(7, java.sql.Types.INTEGER);
+        } else {
+            stmt.setInt(7, vyuc.getMobil());
+        }
+        if (vyuc.getTelefon() == 0) {
+            stmt.setNull(8, java.sql.Types.INTEGER);
+        } else {
+            stmt.setInt(8, vyuc.getTelefon());
+        }
+        stmt.setString(9, vyuc.getPracoviste().getKatedra().getZkratka());
+        stmt.setInt(10, vyuc.getRole().getId());
+        stmt.executeUpdate();
+        conn.commit();
+    }
+
+    //Update uctu
+    public void updateDataUcet(Uzivatel vyuc) throws SQLException {
+        Connection conn;
+        conn = OracleConnector.getConnection();
+        CallableStatement stmt = conn.prepareCall("{call upravUcet(?, ?, ?, ?)}");
+        stmt.setInt(1, vyuc.getId());
+        stmt.setString(2, vyuc.getUcet().getNickname());
+        stmt.setString(3, vyuc.getUcet().getHeslo());
+        stmt.setInt(4, vyuc.getRole().getId());
         stmt.executeUpdate();
         conn.commit();
     }
@@ -505,7 +553,17 @@ public class databaseHelper {
     public void deleteDataVyuc(Uzivatel vyuc) throws SQLException {
         Connection conn;
         conn = OracleConnector.getConnection();
-        PreparedStatement stmt = conn.prepareStatement("DELETE FROM vyucujici WHERE id_vyucujiciho = ?");
+        PreparedStatement stmt = conn.prepareCall("{call smazUzivatele(?)}");
+        stmt.setInt(1, vyuc.getId());
+        stmt.executeUpdate();
+        conn.commit();
+    }
+
+    //Delete uctu uzivatele
+    public void deleteDataUcet(Uzivatel vyuc) throws SQLException {
+        Connection conn;
+        conn = OracleConnector.getConnection();
+        PreparedStatement stmt = conn.prepareCall("{call odeberUcet(?)}");
         stmt.setInt(1, vyuc.getId());
         stmt.executeUpdate();
         conn.commit();
