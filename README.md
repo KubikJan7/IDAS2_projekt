@@ -17,9 +17,9 @@
 4. Aplikace bude mít menu nastaveno tak, že je možné z jednékarty přepnout na všechny ostatní, tak aby byla zaručena příjemná uživatelská správa.
 5. Aplikace bude obsahovat následující záložky (karty):
    - [x] Na kartě evidence vyučujících evidujeme vyučujícího včetně jeho pracoviště.
-   - [ ] Na kartě evidence pracovišť se spravují informace o pracovišti.
-   - [ ] Na kartě předměty evidujeme informace o předmětech.
-   - [ ] Na kartě studijních oborů evidujeme informace o studijních oborech.
+   - [x] Na kartě evidence pracovišť se spravují informace o pracovišti.
+   - [x] Na kartě předměty evidujeme informace o předmětech.
+   - [x] Na kartě studijních oborů evidujeme informace o studijních oborech.
    - [ ] Na kartě studijních plánů evidujeme informace o složení studijního plánu.
          - *v aplikaci studijní plány vůbec nejsou*
    - [ ] Na kartě předmětů evidujeme informace o předmětu. ???

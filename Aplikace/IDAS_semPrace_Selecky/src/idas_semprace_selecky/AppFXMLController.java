@@ -239,6 +239,10 @@ public class AppFXMLController implements Initializable {
     ObservableList<Obor> obory;
     ObservableList<Predmet> predmety;
     ObservableList<Akce> akce;
+    @FXML
+    private Button btnObrazek;
+    @FXML
+    private Button btnObrazekKohokoliv;
 
     public AppFXMLController(databaseHelper dh, Uzivatel prihlaseny) {
         this.dh = dh;
@@ -262,6 +266,7 @@ public class AppFXMLController implements Initializable {
         if (prihlasenyUzivatel != null) {
             aktualizujPrihlasenehoUzivatele();
             btnSpravovat.setVisible(true);
+            btnObrazek.setVisible(true);
         }
 
         if (opravneni != EnumOpravneni.ADMINISTRATOR) {
@@ -364,12 +369,12 @@ public class AppFXMLController implements Initializable {
                 if (newValue != null) {
                     try {
                         comboForem.getItems().setAll(dh.dejFormyVyuky());
-                        detOboruBtn.setDisable(false);
-                        pridatStObBtn.setDisable(true);
-                        Obor obor = twStudObory.getSelectionModel().getSelectedItem();
-                        kodStObField.setText(obor.getZkratka());
-                        nazevStObField.setText(obor.getNazev());
-                        infoStObArea.setText(obor.getInfo());
+                    detOboruBtn.setDisable(false);
+                    pridatStObBtn.setDisable(true);
+                    Obor obor = twStudObory.getSelectionModel().getSelectedItem();
+                    kodStObField.setText(obor.getZkratka());
+                    nazevStObField.setText(obor.getNazev());
+                    infoStObArea.setText(obor.getInfo());
                         Iterator<Forma> it = comboForem.getItems().iterator();
                         Forma forma = null;
                         while (it.hasNext()) {
@@ -637,7 +642,7 @@ public class AppFXMLController implements Initializable {
                 dh.insertDataObor(novy);
                 aktualizujObory();
                 vycistiFormStudObor(event);
-            }
+    }
         } catch (SQLException ex) {
             zobrazChybu(ex);
         }
@@ -687,7 +692,7 @@ public class AppFXMLController implements Initializable {
                 dh.insertDataPredmet(novy);
                 vycistiFormularPredmetu();
                 aktualizujPredmety();
-            }
+    }
         } catch (SQLException ex) {
             zobrazChybu(ex);
         }
@@ -705,7 +710,7 @@ public class AppFXMLController implements Initializable {
                 vycistiFormularPredmetu();
                 twPredmety.refresh();
                 //aktualizujPredmety();
-            }
+    }
         } catch (SQLException ex) {
             zobrazChybu(ex);
             System.out.println(ex.toString());
@@ -830,7 +835,7 @@ public class AppFXMLController implements Initializable {
             zobrazChybu(ex);
         }
     }
-    
+
     @FXML
     private void nactiComboFormy(MouseEvent event) {
         try {
@@ -839,7 +844,7 @@ public class AppFXMLController implements Initializable {
             zobrazChybu(ex);
         }
     }
-    
+
     @FXML
     private void nactiVyucujici(MouseEvent event) {
         try {
@@ -926,16 +931,16 @@ public class AppFXMLController implements Initializable {
 
     private void vycistiFormularOboru() {
         try {
-            pridatStObBtn.setDisable(false);
+        pridatStObBtn.setDisable(false);
             comboForem.getItems().setAll(dh.dejFormyVyuky());
-            nazevStObField.setText("");
-            kodStObField.setText("");
-            infoStObArea.setText("");
+        nazevStObField.setText("");
+        kodStObField.setText("");
+        infoStObArea.setText("");
             comboForem.getSelectionModel().select(0);
-            twStudObory.getSelectionModel().select(null);
+        twStudObory.getSelectionModel().select(null);
         } catch (SQLException ex) {
             Logger.getLogger(AppFXMLController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+    }
     }
 
     private void vycistiFormularPredmetu() {
@@ -1015,7 +1020,6 @@ public class AppFXMLController implements Initializable {
         alert.showAndWait();
     }
 
-    // TODO Přidat dialog pro správu účtu, nick, heslo, role, obrázek
     @FXML
     private void zobrazOknoSpravy(ActionEvent event) {
         Uzivatel upravovanyUzivatel = null;
@@ -1064,6 +1068,38 @@ public class AppFXMLController implements Initializable {
             stage2.setTitle("Přihlášení uživatele");
             stage2.setResizable(false);
             stage2.initModality(Modality.APPLICATION_MODAL);
+            stage2.setScene(scene);
+            stage2.show();
+        } catch (IOException ex) {
+            zobrazChybu(ex);
+        }
+    }
+
+    @FXML
+    private void zobrazOknoObrazku(ActionEvent event) {
+        Uzivatel upravovanyUzivatel = null;
+        if ((Button) event.getSource() == btnObrazek) {
+            upravovanyUzivatel = prihlasenyUzivatel;
+        } else if ((Button) event.getSource() == btnObrazekKohokoliv) {
+            upravovanyUzivatel = twVyucujici.getSelectionModel().getSelectedItem();
+            if (upravovanyUzivatel == null) {
+                return;
+            }
+        }
+
+        final FXMLLoader loader = new FXMLLoader(getClass().getResource("ObrazekFXML.fxml"));
+        ObrazekFXMLController contr = new ObrazekFXMLController(this, dh, upravovanyUzivatel, prihlasenyUzivatel);
+        loader.setController(contr);
+        final Parent root;
+        try {
+            root = loader.load();
+            final Scene scene = new Scene(root);
+
+            Stage stage2 = new Stage();
+            stage2.setTitle("Obrázek uživatele");
+            stage2.setResizable(false);
+            stage2.initModality(Modality.APPLICATION_MODAL);
+            stage2.initOwner(btnObrazek.getScene().getWindow());
             stage2.setScene(scene);
             stage2.show();
         } catch (IOException ex) {

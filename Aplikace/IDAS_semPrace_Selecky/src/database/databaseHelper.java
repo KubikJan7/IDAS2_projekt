@@ -17,8 +17,11 @@ import data.Ucet;
 import data.Uzivatel;
 import data.Zakonceni;
 import data.Zpusob;
+import java.io.InputStream;
+import java.sql.Blob;
 import java.sql.CallableStatement;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -69,6 +72,21 @@ public class databaseHelper {
                 new Pracoviste(new Fakulta(zkratka_fakulty, nazev_fakulty),
                         new Katedra(zkratka_katedry, nazev_katedry)));
         return uzivatel;
+    }
+
+    public Obrazek dejObrazek(int id) throws SQLException {
+        Connection conn = OracleConnector.getConnection();
+        PreparedStatement stmt = conn.prepareStatement("SELECT * FROM OBRAZEK WHERE uzivatel_id_uzivatele =" + id);
+        ResultSet rset = stmt.executeQuery();
+        rset.next();
+        int idSoub = rset.getInt("id_souboru");
+        String nazev = rset.getString("nazev");
+        String pripona = rset.getString("pripona");
+        Date vytvoreno = rset.getDate("vytvoreno");
+        Date modif = rset.getDate("modifikace");
+        InputStream is = rset.getBinaryStream("obsah");
+        Obrazek obr = new Obrazek(idSoub, nazev, pripona, is, vytvoreno.toString(), modif.toString());
+        return obr;
     }
 
     public ArrayList<Fakulta> dejFakulty() throws SQLException {
@@ -354,6 +372,19 @@ public class databaseHelper {
         stmt.setString(2, uziv.getUcet().getNickname());
         stmt.setString(3, uziv.getUcet().getHeslo());
         stmt.setInt(4, uziv.getRole().getId());
+        stmt.executeUpdate();
+        conn.commit();
+    }
+
+    //Insert obrazku uzivatele
+    public void insertDataObrazek(int idUziv, Obrazek obr) throws SQLException {
+        Connection conn;
+        conn = OracleConnector.getConnection();
+        CallableStatement stmt = conn.prepareCall("{call vlozObrazek(?, ?, ?, ?)}");
+        stmt.setInt(1, idUziv);
+        stmt.setString(2, obr.getNazev());
+        stmt.setString(3, obr.getPripona());
+        stmt.setBinaryStream(4, obr.getObsah());
         stmt.executeUpdate();
         conn.commit();
     }
