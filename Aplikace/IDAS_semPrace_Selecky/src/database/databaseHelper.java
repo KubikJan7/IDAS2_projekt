@@ -590,6 +590,16 @@ public class databaseHelper {
         stmt.executeUpdate();
         conn.commit();
     }
+    
+        //Delete obrazku uzivatele
+    public void deleteDataObrazek(Uzivatel vyuc) throws SQLException {
+        Connection conn;
+        conn = OracleConnector.getConnection();
+        PreparedStatement stmt = conn.prepareCall("{call smazObrazek(?)}");
+        stmt.setInt(1, vyuc.getId());
+        stmt.executeUpdate();
+        conn.commit();
+    }
 
     //Delete pracoviště
     public void deleteDataPrac(Pracoviste2 prac) throws SQLException {

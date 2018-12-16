@@ -15,6 +15,8 @@ import java.io.InputStream;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -35,7 +37,7 @@ public class ObrazekFXMLController implements Initializable {
 
     AppFXMLController puvodniOkno;
     private databaseHelper dh;
-    private Uzivatel uziv, prihlaseny;
+    private Uzivatel uziv;
 
     @FXML
     private Label textUzivatel;
@@ -46,11 +48,10 @@ public class ObrazekFXMLController implements Initializable {
     @FXML
     private Button btnSmazat;
 
-    ObrazekFXMLController(AppFXMLController puvodniOkno, databaseHelper dh, Uzivatel uziv, Uzivatel prihlaseny) {
+    ObrazekFXMLController(AppFXMLController puvodniOkno, databaseHelper dh, Uzivatel uziv) {
         this.puvodniOkno = puvodniOkno;
         this.dh = dh;
         this.uziv = uziv;
-        this.prihlaseny = prihlaseny;
     }
 
     @Override
@@ -61,6 +62,15 @@ public class ObrazekFXMLController implements Initializable {
         }
         textUzivatel.setText(titul + " " + uziv.getJmeno() + " " + uziv.getPrijmeni());
         Image image = new Image(getClass().getResourceAsStream("noImage.png"));
+        if (uziv.getIdObrazku() != 0) {
+            Obrazek obr;
+            try {
+                obr = dh.dejObrazek(uziv.getId());
+                image = new Image(obr.getObsah());
+            } catch (SQLException ex) {
+                zobrazChybu(ex);
+            }
+        }
         iwObrazek.setImage(image);
     }
 
@@ -85,7 +95,6 @@ public class ObrazekFXMLController implements Initializable {
     }
 
     private void obnovObrazek() {
-        // TODO dopsat načtení obrázku při otevření okna
         Obrazek obr = null;
         try {
             obr = dh.dejObrazek(uziv.getId());
@@ -107,14 +116,23 @@ public class ObrazekFXMLController implements Initializable {
                 String[] nazev = file.getName().split("\\.");
                 dh.insertDataObrazek(uziv.getId(), new Obrazek(nazev[0], nazev[1], is));
                 obnovObrazek();
+                puvodniOkno.aktualizujVyucujici();
             } catch (FileNotFoundException | SQLException ex) {
                 zobrazChybu(ex);
             }
         }
     }
 
-    // TODO dopsat mazani obrazku
     @FXML
     private void smazObrazek(ActionEvent event) {
+        try {
+            dh.deleteDataObrazek(uziv);
+            Image image = new Image(getClass().getResourceAsStream("noImage.png"));
+            iwObrazek.setImage(image);
+            uziv.setIdObrazku(0);
+            puvodniOkno.aktualizujVyucujici();
+        } catch (SQLException ex) {
+            zobrazChybu(ex);
+        }
     }
 }

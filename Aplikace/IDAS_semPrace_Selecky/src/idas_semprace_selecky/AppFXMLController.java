@@ -96,8 +96,6 @@ public class AppFXMLController implements Initializable {
     private TableColumn<Uzivatel, Integer> vyucTelCol;
 
     // Formular vyucujiciho
-    // TODO Bude potřeba dodělat pole pro správu admina, uziv_jmeno a heslo .. 
-    // Možná také tlačítko a dialog pro zobrazení akcí vyučujícího
     @FXML
     private Pane paneVyucForm;
     @FXML
@@ -1088,7 +1086,7 @@ public class AppFXMLController implements Initializable {
         }
 
         final FXMLLoader loader = new FXMLLoader(getClass().getResource("ObrazekFXML.fxml"));
-        ObrazekFXMLController contr = new ObrazekFXMLController(this, dh, upravovanyUzivatel, prihlasenyUzivatel);
+        ObrazekFXMLController contr = new ObrazekFXMLController(this, dh, upravovanyUzivatel);
         loader.setController(contr);
         final Parent root;
         try {
