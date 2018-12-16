@@ -375,12 +375,11 @@ public class databaseHelper {
     public void insertDataObor(Obor obor) throws SQLException {
         Connection conn;
         conn = OracleConnector.getConnection();
-        PreparedStatement stmt = conn.prepareStatement("INSERT INTO stud_obor(nazev,zkratka,info,forma_vyuky_id_formy) "
-                + "VALUES (?, ?, ?, ?)");
-        stmt.setString(1, obor.getNazev());
-        stmt.setString(2, obor.getZkratka());
-        stmt.setString(3, obor.getInfo());
-        stmt.setInt(4, obor.getForma().getId());
+        PreparedStatement stmt = conn.prepareStatement("{call vlozObor(?, ?, ?, ?)}");
+        stmt.setString(1, obor.getZkratka());
+        stmt.setString(2, obor.getNazev());
+        stmt.setInt(3, obor.getForma().getId());
+        stmt.setString(4, obor.getInfo());
         stmt.executeUpdate();
         conn.commit();
     }
