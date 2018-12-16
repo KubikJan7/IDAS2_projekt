@@ -220,3 +220,28 @@ BEGIN
             raise_application_error(-20001, 'Učebna neexistuje!');
 END;
 /
+-- Pracoviště
+create or replace PROCEDURE vlozPracoviste
+    (p_zkratka KATEDRA.zkratka_katedry%TYPE,p_nazev KATEDRA.NAZEV_KATEDRY%TYPE, p_zkratkaFak KATEDRA.FAKULTA_ZKRATKA_FAKULTY%TYPE)
+IS
+BEGIN
+    INSERT INTO KATEDRA(ZKRATKA_KATEDRY, NAZEV_KATEDRY,FAKULTA_ZKRATKA_FAKULTY)
+        VALUES(p_zkratka,p_nazev,p_zkratkaFak);
+END;
+/
+
+create or replace PROCEDURE upravPracoviste
+    (p_zkratka KATEDRA.ZKRATKA_KATEDRY%TYPE,p_nazev KATEDRA.NAZEV_KATEDRY%TYPE, p_zkratkaFak KATEDRA.FAKULTA_ZKRATKA_FAKULTY%TYPE)
+IS
+BEGIN
+    UPDATE KATEDRA SET NAZEV_KATEDRY = p_nazev, FAKULTA_ZKRATKA_FAKULTY = p_zkratkaFak
+    WHERE ZKRATKA_KATEDRY = p_zkratka;
+END;
+/
+create or replace PROCEDURE smazPracoviste
+    (p_zkratka KATEDRA.ZKRATKA_KATEDRY%TYPE)
+IS
+BEGIN
+    DELETE FROM KATEDRA 
+    WHERE ZKRATKA_KATEDRY = p_zkratka;
+END;
