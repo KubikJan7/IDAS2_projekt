@@ -33,6 +33,7 @@
             </Text>
             <Button fx:id="btnSpravovat" layoutX="1049.0" layoutY="7.0" mnemonicParsing="false" onAction="#zobrazOknoSpravy" styleClass="button-sprava" text="Spravovat účet" visible="false" />
             <Button fx:id="btnLogout" layoutX="1193.0" layoutY="6.0" mnemonicParsing="false" onAction="#odhlasUzivatele" styleClass="button-logout" text="Odhlásit se" />
+            <Button fx:id="btnObrazek" layoutX="950.0" layoutY="7.0" mnemonicParsing="false" onAction="#zobrazOknoObrazku" styleClass="button-sprava" text="Obrázek" visible="false" />
          </children>
       </Pane>
       <TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="814.0" prefWidth="1305.0" stylesheets="@styl.css" tabClosingPolicy="UNAVAILABLE">
@@ -76,6 +77,7 @@
                               <Button fx:id="upravitVyucBtn" layoutX="110.0" layoutY="355.0" mnemonicParsing="false" onAction="#upravVyucujiciho" text="Upravit" />
                               <Button fx:id="smazatVyucBtn" layoutX="211.0" layoutY="355.0" mnemonicParsing="false" onAction="#odeberVyucujiciho" text="Smazat" />
                               <Button fx:id="btnSpravovatKohokoliv" layoutX="55.0" layoutY="402.0" mnemonicParsing="false" onAction="#zobrazOknoSpravy" text="Spravovat účet uživatele" />
+                              <Button fx:id="btnObrazekKohokoliv" layoutX="77.0" layoutY="449.0" mnemonicParsing="false" onAction="#zobrazOknoObrazku" text="Profilový obrázek" />
                            </children>
                         </Pane>
                      </children>
@@ -170,14 +172,14 @@
                         <SplitPane layoutY="35.0">
                            <items>
                               <TableView fx:id="twStudObory" prefHeight="750.0" prefWidth="845.0">
-                                 <columns>
-                                    <TableColumn fx:id="idStudOborCol" prefWidth="51.000030517578125" text="ID" />
-                                    <TableColumn fx:id="zkrStudOborCol" prefWidth="101.0" text="Zkratka" />
-                                    <TableColumn fx:id="nazStudOborCol" prefWidth="230.0" text="Název oboru" />
+                           <columns>
+                              <TableColumn fx:id="idStudOborCol" prefWidth="51.000030517578125" text="ID" />
+                              <TableColumn fx:id="zkrStudOborCol" prefWidth="101.0" text="Zkratka" />
+                              <TableColumn fx:id="nazStudOborCol" prefWidth="230.0" text="Název oboru" />
                                     <TableColumn fx:id="infoStudOborCol" prefWidth="182.39993896484373" text="Info" />
                                     <TableColumn fx:id="formaStudOborCol" prefWidth="277.6000061035156" text="Forma" />
-                                 </columns>
-                              </TableView>
+                           </columns>
+                        </TableView>
                            </items>
                         </SplitPane>
                         <Label layoutX="890.0" layoutY="149.0" text="Zkratka:" />
