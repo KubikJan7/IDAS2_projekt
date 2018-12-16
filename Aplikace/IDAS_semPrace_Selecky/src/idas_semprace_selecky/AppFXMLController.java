@@ -16,6 +16,7 @@ import data.Pracoviste2;
 import data.Predmet;
 import data.Role;
 import data.Semestr;
+import data.Ucebna;
 import data.Uzivatel;
 import data.Zakonceni;
 import data.Zpusob;
@@ -230,6 +231,26 @@ public class AppFXMLController implements Initializable {
     @FXML
     private TextField kapacitaRAField;
 
+    // Tabulka učeben
+    @FXML
+    private TableView<Ucebna> twUcebny;
+    @FXML
+    private TableColumn<Ucebna, Integer> idUcebnyCol;
+    @FXML
+    private TableColumn<Ucebna, String> nazevUcebnyCol;
+    @FXML
+    private TableColumn<Ucebna, Integer> kapacitaUcebnyCol;
+
+    // Formular učebny
+    @FXML
+    private Pane paneUcebnaForm;
+    @FXML
+    private TextField nazUcebnyField;
+    @FXML
+    private Button pridatUcebnuBtn;
+    @FXML
+    private TextField kapacitaUcebnyField;
+
     // Kolekce dat pro jednotlive karty
     ArrayList<Fakulta> fakulty;
     ObservableList<Uzivatel> vyucujici;
@@ -237,6 +258,8 @@ public class AppFXMLController implements Initializable {
     ObservableList<Obor> obory;
     ObservableList<Predmet> predmety;
     ObservableList<Akce> akce;
+    ObservableList<Ucebna> ucebny;
+
     @FXML
     private Button btnObrazek;
     @FXML
@@ -269,6 +292,7 @@ public class AppFXMLController implements Initializable {
 
         if (opravneni != EnumOpravneni.ADMINISTRATOR) {
             paneVyucForm.setVisible(false);
+            paneUcebnaForm.setVisible(false);
         }
 
         //Nastavení spřažení pro tabulku karty vyučujících
@@ -367,17 +391,17 @@ public class AppFXMLController implements Initializable {
                 if (newValue != null) {
                     try {
                         comboForem.getItems().setAll(dh.dejFormyVyuky());
-                    detOboruBtn.setDisable(false);
-                    pridatStObBtn.setDisable(true);
-                    Obor obor = twStudObory.getSelectionModel().getSelectedItem();
-                    kodStObField.setText(obor.getZkratka());
-                    nazevStObField.setText(obor.getNazev());
-                    infoStObArea.setText(obor.getInfo());
+                        detOboruBtn.setDisable(false);
+                        pridatStObBtn.setDisable(true);
+                        Obor obor = twStudObory.getSelectionModel().getSelectedItem();
+                        kodStObField.setText(obor.getZkratka());
+                        nazevStObField.setText(obor.getNazev());
+                        infoStObArea.setText(obor.getInfo());
                         Iterator<Forma> it = comboForem.getItems().iterator();
                         Forma forma = null;
                         while (it.hasNext()) {
                             Forma akt = it.next();
-                            if (akt.getId()==obor.getForma().getId()) {
+                            if (akt.getId() == obor.getForma().getId()) {
                                 forma = akt;
                                 break;
                             }
@@ -434,6 +458,24 @@ public class AppFXMLController implements Initializable {
             }
         });
 
+        //Nastavení spřažení pro tabulku učebny
+        twUcebny.setItems(ucebny);
+        idUcebnyCol.setCellValueFactory(new PropertyValueFactory("id"));
+        nazevUcebnyCol.setCellValueFactory(new PropertyValueFactory("nazev"));
+        kapacitaUcebnyCol.setCellValueFactory(new PropertyValueFactory("kapacita"));
+
+        // Doplnění informací do formuláře při výběru z tabulky Učebny
+        twUcebny.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Ucebna>() {
+            @Override
+            public void changed(ObservableValue<? extends Ucebna> observable, Ucebna oldValue, Ucebna newValue) {
+                if (newValue != null) {
+                    pridatUcebnuBtn.setDisable(true);
+                    Ucebna ucebna = twUcebny.getSelectionModel().getSelectedItem();
+                    nazUcebnyField.setText(ucebna.getNazev());
+                    kapacitaUcebnyField.setText(Integer.toString(ucebna.getKapacita()));
+                }
+            }
+        });
     }
 
     public Stage vratStage() {
@@ -500,6 +542,17 @@ public class AppFXMLController implements Initializable {
     private void aktualizujObory() {
         try {
             obory = FXCollections.observableArrayList(dh.dejKartaObory());
+            twStudObory.setItems(obory);
+        } catch (SQLException ex) {
+            zobrazChybu(ex);
+        }
+    }
+
+    // Obnoví data v tabulce učeben
+    private void aktualizujUcebny() {
+        try {
+            ucebny = FXCollections.observableArrayList(dh.dejKartaUcebny());
+            twUcebny.setItems(ucebny);
             twStudObory.setItems(obory);
         } catch (SQLException ex) {
             zobrazChybu(ex);
@@ -635,12 +688,12 @@ public class AppFXMLController implements Initializable {
                 String nazevOboru = nazevStObField.getText();
                 String info = infoStObArea.getText();
                 Forma forma = comboForem.getSelectionModel().getSelectedItem();
-                
+
                 Obor novy = new Obor(zkratkaOboru, nazevOboru, info, forma);
                 dh.insertDataObor(novy);
                 aktualizujObory();
                 vycistiFormStudObor(event);
-    }
+            }
         } catch (SQLException ex) {
             zobrazChybu(ex);
         }
@@ -690,7 +743,7 @@ public class AppFXMLController implements Initializable {
                 dh.insertDataPredmet(novy);
                 vycistiFormularPredmetu();
                 aktualizujPredmety();
-    }
+            }
         } catch (SQLException ex) {
             zobrazChybu(ex);
         }
@@ -708,7 +761,7 @@ public class AppFXMLController implements Initializable {
                 vycistiFormularPredmetu();
                 twPredmety.refresh();
                 //aktualizujPredmety();
-    }
+            }
         } catch (SQLException ex) {
             zobrazChybu(ex);
             System.out.println(ex.toString());
@@ -929,16 +982,16 @@ public class AppFXMLController implements Initializable {
 
     private void vycistiFormularOboru() {
         try {
-        pridatStObBtn.setDisable(false);
+            pridatStObBtn.setDisable(false);
             comboForem.getItems().setAll(dh.dejFormyVyuky());
-        nazevStObField.setText("");
-        kodStObField.setText("");
-        infoStObArea.setText("");
+            nazevStObField.setText("");
+            kodStObField.setText("");
+            infoStObArea.setText("");
             comboForem.getSelectionModel().select(0);
-        twStudObory.getSelectionModel().select(null);
+            twStudObory.getSelectionModel().select(null);
         } catch (SQLException ex) {
             Logger.getLogger(AppFXMLController.class.getName()).log(Level.SEVERE, null, ex);
-    }
+        }
     }
 
     private void vycistiFormularPredmetu() {
@@ -960,6 +1013,13 @@ public class AppFXMLController implements Initializable {
         comboPredmet.getSelectionModel().select(null);
         comboVyucujici.getSelectionModel().select(null);
         comboZpusAkce.getSelectionModel().select(null);
+    }
+
+    @FXML
+    private void vycistiFormularUcebny(ActionEvent event) {
+        pridatUcebnuBtn.setDisable(false);
+        nazUcebnyField.setText("");
+        kapacitaUcebnyField.setText("");
     }
 
     // Otevření okna detailu oboru
@@ -1103,5 +1163,23 @@ public class AppFXMLController implements Initializable {
         } catch (IOException ex) {
             zobrazChybu(ex);
         }
+    }
+
+    // TODO CRUD Učebny
+    @FXML
+    private void pridejUcebnu(ActionEvent event) {
+    }
+
+    @FXML
+    private void upravUcebnu(ActionEvent event) {
+    }
+
+    @FXML
+    private void odeberUcebnu(ActionEvent event) {
+    }
+
+    @FXML
+    private void prepniKartaUcebny(Event event) {
+        aktualizujUcebny();
     }
 }

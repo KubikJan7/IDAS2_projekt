@@ -13,6 +13,7 @@ import data.PredOboru;
 import data.Predmet;
 import data.Role;
 import data.Semestr;
+import data.Ucebna;
 import data.Ucet;
 import data.Uzivatel;
 import data.Zakonceni;
@@ -251,7 +252,7 @@ public class databaseHelper {
             String info = rset.getString("info");
             int idFor = rset.getInt("id_formy");
             String nazFor = rset.getString("nazev_formy");
-            obory.add(new Obor(id, zkr, naz, info, 
+            obory.add(new Obor(id, zkr, naz, info,
                     new Forma(idFor, nazFor)));
         }
         return obory;
@@ -335,6 +336,22 @@ public class databaseHelper {
 //            akce.add(new Akce(rset.getInt("id_akce"), rset.getInt("rozsah_hodin"), rset.getInt("kapacita"), vyucujici, predmet, zpusob));
 //        }
         return akce;
+    }
+
+    public ArrayList<Ucebna> dejKartaUcebny() throws SQLException {
+        ArrayList<Ucebna> ucebny = new ArrayList<>();
+
+        Connection conn = OracleConnector.getConnection();
+        PreparedStatement stmt = conn.prepareStatement("SELECT * FROM ucebna");
+        ResultSet rset = stmt.executeQuery();
+
+        while (rset.next()) {
+            int id = rset.getInt("id_ucebny");
+            String nazev = rset.getString("nazev_ucebny");
+            int kapacita = rset.getInt("kapacita");
+            ucebny.add(new Ucebna(id, nazev, kapacita));
+        }
+        return ucebny;
     }
 
     //Insert vyučujícího
@@ -590,8 +607,8 @@ public class databaseHelper {
         stmt.executeUpdate();
         conn.commit();
     }
-    
-        //Delete obrazku uzivatele
+
+    //Delete obrazku uzivatele
     public void deleteDataObrazek(Uzivatel vyuc) throws SQLException {
         Connection conn;
         conn = OracleConnector.getConnection();

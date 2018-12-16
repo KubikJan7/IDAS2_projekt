@@ -17,7 +17,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" stylesheets="@styl.css" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" stylesheets="@styl.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Pane maxHeight="-Infinity" prefHeight="40.0" style="-fx-background-color: black;">
          <children>
@@ -106,6 +106,33 @@
                         <Button fx:id="odebratPracBtn" layoutX="1075.0" layoutY="283.0" mnemonicParsing="false" onAction="#odeberPracoviste" text="Odebrat" />
                         <Button fx:id="vycistiPracFormBtn" layoutX="1179.0" layoutY="199.0" mnemonicParsing="false" onAction="#vycistiPracForm" text="Vyčisti pole" />
                         <ComboBox fx:id="comboFakulta" layoutX="970.0" layoutY="244.0" onMouseClicked="#nactiComboFakulty" prefHeight="26.0" prefWidth="189.0" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab onSelectionChanged="#prepniKartaUcebny" text="Učebny">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="background">
+                     <children>
+                        <TableView fx:id="twUcebny" layoutY="35.0" prefHeight="750.0" prefWidth="730.0">
+                           <columns>
+                              <TableColumn fx:id="idUcebnyCol" prefWidth="109.00003051757812" text="ID" />
+                              <TableColumn fx:id="nazevUcebnyCol" prefWidth="433.0" text="Nazev" />
+                              <TableColumn fx:id="kapacitaUcebnyCol" prefWidth="186.0" text="Kapacita" />
+                           </columns>
+                        </TableView>
+                        <Pane fx:id="paneUcebnaForm" layoutX="786.0" layoutY="275.0">
+                           <children>
+                              <TextField fx:id="nazUcebnyField" layoutX="80.0" />
+                              <Label layoutY="5.0" text="Název:" />
+                              <Button fx:id="pridatUcebnuBtn" layoutY="104.0" mnemonicParsing="false" onAction="#pridejUcebnu" text="Přidat" />
+                              <Label layoutY="50.0" text="Kapacita:" />
+                              <TextField fx:id="kapacitaUcebnyField" layoutX="80.0" layoutY="43.0" />
+                              <Button layoutX="102.0" layoutY="104.0" mnemonicParsing="false" onAction="#upravUcebnu" text="Upravit" />
+                              <Button layoutX="208.0" layoutY="104.0" mnemonicParsing="false" onAction="#odeberUcebnu" text="Odebrat" />
+                              <Button layoutX="290.0" layoutY="43.0" mnemonicParsing="false" onAction="#vycistiFormularUcebny" text="Vyčistit pole" />
+                           </children>
+                        </Pane>
                      </children>
                   </AnchorPane>
                </content>
