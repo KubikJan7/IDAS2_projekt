@@ -152,3 +152,15 @@ BEGIN
             where uzivatel_id_uzivatele = p_idUzivatele;
 END;
 /
+create or replace PROCEDURE smazObrazek
+  (p_idUzivatele OBRAZEK.uzivatel_id_uzivatele%TYPE)
+IS
+BEGIN
+    DELETE FROM
+    OBRAZEK WHERE uzivatel_id_uzivatele = p_idUzivatele;
+	
+	EXCEPTION
+        WHEN NO_DATA_FOUND THEN
+            raise_application_error(-20001, 'Uživatel nemá obrázek!');
+END;
+/
