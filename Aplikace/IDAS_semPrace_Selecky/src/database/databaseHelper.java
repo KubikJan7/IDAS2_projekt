@@ -410,8 +410,7 @@ public class databaseHelper {
     public void insertDataPrac(Pracoviste2 prac) throws SQLException {
         Connection conn;
         conn = OracleConnector.getConnection();
-        PreparedStatement stmt = conn.prepareStatement("INSERT INTO katedra(zkratka_katedry, nazev_katedry, fakulta_zkratka_fakulty) "
-                + "VALUES (?, ?, ?)");
+        PreparedStatement stmt = conn.prepareStatement("{call vlozPracoviste(?,?,?)}");
         stmt.setString(1, prac.getZkratkaKat());
         stmt.setString(2, prac.getKatedra());
         stmt.setString(3, prac.getZkratkaFak());
@@ -527,11 +526,10 @@ public class databaseHelper {
     public void updateDataPrac(Pracoviste2 prac) throws SQLException {
         Connection conn;
         conn = OracleConnector.getConnection();
-        PreparedStatement stmt = conn.prepareStatement("UPDATE katedra SET nazev_katedry = ?, fakulta_zkratka_fakulty = ?"
-                + "where zkratka_katedry = ?");
-        stmt.setString(1, prac.getKatedra());
-        stmt.setString(2, prac.getZkratkaFak());
-        stmt.setString(3, prac.getZkratkaKat());
+        PreparedStatement stmt = conn.prepareStatement("{call upravPracoviste(?,?,?)}");
+        stmt.setString(1, prac.getZkratkaKat());
+        stmt.setString(2, prac.getKatedra());
+        stmt.setString(3, prac.getZkratkaFak());
         stmt.executeUpdate();
         conn.commit();
     }
@@ -653,7 +651,7 @@ public class databaseHelper {
     public void deleteDataPrac(Pracoviste2 prac) throws SQLException {
         Connection conn;
         conn = OracleConnector.getConnection();
-        PreparedStatement stmt = conn.prepareStatement("DELETE FROM katedra WHERE zkratka_katedry = ?");
+        PreparedStatement stmt = conn.prepareStatement("{call smazPracoviste(?)}");
         stmt.setString(1, prac.getZkratkaKat());
         stmt.executeUpdate();
         conn.commit();
