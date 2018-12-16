@@ -13,6 +13,7 @@ import data.PredOboru;
 import data.Predmet;
 import data.Role;
 import data.Semestr;
+import data.Ucebna;
 import data.Ucet;
 import data.Uzivatel;
 import data.Zakonceni;
@@ -251,7 +252,7 @@ public class databaseHelper {
             String info = rset.getString("info");
             int idFor = rset.getInt("id_formy");
             String nazFor = rset.getString("nazev_formy");
-            obory.add(new Obor(id, zkr, naz, info, 
+            obory.add(new Obor(id, zkr, naz, info,
                     new Forma(idFor, nazFor)));
         }
         return obory;
@@ -337,6 +338,22 @@ public class databaseHelper {
         return akce;
     }
 
+    public ArrayList<Ucebna> dejKartaUcebny() throws SQLException {
+        ArrayList<Ucebna> ucebny = new ArrayList<>();
+
+        Connection conn = OracleConnector.getConnection();
+        PreparedStatement stmt = conn.prepareStatement("SELECT * FROM ucebna");
+        ResultSet rset = stmt.executeQuery();
+
+        while (rset.next()) {
+            int id = rset.getInt("id_ucebny");
+            String nazev = rset.getString("nazev_ucebny");
+            int kapacita = rset.getInt("kapacita");
+            ucebny.add(new Ucebna(id, nazev, kapacita));
+        }
+        return ucebny;
+    }
+
     //Insert vyučujícího
     public void insertDataVyuc(Uzivatel vyuc) throws SQLException {
         Connection conn;
@@ -419,9 +436,21 @@ public class databaseHelper {
     public void insertDataPredmet(Predmet pred) throws SQLException {
         Connection conn;
         conn = OracleConnector.getConnection();
-        PreparedStatement stmt = conn.prepareStatement("{call vlozPredmet(?, ?)}");
+        PreparedStatement stmt = conn.prepareStatement("INSERT INTO predmet(nazev,zkratka) "
+                + "VALUES (?, ?)");
         stmt.setString(1, pred.getNazev());
         stmt.setString(2, pred.getZkratka());
+        stmt.executeUpdate();
+        conn.commit();
+    }
+
+    //Insert ucebny
+    public void insertDataUcebna(Ucebna uceb) throws SQLException {
+        Connection conn;
+        conn = OracleConnector.getConnection();
+        CallableStatement stmt = conn.prepareCall("{call vlozUcebnu(?, ?)}");
+        stmt.setString(1, uceb.getNazev());
+        stmt.setInt(2, uceb.getKapacita());
         stmt.executeUpdate();
         conn.commit();
     }
@@ -512,12 +541,25 @@ public class databaseHelper {
     public void updateDataObor(Obor obor) throws SQLException {
         Connection conn;
         conn = OracleConnector.getConnection();
-        PreparedStatement stmt = conn.prepareStatement("{call upravObor(?, ?, ?, ?, ?)}");
-        stmt.setInt(1, obor.getId());
+        PreparedStatement stmt = conn.prepareStatement("update stud_obor SET nazev = ?,zkratka = ?, info = ?, forma_vyuky_id_formy = ?"
+                + "where id_oboru = ?");
+        stmt.setString(1, obor.getNazev());
         stmt.setString(2, obor.getZkratka());
-        stmt.setString(3, obor.getNazev());
+        stmt.setString(3, obor.getInfo());
         stmt.setInt(4, obor.getForma().getId());
-        stmt.setString(5, obor.getInfo());
+        stmt.setInt(5, obor.getId());
+        stmt.executeUpdate();
+        conn.commit();
+    }
+
+    //Update ucebny
+    public void updateDataUcebna(Ucebna uceb) throws SQLException {
+        Connection conn;
+        conn = OracleConnector.getConnection();
+        PreparedStatement stmt = conn.prepareCall("{call upravUcebnu(?,?,?)}");
+        stmt.setInt(1, uceb.getId());
+        stmt.setString(2, uceb.getNazev());
+        stmt.setInt(3, uceb.getKapacita());
         stmt.executeUpdate();
         conn.commit();
     }
@@ -579,6 +621,16 @@ public class databaseHelper {
         conn.commit();
     }
 
+    //Delete vyučujícího
+    public void deleteDataUcebny(Ucebna uceb) throws SQLException {
+        Connection conn;
+        conn = OracleConnector.getConnection();
+        PreparedStatement stmt = conn.prepareCall("{call smazUcebnu(?)}");
+        stmt.setInt(1, uceb.getId());
+        stmt.executeUpdate();
+        conn.commit();
+    }
+
     //Delete uctu uzivatele
     public void deleteDataUcet(Uzivatel vyuc) throws SQLException {
         Connection conn;
@@ -588,8 +640,8 @@ public class databaseHelper {
         stmt.executeUpdate();
         conn.commit();
     }
-    
-        //Delete obrazku uzivatele
+
+    //Delete obrazku uzivatele
     public void deleteDataObrazek(Uzivatel vyuc) throws SQLException {
         Connection conn;
         conn = OracleConnector.getConnection();
@@ -613,7 +665,7 @@ public class databaseHelper {
     public void deleteDataObor(Obor obor) throws SQLException {
         Connection conn;
         conn = OracleConnector.getConnection();
-        PreparedStatement stmt = conn.prepareStatement("{call smazObor(?)}");
+        PreparedStatement stmt = conn.prepareStatement("DELETE FROM stud_obor where id_oboru = ?");
         stmt.setInt(1, obor.getId());
         stmt.executeUpdate();
         conn.commit();
@@ -623,7 +675,7 @@ public class databaseHelper {
     public void deleteDataPredmet(Predmet pred) throws SQLException {
         Connection conn;
         conn = OracleConnector.getConnection();
-        PreparedStatement stmt = conn.prepareStatement("{call smazPredmet(?)");
+        PreparedStatement stmt = conn.prepareStatement("DELETE FROM predmet where id_predmetu = ?");
         stmt.setInt(1, pred.getId());
         stmt.executeUpdate();
         conn.commit();
