@@ -221,3 +221,18 @@ BEGIN
   FROM dual;
 END;
 /
+/*Sekvence a trigger Obrazek*/
+CREATE SEQUENCE obrazek_SEQ 
+ START WITH 1 
+ INCREMENT BY 1;
+/
+ CREATE OR REPLACE TRIGGER TRIG_obrazek
+BEFORE INSERT ON obrazek
+FOR EACH ROW
+ WHEN (new.id_souboru IS NULL) 
+BEGIN
+  SELECT obrazek_SEQ .NEXTVAL
+  INTO :new.id_souboru
+  FROM dual;
+END;
+/
