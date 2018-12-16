@@ -1016,7 +1016,7 @@ public class AppFXMLController implements Initializable {
     }
 
     @FXML
-    private void vycistiFormularUcebny(ActionEvent event) {
+    private void vycistiFormularUcebny() {
         pridatUcebnuBtn.setDisable(false);
         nazUcebnyField.setText("");
         kapacitaUcebnyField.setText("");
@@ -1168,14 +1168,51 @@ public class AppFXMLController implements Initializable {
     // TODO CRUD Učebny
     @FXML
     private void pridejUcebnu(ActionEvent event) {
+        try {
+            if (!nazUcebnyField.getText().isEmpty()
+                    && !kapacitaUcebnyField.getText().isEmpty()) {
+                String nazev = nazUcebnyField.getText();
+                int kapacita = Integer.parseInt(kapacitaUcebnyField.getText());
+
+                Ucebna uceb = new Ucebna(nazev, kapacita);
+                dh.insertDataUcebna(uceb);
+                aktualizujUcebny();
+                vycistiFormularUcebny();
+            }
+        } catch (SQLException ex) {
+            zobrazChybu(ex);
+        }
     }
 
     @FXML
     private void upravUcebnu(ActionEvent event) {
+        try {
+            if (!nazUcebnyField.getText().isEmpty()
+                    && !kapacitaUcebnyField.getText().isEmpty()) {
+                Ucebna vybrany = twUcebny.getSelectionModel().getSelectedItem();
+                vybrany.setNazev(nazUcebnyField.getText());
+                vybrany.setKapacita(Integer.parseInt(kapacitaUcebnyField.getText()));
+                dh.updateDataUcebna(vybrany);
+                vycistiFormularUcebny();
+                aktualizujUcebny();
+            }
+        } catch (SQLException ex) {
+            zobrazChybu(ex);
+        }
     }
 
     @FXML
     private void odeberUcebnu(ActionEvent event) {
+        Ucebna uceb = twUcebny.getSelectionModel().getSelectedItem();
+        if (uceb != null) {
+            try {
+                dh.deleteDataUcebny(uceb);
+                ucebny.remove(uceb);
+                vycistiFormularUcebny();
+            } catch (SQLException ex) {
+                zobrazChybu(ex);
+            }
+        }
     }
 
     @FXML

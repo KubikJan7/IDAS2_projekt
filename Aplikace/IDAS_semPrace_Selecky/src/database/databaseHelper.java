@@ -444,6 +444,17 @@ public class databaseHelper {
         conn.commit();
     }
 
+    //Insert ucebny
+    public void insertDataUcebna(Ucebna uceb) throws SQLException {
+        Connection conn;
+        conn = OracleConnector.getConnection();
+        CallableStatement stmt = conn.prepareCall("{call vlozUcebnu(?, ?)}");
+        stmt.setString(1, uceb.getNazev());
+        stmt.setInt(2, uceb.getKapacita());
+        stmt.executeUpdate();
+        conn.commit();
+    }
+
     //Insert rozvrhové akce
     public void insertDataAkce(Akce akce) throws SQLException {
         Connection conn;
@@ -541,6 +552,18 @@ public class databaseHelper {
         conn.commit();
     }
 
+    //Update ucebny
+    public void updateDataUcebna(Ucebna uceb) throws SQLException {
+        Connection conn;
+        conn = OracleConnector.getConnection();
+        PreparedStatement stmt = conn.prepareCall("{call upravUcebnu(?,?,?)}");
+        stmt.setInt(1, uceb.getId());
+        stmt.setString(2, uceb.getNazev());
+        stmt.setInt(3, uceb.getKapacita());
+        stmt.executeUpdate();
+        conn.commit();
+    }
+
     //Update předmětu
     public void updateDataPredmet(Predmet pred) throws SQLException {
         Connection conn;
@@ -594,6 +617,16 @@ public class databaseHelper {
         conn = OracleConnector.getConnection();
         PreparedStatement stmt = conn.prepareCall("{call smazUzivatele(?)}");
         stmt.setInt(1, vyuc.getId());
+        stmt.executeUpdate();
+        conn.commit();
+    }
+
+    //Delete vyučujícího
+    public void deleteDataUcebny(Ucebna uceb) throws SQLException {
+        Connection conn;
+        conn = OracleConnector.getConnection();
+        PreparedStatement stmt = conn.prepareCall("{call smazUcebnu(?)}");
+        stmt.setInt(1, uceb.getId());
         stmt.executeUpdate();
         conn.commit();
     }
