@@ -419,8 +419,7 @@ public class databaseHelper {
     public void insertDataPredmet(Predmet pred) throws SQLException {
         Connection conn;
         conn = OracleConnector.getConnection();
-        PreparedStatement stmt = conn.prepareStatement("INSERT INTO predmet(nazev,zkratka) "
-                + "VALUES (?, ?)");
+        PreparedStatement stmt = conn.prepareStatement("{call vlozPredmet(?, ?)}");
         stmt.setString(1, pred.getNazev());
         stmt.setString(2, pred.getZkratka());
         stmt.executeUpdate();
@@ -513,13 +512,12 @@ public class databaseHelper {
     public void updateDataObor(Obor obor) throws SQLException {
         Connection conn;
         conn = OracleConnector.getConnection();
-        PreparedStatement stmt = conn.prepareStatement("update stud_obor SET nazev = ?,zkratka = ?, info = ?, forma_vyuky_id_formy = ?"
-                + "where id_oboru = ?");
-        stmt.setString(1, obor.getNazev());
+        PreparedStatement stmt = conn.prepareStatement("{call upravObor(?, ?, ?, ?, ?)}");
+        stmt.setInt(1, obor.getId());
         stmt.setString(2, obor.getZkratka());
-        stmt.setString(3, obor.getInfo());
+        stmt.setString(3, obor.getNazev());
         stmt.setInt(4, obor.getForma().getId());
-        stmt.setInt(5, obor.getId());
+        stmt.setString(5, obor.getInfo());
         stmt.executeUpdate();
         conn.commit();
     }
@@ -615,7 +613,7 @@ public class databaseHelper {
     public void deleteDataObor(Obor obor) throws SQLException {
         Connection conn;
         conn = OracleConnector.getConnection();
-        PreparedStatement stmt = conn.prepareStatement("DELETE FROM stud_obor where id_oboru = ?");
+        PreparedStatement stmt = conn.prepareStatement("{call smazObor(?)}");
         stmt.setInt(1, obor.getId());
         stmt.executeUpdate();
         conn.commit();
@@ -625,7 +623,7 @@ public class databaseHelper {
     public void deleteDataPredmet(Predmet pred) throws SQLException {
         Connection conn;
         conn = OracleConnector.getConnection();
-        PreparedStatement stmt = conn.prepareStatement("DELETE FROM predmet where id_predmetu = ?");
+        PreparedStatement stmt = conn.prepareStatement("{call smazPredmet(?)");
         stmt.setInt(1, pred.getId());
         stmt.executeUpdate();
         conn.commit();
