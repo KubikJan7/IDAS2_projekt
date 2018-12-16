@@ -164,3 +164,29 @@ BEGIN
             raise_application_error(-20001, 'Uživatel nemá obrázek!');
 END;
 /
+
+--Předmět
+create or replace PROCEDURE vlozPredmet
+  (p_nazev PREDMET.NAZEV%TYPE, p_zkratka PREDMET.ZKRATKA%TYPE)
+IS
+BEGIN
+      INSERT INTO PREDMET (NAZEV,ZKRATKA)
+        VALUES(p_nazev, p_zkratka);
+END;
+/
+create or replace PROCEDURE upravPredmet
+  (p_idPredmetu PREDMET.ID_PREDMETU%TYPE, p_nazev PREDMET.NAZEV%TYPE, p_zkratka PREDMET.ZKRATKA%TYPE)
+IS
+BEGIN
+    UPDATE PREDMET 
+      SET NAZEV = p_nazev, ZKRATKA = p_zkratka
+      WHERE ID_PREDMETU = p_idPredmetu;
+END;
+/
+create or replace PROCEDURE smazPredmet
+   (p_idPredmetu PREDMET.ID_PREDMETU%TYPE)
+IS
+BEGIN
+    DELETE FROM PREDMET
+    WHERE ID_PREDMETU = p_idPredmetu;
+END;
