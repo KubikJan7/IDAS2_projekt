@@ -333,7 +333,7 @@ and open the template in the editor.
 .button:focused {
     -fx-border-color: white, white;
     -fx-border-width: 1, 1;
-    -fx-border-style: solid, segments(1, 1);
+/*    -fx-border-style: solid, segments(1, 1);*/
     -fx-border-radius: 0, 0;
     -fx-border-insets: 1 1 1 1, 0;
 }
@@ -361,6 +361,25 @@ and open the template in the editor.
 .button:default:hover {
     -fx-background-color: derive(-fx-focus-color,30%);
 }
+
+.button-logout{
+    -fx-padding: 4 10 4 10;  
+    -fx-background-color: #990000;
+    -fx-border-color: #4d0000;
+    -fx-border-radius: 0,0;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+.button-sprava{
+    -fx-padding: 4 10 4 10;  
+    -fx-background-color: derive(#1d1d1d,20%);
+    -fx-border-radius: 0,0;
+    -fx-border-width: 0;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
 
 .dialog-pane{
     -fx-background-color: #BDC3C7;

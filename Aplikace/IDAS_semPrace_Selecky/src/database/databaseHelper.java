@@ -50,8 +50,8 @@ public class databaseHelper {
         String titulPred = rset.getString("titul_pred");
         String titulZa = rset.getString("titul_za");
         String email = rset.getString("email");
-        int mobil = rset.getInt("mobil");
-        int telefon = rset.getInt("telefon");
+        String mobil = rset.getString("mobil");
+        String telefon = rset.getString("telefon");
         int id_role = rset.getInt("id_role");
         String nazev_role = rset.getString("nazev_role");
         String zkratka_katedry = rset.getString("zkratka_katedry");
@@ -168,8 +168,8 @@ public class databaseHelper {
             String titulPred = rset.getString("titul_pred");
             String titulZa = rset.getString("titul_za");
             String email = rset.getString("email");
-            int mobil = rset.getInt("mobil");
-            int telefon = rset.getInt("telefon");
+            String mobil = rset.getString("mobil");
+            String telefon = rset.getString("telefon");
             int id_role = rset.getInt("id_role");
             String nazev_role = rset.getString("nazev_role");
             String zkratka_katedry = rset.getString("zkratka_katedry");
@@ -328,15 +328,15 @@ public class databaseHelper {
         stmt.setString(3, vyuc.getTitulPred());
         stmt.setString(4, vyuc.getTitulZa());
         stmt.setString(5, vyuc.getEmail());
-        if (vyuc.getMobil() == 0) {
+        if (vyuc.getMobil() == null) {
             stmt.setNull(6, java.sql.Types.INTEGER);
         } else {
-            stmt.setInt(6, vyuc.getMobil());
+            stmt.setString(6, vyuc.getMobil());
         }
-        if (vyuc.getTelefon() == 0) {
+        if (vyuc.getTelefon() == null) {
             stmt.setNull(7, java.sql.Types.INTEGER);
         } else {
-            stmt.setInt(7, vyuc.getTelefon());
+            stmt.setString(7, vyuc.getTelefon());
         }
         stmt.setString(8, vyuc.getPracoviste().getKatedra().getZkratka());
         stmt.setInt(9, vyuc.getRole().getId());
@@ -440,15 +440,15 @@ public class databaseHelper {
         stmt.setString(4, vyuc.getTitulPred());
         stmt.setString(5, vyuc.getTitulZa());
         stmt.setString(6, vyuc.getEmail());
-        if (vyuc.getMobil() == 0) {
+        if (vyuc.getMobil() == null) {
             stmt.setNull(7, java.sql.Types.INTEGER);
         } else {
-            stmt.setInt(7, vyuc.getMobil());
+            stmt.setString(7, vyuc.getMobil());
         }
-        if (vyuc.getTelefon() == 0) {
+        if (vyuc.getTelefon() == null) {
             stmt.setNull(8, java.sql.Types.INTEGER);
         } else {
-            stmt.setInt(8, vyuc.getTelefon());
+            stmt.setString(8, vyuc.getTelefon());
         }
         stmt.setString(9, vyuc.getPracoviste().getKatedra().getZkratka());
         stmt.setInt(10, vyuc.getRole().getId());

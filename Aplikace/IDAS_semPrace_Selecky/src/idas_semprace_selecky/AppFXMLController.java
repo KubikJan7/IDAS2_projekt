@@ -302,8 +302,8 @@ public class AppFXMLController implements Initializable {
                         titulZaField.setText(pom.getTitulZa());
                         jmenoField.setText(pom.getJmeno());
                         prijmeniField.setText(pom.getPrijmeni());
-                        mobilField.setText(Integer.toString(pom.getMobil()));
-                        telField.setText(Integer.toString(pom.getTelefon()));
+                        mobilField.setText(pom.getMobil());
+                        telField.setText(pom.getTelefon());
                         emailField.setText(pom.getEmail());
 
                         Iterator<Katedra> it = comboPracovist.getItems().iterator();
@@ -518,8 +518,8 @@ public class AppFXMLController implements Initializable {
                 String prijmeni = prijmeniField.getText();
                 String email = emailField.getText();
                 Katedra katedra = comboPracovist.getSelectionModel().getSelectedItem();
-                int mobil = 0;
-                int telefon = 0;
+                String mobil = null;
+                String telefon = null;
 
                 Uzivatel novy = new Uzivatel(titulPred, jmeno, prijmeni, titulZa, email, mobil, telefon, new Role(3, "Neregistrovaný"), new Pracoviste(null, katedra));
                 dh.insertDataVyuc(novy);
@@ -543,8 +543,8 @@ public class AppFXMLController implements Initializable {
                 vybrany.setPrijmeni(prijmeniField.getText());
                 vybrany.setEmail(emailField.getText());
                 vybrany.getPracoviste().setKatedra(comboPracovist.getSelectionModel().getSelectedItem());
-                vybrany.setMobil(Integer.parseInt(mobilField.getText()));
-                vybrany.setTelefon(Integer.parseInt(telField.getText()));
+                vybrany.setMobil(mobilField.getText());
+                vybrany.setTelefon(telField.getText());
                 dh.updateDataVyuc(vybrany);
                 vycistiFormularVyucujici();
                 aktualizujVyucujici();

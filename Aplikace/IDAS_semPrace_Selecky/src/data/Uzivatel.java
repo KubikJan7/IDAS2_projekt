@@ -12,14 +12,14 @@ public class Uzivatel {
     private String prijmeni;
     private String titulZa;
     private String email;
-    private int mobil;
-    private int telefon;
+    private String mobil;
+    private String telefon;
     private Ucet ucet;
     private Role role;
     private int idObrazku;
     private Pracoviste pracoviste;
 
-    public Uzivatel(String titulPred, String jmeno, String prijmeni, String titulZa, String email, int mobil, int telefon, Role role, Pracoviste pracoviste) {
+    public Uzivatel(String titulPred, String jmeno, String prijmeni, String titulZa, String email, String mobil, String telefon, Role role, Pracoviste pracoviste) {
         this.titulPred = titulPred;
         this.jmeno = jmeno;
         this.prijmeni = prijmeni;
@@ -31,7 +31,7 @@ public class Uzivatel {
         this.pracoviste = pracoviste;
     }
 
-    public Uzivatel(String titulPred, String jmeno, String prijmeni, String titulZa, String email, int mobil, int telefon, Ucet ucet, Role role, int obrazek, Pracoviste pracoviste) {
+    public Uzivatel(String titulPred, String jmeno, String prijmeni, String titulZa, String email, String mobil, String telefon, Ucet ucet, Role role, int obrazek, Pracoviste pracoviste) {
         this.titulPred = titulPred;
         this.jmeno = jmeno;
         this.prijmeni = prijmeni;
@@ -46,7 +46,7 @@ public class Uzivatel {
     }
 
     public Uzivatel(int id, String titulPred, String jmeno, String prijmeni,
-            String titulZa, String email, int mobil, int telefon,
+            String titulZa, String email, String mobil, String telefon,
             Ucet ucet, Role role, int obrazek, Pracoviste pracoviste) {
         this.id = id;
         this.titulPred = titulPred;
@@ -110,19 +110,19 @@ public class Uzivatel {
         this.email = email;
     }
 
-    public int getMobil() {
+    public String getMobil() {
         return mobil;
     }
 
-    public void setMobil(int mobil) {
+    public void setMobil(String mobil) {
         this.mobil = mobil;
     }
 
-    public int getTelefon() {
+    public String getTelefon() {
         return telefon;
     }
 
-    public void setTelefon(int telefon) {
+    public void setTelefon(String telefon) {
         this.telefon = telefon;
     }
 
