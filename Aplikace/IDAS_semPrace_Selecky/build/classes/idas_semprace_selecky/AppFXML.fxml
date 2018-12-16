@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
@@ -16,7 +17,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" stylesheets="@styl.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" stylesheets="@styl.css" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Pane maxHeight="-Infinity" prefHeight="40.0" style="-fx-background-color: black;">
          <children>
@@ -111,32 +112,20 @@
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="background">
                      <children>
-                        <TableView fx:id="twPredmety" layoutY="35.0" prefHeight="750.0" prefWidth="845.0">
+                        <TableView fx:id="twPredmety" layoutY="35.0" prefHeight="750.0" prefWidth="730.0">
                            <columns>
-                              <TableColumn fx:id="zkrPredCol" prefWidth="63.000030517578125" text="Zkratka" />
-                              <TableColumn fx:id="nazPredCol" prefWidth="291.0" text="Předmět" />
-                              <TableColumn fx:id="kredPredCol" minWidth="1.0" prefWidth="92.0" text="Kredity" />
-                              <TableColumn fx:id="semPredCol" prefWidth="118.0" text="Semestr" />
-                              <TableColumn fx:id="zakonPredCol" minWidth="1.0" prefWidth="151.0" text="Zakončení" />
-                              <TableColumn fx:id="formaPredCol" minWidth="1.0" prefWidth="127.0" text="Forma" />
+                              <TableColumn fx:id="zkrPredCol" prefWidth="179.20000910758972" text="Zkratka" />
+                              <TableColumn fx:id="nazPredCol" prefWidth="549.5999908447266" text="Předmět" />
                            </columns>
                         </TableView>
-                        <TextField fx:id="zkrPredField" layoutX="986.0" layoutY="170.0" />
-                        <Label layoutX="883.0" layoutY="176.0" text="Zkratka:" />
-                        <ComboBox fx:id="comboZakonPred" layoutX="986.0" layoutY="300.0" onMouseClicked="#nactiZpZakonceni" prefHeight="26.0" prefWidth="190.0" />
-                        <Button fx:id="pridatPredBtn" layoutX="881.0" layoutY="439.0" mnemonicParsing="false" onAction="#pridejPredmet" text="Přidat" />
-                        <Label layoutX="883.0" layoutY="216.0" text="Název:" />
-                        <Label layoutX="884.0" layoutY="257.0" text="Kredity:" />
-                        <Label layoutX="884.0" layoutY="341.0" text="Semestr:" />
-                        <Label layoutX="884.0" layoutY="303.0" text="Zakončení:" />
-                        <Label layoutX="884.0" layoutY="383.0" text="Forma výuky:" />
-                        <TextField fx:id="nazPredField" layoutX="986.0" layoutY="210.0" />
-                        <TextField fx:id="kredPredField" layoutX="986.0" layoutY="251.0" />
-                        <ComboBox fx:id="comboSemPred" layoutX="986.0" layoutY="338.0" onMouseClicked="#nactiSemestry" prefHeight="26.0" prefWidth="190.0" />
-                        <ComboBox fx:id="comboFormPred" layoutX="986.0" layoutY="379.0" onMouseClicked="#nactiFormyVuky" prefHeight="26.0" prefWidth="190.0" />
-                        <Button layoutX="986.0" layoutY="439.0" mnemonicParsing="false" onAction="#upravPredmet" text="Upravit" />
-                        <Button layoutX="1092.0" layoutY="439.0" mnemonicParsing="false" onAction="#odeberPredmet" text="Odebrat" />
-                        <Button layoutX="1186.0" layoutY="252.0" mnemonicParsing="false" onAction="#vycistiFormularPredmetu" text="Vyčistit pole" />
+                        <TextField fx:id="zkrPredField" layoutX="940.0" layoutY="323.0" />
+                        <Label layoutX="837.0" layoutY="329.0" text="Zkratka:" />
+                        <Button fx:id="pridatPredBtn" layoutX="837.0" layoutY="429.0" mnemonicParsing="false" onAction="#pridejPredmet" text="Přidat" />
+                        <Label layoutX="837.0" layoutY="369.0" text="Název:" />
+                        <TextField fx:id="nazPredField" layoutX="940.0" layoutY="363.0" />
+                        <Button layoutX="942.0" layoutY="429.0" mnemonicParsing="false" onAction="#upravPredmet" text="Upravit" />
+                        <Button layoutX="1048.0" layoutY="429.0" mnemonicParsing="false" onAction="#odeberPredmet" text="Odebrat" />
+                        <Button layoutX="1159.0" layoutY="363.0" mnemonicParsing="false" onAction="#vycistiFormularPredmetu" text="Vyčistit pole" />
                      </children>
                   </AnchorPane>
                </content>
@@ -178,25 +167,32 @@
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="background">
                      <children>
-                        <TableView fx:id="twStudObory" layoutY="35.0" prefHeight="750.0" prefWidth="845.0">
-                           <columns>
-                              <TableColumn fx:id="idStudOborCol" prefWidth="51.000030517578125" text="ID" />
-                              <TableColumn fx:id="zkrStudOborCol" prefWidth="101.0" text="Zkratka" />
-                              <TableColumn fx:id="nazStudOborCol" prefWidth="230.0" text="Název oboru" />
-                              <TableColumn fx:id="infoStudOborCol" prefWidth="462.0" text="Info" />
-                           </columns>
-                        </TableView>
+                        <SplitPane layoutY="35.0">
+                           <items>
+                              <TableView fx:id="twStudObory" prefHeight="750.0" prefWidth="845.0">
+                                 <columns>
+                                    <TableColumn fx:id="idStudOborCol" prefWidth="51.000030517578125" text="ID" />
+                                    <TableColumn fx:id="zkrStudOborCol" prefWidth="101.0" text="Zkratka" />
+                                    <TableColumn fx:id="nazStudOborCol" prefWidth="230.0" text="Název oboru" />
+                                    <TableColumn fx:id="infoStudOborCol" prefWidth="182.39993896484373" text="Info" />
+                                    <TableColumn fx:id="formaStudOborCol" prefWidth="277.6000061035156" text="Forma" />
+                                 </columns>
+                              </TableView>
+                           </items>
+                        </SplitPane>
                         <Label layoutX="890.0" layoutY="149.0" text="Zkratka:" />
                         <Label layoutX="890.0" layoutY="188.0" text="Název:" />
                         <TextField fx:id="kodStObField" layoutX="968.0" layoutY="145.0" prefHeight="31.0" prefWidth="200.0" />
                         <TextField fx:id="nazevStObField" layoutX="968.0" layoutY="184.0" prefHeight="31.0" prefWidth="200.0" />
                         <Label layoutX="890.0" layoutY="225.0" text="Info:" />
                         <TextArea fx:id="infoStObArea" layoutX="968.0" layoutY="225.0" prefHeight="200.0" prefWidth="200.0" wrapText="true" />
-                        <Button fx:id="pridatStObBtn" layoutX="890.0" layoutY="444.0" mnemonicParsing="false" onAction="#pridejStudObor" text="Přidat" />
-                        <Button layoutX="986.0" layoutY="444.0" mnemonicParsing="false" onAction="#upravStudObor" text="Upravit" />
-                        <Button layoutX="1084.0" layoutY="444.0" mnemonicParsing="false" onAction="#odeberStudObor" text="Odebrat" />
+                        <Button fx:id="pridatStObBtn" layoutX="890.0" layoutY="494.0" mnemonicParsing="false" onAction="#pridejStudObor" text="Přidat" />
+                        <Button layoutX="986.0" layoutY="494.0" mnemonicParsing="false" onAction="#upravStudObor" text="Upravit" />
+                        <Button layoutX="1084.0" layoutY="494.0" mnemonicParsing="false" onAction="#odeberStudObor" text="Odebrat" />
                         <Button layoutX="1187.0" layoutY="184.0" mnemonicParsing="false" onAction="#vycistiFormStudObor" text="Vyčisti pole" />
                         <Button fx:id="detOboruBtn" layoutX="979.0" layoutY="94.0" mnemonicParsing="false" onAction="#ukazDetailOboru" text="Zobrazit detail oboru" />
+                        <ComboBox fx:id="comboForem" layoutX="967.0" layoutY="434.0" onMouseClicked="#nactiComboFormy" prefHeight="26.0" prefWidth="201.0" />
+                        <Label layoutX="889.0" layoutY="438.0" text="Forma:" />
                      </children>
                   </AnchorPane>
                </content>

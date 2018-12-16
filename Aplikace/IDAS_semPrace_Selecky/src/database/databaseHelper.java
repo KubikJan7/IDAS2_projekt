@@ -221,34 +221,35 @@ public class databaseHelper {
 
     public ArrayList<Obor> dejKartaObory() throws SQLException {
         ArrayList<Obor> obory = new ArrayList<>();
-// TODO Upravit obory dle noveho modelu
-//        Connection conn = OracleConnector.getConnection();
-//        PreparedStatement stmt = conn.prepareStatement("SELECT * FROM stud_obor");
-//        ResultSet rset = stmt.executeQuery();
-//        while (rset.next()) {
-//            obory.add(new Obor(rset.getInt("id_oboru"),
-//                    rset.getString("zkratka"),
-//                    rset.getString("nazev"),
-//                    rset.getString("info")));
-//        }
+
+        Connection conn = OracleConnector.getConnection();
+        PreparedStatement stmt = conn.prepareStatement("SELECT * FROM stud_obory_view");
+        ResultSet rset = stmt.executeQuery();
+
+        while (rset.next()) {
+            int id = rset.getInt("id_oboru");
+            String zkr = rset.getString("zkratka");
+            String naz = rset.getString("nazev");
+            String info = rset.getString("info");
+            int idFor = rset.getInt("id_formy");
+            String nazFor = rset.getString("nazev_formy");
+            obory.add(new Obor(id, zkr, naz, info, 
+                    new Forma(idFor, nazFor)));
+        }
         return obory;
     }
 
     public ArrayList<Predmet> dejKartaPredmety() throws SQLException {
         ArrayList<Predmet> predmety = new ArrayList<>();
-// TODO Upravit predmety dle noveho modelu
-//        Connection conn = OracleConnector.getConnection();
-//        PreparedStatement stmt = conn.prepareStatement("SELECT * FROM predmety_view");
-//        ResultSet rset = stmt.executeQuery();
-//        while (rset.next()) {
-//            predmety.add(new Predmet(rset.getInt("id_predmetu"),
-//                    rset.getString("zkratka"),
-//                    rset.getString("nazev"),
-//                    rset.getInt("kredity"),
-//                    new Semestr(rset.getString("zkr_sem"), rset.getString("semestr")),
-//                    new Zakonceni(rset.getString("zkr_zakonceni"), rset.getString("zakonceni")),
-//                    new Forma(rset.getInt("id_forma"), rset.getString("forma"))));
-//        }
+
+        Connection conn = OracleConnector.getConnection();
+        PreparedStatement stmt = conn.prepareStatement("SELECT * FROM predmet");
+        ResultSet rset = stmt.executeQuery();
+        while (rset.next()) {
+            predmety.add(new Predmet(rset.getInt("id_predmetu"),
+                    rset.getString("zkratka"),
+                    rset.getString("nazev")));
+        }
         return predmety;
     }
 
@@ -374,30 +375,26 @@ public class databaseHelper {
     public void insertDataObor(Obor obor) throws SQLException {
         Connection conn;
         conn = OracleConnector.getConnection();
-        PreparedStatement stmt = conn.prepareStatement("INSERT INTO stud_obor(nazev,zkratka,info) "
-                + "VALUES (?, ?, ?)");
+        PreparedStatement stmt = conn.prepareStatement("INSERT INTO stud_obor(nazev,zkratka,info,forma_vyuky_id_formy) "
+                + "VALUES (?, ?, ?, ?)");
         stmt.setString(1, obor.getNazev());
         stmt.setString(2, obor.getZkratka());
         stmt.setString(3, obor.getInfo());
+        stmt.setInt(4, obor.getForma().getId());
         stmt.executeUpdate();
         conn.commit();
     }
 
     //Insert předmětu
     public void insertDataPredmet(Predmet pred) throws SQLException {
-        // TODO Upravit insert predmetu dle noveho modelu
-//        Connection conn;
-//        conn = OracleConnector.getConnection();
-//        PreparedStatement stmt = conn.prepareStatement("INSERT INTO predmet(nazev,zkratka,kredity,zpusob_zakonceni_zkr_zak,forma_vyuky_id_formy,semestr_zkr_sem) "
-//                + "VALUES (?, ?, ?, ?, ?, ?)");
-//        stmt.setString(1, pred.getNazev());
-//        stmt.setString(2, pred.getZkratka());
-//        stmt.setInt(3, pred.getKredity());
-//        stmt.setString(4, pred.getZakonceni().getZkratka());
-//        stmt.setInt(5, pred.getForma().getId());
-//        stmt.setString(6, pred.getSemestr().getZkratka());
-//        stmt.executeUpdate();
-//        conn.commit();
+        Connection conn;
+        conn = OracleConnector.getConnection();
+        PreparedStatement stmt = conn.prepareStatement("INSERT INTO predmet(nazev,zkratka) "
+                + "VALUES (?, ?)");
+        stmt.setString(1, pred.getNazev());
+        stmt.setString(2, pred.getZkratka());
+        stmt.executeUpdate();
+        conn.commit();
     }
 
     //Insert rozvrhové akce
@@ -486,33 +483,28 @@ public class databaseHelper {
     public void updateDataObor(Obor obor) throws SQLException {
         Connection conn;
         conn = OracleConnector.getConnection();
-        PreparedStatement stmt = conn.prepareStatement("update stud_obor SET nazev = ?,zkratka = ?, info = ?"
+        PreparedStatement stmt = conn.prepareStatement("update stud_obor SET nazev = ?,zkratka = ?, info = ?, forma_vyuky_id_formy = ?"
                 + "where id_oboru = ?");
         stmt.setString(1, obor.getNazev());
         stmt.setString(2, obor.getZkratka());
         stmt.setString(3, obor.getInfo());
-        stmt.setInt(4, obor.getId());
+        stmt.setInt(4, obor.getForma().getId());
+        stmt.setInt(5, obor.getId());
         stmt.executeUpdate();
         conn.commit();
     }
 
     //Update předmětu
     public void updateDataPredmet(Predmet pred) throws SQLException {
-        // TODO Upravit update predmetu dle noveho modelu
-//        Connection conn;
-//        conn = OracleConnector.getConnection();
-//        PreparedStatement stmt = conn.prepareStatement("update predmet SET nazev = ?,zkratka = ?,"
-//                + "kredity = ?,zpusob_zakonceni_zkr_zak = ?,forma_vyuky_id_formy = ?,semestr_zkr_sem= ? "
-//                + "where id_predmetu = ?");
-//        stmt.setString(1, pred.getNazev());
-//        stmt.setString(2, pred.getZkratka());
-//        stmt.setInt(3, pred.getKredity());
-//        stmt.setString(4, pred.getZakonceni().getZkratka());
-//        stmt.setInt(5, pred.getForma().getId());
-//        stmt.setString(6, pred.getSemestr().getZkratka());
-//        stmt.setInt(7, pred.getId());
-//        stmt.executeUpdate();
-//        conn.commit();
+        Connection conn;
+        conn = OracleConnector.getConnection();
+        PreparedStatement stmt = conn.prepareStatement("update predmet SET nazev = ?,zkratka = ?"
+                + "where id_predmetu = ?");
+        stmt.setString(1, pred.getNazev());
+        stmt.setString(2, pred.getZkratka());
+        stmt.setInt(3, pred.getId());
+        stmt.executeUpdate();
+        conn.commit();
     }
 
     //Update rozvrhové akce

@@ -26,6 +26,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -165,6 +167,8 @@ public class AppFXMLController implements Initializable {
     private TableColumn<Obor, String> nazStudOborCol;
     @FXML
     private TableColumn<Obor, String> infoStudOborCol;
+    @FXML
+    private TableColumn<Obor, String> formaStudOborCol;
 
     // Formular oboru
     @FXML
@@ -173,6 +177,8 @@ public class AppFXMLController implements Initializable {
     private TextField nazevStObField;
     @FXML
     private TextArea infoStObArea;
+    @FXML
+    private ComboBox<Forma> comboForem;
     @FXML
     private Button pridatStObBtn;
     @FXML
@@ -183,17 +189,9 @@ public class AppFXMLController implements Initializable {
     @FXML
     private TextField zkrPredField;
     @FXML
-    private ComboBox<Zakonceni> comboZakonPred;
-    @FXML
     private Button pridatPredBtn;
     @FXML
     private TextField nazPredField;
-    @FXML
-    private TextField kredPredField;
-    @FXML
-    private ComboBox<Semestr> comboSemPred;
-    @FXML
-    private ComboBox<Forma> comboFormPred;
 
     // Tabulka predmetu
     @FXML
@@ -202,14 +200,6 @@ public class AppFXMLController implements Initializable {
     private TableColumn<Predmet, String> zkrPredCol;
     @FXML
     private TableColumn<Predmet, String> nazPredCol;
-    @FXML
-    private TableColumn<Predmet, Integer> kredPredCol;
-    @FXML
-    private TableColumn<Predmet, Semestr> semPredCol;
-    @FXML
-    private TableColumn<Predmet, Zakonceni> zakonPredCol;
-    @FXML
-    private TableColumn<Predmet, Forma> formaPredCol;
 
     // Tabulka rozvrhovych akci
     // TODO Karta rozvrhových akcí bude vypadat úplně jinak, pro uživatele pouze jeho akce a pro admina všechny akce s filtrem dle vyučujícího
@@ -365,18 +355,34 @@ public class AppFXMLController implements Initializable {
         nazStudOborCol.setCellValueFactory(new PropertyValueFactory("nazev"));
         infoStudOborCol.setCellValueFactory(new PropertyValueFactory("info"));
         idStudOborCol.setCellValueFactory(new PropertyValueFactory("id"));
+        formaStudOborCol.setCellValueFactory(new PropertyValueFactory("forma"));
 
         // Doplneni informaci do formulare pri vyberu z tabulky Oborů
         twStudObory.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Obor>() {
             @Override
             public void changed(ObservableValue<? extends Obor> observable, Obor oldValue, Obor newValue) {
                 if (newValue != null) {
-                    detOboruBtn.setDisable(false);
-                    pridatStObBtn.setDisable(true);
-                    Obor obor = twStudObory.getSelectionModel().getSelectedItem();
-                    kodStObField.setText(obor.getZkratka());
-                    nazevStObField.setText(obor.getNazev());
-                    infoStObArea.setText(obor.getInfo());
+                    try {
+                        comboForem.getItems().setAll(dh.dejFormyVyuky());
+                        detOboruBtn.setDisable(false);
+                        pridatStObBtn.setDisable(true);
+                        Obor obor = twStudObory.getSelectionModel().getSelectedItem();
+                        kodStObField.setText(obor.getZkratka());
+                        nazevStObField.setText(obor.getNazev());
+                        infoStObArea.setText(obor.getInfo());
+                        Iterator<Forma> it = comboForem.getItems().iterator();
+                        Forma forma = null;
+                        while (it.hasNext()) {
+                            Forma akt = it.next();
+                            if (akt.getId()==obor.getForma().getId()) {
+                                forma = akt;
+                                break;
+                            }
+                        }
+                        comboForem.getSelectionModel().select(forma);
+                    } catch (SQLException ex) {
+                        Logger.getLogger(AppFXMLController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 } else {
                     detOboruBtn.setDisable(true);
                 }
@@ -387,28 +393,19 @@ public class AppFXMLController implements Initializable {
         twPredmety.setItems(predmety);
         zkrPredCol.setCellValueFactory(new PropertyValueFactory<>("zkratka"));
         nazPredCol.setCellValueFactory(new PropertyValueFactory<>("nazev"));
-        kredPredCol.setCellValueFactory(new PropertyValueFactory<>("kredity"));
-        semPredCol.setCellValueFactory(new PropertyValueFactory<>("semestr"));
-        zakonPredCol.setCellValueFactory(new PropertyValueFactory<>("zakonceni"));
-        formaPredCol.setCellValueFactory(new PropertyValueFactory<>("forma"));
 
         // Doplnění informací do formuláře při výběru z tabulky Předměty
-// TODO Upravit formular predmetu dle noveho modelu
-//        twPredmety.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Predmet>() {
-//            @Override
-//            public void changed(ObservableValue<? extends Predmet> observable, Predmet oldValue, Predmet newValue) {
-//                if (newValue != null) {
-//                    pridatPredBtn.setDisable(true);
-//                    Predmet pred = twPredmety.getSelectionModel().getSelectedItem();
-//                    zkrPredField.setText(pred.getZkratka());
-//                    nazPredField.setText(pred.getNazev());
-//                    kredPredField.setText(Integer.toString(pred.getKredity()));
-//                    comboSemPred.getSelectionModel().select(pred.getSemestr());
-//                    comboFormPred.getSelectionModel().select(pred.getForma());
-//                    comboZakonPred.getSelectionModel().select(pred.getZakonceni());
-//                }
-//            }
-//        });
+        twPredmety.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Predmet>() {
+            @Override
+            public void changed(ObservableValue<? extends Predmet> observable, Predmet oldValue, Predmet newValue) {
+                if (newValue != null) {
+                    pridatPredBtn.setDisable(true);
+                    Predmet pred = twPredmety.getSelectionModel().getSelectedItem();
+                    zkrPredField.setText(pred.getZkratka());
+                    nazPredField.setText(pred.getNazev());
+                }
+            }
+        });
         //Nastavení spřažení pro tabulku karty rozvrhových akcí
         twRA.setItems(akce);
         idAkceCol.setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -628,22 +625,22 @@ public class AppFXMLController implements Initializable {
 
     @FXML
     private void pridejStudObor(ActionEvent event) {
-        // TODO Upravit pridani oboru dle noveho modelu
-//        try {
-//            if (!nazevStObField.getText().isEmpty()
-//                    && !kodStObField.getText().isEmpty()) {
-//                String zkratkaOboru = kodStObField.getText();
-//                String nazevOboru = nazevStObField.getText();
-//                String info = infoStObArea.getText();
-//
-//                Obor novy = new Obor(zkratkaOboru, nazevOboru, info);
-//                dh.insertDataObor(novy);
-//                aktualizujObory();
-//                vycistiFormStudObor(event);
-//            }
-//        } catch (SQLException ex) {
-//            zobrazChybu(ex);
-//        }
+        try {
+            if (!nazevStObField.getText().isEmpty()
+                    && !kodStObField.getText().isEmpty()) {
+                String zkratkaOboru = kodStObField.getText();
+                String nazevOboru = nazevStObField.getText();
+                String info = infoStObArea.getText();
+                Forma forma = comboForem.getSelectionModel().getSelectedItem();
+                
+                Obor novy = new Obor(zkratkaOboru, nazevOboru, info, forma);
+                dh.insertDataObor(novy);
+                aktualizujObory();
+                vycistiFormStudObor(event);
+            }
+        } catch (SQLException ex) {
+            zobrazChybu(ex);
+        }
     }
 
     @FXML
@@ -655,6 +652,8 @@ public class AppFXMLController implements Initializable {
                 vybrany.setNazev(nazevStObField.getText());
                 vybrany.setZkratka(kodStObField.getText());
                 vybrany.setInfo(infoStObArea.getText());
+                Forma forma = comboForem.getSelectionModel().getSelectedItem();
+                vybrany.setForma(forma);
                 dh.updateDataObor(vybrany);
                 vycistiFormularOboru();
                 aktualizujObory();
@@ -680,46 +679,37 @@ public class AppFXMLController implements Initializable {
 
     @FXML
     private void pridejPredmet(ActionEvent event) {
-        // TODO Upravit pridani predmetu dle noveho modelu
-//        try {
-//            if (comboZakonPred.getSelectionModel().getSelectedItem() != null && comboSemPred.getSelectionModel().getSelectedItem() != null
-//                    && comboFormPred.getSelectionModel().getSelectedItem() != null && !nazPredField.getText().isEmpty()
-//                    && !zkrPredField.getText().isEmpty() && !kredPredField.getText().isEmpty()) {
-//                Predmet novy = new Predmet(zkrPredField.getText(),
-//                        nazPredField.getText(),
-//                        Integer.parseInt(kredPredField.getText()),
-//                        comboSemPred.getValue(), comboZakonPred.getValue(), comboFormPred.getValue());
-//                dh.insertDataPredmet(novy);
-//                vycistiFormularPredmetu();
-//                aktualizujPredmety();
-//            }
-//        } catch (SQLException ex) {
-//            zobrazChybu(ex);
-//        }
+        try {
+            if (!nazPredField.getText().isEmpty()
+                    && !zkrPredField.getText().isEmpty()) {
+                Predmet novy = new Predmet(zkrPredField.getText(),
+                        nazPredField.getText());
+                dh.insertDataPredmet(novy);
+                vycistiFormularPredmetu();
+                aktualizujPredmety();
+            }
+        } catch (SQLException ex) {
+            zobrazChybu(ex);
+        }
     }
 
     @FXML
     private void upravPredmet(ActionEvent event) {
-// TODO Upravit edit predmetu dle noveho modelu
-//        try {
-//            if (comboZakonPred.getSelectionModel().getSelectedItem() != null && comboSemPred.getSelectionModel().getSelectedItem() != null
-//                    && comboFormPred.getSelectionModel().getSelectedItem() != null && !nazPredField.getText().isEmpty()
-//                    && !zkrPredField.getText().isEmpty() && !kredPredField.getText().isEmpty()) {
-//                Predmet vybrany = twPredmety.getSelectionModel().getSelectedItem();
-//                vybrany.setZkratka(zkrPredField.getText());
-//                vybrany.setNazev(nazPredField.getText());
-//                vybrany.setKredity(Integer.parseInt(kredPredField.getText()));
-//                vybrany.setSemestr(comboSemPred.getValue());
-//                vybrany.setForma(comboFormPred.getValue());
-//                vybrany.setZakonceni(comboZakonPred.getValue());
-//                dh.updateDataPredmet(vybrany);
-//                vycistiFormularPredmetu();
-//                twPredmety.refresh();
-//                //aktualizujPredmety();
-//            }
-//        } catch (SQLException ex) {
-//            zobrazChybu(ex);
-//        }
+        try {
+            if (!nazPredField.getText().isEmpty()
+                    && !zkrPredField.getText().isEmpty()) {
+                Predmet vybrany = twPredmety.getSelectionModel().getSelectedItem();
+                vybrany.setZkratka(zkrPredField.getText());
+                vybrany.setNazev(nazPredField.getText());
+                dh.updateDataPredmet(vybrany);
+                vycistiFormularPredmetu();
+                twPredmety.refresh();
+                //aktualizujPredmety();
+            }
+        } catch (SQLException ex) {
+            zobrazChybu(ex);
+            System.out.println(ex.toString());
+        }
     }
 
     @FXML
@@ -840,34 +830,16 @@ public class AppFXMLController implements Initializable {
             zobrazChybu(ex);
         }
     }
-
+    
     @FXML
-    private void nactiZpZakonceni(MouseEvent event) {
+    private void nactiComboFormy(MouseEvent event) {
         try {
-            comboZakonPred.getItems().setAll(dh.dejZpusobyZakon());
+            comboForem.getItems().setAll(dh.dejFormyVyuky());
         } catch (SQLException ex) {
             zobrazChybu(ex);
         }
     }
-
-    @FXML
-    private void nactiSemestry(MouseEvent event) {
-        try {
-            comboSemPred.getItems().setAll(dh.dejSemestry());
-        } catch (SQLException ex) {
-            zobrazChybu(ex);
-        }
-    }
-
-    @FXML
-    private void nactiFormyVuky(MouseEvent event) {
-        try {
-            comboFormPred.getItems().setAll(dh.dejFormyVyuky());
-        } catch (SQLException ex) {
-            zobrazChybu(ex);
-        }
-    }
-
+    
     @FXML
     private void nactiVyucujici(MouseEvent event) {
         try {
@@ -953,21 +925,23 @@ public class AppFXMLController implements Initializable {
     }
 
     private void vycistiFormularOboru() {
-        pridatStObBtn.setDisable(false);
-        nazevStObField.setText("");
-        kodStObField.setText("");
-        infoStObArea.setText("");
-        twStudObory.getSelectionModel().select(null);
+        try {
+            pridatStObBtn.setDisable(false);
+            comboForem.getItems().setAll(dh.dejFormyVyuky());
+            nazevStObField.setText("");
+            kodStObField.setText("");
+            infoStObArea.setText("");
+            comboForem.getSelectionModel().select(0);
+            twStudObory.getSelectionModel().select(null);
+        } catch (SQLException ex) {
+            Logger.getLogger(AppFXMLController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     private void vycistiFormularPredmetu() {
         pridatPredBtn.setDisable(false);
         nazPredField.setText("");
         zkrPredField.setText("");
-        kredPredField.setText("");
-        comboSemPred.getSelectionModel().select(null);
-        comboZakonPred.getSelectionModel().select(null);
-        comboFormPred.getSelectionModel().select(null);
         twPredmety.getSelectionModel().select(null);
     }
 
