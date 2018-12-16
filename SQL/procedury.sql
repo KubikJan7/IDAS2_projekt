@@ -164,3 +164,34 @@ BEGIN
             raise_application_error(-20001, 'Uživatel nemá obrázek!');
 END;
 /
+
+-- Ucebna
+create or replace PROCEDURE vlozUcebnu
+  (p_nazev UCEBNA.NAZEV_UCEBNY%TYPE, p_kapacita UCEBNA.KAPACITA%TYPE)
+IS
+BEGIN
+    INSERT INTO 
+    UCEBNA (NAZEV_UCEBNY, KAPACITA)
+    VALUES (p_nazev, p_kapacita);     
+END;
+/
+create or replace PROCEDURE upravUcebnu
+  (p_id UCEBNA.ID_UCEBNY%TYPE, p_nazev UCEBNA.NAZEV_UCEBNY%TYPE, p_kapacita UCEBNA.KAPACITA%TYPE)
+IS
+BEGIN
+	update UCEBNA set nazev_ucebny = p_nazev, kapacita = p_kapacita
+    where ID_UCEBNY = p_id;
+END;
+/
+create or replace PROCEDURE smazUcebnu
+  (p_id UCEBNA.ID_UCEBNY%TYPE)
+IS
+BEGIN
+    DELETE FROM
+    UCEBNA WHERE id_ucebny = p_id;
+	
+	EXCEPTION
+        WHEN NO_DATA_FOUND THEN
+            raise_application_error(-20001, 'Učebna neexistuje!');
+END;
+/
