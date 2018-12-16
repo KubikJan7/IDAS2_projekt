@@ -135,3 +135,20 @@ BEGIN
             raise_application_error(-20001, 'Tento uživatel nemá účet!');
 END;
 /
+
+-- Obrazek
+create or replace PROCEDURE vlozObrazek
+  (p_idUzivatele OBRAZEK.uzivatel_id_uzivatele%TYPE,p_nazev OBRAZEK.NAZEV%TYPE, p_pripona OBRAZEK.PRIPONA%TYPE, p_obsah OBRAZEK.OBSAH%TYPE)
+IS
+BEGIN
+    INSERT INTO 
+    OBRAZEK (NAZEV, PRIPONA, OBSAH, VYTVORENO, MODIFIKACE, UZIVATEL_ID_UZIVATELE)
+    VALUES (p_nazev, p_pripona, p_obsah, SYSDATE, SYSDATE, p_idUzivatele);     
+        
+    exception
+        when DUP_VAL_ON_INDEX THEN
+            update OBRAZEK
+            set nazev = p_nazev, pripona = p_pripona, obsah = p_obsah, modifikace = SYSDATE
+            where uzivatel_id_uzivatele = p_idUzivatele;
+END;
+/
