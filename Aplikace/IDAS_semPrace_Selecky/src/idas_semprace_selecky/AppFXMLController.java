@@ -136,6 +136,8 @@ public class AppFXMLController implements Initializable {
 
     // Formular pracoviste
     @FXML
+    private Pane paneFormPracovist;
+    @FXML
     private Button pridatPracBtn;
     @FXML
     private Button upravitPracBtn;
@@ -171,6 +173,8 @@ public class AppFXMLController implements Initializable {
 
     // Formular oboru
     @FXML
+    private Pane paneFormOboru;
+    @FXML
     private TextField kodStObField;
     @FXML
     private TextField nazevStObField;
@@ -185,6 +189,8 @@ public class AppFXMLController implements Initializable {
 
     // Formular predmetu
     // TODO Předmět samotný nese nyní informaci pouze o názvu a zkatce, další info bude mít pouze v rámci studijního plánu
+    @FXML
+    private Pane paneFormPredmety;
     @FXML
     private TextField zkrPredField;
     @FXML
@@ -293,6 +299,9 @@ public class AppFXMLController implements Initializable {
         if (opravneni != EnumOpravneni.ADMINISTRATOR) {
             paneVyucForm.setVisible(false);
             paneUcebnaForm.setVisible(false);
+            paneFormOboru.setVisible(false);
+            paneFormPracovist.setVisible(false);
+            paneFormPredmety.setVisible(false);
         }
 
         //Nastavení spřažení pro tabulku karty vyučujících
