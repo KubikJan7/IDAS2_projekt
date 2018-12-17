@@ -12,6 +12,7 @@ BEGIN
         WHEN NO_DATA_FOUND THEN
             raise_application_error(-20001, 'Neexistující jméno nebo heslo.');
 END;
+/
 
 -- Funkce ověření unikátnosti uživatelského jména
 create or replace FUNCTION jeJmenoUnikatni (p_nick UCET.NICK%TYPE)

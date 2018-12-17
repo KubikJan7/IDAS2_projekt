@@ -190,6 +190,8 @@ BEGIN
     DELETE FROM PREDMET
     WHERE ID_PREDMETU = p_idPredmetu;
 END;
+/
+
 -- Ucebna
 create or replace PROCEDURE vlozUcebnu
   (p_nazev UCEBNA.NAZEV_UCEBNY%TYPE, p_kapacita UCEBNA.KAPACITA%TYPE)
