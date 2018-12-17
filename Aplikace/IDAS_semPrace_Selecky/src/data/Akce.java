@@ -1,5 +1,7 @@
 package data;
 
+import java.time.LocalDate;
+
 /**
  *
  * @author Libor Selecky
@@ -7,6 +9,8 @@ package data;
 public class Akce {
 
     private int id;
+    private LocalDate datum;
+    private int casOd;
     private int rozsah;
     private int kapacita;
     private Uzivatel vyucujici;
@@ -15,7 +19,9 @@ public class Akce {
     private Ucebna ucebna;
     private Tyden tyden;
 
-    public Akce(int rozsah, int kapacita, Uzivatel vyucujici, Predmet predmet, Zpusob zpusob, Ucebna ucebna, Tyden tyden) {
+    public Akce(LocalDate datum, int casOd, int rozsah, int kapacita, Uzivatel vyucujici, Predmet predmet, Zpusob zpusob, Ucebna ucebna, Tyden tyden) {
+        this.datum = datum;
+        this.casOd = casOd;
         this.rozsah = rozsah;
         this.kapacita = kapacita;
         this.vyucujici = vyucujici;
@@ -25,14 +31,48 @@ public class Akce {
         this.tyden = tyden;
     }
 
-    public Akce(int id, int rozsah, int kapacita, Uzivatel vyucujici, Predmet predmet, Zpusob zpusob, Ucebna ucebna, Tyden tyden) {
+    public Akce(int id, LocalDate datum, int casOd, int rozsah, int kapacita, Uzivatel vyucujici, Predmet predmet, Zpusob zpusob, Ucebna ucebna, Tyden tyden) {
         this.id = id;
+        this.datum = datum;
+        this.casOd = casOd;
         this.rozsah = rozsah;
         this.kapacita = kapacita;
         this.vyucujici = vyucujici;
         this.predmet = predmet;
         this.zpusob = zpusob;
         this.ucebna = ucebna;
+        this.tyden = tyden;
+    }
+
+    public LocalDate getDatum() {
+        return datum;
+    }
+
+    public void setDatum(LocalDate datum) {
+        this.datum = datum;
+    }
+
+    public int getCasOd() {
+        return casOd;
+    }
+
+    public void setCasOd(int casOd) {
+        this.casOd = casOd;
+    }
+
+    public Ucebna getUcebna() {
+        return ucebna;
+    }
+
+    public void setUcebna(Ucebna ucebna) {
+        this.ucebna = ucebna;
+    }
+
+    public Tyden getTyden() {
+        return tyden;
+    }
+
+    public void setTyden(Tyden tyden) {
         this.tyden = tyden;
     }
 
