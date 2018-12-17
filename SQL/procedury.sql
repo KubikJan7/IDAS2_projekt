@@ -284,7 +284,7 @@ BEGIN
 END;
 /
 -- Rozvrhová akce
-create or replace PROCEDURE vlozRozvrA
+create or replace PROCEDURE vlozAkci
     (p_datum ROZVRHOVA_AKCE.DATUM%TYPE, p_casOd ROZVRHOVA_AKCE.CAS_OD%TYPE, 
     p_rozsahHod ROZVRHOVA_AKCE.ROZSAH_HODIN%TYPE, p_kapacita ROZVRHOVA_AKCE.KAPACITA%TYPE, 
     p_idUzivatele ROZVRHOVA_AKCE.UZIVATEL_ID_UZIVATELE%TYPE, p_idPredmetu ROZVRHOVA_AKCE.PREDMET_ID_PREDMETU%TYPE, 
@@ -296,7 +296,7 @@ BEGIN
             values(p_datum,p_casOd,p_rozsahHod,p_kapacita,p_idUzivatele,p_idPredmetu, p_idZpusVyuk, p_idUcebny);
 END;
 /
-create or replace PROCEDURE upravRozvrhA
+create or replace PROCEDURE upravAkci
     (p_id ROZVRHOVA_AKCE.ID_AKCE%TYPE, p_datum ROZVRHOVA_AKCE.DATUM%TYPE, p_casOd ROZVRHOVA_AKCE.CAS_OD%TYPE, 
     p_rozsahHod ROZVRHOVA_AKCE.ROZSAH_HODIN%TYPE, p_kapacita ROZVRHOVA_AKCE.KAPACITA%TYPE, 
     p_idUzivatele ROZVRHOVA_AKCE.UZIVATEL_ID_UZIVATELE%TYPE, p_idPredmetu ROZVRHOVA_AKCE.PREDMET_ID_PREDMETU%TYPE, 
@@ -309,7 +309,7 @@ BEGIN
     WHERE ID_AKCE = p_id;
 END;
 /
-create or replace PROCEDURE deleteRozvrhA
+create or replace PROCEDURE smazAkci
     (p_id ROZVRHOVA_AKCE.ID_AKCE%TYPE)
 IS
 BEGIN
