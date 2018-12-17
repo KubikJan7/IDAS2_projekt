@@ -248,28 +248,38 @@ BEGIN
     WHERE ZKRATKA_KATEDRY = p_zkratka;
 END;
 
---Studijní plány
-create or replace PROCEDURE vlozPlan
-    (p_verze STUD_PLAN.VERZE%TYPE, p_idOboru STUD_PLAN.STUD_OBOR_ID_OBORU%TYPE)
+--Předmět v plánu
+create or replace PROCEDURE vlozPredVPlanu
+    (p_kredity PRED_V_PLANU.KREDITY%TYPE, p_dopRoc PRED_V_PLANU.DOP_ROCNIK%TYPE, 
+    p_zkratkaKat PRED_V_PLANU.KAT_PREDMETU_ZKR_KAT%TYPE, p_idPredmetu PRED_V_PLANU.PREDMET_ID_PREDMETU%TYPE, 
+    p_zkratkaZakon PRED_V_PLANU.ZPUSOB_ZAKONCENI_ZKR_ZAK%TYPE, p_zkratkaSem PRED_V_PLANU.SEMESTR_ZKR_SEM%TYPE, 
+    p_idPlanu PRED_V_PLANU.STUD_PLAN_ID_PLANU%TYPE)
 IS
 BEGIN
-    INSERT INTO STUD_PLAN (VERZE, STUD_OBOR_ID_OBORU)
-        values(p_verze, p_idOboru);
+    INSERT INTO PRED_V_PLANU (KREDITY, DOP_ROCNIK, KAT_PREDMETU_ZKR_KAT,PREDMET_ID_PREDMETU,
+    ZPUSOB_ZAKONCENI_ZKR_ZAK, SEMESTR_ZKR_SEM, STUD_PLAN_ID_PLANU)
+        values(p_kredity, p_dopRoc, p_zkratkaKat, p_idPredmetu,p_zkratkaZakon, p_zkratkaSem,p_idPlanu);
 END;
 /
-create or replace PROCEDURE upravPlan
-    (p_id STUD_PLAN.ID_PLANU%TYPE, p_verze STUD_PLAN.ID_PLANU%TYPE, p_idOboru STUD_PLAN.STUD_OBOR_ID_OBORU%TYPE)
+create or replace PROCEDURE upravPredVPlanu
+    (p_id PRED_V_PLANU.ID_PRED_PLANU%TYPE, p_kredity PRED_V_PLANU.KREDITY%TYPE, p_dopRoc PRED_V_PLANU.DOP_ROCNIK%TYPE, 
+    p_zkratkaKat PRED_V_PLANU.KAT_PREDMETU_ZKR_KAT%TYPE, p_idPredmetu PRED_V_PLANU.PREDMET_ID_PREDMETU%TYPE, 
+    p_zkratkaZakon PRED_V_PLANU.ZPUSOB_ZAKONCENI_ZKR_ZAK%TYPE, p_zkratkaSem PRED_V_PLANU.SEMESTR_ZKR_SEM%TYPE, 
+    p_idPlanu PRED_V_PLANU.STUD_PLAN_ID_PLANU%TYPE)
 IS
 BEGIN
-    UPDATE STUD_PLAN SET VERZE = p_verze, STUD_OBOR_ID_OBORU = p_idOboru
-    WHERE ID_PLANU = p_id;
+    UPDATE PRED_V_PLANU
+        SET KREDITY = p_kredity, DOP_ROCNIK = p_dopRoc, KAT_PREDMETU_ZKR_KAT = p_zkratkaKat, 
+            PREDMET_ID_PREDMETU = p_idPredmetu, ZPUSOB_ZAKONCENI_ZKR_ZAK = p_zkratkaZakon,
+            SEMESTR_ZKR_SEM = p_zkratkaSem, STUD_PLAN_ID_PLANU = p_idPlanu
+        WHERE ID_PRED_PLANU = p_id;
 END;
 /
-create or replace PROCEDURE smazPlan
-    (p_id STUD_PLAN.ID_PLANU%TYPE)
+create or replace PROCEDURE smazPredVPlanu
+    (p_id PRED_V_PLANU.ID_PRED_PLANU%TYPE)
 IS
 BEGIN
-    DELETE FROM STUD_PLAN 
-        WHERE ID_PLANU = p_id;
+    DELETE FROM PRED_V_PLANU
+        WHERE ID_PRED_PLANU = p_id;
 END;
 /
