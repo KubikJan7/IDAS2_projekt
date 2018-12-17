@@ -7,6 +7,7 @@ import data.Katedra;
 import data.Kategorie;
 import data.Obor;
 import data.Obrazek;
+import data.Plan;
 import data.Pracoviste;
 import data.Pracoviste2;
 import data.PredOboru;
@@ -481,6 +482,17 @@ public class databaseHelper {
         stmt.executeUpdate();
         conn.commit();
     }
+    
+    //Insert studijní plán
+    public void insertPlan(Plan plan,Obor ob) throws SQLException{
+        Connection conn;
+        conn = OracleConnector.getConnection();
+        PreparedStatement stmt = conn.prepareStatement("{call vlozPlan(?,?)}");
+        stmt.setInt(1, plan.getVerze());
+        stmt.setInt(2, ob.getId());
+        stmt.executeUpdate();
+        conn.commit();
+    }
 
     //Update vyučujícího
     public void updateDataVyuc(Uzivatel vyuc) throws SQLException {
@@ -606,6 +618,18 @@ public class databaseHelper {
         stmt.executeUpdate();
         conn.commit();
     }
+    
+    //Update studijní plán
+    public void updatePlan(Plan plan, Obor ob) throws SQLException {
+        Connection conn;
+        conn = OracleConnector.getConnection();
+        PreparedStatement stmt = conn.prepareStatement("{call upravPlan(?,?,?)}");
+        stmt.setInt(1, plan.getId());
+        stmt.setInt(2, plan.getVerze());
+        stmt.setInt(3, ob.getId());
+        stmt.executeUpdate();
+        conn.commit();
+    }
 
     //Delete vyučujícího
     public void deleteDataVyuc(Uzivatel vyuc) throws SQLException {
@@ -693,6 +717,16 @@ public class databaseHelper {
         conn = OracleConnector.getConnection();
         PreparedStatement stmt = conn.prepareStatement("DELETE FROM pred_v_oboru where id_pred_oboru = ?");
         stmt.setInt(1, predOb.getId());
+        stmt.executeUpdate();
+        conn.commit();
+    }
+    
+    //Delete studijní plán
+    public void deletePlan(Plan plan) throws SQLException {
+        Connection conn;
+        conn = OracleConnector.getConnection();
+        PreparedStatement stmt = conn.prepareStatement("{call smazPlan(?)}");
+        stmt.setInt(1, plan.getId());
         stmt.executeUpdate();
         conn.commit();
     }
