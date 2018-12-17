@@ -458,13 +458,15 @@ public class databaseHelper {
     public void insertDataAkce(Akce akce) throws SQLException {
         Connection conn;
         conn = OracleConnector.getConnection();
-        PreparedStatement stmt = conn.prepareStatement("INSERT INTO rozvrhova_akce(rozsah_hodin,kapacita,vyucujici_id_vyucujiciho,predmet_id_predmetu,zpusob_vyuky_id_nazvu) "
-                + "VALUES (?, ?, ?, ?, ?)");
-        stmt.setInt(1, akce.getRozsah());
-        stmt.setInt(2, akce.getKapacita());
-        stmt.setInt(3, akce.getVyucujici().getId());
-        stmt.setInt(4, akce.getPredmet().getId());
-        stmt.setInt(5, akce.getZpusob().getId());
+        PreparedStatement stmt = conn.prepareStatement("{call vlozAkci(?,?,?,?,?,?,?,?)}");
+        stmt.setDate(1, java.sql.Date.valueOf(akce.getDatum()));
+        stmt.setInt(2, akce.getCasOd());
+        stmt.setInt(3, akce.getRozsah());
+        stmt.setInt(4, akce.getKapacita());
+        stmt.setInt(5, akce.getVyucujici().getId());
+        stmt.setInt(6, akce.getPredmet().getId());
+        stmt.setInt(7, akce.getZpusob().getId());
+        stmt.setInt(8, akce.getUcebna().getId());
         stmt.executeUpdate();
         conn.commit();
     }
@@ -589,15 +591,16 @@ public class databaseHelper {
     public void updateDataAkce(Akce akce) throws SQLException {
         Connection conn;
         conn = OracleConnector.getConnection();
-        PreparedStatement stmt = conn.prepareStatement("update rozvrhova_akce SET rozsah_hodin = ?,kapacita = ?,"
-                + "vyucujici_id_vyucujiciho = ?,predmet_id_predmetu = ?,zpusob_vyuky_id_nazvu = ?"
-                + "where id_akce = ?");
-        stmt.setInt(1, akce.getRozsah());
-        stmt.setInt(2, akce.getKapacita());
-        stmt.setInt(3, akce.getVyucujici().getId());
-        stmt.setInt(4, akce.getPredmet().getId());
-        stmt.setInt(5, akce.getZpusob().getId());
-        stmt.setInt(6, akce.getId());
+        PreparedStatement stmt = conn.prepareStatement("{call upravAkci(?,?,?,?,?,?,?,?,?)}");
+        stmt.setInt(1, akce.getId());
+        stmt.setDate(2, java.sql.Date.valueOf(akce.getDatum()));
+        stmt.setInt(3, akce.getCasOd());
+        stmt.setInt(4, akce.getRozsah());
+        stmt.setInt(5, akce.getKapacita());
+        stmt.setInt(6, akce.getVyucujici().getId());
+        stmt.setInt(7, akce.getPredmet().getId());
+        stmt.setInt(8, akce.getZpusob().getId());
+        stmt.setInt(9, akce.getUcebna().getId());
         stmt.executeUpdate();
         conn.commit();
     }
@@ -705,7 +708,7 @@ public class databaseHelper {
     public void deleteDataAkce(Akce akce) throws SQLException {
         Connection conn;
         conn = OracleConnector.getConnection();
-        PreparedStatement stmt = conn.prepareStatement("DELETE FROM rozvrhova_akce where id_akce = ?");
+        PreparedStatement stmt = conn.prepareStatement("{call smazAkci(?)}");
         stmt.setInt(1, akce.getId());
         stmt.executeUpdate();
         conn.commit();
