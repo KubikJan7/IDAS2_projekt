@@ -247,3 +247,29 @@ BEGIN
     DELETE FROM KATEDRA 
     WHERE ZKRATKA_KATEDRY = p_zkratka;
 END;
+
+--Studijní plány
+create or replace PROCEDURE vlozPlan
+    (p_verze STUD_PLAN.VERZE%TYPE, p_idOboru STUD_PLAN.STUD_OBOR_ID_OBORU%TYPE)
+IS
+BEGIN
+    INSERT INTO STUD_PLAN (VERZE, STUD_OBOR_ID_OBORU)
+        values(p_verze, p_idOboru);
+END;
+/
+create or replace PROCEDURE upravPlan
+    (p_id STUD_PLAN.ID_PLANU%TYPE, p_verze STUD_PLAN.ID_PLANU%TYPE, p_idOboru STUD_PLAN.STUD_OBOR_ID_OBORU%TYPE)
+IS
+BEGIN
+    UPDATE STUD_PLAN SET VERZE = p_verze, STUD_OBOR_ID_OBORU = p_idOboru
+    WHERE ID_PLANU = p_id;
+END;
+/
+create or replace PROCEDURE smazPlan
+    (p_id STUD_PLAN.ID_PLANU%TYPE)
+IS
+BEGIN
+    DELETE FROM STUD_PLAN 
+        WHERE ID_PLANU = p_id;
+END;
+/
