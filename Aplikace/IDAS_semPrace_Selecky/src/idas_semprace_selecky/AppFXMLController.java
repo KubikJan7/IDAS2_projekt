@@ -227,7 +227,6 @@ public class AppFXMLController implements Initializable {
     private TableColumn<Akce, Predmet> predAkceCol;
     @FXML
     private TableColumn<Akce, Zpusob> typAkceCol;
-    @FXML
     private TableColumn<Akce, Uzivatel> vyucAkceCol;
     @FXML
     private TableColumn<Akce, Integer> rozsahAkceCol;
@@ -487,8 +486,11 @@ public class AppFXMLController implements Initializable {
                     comboPredmet.getSelectionModel().select(akce.getPredmet());
                     comboVyucujici.getSelectionModel().select(akce.getVyucujici());
                     comboZpusAkce.getSelectionModel().select(akce.getZpusob());
+                    comboUcebnaRA.getSelectionModel().select(akce.getUcebna());
+                    comboTydenRA.getSelectionModel().select(akce.getTyden());
                     spinnerRozsah.getValueFactory().setValue(akce.getRozsah());
                     kapacitaRAField.setText(Integer.toString(akce.getKapacita()));
+                    
                 }
             }
         });
