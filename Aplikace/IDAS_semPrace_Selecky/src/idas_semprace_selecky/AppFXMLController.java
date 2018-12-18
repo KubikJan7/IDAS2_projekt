@@ -227,7 +227,6 @@ public class AppFXMLController implements Initializable {
     private TableColumn<Akce, Predmet> predAkceCol;
     @FXML
     private TableColumn<Akce, Zpusob> typAkceCol;
-    private TableColumn<Akce, Uzivatel> vyucAkceCol;
     @FXML
     private TableColumn<Akce, Integer> rozsahAkceCol;
     @FXML
@@ -462,7 +461,7 @@ public class AppFXMLController implements Initializable {
                 }
             }
         });
-        
+
         //Nastavení spřažení pro tabulku karty rozvrhových akcí
         twRA.setItems(akce);
         idAkceCol.setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -489,7 +488,7 @@ public class AppFXMLController implements Initializable {
                     comboTydenRA.getSelectionModel().select(akce.getTyden());
                     spinnerRozsah.getValueFactory().setValue(akce.getRozsah());
                     kapacitaRAField.setText(Integer.toString(akce.getKapacita()));
-                    
+                    datePickerAkce.setValue(akce.getDatum());
                 }
             }
         });

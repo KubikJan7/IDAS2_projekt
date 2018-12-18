@@ -180,7 +180,7 @@ public class databaseHelper {
         ArrayList<Ucebna> ucebny = new ArrayList<>();
 
         Connection conn = OracleConnector.getConnection();
-        PreparedStatement stmt = conn.prepareStatement("SELECT * FROM tyden");
+        PreparedStatement stmt = conn.prepareStatement("SELECT * FROM ucebna");
         ResultSet rset = stmt.executeQuery();
         while (rset.next()) {
             ucebny.add(new Ucebna(rset.getInt("id_ucebny"), rset.getString("nazev_ucebny"), rset.getInt("kapacita")));
@@ -329,6 +329,8 @@ public class databaseHelper {
         Zpusob zpusob = null;
         Tyden tyden = null;
         Ucebna ucebna = null;
+        int idTydne = 0;
+        int idUcebna = 0;
 
         Connection conn = OracleConnector.getConnection();
         PreparedStatement stmt = conn.prepareStatement("SELECT * FROM akce_view");
@@ -339,10 +341,12 @@ public class databaseHelper {
         ArrayList<Tyden> listTydnu = dejTydny();
         ArrayList<Ucebna> listUcebny = dejUcebny();
         while (rset.next()) {
+            tyden = null;
+            ucebna = null;
             Iterator<Uzivatel> vyuc = listVyuc.iterator();
             while (vyuc.hasNext()) {
                 Uzivatel akt = vyuc.next();
-                if (akt.getId() == rset.getInt("id_vyucujiciho")) {
+                if (akt.getId() == rset.getInt("id_uzivatel")) {
                     vyucujici = akt;
                     break;
                 }
@@ -350,7 +354,7 @@ public class databaseHelper {
             Iterator<Predmet> predmety = listPred.iterator();
             while (predmety.hasNext()) {
                 Predmet akt = predmety.next();
-                if (akt.getId() == rset.getInt("id_predmetu")) {
+                if (akt.getId() == rset.getInt("id_predmet")) {
                     predmet = akt;
                     break;
                 }
@@ -363,22 +367,30 @@ public class databaseHelper {
                     break;
                 }
             }
-            Iterator<Tyden> tydny = listTydnu.iterator();
-            while (zpusoby.hasNext()) {
-                Tyden akt = tydny.next();
-                if (akt.getId() == rset.getInt("id_tydne")) {
-                    tyden = akt;
-                    break;
+            idTydne = rset.getInt("id_tydne");
+            if (idTydne != 0) {
+                Iterator<Tyden> tydny = listTydnu.iterator();
+                while (zpusoby.hasNext()) {
+                    Tyden akt = tydny.next();
+                    if (akt.getId() == idTydne) {
+                        tyden = akt;
+                        break;
+                    }
                 }
             }
-            Iterator<Ucebna> ucebny = listUcebny.iterator();
-            while (ucebny.hasNext()) {
-                Ucebna akt = ucebny.next();
-                if (akt.getId() == rset.getInt("id_ucebny")) {
-                    ucebna = akt;
-                    break;
+
+            idUcebna = rset.getInt("ucebna_id_ucebny");
+            if (idUcebna != 0) {
+                Iterator<Ucebna> ucebny = listUcebny.iterator();
+                while (ucebny.hasNext()) {
+                    Ucebna akt = ucebny.next();
+                    if (akt.getId() == idUcebna) {
+                        ucebna = akt;
+                        break;
+                    }
                 }
             }
+
             akce.add(new Akce(rset.getInt("id_akce"),
                     rset.getDate("datum").toLocalDate(), rset.getInt("hodina"),
                     rset.getInt("doba"), rset.getInt("mist"), vyucujici, predmet, zpusob, ucebna, tyden));
