@@ -333,7 +333,7 @@ and open the template in the editor.
 .button:focused {
     -fx-border-color: white, white;
     -fx-border-width: 1, 1;
-    /*    -fx-border-style: solid, segments(1, 1);*/
+/*    -fx-border-style: solid, segments(1, 1);*/
     -fx-border-radius: 0, 0;
     -fx-border-insets: 1 1 1 1, 0;
 }
@@ -396,18 +396,4 @@ and open the template in the editor.
 .pane-main{
     -fx-base: black;
     -fx-background-color: #e6e6e6;
-}
-
-.date-picker-popup > .month-year-pane {
-    -fx-background-color: white;
-}
-
-.date-picker-popup > * > .date-cell {
-    -fx-background-color: #BDC3C7;
-}
-
-.date-picker-popup > * > .date-cell:hover {
-    -fx-background-color: #5a6472;
-    -fx-text-color: white;
-    -fx-font-weight: bold;
 }
