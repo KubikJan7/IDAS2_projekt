@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="403.0" prefWidth="377.0" styleClass="background" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
+    <stylesheets>
+        <URL value="@styl.css" />
+    </stylesheets>
+   <children>
+      <Label fx:id="textUzivatel" alignment="CENTER" layoutX="3.0" layoutY="14.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="47.0" prefWidth="377.0" styleClass="label-nadpisH1" text="Uživatel" textAlignment="CENTER" />
+      <ImageView fx:id="iwObrazek" fitHeight="220.0" fitWidth="200.0" layoutX="92.0" layoutY="76.0" pickOnBounds="true" preserveRatio="true" />
+      <Button fx:id="btnNahrat" layoutX="86.0" layoutY="335.0" mnemonicParsing="false" onAction="#nahrajObrazek" text="Nahrát" />
+      <Button fx:id="btnSmazat" layoutX="201.0" layoutY="335.0" mnemonicParsing="false" onAction="#smazObrazek" text="Smazat" />
+   </children>
+</AnchorPane>
