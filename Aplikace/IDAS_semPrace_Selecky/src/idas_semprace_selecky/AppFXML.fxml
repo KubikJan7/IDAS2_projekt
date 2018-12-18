@@ -175,12 +175,15 @@
                             <children>
                                 <TableView fx:id="twRA" layoutY="35.0" prefHeight="750.0" prefWidth="845.0">
                                     <columns>
-                                        <TableColumn fx:id="idAkceCol" prefWidth="47.0" text="ID" />
-                                        <TableColumn fx:id="predAkceCol" prefWidth="261.0" text="Předmět" />
-                                        <TableColumn fx:id="typAkceCol" prefWidth="112.0" text="Typ" />
-                                        <TableColumn fx:id="vyucAkceCol" prefWidth="216.0" text="Vyučující" />
-                                        <TableColumn fx:id="rozsahAkceCol" prefWidth="104.0" text="Rozsah hodin" />
-                                        <TableColumn fx:id="kapacitaAkceCol" prefWidth="104.0" text="Kapacita" />
+                                        <TableColumn fx:id="idAkceCol" prefWidth="39.000030517578125" text="ID" />
+                              <TableColumn fx:id="zacatekAkceCol" prefWidth="57.0" text="Od" />
+                                        <TableColumn fx:id="rozsahAkceCol" prefWidth="68.0" text="Doba" />
+                              <TableColumn fx:id="denAkceCol" prefWidth="89.0" text="Den" />
+                              <TableColumn fx:id="tydenAkceCol" prefWidth="86.0" text="Týden" />
+                                        <TableColumn fx:id="predAkceCol" prefWidth="227.0" text="Předmět" />
+                                        <TableColumn fx:id="typAkceCol" prefWidth="95.0" text="Typ" />
+                                        <TableColumn fx:id="kapacitaAkceCol" prefWidth="82.0" text="Kapacita" />
+                              <TableColumn fx:id="ucebnaAkceCol" prefWidth="99.0" text="Učebna" />
                                     </columns>
                                 </TableView>
                                 <Pane fx:id="paneFormRA" layoutX="856.0" layoutY="146.0" prefHeight="421.0" prefWidth="442.0">
@@ -191,20 +194,20 @@
                                         <ComboBox fx:id="comboPredmet" layoutX="128.0" layoutY="14.0" onMouseClicked="#nactiPredmety" prefHeight="26.0" prefWidth="189.0" />
                                         <TextField fx:id="kapacitaRAField" layoutX="128.0" layoutY="167.0" />
                                         <Label layoutX="14.0" layoutY="174.0" text="Kapacita:" />
-                                        <Label layoutX="14.0" layoutY="215.0" text="Rozsah hodin:" />
-                                        <TextField fx:id="rozsahRAField" layoutX="128.0" layoutY="208.0" />
+                                        <Label layoutX="14.0" layoutY="297.0" text="Rozsah hodin:" />
                                         <Button fx:id="pridatRABtn" layoutX="14.0" layoutY="338.0" mnemonicParsing="false" onAction="#pridejRA" text="Přidat" />
                                         <Button layoutX="119.0" layoutY="338.0" mnemonicParsing="false" onAction="#upravRA" text="Upravit" />
                                         <Button layoutX="232.0" layoutY="338.0" mnemonicParsing="false" onAction="#odeberRA" text="Odebrat" />
                                         <Button layoutX="332.0" layoutY="167.0" mnemonicParsing="false" onAction="#vycistiFormularRA" text="Vyčisti pole" />
-                                        <DatePicker fx:id="datePickerAkce" layoutX="128.0" layoutY="249.0" prefHeight="31.0" prefWidth="189.0" promptText="Den kdy se akce koná" />
-                                        <Label layoutX="15.0" layoutY="256.0" text="Den:" />
-                                        <Label layoutX="15.0" layoutY="297.0" text="Začátek (Hod):" />
-                                        <Spinner fx:id="spinnerAkce" layoutX="129.0" layoutY="291.0" prefHeight="31.0" prefWidth="189.0"/>
+                                        <DatePicker fx:id="datePickerAkce" layoutX="128.0" layoutY="208.0" prefHeight="31.0" prefWidth="189.0" promptText="Den kdy se akce koná" />
+                                        <Label layoutX="15.0" layoutY="215.0" text="Den:" />
+                                        <Label layoutX="15.0" layoutY="256.0" text="Začátek (Hod):" />
+                                        <Spinner fx:id="spinnerZacatek" layoutX="129.0" layoutY="249.0" prefHeight="31.0" prefWidth="189.0" />
                                         <Label layoutX="14.0" layoutY="94.0" text="Učebna:" />
                                         <Label layoutX="14.0" layoutY="132.0" text="Týden:" />
                                         <ComboBox fx:id="comboTydenRA" layoutX="128.0" layoutY="128.0" onMouseClicked="#nactiTypAkce" prefHeight="26.0" prefWidth="189.0" />
                                         <ComboBox fx:id="comboUcebnaRA" layoutX="128.0" layoutY="90.0" onMouseClicked="#nactiPredmety" prefHeight="26.0" prefWidth="189.0" />
+                              <Spinner fx:id="spinnerRozsah" layoutX="129.0" layoutY="291.0" prefHeight="31.0" prefWidth="189.0" />
                                     </children>
                                 </Pane>
                                 <Label layoutX="871.0" layoutY="94.0" text="Vyučující:" />

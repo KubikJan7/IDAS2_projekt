@@ -211,9 +211,16 @@ public class AppFXMLController implements Initializable {
     private TableColumn<Predmet, String> nazPredCol;
 
     // Tabulka rozvrhovych akci
-    // TODO Karta rozvrhových akcí bude vypadat úplně jinak, pro uživatele pouze jeho akce a pro admina všechny akce s filtrem dle vyučujícího
     @FXML
     private TableView<Akce> twRA;
+    @FXML
+    private TableColumn<Akce, Integer> zacatekAkceCol;
+    @FXML
+    private TableColumn<Akce, String> denAkceCol;
+    @FXML
+    private TableColumn<Akce, String> tydenAkceCol;
+    @FXML
+    private TableColumn<Akce, String> ucebnaAkceCol;
     @FXML
     private TableColumn<Akce, Integer> idAkceCol;
     @FXML
@@ -233,7 +240,9 @@ public class AppFXMLController implements Initializable {
     @FXML
     private DatePicker datePickerAkce;
     @FXML
-    private Spinner<Integer> spinnerAkce;
+    private Spinner<Integer> spinnerRozsah;
+    @FXML
+    private Spinner<Integer> spinnerZacatek;
     @FXML
     private ComboBox<Tyden> comboTydenRA;
     @FXML
@@ -246,8 +255,6 @@ public class AppFXMLController implements Initializable {
     private Button pridatRABtn;
     @FXML
     private ComboBox<Zpusob> comboZpusAkce;
-    @FXML
-    private TextField rozsahRAField;
     @FXML
     private TextField kapacitaRAField;
 
@@ -456,6 +463,7 @@ public class AppFXMLController implements Initializable {
                 }
             }
         });
+        
         //Nastavení spřažení pro tabulku karty rozvrhových akcí
         twRA.setItems(akce);
         idAkceCol.setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -464,6 +472,10 @@ public class AppFXMLController implements Initializable {
         vyucAkceCol.setCellValueFactory(new PropertyValueFactory<>("vyucujici"));
         rozsahAkceCol.setCellValueFactory(new PropertyValueFactory<>("rozsah"));
         kapacitaAkceCol.setCellValueFactory(new PropertyValueFactory<>("kapacita"));
+        zacatekAkceCol.setCellValueFactory(new PropertyValueFactory<>("casOd"));
+        ucebnaAkceCol.setCellValueFactory(new PropertyValueFactory<>("ucebna"));
+        tydenAkceCol.setCellValueFactory(new PropertyValueFactory<>("tyden"));
+        denAkceCol.setCellValueFactory(new PropertyValueFactory<>("denTabulka"));
 
         // Doplnění informací do formuláře při výběru z tabulky Rozvrhove akce
         twRA.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Akce>() {
@@ -475,15 +487,21 @@ public class AppFXMLController implements Initializable {
                     comboPredmet.getSelectionModel().select(akce.getPredmet());
                     comboVyucujici.getSelectionModel().select(akce.getVyucujici());
                     comboZpusAkce.getSelectionModel().select(akce.getZpusob());
-                    rozsahRAField.setText(Integer.toString(akce.getRozsah()));
+                    spinnerRozsah.getValueFactory().setValue(akce.getRozsah());
                     kapacitaRAField.setText(Integer.toString(akce.getKapacita()));
                 }
             }
         });
 
         // Naplnění spinneru času akce
-        spinnerAkce.setValueFactory(
+        spinnerZacatek.setValueFactory(
                 new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 23));
+        spinnerZacatek.getValueFactory().setValue(12);
+
+        // Naplnění spinneru rozsahu hodin
+        spinnerRozsah.setValueFactory(
+                new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 10));
+        spinnerRozsah.getValueFactory().setValue(2);
 
         //Nastavení spřažení pro tabulku učebny
         twUcebny.setItems(ucebny);
@@ -512,7 +530,7 @@ public class AppFXMLController implements Initializable {
 
     // Obnoví data v tabulce Vyučujících
     private void aktualizujPrihlasenehoUzivatele() {
-        textLoggedUser.setText(prihlasenyUzivatel.toString() + " (" + opravneni+")");
+        textLoggedUser.setText(prihlasenyUzivatel.toString() + " (" + opravneni + ")");
     }
 
     // Obnoví data v tabulce Pracovišť
@@ -836,27 +854,27 @@ public class AppFXMLController implements Initializable {
 
     @FXML
     private void upravRA(ActionEvent event) {
-        try {
-            if (comboPredmet.getSelectionModel().getSelectedItem() != null && comboVyucujici.getSelectionModel().getSelectedItem() != null
-                    && comboZpusAkce.getSelectionModel().getSelectedItem() != null
-                    && !rozsahRAField.getText().isEmpty() && !kapacitaRAField.getText().isEmpty()) {
-                if (isNumeric(kapacitaRAField.getText()) && isNumeric(rozsahRAField.getText())) {
-                    Akce vybrana = twRA.getSelectionModel().getSelectedItem();
-                    vybrana.setKapacita(Integer.parseInt(kapacitaRAField.getText()));
-                    vybrana.setRozsah(Integer.parseInt(rozsahRAField.getText()));
-                    vybrana.setPredmet(comboPredmet.getValue());
-                    vybrana.setVyucujici(comboVyucujici.getValue());
-                    vybrana.setZpusob(comboZpusAkce.getValue());
-                    dh.updateDataAkce(vybrana);
-                    vycistiFormularAkce();
-                    twRA.refresh();
-                }
-            } else {
-                zobrazChybu("Vyplňte všechny údaje!");
-            }
-        } catch (SQLException ex) {
-            zobrazChybu(ex);
-        }
+//        try {
+//            if (comboPredmet.getSelectionModel().getSelectedItem() != null && comboVyucujici.getSelectionModel().getSelectedItem() != null
+//                    && comboZpusAkce.getSelectionModel().getSelectedItem() != null
+//                    && !rozsahRAField.getText().isEmpty() && !kapacitaRAField.getText().isEmpty()) {
+//                if (isNumeric(kapacitaRAField.getText()) && isNumeric(rozsahRAField.getText())) {
+//                    Akce vybrana = twRA.getSelectionModel().getSelectedItem();
+//                    vybrana.setKapacita(Integer.parseInt(kapacitaRAField.getText()));
+//                    vybrana.setRozsah(Integer.parseInt(rozsahRAField.getText()));
+//                    vybrana.setPredmet(comboPredmet.getValue());
+//                    vybrana.setVyucujici(comboVyucujici.getValue());
+//                    vybrana.setZpusob(comboZpusAkce.getValue());
+//                    dh.updateDataAkce(vybrana);
+//                    vycistiFormularAkce();
+//                    twRA.refresh();
+//                }
+//            } else {
+//                zobrazChybu("Vyplňte všechny údaje!");
+//            }
+//        } catch (SQLException ex) {
+//            zobrazChybu(ex);
+//        }
     }
 
     @FXML
@@ -1035,7 +1053,7 @@ public class AppFXMLController implements Initializable {
 
     private void vycistiFormularAkce() {
         pridatRABtn.setDisable(false);
-        rozsahRAField.setText("");
+        //rozsahRAField.setText("");
         kapacitaRAField.setText("");
         comboPredmet.getSelectionModel().select(null);
         comboVyucujici.getSelectionModel().select(null);

@@ -1,5 +1,6 @@
 package data;
 
+import java.time.DayOfWeek;
 import java.time.LocalDate;
 
 /**
@@ -18,6 +19,7 @@ public class Akce {
     private Zpusob zpusob;
     private Ucebna ucebna;
     private Tyden tyden;
+    private String denTabulka;
 
     public Akce(LocalDate datum, int casOd, int rozsah, int kapacita, Uzivatel vyucujici, Predmet predmet, Zpusob zpusob, Ucebna ucebna, Tyden tyden) {
         this.datum = datum;
@@ -29,6 +31,7 @@ public class Akce {
         this.zpusob = zpusob;
         this.ucebna = ucebna;
         this.tyden = tyden;
+        urciDenTabulka(datum, tyden);
     }
 
     public Akce(int id, LocalDate datum, int casOd, int rozsah, int kapacita, Uzivatel vyucujici, Predmet predmet, Zpusob zpusob, Ucebna ucebna, Tyden tyden) {
@@ -42,6 +45,38 @@ public class Akce {
         this.zpusob = zpusob;
         this.ucebna = ucebna;
         this.tyden = tyden;
+        urciDenTabulka(datum, tyden);
+    }
+
+    private void urciDenTabulka(LocalDate date, Tyden tyden) {
+        if (tyden == null) {
+            denTabulka = date.toString();
+        } else {
+            DayOfWeek denTydne = date.getDayOfWeek();
+            switch (denTydne) {
+                case MONDAY:
+                    denTabulka = "Pondělí";
+                    break;
+                case TUESDAY:
+                    denTabulka = "Úterý";
+                    break;
+                case WEDNESDAY:
+                    denTabulka = "Středa";
+                    break;
+                case THURSDAY:
+                    denTabulka = "Čtvrtek";
+                    break;
+                case FRIDAY:
+                    denTabulka = "Pátek";
+                    break;
+                case SATURDAY:
+                    denTabulka = "Sobota";
+                    break;
+                case SUNDAY:
+                    denTabulka = "Neděle";
+                    break;
+            }
+        }
     }
 
     public LocalDate getDatum() {
@@ -50,6 +85,7 @@ public class Akce {
 
     public void setDatum(LocalDate datum) {
         this.datum = datum;
+        urciDenTabulka(datum, tyden);
     }
 
     public int getCasOd() {
@@ -74,6 +110,7 @@ public class Akce {
 
     public void setTyden(Tyden tyden) {
         this.tyden = tyden;
+        urciDenTabulka(datum, tyden);
     }
 
     public int getId() {
