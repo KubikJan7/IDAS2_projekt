@@ -32,6 +32,6 @@ public class Tyden {
 
     @Override
     public String toString() {
-        return nazev;
+        return "Tyden{" + "id=" + id + ", nazev=" + nazev + '}';
     }
 }
