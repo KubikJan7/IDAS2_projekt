@@ -277,12 +277,12 @@ public class AppFXMLController implements Initializable {
     @FXML
     private TableView<Plan> twPlan;
     @FXML
-    private TableColumn<Plan,Integer> idPlanCol;
+    private TableColumn<Plan, Integer> idPlanCol;
     @FXML
-    private TableColumn<Plan,Integer> verzePlanCol;
+    private TableColumn<Plan, Integer> verzePlanCol;
     @FXML
-    private TableColumn<Plan,Obor> oborPlanCol;
-    
+    private TableColumn<Plan, Obor> oborPlanCol;
+
     // Formulář studijního plánu
     @FXML
     private Pane panePlanForm;
@@ -292,25 +292,25 @@ public class AppFXMLController implements Initializable {
     private ComboBox<Zpusob> comboStPlanObor;
     @FXML
     private Button pridatStPlanBtn;
-    
+
     // Tabulka předmětů v plánu
     @FXML
     private TableView<Plan> twPredPlan;
     @FXML
-    private TableColumn<Plan,Integer> idPredPlanCol;
+    private TableColumn<Plan, Integer> idPredPlanCol;
     @FXML
-    private TableColumn<Plan,Integer> kredPredPlanCol;
+    private TableColumn<Plan, Integer> kredPredPlanCol;
     @FXML
-    private TableColumn<Plan,Integer> dopRocPredPlanCol;
+    private TableColumn<Plan, Integer> dopRocPredPlanCol;
     @FXML
-    private TableColumn<Plan,Katedra> zkrKatPredPlanCol;
+    private TableColumn<Plan, Katedra> zkrKatPredPlanCol;
     @FXML
-    private TableColumn<Plan,Predmet> predPredPlanCol;
+    private TableColumn<Plan, Predmet> predPredPlanCol;
     @FXML
-    private TableColumn<Plan,Zpusob> zpusZakonPredPlanCol;
+    private TableColumn<Plan, Zpusob> zpusZakonPredPlanCol;
     @FXML
-    private TableColumn<Plan,Semestr> semPredPlanCol;
-    
+    private TableColumn<Plan, Semestr> semPredPlanCol;
+
     // Formulář předmětů v plánu
     @FXML
     private Spinner<Integer> spinnerPredPlKredity;
@@ -326,7 +326,7 @@ public class AppFXMLController implements Initializable {
     private ComboBox<Semestr> comboPredPlSem;
     @FXML
     private Button pridatPredPlanBtn;
-    
+
     // Kolekce dat pro jednotlive karty
     ArrayList<Fakulta> fakulty;
     ObservableList<Uzivatel> vyucujici;
@@ -565,12 +565,14 @@ public class AppFXMLController implements Initializable {
         comboVyucujici.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Uzivatel>() {
             @Override
             public void changed(ObservableValue<? extends Uzivatel> observable, Uzivatel oldValue, Uzivatel newValue) {
-                if (opravneni == EnumOpravneni.REGISTROVANY && newValue.getId() == prihlasenyUzivatel.getId()) {
-                    paneFormRA.setDisable(false);
-                } else if (opravneni == EnumOpravneni.ADMINISTRATOR) {
-                    paneFormRA.setDisable(false);
-                } else {
-                    paneFormRA.setDisable(true);
+                if (newValue != null) {
+                    if (opravneni == EnumOpravneni.REGISTROVANY && newValue.getId() == prihlasenyUzivatel.getId()) {
+                        paneFormRA.setDisable(false);
+                    } else if (opravneni == EnumOpravneni.ADMINISTRATOR) {
+                        paneFormRA.setDisable(false);
+                    } else {
+                        paneFormRA.setDisable(true);
+                    }
                 }
             }
         });
@@ -943,33 +945,36 @@ public class AppFXMLController implements Initializable {
             }
         }
     }
-    
+
     @FXML
     private void pridejStudPlan(ActionEvent event) {
-        
+
     }
+
     @FXML
     private void upravStudPlan(ActionEvent event) {
-        
+
     }
+
     @FXML
     private void odeberStudPlan(ActionEvent event) {
-        
+
     }
-    
-     @FXML
+
+    @FXML
     private void pridejPredPlan(ActionEvent event) {
-        
+
     }
+
     @FXML
     private void upravPredPlan(ActionEvent event) {
-        
+
     }
+
     @FXML
     private void odeberPredPlan(ActionEvent event) {
-        
+
     }
-    
 
     // V podstatě listenery reagující na přepnutí karty
     @FXML
@@ -1001,6 +1006,7 @@ public class AppFXMLController implements Initializable {
     private void prepniKartaStudObory(Event event) {
         aktualizujObory();
     }
+
     @FXML
     private void prepniKartaPlany(Event event) {
     }
@@ -1150,13 +1156,14 @@ public class AppFXMLController implements Initializable {
         kapacitaUcebnyField.setText("");
     }
 
-     @FXML
+    @FXML
     private void vycistiFormStudPlan(ActionEvent event) {
     }
+
     @FXML
     private void vycistiFormPredPlan(ActionEvent event) {
     }
-    
+
     // Otevření okna detailu oboru
     @FXML
     private void ukazDetailOboru(ActionEvent event) {
