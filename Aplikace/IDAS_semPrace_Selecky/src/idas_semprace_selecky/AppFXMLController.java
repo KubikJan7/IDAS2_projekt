@@ -468,7 +468,6 @@ public class AppFXMLController implements Initializable {
         idAkceCol.setCellValueFactory(new PropertyValueFactory<>("id"));
         predAkceCol.setCellValueFactory(new PropertyValueFactory<>("predmet"));
         typAkceCol.setCellValueFactory(new PropertyValueFactory<>("zpusob"));
-        vyucAkceCol.setCellValueFactory(new PropertyValueFactory<>("vyucujici"));
         rozsahAkceCol.setCellValueFactory(new PropertyValueFactory<>("rozsah"));
         kapacitaAkceCol.setCellValueFactory(new PropertyValueFactory<>("kapacita"));
         zacatekAkceCol.setCellValueFactory(new PropertyValueFactory<>("casOd"));
