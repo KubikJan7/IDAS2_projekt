@@ -11,8 +11,10 @@ import data.Fakulta;
 import data.Forma;
 import data.Katedra;
 import data.Obor;
+import data.Plan;
 import data.Pracoviste;
 import data.Pracoviste2;
+import data.PredPlanu;
 import data.Predmet;
 import data.Role;
 import data.Semestr;
@@ -211,22 +213,16 @@ public class AppFXMLController implements Initializable {
     private TableColumn<Predmet, String> nazPredCol;
 
     // Tabulka rozvrhovych akci
+    // TODO Karta rozvrhových akcí bude vypadat úplně jinak, pro uživatele pouze jeho akce a pro admina všechny akce s filtrem dle vyučujícího
     @FXML
     private TableView<Akce> twRA;
-    @FXML
-    private TableColumn<Akce, Integer> zacatekAkceCol;
-    @FXML
-    private TableColumn<Akce, String> denAkceCol;
-    @FXML
-    private TableColumn<Akce, String> tydenAkceCol;
-    @FXML
-    private TableColumn<Akce, String> ucebnaAkceCol;
     @FXML
     private TableColumn<Akce, Integer> idAkceCol;
     @FXML
     private TableColumn<Akce, Predmet> predAkceCol;
     @FXML
     private TableColumn<Akce, Zpusob> typAkceCol;
+    @FXML
     private TableColumn<Akce, Uzivatel> vyucAkceCol;
     @FXML
     private TableColumn<Akce, Integer> rozsahAkceCol;
@@ -239,9 +235,7 @@ public class AppFXMLController implements Initializable {
     @FXML
     private DatePicker datePickerAkce;
     @FXML
-    private Spinner<Integer> spinnerRozsah;
-    @FXML
-    private Spinner<Integer> spinnerZacatek;
+    private Spinner<Integer> spinnerAkce;
     @FXML
     private ComboBox<Tyden> comboTydenRA;
     @FXML
@@ -254,6 +248,8 @@ public class AppFXMLController implements Initializable {
     private Button pridatRABtn;
     @FXML
     private ComboBox<Zpusob> comboZpusAkce;
+    @FXML
+    private TextField rozsahRAField;
     @FXML
     private TextField kapacitaRAField;
 
@@ -277,6 +273,60 @@ public class AppFXMLController implements Initializable {
     @FXML
     private TextField kapacitaUcebnyField;
 
+    // Tabulka studijních plánů
+    @FXML
+    private TableView<Plan> twPlan;
+    @FXML
+    private TableColumn<Plan,Integer> idPlanCol;
+    @FXML
+    private TableColumn<Plan,Integer> verzePlanCol;
+    @FXML
+    private TableColumn<Plan,Obor> oborPlanCol;
+    
+    // Formulář studijního plánu
+    @FXML
+    private Pane panePlanForm;
+    @FXML
+    private TextField verzeStPlanField;
+    @FXML
+    private ComboBox<Zpusob> comboStPlanObor;
+    @FXML
+    private Button pridatStPlanBtn;
+    
+    // Tabulka předmětů v plánu
+    @FXML
+    private TableView<Plan> twPredPlan;
+    @FXML
+    private TableColumn<Plan,Integer> idPredPlanCol;
+    @FXML
+    private TableColumn<Plan,Integer> kredPredPlanCol;
+    @FXML
+    private TableColumn<Plan,Integer> dopRocPredPlanCol;
+    @FXML
+    private TableColumn<Plan,Katedra> zkrKatPredPlanCol;
+    @FXML
+    private TableColumn<Plan,Predmet> predPredPlanCol;
+    @FXML
+    private TableColumn<Plan,Zpusob> zpusZakonPredPlanCol;
+    @FXML
+    private TableColumn<Plan,Semestr> semPredPlanCol;
+    
+    // Formulář předmětů v plánu
+    @FXML
+    private Spinner<Integer> spinnerPredPlKredity;
+    @FXML
+    private Spinner<Integer> spinnerPredPlDopRoc;
+    @FXML
+    private ComboBox<Katedra> comboPredPlKatedra;
+    @FXML
+    private ComboBox<Predmet> comboPredPlPredmet;
+    @FXML
+    private ComboBox<Zpusob> comboPredPlZpZak;
+    @FXML
+    private ComboBox<Semestr> comboPredPlSem;
+    @FXML
+    private Button pridatPredPlanBtn;
+    
     // Kolekce dat pro jednotlive karty
     ArrayList<Fakulta> fakulty;
     ObservableList<Uzivatel> vyucujici;
@@ -285,6 +335,8 @@ public class AppFXMLController implements Initializable {
     ObservableList<Predmet> predmety;
     ObservableList<Akce> akce;
     ObservableList<Ucebna> ucebny;
+    ObservableList<Plan> plany;
+    ObservableList<PredPlanu> predmetyPlanu;
 
     @FXML
     private Button btnObrazek;
@@ -462,18 +514,14 @@ public class AppFXMLController implements Initializable {
                 }
             }
         });
-        
         //Nastavení spřažení pro tabulku karty rozvrhových akcí
         twRA.setItems(akce);
         idAkceCol.setCellValueFactory(new PropertyValueFactory<>("id"));
         predAkceCol.setCellValueFactory(new PropertyValueFactory<>("predmet"));
         typAkceCol.setCellValueFactory(new PropertyValueFactory<>("zpusob"));
+        vyucAkceCol.setCellValueFactory(new PropertyValueFactory<>("vyucujici"));
         rozsahAkceCol.setCellValueFactory(new PropertyValueFactory<>("rozsah"));
         kapacitaAkceCol.setCellValueFactory(new PropertyValueFactory<>("kapacita"));
-        zacatekAkceCol.setCellValueFactory(new PropertyValueFactory<>("casOd"));
-        ucebnaAkceCol.setCellValueFactory(new PropertyValueFactory<>("ucebna"));
-        tydenAkceCol.setCellValueFactory(new PropertyValueFactory<>("tyden"));
-        denAkceCol.setCellValueFactory(new PropertyValueFactory<>("denTabulka"));
 
         // Doplnění informací do formuláře při výběru z tabulky Rozvrhove akce
         twRA.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Akce>() {
@@ -485,24 +533,15 @@ public class AppFXMLController implements Initializable {
                     comboPredmet.getSelectionModel().select(akce.getPredmet());
                     comboVyucujici.getSelectionModel().select(akce.getVyucujici());
                     comboZpusAkce.getSelectionModel().select(akce.getZpusob());
-                    comboUcebnaRA.getSelectionModel().select(akce.getUcebna());
-                    comboTydenRA.getSelectionModel().select(akce.getTyden());
-                    spinnerRozsah.getValueFactory().setValue(akce.getRozsah());
+                    rozsahRAField.setText(Integer.toString(akce.getRozsah()));
                     kapacitaRAField.setText(Integer.toString(akce.getKapacita()));
-                    
                 }
             }
         });
 
         // Naplnění spinneru času akce
-        spinnerZacatek.setValueFactory(
+        spinnerAkce.setValueFactory(
                 new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 23));
-        spinnerZacatek.getValueFactory().setValue(12);
-
-        // Naplnění spinneru rozsahu hodin
-        spinnerRozsah.setValueFactory(
-                new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 10));
-        spinnerRozsah.getValueFactory().setValue(2);
 
         //Nastavení spřažení pro tabulku učebny
         twUcebny.setItems(ucebny);
@@ -855,27 +894,27 @@ public class AppFXMLController implements Initializable {
 
     @FXML
     private void upravRA(ActionEvent event) {
-//        try {
-//            if (comboPredmet.getSelectionModel().getSelectedItem() != null && comboVyucujici.getSelectionModel().getSelectedItem() != null
-//                    && comboZpusAkce.getSelectionModel().getSelectedItem() != null
-//                    && !rozsahRAField.getText().isEmpty() && !kapacitaRAField.getText().isEmpty()) {
-//                if (isNumeric(kapacitaRAField.getText()) && isNumeric(rozsahRAField.getText())) {
-//                    Akce vybrana = twRA.getSelectionModel().getSelectedItem();
-//                    vybrana.setKapacita(Integer.parseInt(kapacitaRAField.getText()));
-//                    vybrana.setRozsah(Integer.parseInt(rozsahRAField.getText()));
-//                    vybrana.setPredmet(comboPredmet.getValue());
-//                    vybrana.setVyucujici(comboVyucujici.getValue());
-//                    vybrana.setZpusob(comboZpusAkce.getValue());
-//                    dh.updateDataAkce(vybrana);
-//                    vycistiFormularAkce();
-//                    twRA.refresh();
-//                }
-//            } else {
-//                zobrazChybu("Vyplňte všechny údaje!");
-//            }
-//        } catch (SQLException ex) {
-//            zobrazChybu(ex);
-//        }
+        try {
+            if (comboPredmet.getSelectionModel().getSelectedItem() != null && comboVyucujici.getSelectionModel().getSelectedItem() != null
+                    && comboZpusAkce.getSelectionModel().getSelectedItem() != null
+                    && !rozsahRAField.getText().isEmpty() && !kapacitaRAField.getText().isEmpty()) {
+                if (isNumeric(kapacitaRAField.getText()) && isNumeric(rozsahRAField.getText())) {
+                    Akce vybrana = twRA.getSelectionModel().getSelectedItem();
+                    vybrana.setKapacita(Integer.parseInt(kapacitaRAField.getText()));
+                    vybrana.setRozsah(Integer.parseInt(rozsahRAField.getText()));
+                    vybrana.setPredmet(comboPredmet.getValue());
+                    vybrana.setVyucujici(comboVyucujici.getValue());
+                    vybrana.setZpusob(comboZpusAkce.getValue());
+                    dh.updateDataAkce(vybrana);
+                    vycistiFormularAkce();
+                    twRA.refresh();
+                }
+            } else {
+                zobrazChybu("Vyplňte všechny údaje!");
+            }
+        } catch (SQLException ex) {
+            zobrazChybu(ex);
+        }
     }
 
     @FXML
@@ -891,6 +930,33 @@ public class AppFXMLController implements Initializable {
             }
         }
     }
+    
+    @FXML
+    private void pridejStudPlan(ActionEvent event) {
+        
+    }
+    @FXML
+    private void upravStudPlan(ActionEvent event) {
+        
+    }
+    @FXML
+    private void odeberStudPlan(ActionEvent event) {
+        
+    }
+    
+     @FXML
+    private void pridejPredPlan(ActionEvent event) {
+        
+    }
+    @FXML
+    private void upravPredPlan(ActionEvent event) {
+        
+    }
+    @FXML
+    private void odeberPredPlan(ActionEvent event) {
+        
+    }
+    
 
     // V podstatě listenery reagující na přepnutí karty
     @FXML
@@ -921,6 +987,9 @@ public class AppFXMLController implements Initializable {
     @FXML
     private void prepniKartaStudObory(Event event) {
         aktualizujObory();
+    }
+    @FXML
+    private void prepniKartaPlany(Event event) {
     }
 
     // Metody pro naplnění comboboxů z databáze
@@ -1054,7 +1123,7 @@ public class AppFXMLController implements Initializable {
 
     private void vycistiFormularAkce() {
         pridatRABtn.setDisable(false);
-        //rozsahRAField.setText("");
+        rozsahRAField.setText("");
         kapacitaRAField.setText("");
         comboPredmet.getSelectionModel().select(null);
         comboVyucujici.getSelectionModel().select(null);
@@ -1068,6 +1137,13 @@ public class AppFXMLController implements Initializable {
         kapacitaUcebnyField.setText("");
     }
 
+     @FXML
+    private void vycistiFormStudPlan(ActionEvent event) {
+    }
+    @FXML
+    private void vycistiFormPredPlan(ActionEvent event) {
+    }
+    
     // Otevření okna detailu oboru
     @FXML
     private void ukazDetailOboru(ActionEvent event) {
