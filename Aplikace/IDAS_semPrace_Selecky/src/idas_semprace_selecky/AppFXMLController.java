@@ -16,6 +16,7 @@ import data.Pracoviste2;
 import data.Predmet;
 import data.Role;
 import data.Semestr;
+import data.Tyden;
 import data.Ucebna;
 import data.Uzivatel;
 import data.Zakonceni;
@@ -43,7 +44,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.DialogPane;
+import javafx.scene.control.Spinner;
+import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
@@ -224,6 +228,16 @@ public class AppFXMLController implements Initializable {
     private TableColumn<Akce, Integer> kapacitaAkceCol;
 
     // Formular rozvrhove akce
+    @FXML
+    private Pane paneFormRA;
+    @FXML
+    private DatePicker datePickerAkce;
+    @FXML
+    private Spinner<Integer> spinnerAkce;
+    @FXML
+    private ComboBox<Tyden> comboTydenRA;
+    @FXML
+    private ComboBox<Ucebna> comboUcebnaRA;
     @FXML
     private ComboBox<Uzivatel> comboVyucujici;
     @FXML
@@ -467,6 +481,10 @@ public class AppFXMLController implements Initializable {
             }
         });
 
+        // Naplnění spinneru času akce
+        spinnerAkce.setValueFactory(
+                new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 23));
+
         //Nastavení spřažení pro tabulku učebny
         twUcebny.setItems(ucebny);
         idUcebnyCol.setCellValueFactory(new PropertyValueFactory("id"));
@@ -494,7 +512,7 @@ public class AppFXMLController implements Initializable {
 
     // Obnoví data v tabulce Vyučujících
     private void aktualizujPrihlasenehoUzivatele() {
-        textLoggedUser.setText(prihlasenyUzivatel.toString());
+        textLoggedUser.setText(prihlasenyUzivatel.toString() + " (" + opravneni+")");
     }
 
     // Obnoví data v tabulce Pracovišť
