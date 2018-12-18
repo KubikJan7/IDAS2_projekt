@@ -289,13 +289,13 @@ public class AppFXMLController implements Initializable {
     @FXML
     private TextField verzeStPlanField;
     @FXML
-    private ComboBox<Zpusob> comboStPlanObor;
+    private ComboBox<Obor> comboStPlanObor;
     @FXML
     private Button pridatStPlanBtn;
 
     // Tabulka předmětů v plánu
     @FXML
-    private TableView<Plan> twPredPlan;
+    private TableView<PredPlanu> twPredPlan;
     @FXML
     private TableColumn<Plan, Integer> idPredPlanCol;
     @FXML
@@ -545,9 +545,9 @@ public class AppFXMLController implements Initializable {
 
         //Nastavení spřažení pro tabulku učebny
         twUcebny.setItems(ucebny);
-        idUcebnyCol.setCellValueFactory(new PropertyValueFactory("id"));
-        nazevUcebnyCol.setCellValueFactory(new PropertyValueFactory("nazev"));
-        kapacitaUcebnyCol.setCellValueFactory(new PropertyValueFactory("kapacita"));
+        idPlanCol.setCellValueFactory(new PropertyValueFactory("id"));
+        verzePlanCol.setCellValueFactory(new PropertyValueFactory("verze"));
+        oborPlanCol.setCellValueFactory(new PropertyValueFactory("obor"));
 
         // Doplnění informací do formuláře při výběru z tabulky Učebny
         twUcebny.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Ucebna>() {
@@ -561,6 +561,8 @@ public class AppFXMLController implements Initializable {
                 }
             }
         });
+        
+        
 
         comboVyucujici.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Uzivatel>() {
             @Override
@@ -576,6 +578,29 @@ public class AppFXMLController implements Initializable {
                 }
             }
         });
+        
+        //Nastavení spřažení pro tabulku studijních plánů karty plánů
+        twPlan.setItems(plany);
+        idPlanCol.setCellValueFactory(new PropertyValueFactory("id"));
+        verzePlanCol.setCellValueFactory(new PropertyValueFactory("verze"));
+        oborPlanCol.setCellValueFactory(new PropertyValueFactory("obor"));
+        
+        //Nastavení spřažení pro tabulku přeměty plánů karty plánů
+        twPredPlan.setItems(predmetyPlanu);
+        idPredPlanCol.setCellValueFactory(new PropertyValueFactory("id"));
+        kredPredPlanCol.setCellValueFactory(new PropertyValueFactory("kredity"));
+        dopRocPredPlanCol.setCellValueFactory(new PropertyValueFactory("dopRocnik"));
+        zkrKatPredPlanCol.setCellValueFactory(new PropertyValueFactory("kategorie"));
+        predPredPlanCol.setCellValueFactory(new PropertyValueFactory("predmet"));
+        zpusZakonPredPlanCol.setCellValueFactory(new PropertyValueFactory("zakonceni"));
+        semPredPlanCol.setCellValueFactory(new PropertyValueFactory("semestr"));
+        
+        // Naplnění spinneru kreditů
+        spinnerPredPlKredity.setValueFactory(
+                new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 10));
+        // Naplnění spinneru dop. ročníků
+        spinnerPredPlDopRoc.setValueFactory(
+                new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 3));
     }
 
     public Stage vratStage() {
@@ -593,6 +618,7 @@ public class AppFXMLController implements Initializable {
     private void nactiPracoviste(MouseEvent event) {
         try {
             comboPracovist.getItems().setAll(dh.dejKatedry());
+            comboPredPlKatedra.getItems().setAll(dh.dejKatedry());
         } catch (SQLException ex) {
             zobrazChybu(ex);
         }
@@ -655,6 +681,18 @@ public class AppFXMLController implements Initializable {
             twUcebny.setItems(ucebny);
             twStudObory.setItems(obory);
         } catch (SQLException ex) {
+            zobrazChybu(ex);
+        }
+    }
+    
+    //Obnoví data v tabulce studijních oborů
+    private void aktualizujPlany(){
+        try{
+            plany = FXCollections.observableArrayList(dh.dejKartaPlany());
+            predmetyPlanu = FXCollections.observableArrayList(dh.dejKartaPredPlanu());
+            twPlan.setItems(plany);
+            twPredPlan.setItems(predmetyPlanu);  
+        }catch (SQLException ex) {
             zobrazChybu(ex);
         }
     }
@@ -1009,6 +1047,7 @@ public class AppFXMLController implements Initializable {
 
     @FXML
     private void prepniKartaPlany(Event event) {
+        aktualizujPlany();
     }
 
     // Metody pro naplnění comboboxů z databáze
@@ -1025,6 +1064,14 @@ public class AppFXMLController implements Initializable {
     private void nactiComboFormy(MouseEvent event) {
         try {
             comboForem.getItems().setAll(dh.dejFormyVyuky());
+        } catch (SQLException ex) {
+            zobrazChybu(ex);
+        }
+    }
+    @FXML
+    private void nactiComboOboru(MouseEvent event) {
+        try {
+            comboStPlanObor.getItems().setAll(dh.dejKartaObory());
         } catch (SQLException ex) {
             zobrazChybu(ex);
         }
@@ -1056,6 +1103,23 @@ public class AppFXMLController implements Initializable {
             ArrayList<Predmet> predm = dh.dejKartaPredmety();
             predm.sort((Predmet o1, Predmet o2) -> o1.getNazev().compareToIgnoreCase(o2.getNazev()));
             comboPredmet.getItems().setAll(predm);
+            comboPredPlPredmet.getItems().setAll(predm);
+        } catch (SQLException ex) {
+            zobrazChybu(ex);
+        }
+    }
+    @FXML
+    private void nactiSemestry(MouseEvent event) {
+        try {
+            comboPredPlSem.getItems().setAll(dh.dejSemestry());
+        } catch (SQLException ex) {
+            zobrazChybu(ex);
+        }
+    }
+    @FXML
+    private void nactiZpusoby(MouseEvent event) {
+        try {
+            comboPredPlZpZak.getItems().setAll(dh.dejZpusobVyuky());
         } catch (SQLException ex) {
             zobrazChybu(ex);
         }

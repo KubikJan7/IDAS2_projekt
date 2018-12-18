@@ -11,6 +11,7 @@ import data.Plan;
 import data.Pracoviste;
 import data.Pracoviste2;
 import data.PredOboru;
+import data.PredPlanu;
 import data.Predmet;
 import data.Role;
 import data.Semestr;
@@ -400,6 +401,61 @@ public class databaseHelper {
             ucebny.add(new Ucebna(id, nazev, kapacita));
         }
         return ucebny;
+    }
+    
+    public ArrayList<Plan> dejKartaPlany() throws SQLException {
+        ArrayList<Plan> plany = new ArrayList<>();
+
+        Connection conn = OracleConnector.getConnection();
+        PreparedStatement stmt = conn.prepareStatement("SELECT * FROM plany_view");
+        ResultSet rset = stmt.executeQuery();
+
+        while (rset.next()) {
+            int id = rset.getInt("id_planu");
+            int verze = rset.getInt("verze");
+            int idOb = rset.getInt("id_oboru");
+            String nazevOb = rset.getString("nazev");
+            String zkratkaOb = rset.getString("zkratka");
+            String info = rset.getString("info");
+            int id_formy = rset.getInt("id_formy");
+            String nazev_formy = rset.getString("nazev_formy");
+            plany.add(new Plan(id, verze, new Obor(idOb,nazevOb,zkratkaOb,info,new Forma(id_formy,nazev_formy))));
+        }
+        return plany;
+    }
+    
+    public ArrayList<PredPlanu> dejKartaPredPlanu()throws SQLException {
+        ArrayList<PredPlanu> plany = new ArrayList<>();
+
+        Connection conn = OracleConnector.getConnection();
+        PreparedStatement stmt = conn.prepareStatement("SELECT * FROM predmety_planu_view");
+        ResultSet rset = stmt.executeQuery();
+
+        while (rset.next()) {
+            int id = rset.getInt("id_predmetu_v_planu");
+            int kredity = rset.getInt("kredity");
+            int rocnik = rset.getInt("rocnik");
+            String zkrKat = rset.getString("zkratka_kategorie");
+            String nazevKat = rset.getString("nazev_kategorie");
+            int idPred = rset.getInt("id_predmetu");
+            String nazevPred = rset.getString("nazev_predmetu");
+            String zkratka = rset.getString("zkratka");
+            String zkrZak = rset.getString("zkr_zak");
+            String nazevZak = rset.getString("nazev_zpusobu_zak");
+            String zkrSem = rset.getString("zkratka_semestru");
+            String semestr = rset.getString("semestr");
+            int id_planu = rset.getInt("id_planu");
+            int verze = rset.getInt("verze");
+            int idOb = rset.getInt("id_oboru");
+            String nazevOb = rset.getString("nazev_oboru");
+            String zkratkaOb = rset.getString("zkratka_oboru");
+            String info = rset.getString("info");
+            int idFormy = rset.getInt("id_formy");
+            String nazevFormy = rset.getString("forma");
+            plany.add(new PredPlanu(id, kredity, rocnik, new Predmet(idPred,zkratka,nazevPred),new Zakonceni(zkrZak,nazevZak), 
+                    new Semestr(zkrSem,semestr),new Kategorie(zkrKat,nazevKat),new Plan(id_planu,verze,new Obor(idOb,zkratkaOb,nazevOb,info,new Forma(idFormy,nazevFormy)))));
+        }
+        return plany;
     }
 
     //Insert vyučujícího

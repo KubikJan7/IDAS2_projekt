@@ -7,6 +7,7 @@ package data;
 public class Obor {
 
     private int id;
+
     private String zkratka;
     private String nazev;
     private String info;
@@ -65,6 +66,11 @@ public class Obor {
 
     public void setForma(Forma forma) {
         this.forma = forma;
+    }
+    
+    @Override
+    public String toString() {
+        return nazev;
     }
     
 }
