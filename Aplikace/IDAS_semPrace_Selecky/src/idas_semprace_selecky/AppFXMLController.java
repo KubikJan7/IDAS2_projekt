@@ -561,6 +561,19 @@ public class AppFXMLController implements Initializable {
                 }
             }
         });
+
+        comboVyucujici.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Uzivatel>() {
+            @Override
+            public void changed(ObservableValue<? extends Uzivatel> observable, Uzivatel oldValue, Uzivatel newValue) {
+                if (opravneni == EnumOpravneni.REGISTROVANY && newValue.getId() == prihlasenyUzivatel.getId()) {
+                    paneFormRA.setDisable(false);
+                } else if (opravneni == EnumOpravneni.ADMINISTRATOR) {
+                    paneFormRA.setDisable(false);
+                } else {
+                    paneFormRA.setDisable(true);
+                }
+            }
+        });
     }
 
     public Stage vratStage() {
