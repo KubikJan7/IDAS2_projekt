@@ -32,3 +32,12 @@ join predmet on id_predmetu = predmet_id_predmetu
 join zpusob_vyuky on id_nazvu = zpusob_vyuky_id_nazvu
 left join ucebna on id_ucebny = ucebna_id_ucebny
 left join tyden on id_tydne = tyden_id_tydne;
+
+/*Studijní plány*/
+create or replace view plany_view as
+select id_planu,verze,
+id_oboru,nazev,zkratka,info,
+id_formy,nazev_formy
+from stud_plan
+join stud_obor on stud_obor_id_oboru = id_oboru
+join forma_vyuky on id_formy = forma_vyuky_id_formy;
