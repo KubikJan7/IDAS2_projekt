@@ -41,3 +41,22 @@ id_formy,nazev_formy
 from stud_plan
 join stud_obor on stud_obor_id_oboru = id_oboru
 join forma_vyuky on id_formy = forma_vyuky_id_formy;
+
+/*Předměty v plánu*/
+create or replace view predmety_planu_view as
+select id_pred_planu as id_predmetu_v_planu, kredity, dop_rocnik as rocnik,
+zkr_kat as zkratka_kategorie, kat_predmetu.nazev as nazev_kategorie,
+id_predmetu, predmet.nazev as nazev_predmetu, predmet.zkratka,
+zkr_zak, zpusob_zakonceni.nazev as nazev_zpusobu_zak,
+zkr_sem as zkratka_semestru, semestr.nazev as semestr,
+id_planu,verze,
+id_oboru, stud_obor.nazev as nazev_oboru,stud_obor.zkratka as zkratka_oboru,info,
+id_formy,nazev_formy as forma
+from pred_v_planu
+join kat_predmetu on zkr_kat = pred_v_planu.kat_predmetu_zkr_kat
+join predmet on id_predmetu = pred_v_planu.predmet_id_predmetu
+join zpusob_zakonceni on zkr_zak = pred_v_planu.zpusob_zakonceni_zkr_zak
+join semestr on zkr_sem = pred_v_planu.semestr_zkr_sem
+join stud_plan on id_planu = pred_v_planu.stud_plan_id_planu
+join stud_obor on id_oboru = stud_plan.stud_obor_id_oboru
+join forma_vyuky on id_formy = stud_obor.forma_vyuky_id_formy;
