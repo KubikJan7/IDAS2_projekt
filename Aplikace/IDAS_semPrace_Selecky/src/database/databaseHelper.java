@@ -14,6 +14,7 @@ import data.PredOboru;
 import data.Predmet;
 import data.Role;
 import data.Semestr;
+import data.Tyden;
 import data.Ucebna;
 import data.Ucet;
 import data.Uzivatel;
@@ -163,6 +164,30 @@ public class databaseHelper {
         return zpusoby;
     }
 
+    public ArrayList<Tyden> dejTydny() throws SQLException {
+        ArrayList<Tyden> tydny = new ArrayList<>();
+
+        Connection conn = OracleConnector.getConnection();
+        PreparedStatement stmt = conn.prepareStatement("SELECT * FROM tyden");
+        ResultSet rset = stmt.executeQuery();
+        while (rset.next()) {
+            tydny.add(new Tyden(rset.getInt("id_tydne"), rset.getString("nazev")));
+        }
+        return tydny;
+    }
+
+    public ArrayList<Ucebna> dejUcebny() throws SQLException {
+        ArrayList<Ucebna> ucebny = new ArrayList<>();
+
+        Connection conn = OracleConnector.getConnection();
+        PreparedStatement stmt = conn.prepareStatement("SELECT * FROM tyden");
+        ResultSet rset = stmt.executeQuery();
+        while (rset.next()) {
+            ucebny.add(new Ucebna(rset.getInt("id_ucebny"), rset.getString("nazev_ucebny"), rset.getInt("kapacita")));
+        }
+        return ucebny;
+    }
+
     public ArrayList<Kategorie> dejKategorie() throws SQLException {
         ArrayList<Kategorie> kategorie = new ArrayList<>();
 
@@ -299,43 +324,65 @@ public class databaseHelper {
 
     public ArrayList<Akce> dejKartaAkce() throws SQLException {
         ArrayList<Akce> akce = new ArrayList<>();
-// TODO Upravit Akce dle noveho modelu
-//        Connection conn = OracleConnector.getConnection();
-//        PreparedStatement stmt = conn.prepareStatement("SELECT * FROM akce_view");
-//        ResultSet rset = stmt.executeQuery();
-//        Uzivatel vyucujici = null;
-//        Predmet predmet = null;
-//        Zpusob zpusob = null;
-//        ArrayList<Uzivatel> listVyuc = dejKartaVyucujici();
-//        ArrayList<Predmet> listPred = dejKartaPredmety();
-//        ArrayList<Zpusob> listZpus = dejZpusobVyuky();
-//        while (rset.next()) {
-//            Iterator<Uzivatel> vyuc = listVyuc.iterator();
-//            while (vyuc.hasNext()) {
-//                Uzivatel akt = vyuc.next();
-//                if (akt.getId() == rset.getInt("id_vyucujiciho")) {
-//                    vyucujici = akt;
-//                    break;
-//                }
-//            }
-//            Iterator<Predmet> predmety = listPred.iterator();
-//            while (predmety.hasNext()) {
-//                Predmet akt = predmety.next();
-//                if (akt.getId() == rset.getInt("id_predmetu")) {
-//                    predmet = akt;
-//                    break;
-//                }
-//            }
-//            Iterator<Zpusob> zpusoby = listZpus.iterator();
-//            while (zpusoby.hasNext()) {
-//                Zpusob akt = zpusoby.next();
-//                if (akt.getId() == rset.getInt("id_zpusobu")) {
-//                    zpusob = akt;
-//                    break;
-//                }
-//            }
-//            akce.add(new Akce(rset.getInt("id_akce"), rset.getInt("rozsah_hodin"), rset.getInt("kapacita"), vyucujici, predmet, zpusob));
-//        }
+        Uzivatel vyucujici = null;
+        Predmet predmet = null;
+        Zpusob zpusob = null;
+        Tyden tyden = null;
+        Ucebna ucebna = null;
+
+        Connection conn = OracleConnector.getConnection();
+        PreparedStatement stmt = conn.prepareStatement("SELECT * FROM akce_view");
+        ResultSet rset = stmt.executeQuery();
+        ArrayList<Uzivatel> listVyuc = dejKartaVyucujici();
+        ArrayList<Predmet> listPred = dejKartaPredmety();
+        ArrayList<Zpusob> listZpus = dejZpusobVyuky();
+        ArrayList<Tyden> listTydnu = dejTydny();
+        ArrayList<Ucebna> listUcebny = dejUcebny();
+        while (rset.next()) {
+            Iterator<Uzivatel> vyuc = listVyuc.iterator();
+            while (vyuc.hasNext()) {
+                Uzivatel akt = vyuc.next();
+                if (akt.getId() == rset.getInt("id_vyucujiciho")) {
+                    vyucujici = akt;
+                    break;
+                }
+            }
+            Iterator<Predmet> predmety = listPred.iterator();
+            while (predmety.hasNext()) {
+                Predmet akt = predmety.next();
+                if (akt.getId() == rset.getInt("id_predmetu")) {
+                    predmet = akt;
+                    break;
+                }
+            }
+            Iterator<Zpusob> zpusoby = listZpus.iterator();
+            while (zpusoby.hasNext()) {
+                Zpusob akt = zpusoby.next();
+                if (akt.getId() == rset.getInt("id_zpusobu")) {
+                    zpusob = akt;
+                    break;
+                }
+            }
+            Iterator<Tyden> tydny = listTydnu.iterator();
+            while (zpusoby.hasNext()) {
+                Tyden akt = tydny.next();
+                if (akt.getId() == rset.getInt("id_tydne")) {
+                    tyden = akt;
+                    break;
+                }
+            }
+            Iterator<Ucebna> ucebny = listUcebny.iterator();
+            while (ucebny.hasNext()) {
+                Ucebna akt = ucebny.next();
+                if (akt.getId() == rset.getInt("id_ucebny")) {
+                    ucebna = akt;
+                    break;
+                }
+            }
+            akce.add(new Akce(rset.getInt("id_akce"),
+                    rset.getDate("datum").toLocalDate(), rset.getInt("hodina"),
+                    rset.getInt("doba"), rset.getInt("mist"), vyucujici, predmet, zpusob, ucebna, tyden));
+        }
         return akce;
     }
 
@@ -484,9 +531,9 @@ public class databaseHelper {
         stmt.executeUpdate();
         conn.commit();
     }
-    
+
     //Insert studijní plán
-    public void insertPlan(Plan plan,Obor ob) throws SQLException{
+    public void insertPlan(Plan plan, Obor ob) throws SQLException {
         Connection conn;
         conn = OracleConnector.getConnection();
         PreparedStatement stmt = conn.prepareStatement("{call vlozPlan(?,?)}");
@@ -621,7 +668,7 @@ public class databaseHelper {
         stmt.executeUpdate();
         conn.commit();
     }
-    
+
     //Update studijní plán
     public void updatePlan(Plan plan, Obor ob) throws SQLException {
         Connection conn;
@@ -723,7 +770,7 @@ public class databaseHelper {
         stmt.executeUpdate();
         conn.commit();
     }
-    
+
     //Delete studijní plán
     public void deletePlan(Plan plan) throws SQLException {
         Connection conn;
